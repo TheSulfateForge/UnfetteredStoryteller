@@ -4,7 +4,7 @@
 
 The project's core philosophy is a hybrid approach: **Code for Rules, AI for Creativity.**
 
-Character creation and all game mechanics are handled by a robust, client-side engine that strictly adheres to the SRD 5.1 ruleset. This system is powered by the comprehensive game data sourced from the Open5e project, ensuring a stable, predictable, and accurate character sheet.
+Character creation and all game mechanics are handled by a robust, client-side engine that strictly adheres to the SRD 5.2.1 ruleset. This system is powered by the comprehensive game data sourced from the Open5e project, ensuring a stable, predictable, and accurate character sheet.
 
 The storytelling, world-building, and NPC interactions are powered by a cutting-edge, uncensored Large Language Model. The AI acts as a "Creative Director," proposing choices, describing outcomes, and building a dynamic narrative in response to player actions.
 
@@ -76,7 +76,7 @@ The original source code for the **Unfettered Storyteller** application is licen
 
 ### Game Data
 
-The underlying game data (monsters, spells, etc.) is used under the terms of the [Open Game License v1.0a](./LICENSES/LICENSE-SRD.md), sourced from the System Reference Document 5.1 and the Open5e project.
+The underlying game data (monsters, spells, etc.) is used under the terms of the [Open Game License v1.0a](./LICENSES/LICENSE-SRD.md), sourced from the System Reference Document 5.2.1 and the Open5e project.
 
 ---
 *This work is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC.*
