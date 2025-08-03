@@ -1,97 +1,56 @@
-# Run and deploy your AI Studio app
+# Unfettered Storyteller
 
-This contains everything you need to run your app locally.
-
-## Run Locally
-
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
-
-# Unfettered Storyteller (v0.1.0)
-
-**Unfettered Storyteller** is an advanced, offline-capable Progressive Web App (PWA) designed to provide a deep and unrestricted solo TTRPG experience.
-
-The project's core philosophy is a hybrid approach: **Code for Rules, AI for Creativity.**
-
-Character creation and all game mechanics are handled by a robust, client-side engine that strictly adheres to the SRD 5.2.1 ruleset. This system is powered by the comprehensive game data sourced from the Open5e project, ensuring a stable, predictable, and accurate character sheet.
-
-The storytelling, world-building, and NPC interactions are powered by a cutting-edge, uncensored Large Language Model. The AI acts as a "Creative Director," proposing choices, describing outcomes, and building a dynamic narrative in response to player actions.
-
-## Features
-
--   **Deep, Client-Side Character Creator:** Build your character with a dynamic point-buy system and a rules-as-written skill selection engine. No AI shortcuts, just pure, classic RPG mechanics.
--   **Choice-Based Gameplay:** Guide the story your way. The AI acts as your personal Game Master, presenting you with dynamic situations and a list of possible actions. Will you persuade, intimidate, or attack? The choice is always yours.
--   **Uncensored AI Storyteller:** Explore a world where all themes are on the table. The AI is designed to be a powerful and unrestricted creative partner for mature audiences.
--   **Pluggable AI Backend:** Seamlessly switch between the powerful, cloud-based Gemini API and a locally hosted LLM (via `text-generation-webui`).
--   **Play Anywhere, Anytime:** As a fully offline-capable Progressive Web App (PWA), you can install the game directly to your desktop or mobile home screen and play your adventure whenever and wherever you want.
-
-## Getting Started: Running Locally
-
-This project was built with [Vite](https://vitejs.dev/) and TypeScript.
-
-### Prerequisites
-
--   [Node.js](https://nodejs.org/en) (v20 or later recommended)
--   A modern web browser (Chrome, Edge, Firefox)
-
-### Installation & Setup
-
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/TheSulfateForge/unfettered-storyteller.git
-    cd unfettered-storyteller
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    npm install
-    ```
-
-3.  **Configure your AI Provider:**
-    *   Create a new file in the root directory named `.env.local`.
-    *   To use the **Gemini API**, add the following line to the file, replacing `YOUR_API_KEY_HERE` with your actual key:
-        ```
-        VITE_GEMINI_API_KEY="YOUR_API_KEY_HERE"
-        ```
-    *   The application is configured to use this environment variable by default. No other changes are needed.
-
-4.  **Run the development server:**
-    ```bash
-    npm run dev
-    ```
-    This will start a local server, typically at `http://localhost:5173`. Open this URL in your browser to start the application.
-
-## Deployment
-
-This application is a Progressive Web App and can be deployed to any static hosting service. A GitHub Actions workflow is included to automate deployment to **GitHub Pages**.
-
-1.  **Build the application:**
-    ```bash
-    npm run build
-    ```
-    This command will compile the project into a `dist` folder.
-
-2.  **Push to GitHub:**
-    *   Push your code to the `main` branch of your repository.
-    *   The included GitHub Action (`.github/workflows/deploy.yml`) will automatically build and deploy the contents of the `dist` folder to your live GitHub Pages URL.
-
-## Licensing
-
-This project is made possible through a combination of open-source data and original code, and is governed by two separate licenses.
-
-### Application Code
-
-The original source code for the **Unfettered Storyteller** application is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](./LICENSES/LICENSE-CODE.md).
-
-### Game Data
-
-The underlying game data (monsters, spells, etc.) is used under the terms of the [Open Game License v1.0a](./LICENSES/LICENSE-SRD.md), sourced from the System Reference Document 5.2.1 and the Open5e project.
+*A classic tabletop RPG experience, powered by your choice of AI.*
 
 ---
-*This work is not affiliated with, endorsed, sponsored, or specifically approved by Wizards of the Coast LLC.*
+
+### [► Play Now!](https://thesulfateforge.github.io/UnfetteredStoryteller/)
+
+---
+
+## What is Unfettered Storyteller?
+
+Unfettered Storyteller is a solo TTRPG-style adventure game where an AI acts as your personal Game Master. Create a unique character, choose your path, and immerse yourself in a dynamic, ever-unfolding narrative that reacts to your every decision.
+
+Built as a modern Progressive Web App (PWA), it works entirely in your browser with no backend server. It's fully installable on your desktop or mobile device, works offline, and keeps all your game saves and API keys securely on your own machine.
+
+## Key Features
+
+- **Dynamic AI Game Master:** Experience a reactive story that adapts to your choices, powered by a sophisticated rules-based prompt.
+- **Flexible AI Providers:** Connect to the powerful **Google Gemini** API or use your own **Local LLM** (like `oobabooga/text-generation-webui` with an OpenAI-compatible endpoint) for complete privacy and control.
+- **Automatic Model Fallback:** To ensure a smooth gameplay experience, the game will automatically switch to a new model if the current one is unavailable (e.g., due to API rate limits). It will cycle through the following models in order: `gemini-2.5-flash`, `gemma-3-27b-it`, and other Gemini Flash variants.
+- **Deep Character Creation:** A full point-buy system with races, classes, backgrounds, and skills from the 5e SRD to build your perfect hero.
+- **RAG Knowledge Base:** Enhance the AI's accuracy by building a local vector database from TTRPG sourcebooks, ensuring the storyteller respects game rules and lore.
+- **Voice-to-Play:** Use your microphone for speech-to-text input and enable "Read Aloud" (TTS) for an immersive, audio-based experience.
+- **Installable & Offline:** Works like a native app. Add it to your home screen and play your saved games anytime, even without an internet connection.
+- **Private & Secure:** Your API keys and game saves are stored exclusively in your browser's `localStorage`—never uploaded to a server.
+- **Mature Content (18+):** An optional toggle for players who want a darker, more adult-themed adventure.
+
+## How to Play
+
+1.  **Open the Game:** Visit [thesulfateforge.github.io/UnfetteredStoryteller/](https://thesulfateforge.github.io/UnfetteredStoryteller/).
+2.  **Configure Settings:** Click **Settings** on the main menu.
+    -   **For Gemini:** Select "Google Gemini" and enter your free API key from [Google AI Studio](https://aistudio.google.com/app/apikey).
+    -   **For a Local LLM:** Select "Local LLM" and enter the full chat completions endpoint for your local server (e.g., `http://127.0.0.1:5000/v1/chat/completions` for `oobabooga/text-generation-webui`).
+3.  **Start a New Adventure:** Go back to the main menu and click "New Adventure".
+4.  **Create Your Character:** Fill out the form to define your hero. Your choices will shape the entire story.
+5.  **Choose a Story Hook:** The AI will generate three unique starting points for your adventure. Pick one, or write your own!
+6.  **Play!** Type what you want to do in the input box and watch the story unfold.
+
+## Installing the App
+
+You can install Unfettered Storyteller on your device to play it like a native app.
+
+-   **On Android (Chrome):** Open the game URL, tap the three-dot menu icon (⋮), and select **Install app**.
+-   **On iOS (Safari):** Open the game URL, tap the Share button, and scroll down to select **Add to Home Screen**.
+-   **On Desktop (Chrome/Edge):** Open the game URL and click the install icon that appears on the right side of the address bar.
+
+## Credits and Licensing
+
+#### Application Code
+The original source code for this application is an independent work of authorship by TheSulfateForge and is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License](https://creativecommons.org/licenses/by-nc/4.0/).
+
+#### Game Data & Systems Reference Document
+This work includes material taken from the System Reference Document 5.1 (“SRD 5.1”) by Wizards of the Coast LLC and is used under the **Open Game License v 1.0a**.
+
+Much of the game data (monsters, spells, classes, etc.) is sourced from the fantastic [Open5e project](https://open5e.com/), which is also provided under the OGL 1.0a.
