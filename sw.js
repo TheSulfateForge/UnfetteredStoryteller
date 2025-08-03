@@ -1,40 +1,51 @@
 // A simple, "cache-first" service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v1'; // Bump version for new data
+const CACHE_NAME = 'unfettered-storyteller-cache-v3'; // Bump version for new data and path fixes
 // List all the files that make up the app shell
 const dataFiles = [
-    'data/spells.json', 'data/monsters.json', 'data/backgrounds.json', 
-    'data/feats.json', 'data/conditions.json', 'data/races.json', 
-    'data/classes.json', 'data/magicitems.json', 'data/weapons.json', 
-    'data/armor.json', 'data/planes.json', 'data/sections.json',
-    'data/spelllist.json'
+    './data/spells.json', './data/monsters.json', './data/backgrounds.json', 
+    './data/feats.json', './data/conditions.json', './data/races.json', 
+    './data/classes.json', './data/magicitems.json', './data/weapons.json', 
+    './data/armor.json', './data/planes.json', './data/sections.json',
+    './data/spelllist.json', './data/documents.json'
 ];
 
 const urlsToCache = [
-  '/',
-  '/index.html',
-  '/index.css',
-  '/index.tsx',
-  '/manifest.json',
-  '/rpg-helpers.ts',
-  '/api.ts',
-  '/config.ts',
-  '/dom.ts',
-  '/game.ts',
-  '/services.ts',
-  '/types.ts',
-  '/ui.ts',
-  '/llm-provider.ts',
-  '/gemini-provider.ts',
-  '/local-llm-provider.ts',
-  '/rag.ts',
-  '/data-manager.ts',
-  '/chunking-strategies.ts',
-  '/state-manager.ts',
+  './',
+  './index.html',
+  './index.css',
+  './index.tsx',
+  './manifest.json',
+  './metadata.json',
+  './icon-192.png',
+  './icon-512.png',
+  // TS files
+  './api.ts',
+  './character-creator.ts',
+  './chunking-strategies.ts',
+  './config.ts',
+  './data-manager.ts',
+  './dom.ts',
+  './game-loop.ts',
+  './game.ts',
+  './gemini-provider.ts',
+  './llm-provider.ts',
+  './local-llm-provider.ts',
+  './rag.ts',
+  './rpg-data.ts',
+  './rpg-helpers.ts',
+  './services.ts',
+  './session-manager.ts',
+  './state-manager.ts',
+  './types.ts',
+  './ui.ts',
+  './utils.ts',
+  // Licenses
+  './LICENSES/LICENSE-CODE.md',
+  './LICENSES/LICENSE-SRD.md',
+  // Fonts
   'https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lato:wght@400;700&display=swap',
   'https://fonts.gstatic.com/s/medievalsharp/v27/EvNf_SysZdDAg_8s61I-0G55_Dt_c131.woff2',
   'https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXg.woff2'
-  // NOTE: You will need to create 'icon-192.png' and 'icon-512.png'
-  // and add them to this list and your project directory for the app to be fully installable.
 ].concat(dataFiles);
 
 // Install event: opens the cache and adds the app shell files to it
@@ -63,7 +74,7 @@ self.addEventListener('activate', event => {
           }
         })
       );
-    })
+    }).then(() => self.clients.claim())
   );
 });
 

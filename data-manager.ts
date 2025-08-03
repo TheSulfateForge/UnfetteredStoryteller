@@ -56,6 +56,31 @@ let weapons: Record<string, Weapon> = {}; // Store as object for easier lookup b
 let armor: Record<string, Armor> = {}; // Store as object for easier lookup by name
 
 
+// --- HELPERS ---
+
+/** Parses the 'Ability Score Increase' trait description to extract bonuses. */
+function parseAbilityBonusString(desc: string): { [key: string]: number } {
+    const bonuses: { [key: string]: number } = {};
+    const abilityScores = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma'];
+
+    if (desc.includes("each increase by 1")) {
+        return { strength: 1, dexterity: 1, constitution: 1, intelligence: 1, wisdom: 1, charisma: 1 };
+    }
+
+    const regex = /(\w+)\s+score\s+increases\s+by\s+(\d+)/gi;
+    let match;
+    while ((match = regex.exec(desc)) !== null) {
+        const ability = match[1].toLowerCase();
+        const value = parseInt(match[2], 10);
+        if (abilityScores.includes(ability)) {
+            bonuses[ability] = (bonuses[ability] || 0) + value;
+        }
+    }
+    
+    return bonuses;
+}
+
+
 // --- PUBLIC GETTERS ---
 export const getRaces = () => races;
 export const getClasses = () => classes;
@@ -114,6 +139,31 @@ export async function init() {
         // Note: some Open5e files have the data in a `results` key, others do not.
         const racesData = await racesRes.json();
         races = racesData.results || racesData; 
+
+        // Post-process races to parse and combine ability score bonuses
+        const raceUrlMap = new Map<string, Race>();
+        races.forEach(r => raceUrlMap.set(r.url, r));
+
+        races.forEach(race => {
+            const allBonuses: { [key: string]: number } = {};
+
+            const mergeBonuses = (r: Race) => {
+                const asiTrait = r.traits.find(t => t.name === "Ability Score Increase");
+                if (asiTrait) {
+                    const parsed = parseAbilityBonusString(asiTrait.desc);
+                    for (const key in parsed) {
+                        allBonuses[key] = (allBonuses[key] || 0) + (parsed[key as keyof typeof parsed] || 0);
+                    }
+                }
+            };
+
+            if (race.is_subrace && race.subrace_of) {
+                const parentRace = raceUrlMap.get(race.subrace_of);
+                if (parentRace) mergeBonuses(parentRace);
+            }
+            mergeBonuses(race);
+            race.ability_bonuses = allBonuses;
+        });
         
         const classesData = await classesRes.json();
         classes = classesData.results || classesData;

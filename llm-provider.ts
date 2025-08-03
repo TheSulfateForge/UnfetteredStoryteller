@@ -92,4 +92,17 @@ export interface LLMProvider {
    * @param index The index of the model to set as active.
    */
   setCurrentModelIndex(index: number): void;
+
+  /**
+   * Constructs the system instruction content based on character and game state.
+   * @param charInfo The character's static information.
+   * @param pState The character's dynamic state.
+   * @param isMature Flag for enabling mature content guidelines.
+   * @returns The complete system instruction string.
+   */
+  getSystemInstructionContent(
+    charInfo: CharacterInfo,
+    pState: PlayerState,
+    isMature: boolean
+  ): string;
 }

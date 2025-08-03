@@ -15,18 +15,51 @@ import * as rag from './rag';
 import { gameState } from './state-manager';
 import { saveCurrentGame, initializeChatSession } from './session-manager';
 import { promiseWithTimeout } from './utils';
+import * as game from './game';
 
 // --- CORE GAME LOOP ---
 
 export async function sendMessageAndProcessStream(promptForApi: string, promptForHistory: string, targetElement?: HTMLElement) {
-    const { isGenerating, characterInfo, playerState, llmProvider } = gameState.getState();
-    if (isGenerating || !characterInfo || !playerState || !llmProvider) return;
+    // Debugging logs requested by user
+    console.log("=== SENDING TO AI ===");
+    console.log("Prompt for API:", promptForApi);
+    console.log("Current state - isGenerating:", gameState.getState().isGenerating);
+    console.log("Chat history length:", gameState.getState().chatHistory.length);
 
+    const { isGenerating, characterInfo, playerState, llmProvider, chatHistory } = gameState.getState();
+    if (isGenerating || !characterInfo || !playerState || !llmProvider) {
+        console.log("❌ BLOCKED - isGenerating:", isGenerating, "characterInfo:", !!characterInfo, "playerState:", !!playerState, "llmProvider:", !!llmProvider);
+        return;
+    }
+
+
+    // --- Build Debugger Log ---
+    // Construct a comprehensive input log for the debugger BEFORE updating the main history state.
+    const systemInstruction = llmProvider.getSystemInstructionContent(characterInfo, playerState, gameState.getState().isMatureEnabled);
+    let fullInputForDebugger = `--- SYSTEM PROMPT ---\n${systemInstruction}\n\n--- CHAT HISTORY & CURRENT PROMPT ---`;
+    chatHistory.forEach(msg => {
+        const text = (msg.parts as Part[]).map(p => p.text).join('');
+        fullInputForDebugger += `\n${msg.role}: ${text}`;
+    });
+    // Append the new prompt that is being sent to the AI for this turn.
+    fullInputForDebugger += `\nuser: ${promptForApi}`;
+
+    const providerType = game.getProviderSettings().provider;
+    if (providerType === 'local') {
+        fullInputForDebugger = `(This is a reconstruction of the data sent to a local OpenAI-compatible API. The actual payload is a JSON object with this content.)\n\n` + fullInputForDebugger;
+    }
+    
+    gameState.updateState({ lastApiInput: fullInputForDebugger, lastApiResponse: 'Waiting for AI response...' });
+    ui.updateDebuggerUI(fullInputForDebugger, 'Waiting for AI response...');
+
+    // --- Update Game State ---
+    // Now that the log for the *current* turn is created, update the history for the *next* turn.
     if (promptForHistory) {
-        const newHistory = [...gameState.getState().chatHistory, { role: 'user', parts: [{ text: promptForHistory }] }];
+        const newHistory = [...chatHistory, { role: 'user', parts: [{ text: promptForHistory }] }];
         gameState.updateState({ chatHistory: newHistory });
     }
-   
+
+    // --- Call API and Process Stream ---
     ui.setLoading(true);
     gameState.updateState({ isGenerating: true });
 
@@ -45,19 +78,25 @@ export async function sendMessageAndProcessStream(promptForApi: string, promptFo
     } catch (error: any) {
         console.error("API call failed:", error);
         const errorString = (error.message || String(error)).toLowerCase();
-        const isQuotaError = (errorString.includes('resource_exhausted') || errorString.includes('429')) && errorString.includes('quota');
+        const isQuotaError = (errorString.includes('resource_exhausted') || errorString.includes('429'));
 
         if (isQuotaError && llmProvider) {
+            const oldModel = llmProvider.getCurrentModel();
             const switched = await llmProvider.useNextModel();
             if (switched) {
                 const newModel = llmProvider.getCurrentModel();
-                dmMessageElement.innerHTML = `<em>Quota exceeded for the current model. Switching to fallback: ${newModel}. Retrying...</em>`;
+                dmMessageElement.innerHTML = `<em>API limit reached for ${oldModel}. Switching to fallback: ${newModel}. Retrying...</em>`;
                 await initializeChatSession();
+                
+                // The isGenerating flag from the failed call is still true.
+                // Reset it before retrying, otherwise the retry call will be blocked.
+                gameState.updateState({ isGenerating: false });
+                
                 // Retry the call. Pass the same dmMessageElement to be updated. Pass empty string for history prompt to avoid duplication.
                 await sendMessageAndProcessStream(promptForApi, '', dmMessageElement);
                 return; // Exit this failed call; the recursive one takes over.
             } else {
-                 dmMessageElement.innerHTML = `API quota exceeded, and no fallback models are available. Please check your plan and billing details.`;
+                 dmMessageElement.innerHTML = `API limit reached, and no fallback models are available. Please check your plan and billing details.`;
                  dmMessageElement.classList.add('error-message');
             }
         } else {
@@ -67,7 +106,9 @@ export async function sendMessageAndProcessStream(promptForApi: string, promptFo
         
         // This part is reached on unrecoverable error.
         ui.setLoading(false);
-        gameState.updateState({ isGenerating: false });
+        gameState.updateState({ isGenerating: false, lastApiResponse: `ERROR: ${error.message || error}` });
+        ui.updateDebuggerUI(gameState.getState().lastApiInput, gameState.getState().lastApiResponse);
+
     }
 }
 
@@ -102,6 +143,9 @@ async function processStream(stream: AsyncGenerator<GenerateContentResponse>, dm
     }
     
     if (sentenceBuffer.trim()) services.tts.queue(cleanseResponseText(sentenceBuffer.trim()));
+    
+    gameState.updateState({ lastApiResponse: fullResponseText });
+    ui.updateDebuggerUI(gameState.getState().lastApiInput, fullResponseText);
     
     const newHistory = [...gameState.getState().chatHistory, { role: 'model', parts: [{ text: fullResponseText }] }];
     gameState.updateState({ chatHistory: newHistory });
@@ -187,9 +231,13 @@ export async function handleAttackRollRequest(weaponName: string, description: s
     const { playerState } = gameState.getState();
     if (!playerState) return;
 
+    // A roll is an action that consumes a turn.
+    gameState.updatePlayerState({ turnCount: playerState.turnCount + 1 });
+
     const weaponData = getWeaponData(weaponName);
     if (!weaponData) {
-        await sendMessageAndProcessStream(`(Attack failed: Weapon '${weaponName}' not found.)`, `(Attack failed: Weapon '${weaponName}' not found.)`);
+        gameState.updateState({ isGenerating: false }); // Reset state before chained call
+        await sendMessageAndProcessStream(`(Attack failed: Weapon '${weaponName}' not found.)`, `Action: Attack failed, weapon not found.`);
         return;
     }
 
@@ -211,13 +259,20 @@ export async function handleAttackRollRequest(weaponName: string, description: s
     };
     ui.addMessage('attack', attackContent);
     
-    const resultMessage = `(Attack with ${weaponName}: rolled ${attackRoll} + ${attackBonus} = ${attackContent.totalAttackRoll}. Damage: ${damageRoll} + ${damageBonus} = ${attackContent.totalDamage}. ${isCritical ? 'Critical Hit!' : ''})`;
-    await sendMessageAndProcessStream(resultMessage, resultMessage);
+    const historyPrompt = `Action: Attacked ${description} with ${weaponName} (Attack Roll: ${attackContent.totalAttackRoll}, Damage: ${attackContent.totalDamage})`;
+    const apiPrompt = `The attack roll against "${description}" with the ${weaponName} is ${attackContent.totalAttackRoll}, dealing ${attackContent.totalDamage} damage. ${attackContent.isCritical ? 'It was a critical hit. ' : ''}Narrate the outcome.`;
+    
+    // IMPORTANT: Reset the generating state before sending result back
+    gameState.updateState({ isGenerating: false });
+    await sendMessageAndProcessStream(apiPrompt, historyPrompt);
 }
 
 export async function handleDiceRollRequest(skillOrAbility: string, description: string, rollModifier?: 'ADVANTAGE' | 'DISADVANTAGE' | 'NONE') {
     const { playerState } = gameState.getState();
     if (!playerState) return;
+
+    // A roll is an action that consumes a turn.
+    gameState.updatePlayerState({ turnCount: playerState.turnCount + 1 });
 
     const modifier = calculateRollModifier(skillOrAbility, playerState);
     let roll1 = Math.floor(Math.random() * 20) + 1, roll2 = Math.floor(Math.random() * 20) + 1;
@@ -229,8 +284,12 @@ export async function handleDiceRollRequest(skillOrAbility: string, description:
     };
     ui.addMessage('dice', diceContent);
     
-    const resultMessage = `(Dice roll for "${description}" (${skillOrAbility}): rolled ${chosenRoll} + ${modifier} = ${diceContent.total})`;
-    await sendMessageAndProcessStream(resultMessage, resultMessage);
+    const historyPrompt = `Action: ${description} (Result: ${diceContent.total})`;
+    const apiPrompt = `The ${skillOrAbility} check for my character's attempt to "${description}" resulted in a total of ${diceContent.total}. Narrate the outcome.`;
+
+    // IMPORTANT: Reset the generating state before sending result back
+    gameState.updateState({ isGenerating: false });
+    await sendMessageAndProcessStream(apiPrompt, historyPrompt);
 }
 
 export async function handleFormSubmit(event: Event) {
@@ -309,5 +368,5 @@ export async function handleRegenerateRequest(button: HTMLButtonElement) {
 
     const userPrompt = (lastUserContent.parts as Part[]).map(p => p.text).join('');
     
-    await sendMessageAndProcessStream(userPrompt, userPrompt, dmMessage as HTMLElement);
+    await sendMessageAndProcessStream(userPrompt, '', dmMessage as HTMLElement);
 }

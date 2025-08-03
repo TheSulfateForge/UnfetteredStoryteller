@@ -241,8 +241,19 @@ export async function loadGame(characterId: string) {
     dom.appElement.classList.remove('hidden');
 }
 
-export function deleteGame(characterId: string) {
-    if (game.deleteSave(characterId)) {
+export async function deleteGame(characterId: string) {
+    const allSaves = game.getSaves();
+    const saveToDelete = allSaves.find(s => s.id === characterId);
+    if (!saveToDelete || !saveToDelete.characterInfo) return;
+
+    const confirmed = await ui.showConfirmModal(
+        `Are you sure you want to permanently delete the adventure for "${saveToDelete.characterInfo.name}"?`,
+        'Delete Adventure'
+    );
+
+    if (confirmed) {
+        game.deleteSave(characterId);
+        // Refresh the UI
         ui.displaySaveSlots(game.getSaves());
     }
 }

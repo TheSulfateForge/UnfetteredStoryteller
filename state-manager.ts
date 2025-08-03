@@ -18,6 +18,8 @@ export interface GameState {
     isGenerating: boolean;
     isMatureEnabled: boolean;
     currentCharacterId: string | null;
+    lastApiInput: string | null;
+    lastApiResponse: string | null;
 }
 
 // --- UTILITY ---
@@ -57,6 +59,8 @@ const initialState: GameState = {
     isGenerating: false,
     isMatureEnabled: false,
     currentCharacterId: null,
+    lastApiInput: null,
+    lastApiResponse: null,
 };
 
 class _GameStateManager {

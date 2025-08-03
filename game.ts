@@ -94,18 +94,10 @@ export function updateSave(characterId: string, currentSaveData: Omit<SaveSlot, 
 }
 
 /**
- * Deletes a save slot and returns true if successful.
+ * Deletes a save slot.
  */
-export function deleteSave(characterId: string): boolean {
+export function deleteSave(characterId: string): void {
     const allSaves = getSaves();
-    const saveToDelete = allSaves.find(s => s.id === characterId);
-    if (!saveToDelete) return false;
-
-    const confirmed = confirm(`Are you sure you want to permanently delete the adventure for "${saveToDelete.characterInfo.name}"?`);
-    if (confirmed) {
-        const updatedSaves = allSaves.filter(save => save.id !== characterId);
-        localStorage.setItem(SAVE_GAME_KEY, JSON.stringify(updatedSaves));
-        return true;
-    }
-    return false;
+    const updatedSaves = allSaves.filter(save => save.id !== characterId);
+    localStorage.setItem(SAVE_GAME_KEY, JSON.stringify(updatedSaves));
 }

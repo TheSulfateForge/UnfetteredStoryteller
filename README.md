@@ -1,3 +1,18 @@
+# Run and deploy your AI Studio app
+
+This contains everything you need to run your app locally.
+
+## Run Locally
+
+**Prerequisites:**  Node.js
+
+
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`
+
 # Unfettered Storyteller (v0.1.0)
 
 **Unfettered Storyteller** is an advanced, offline-capable Progressive Web App (PWA) designed to provide a deep and unrestricted solo TTRPG experience.

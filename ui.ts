@@ -188,7 +188,10 @@ export function setLoading(isLoading: boolean, showSpinner = isLoading): void {
 }
 
 export function scrollToBottom(): void { 
-    dom.chatLog.parentElement!.scrollTop = dom.chatLog.parentElement!.scrollHeight; 
+    const mainContent = document.getElementById('main-content');
+    if (mainContent) {
+        mainContent.scrollTop = mainContent.scrollHeight;
+    }
 }
 
 export function updatePlayerStateUI(playerState: PlayerState, characterInfo: CharacterInfo) {
@@ -459,5 +462,49 @@ export function addPostResponseButtons(dmMessageElement: HTMLElement) {
         const regenerateButton = createRegenerateButton();
         buttonContainer.appendChild(regenerateButton);
         dmMessageElement.insertAdjacentElement('afterend', buttonContainer);
+    }
+}
+
+
+/**
+ * Displays a confirmation modal and returns a promise that resolves with the user's choice.
+ * @param text The message to display in the modal.
+ * @param title The title for the modal.
+ * @returns A promise that resolves to true if confirmed, false otherwise.
+ */
+export function showConfirmModal(text: string, title: string = 'Confirm Action'): Promise<boolean> {
+    return new Promise((resolve) => {
+        dom.confirmModalTitle.textContent = title;
+        dom.confirmModalText.textContent = text;
+        dom.confirmModal.classList.remove('hidden');
+
+        const handleYes = () => {
+            dom.confirmModal.classList.add('hidden');
+            cleanup();
+            resolve(true);
+        };
+
+        const handleNo = () => {
+            dom.confirmModal.classList.add('hidden');
+            cleanup();
+            resolve(false);
+        };
+
+        const cleanup = () => {
+            dom.confirmModalYesBtn.removeEventListener('click', handleYes);
+            dom.confirmModalNoBtn.removeEventListener('click', handleNo);
+        };
+
+        dom.confirmModalYesBtn.addEventListener('click', handleYes, { once: true });
+        dom.confirmModalNoBtn.addEventListener('click', handleNo, { once: true });
+    });
+}
+
+export function updateDebuggerUI(input: string | null, output: string | null) {
+    if (dom.debugInput) {
+        dom.debugInput.textContent = input || 'No input captured yet.';
+    }
+    if (dom.debugOutput) {
+        dom.debugOutput.textContent = output || 'No response captured yet.';
     }
 }

@@ -80,19 +80,10 @@ function setupMainAppEventListeners() {
         const { id } = button.dataset;
         if (!id) return;
 
-        const saveCard = button.closest('.save-slot-card');
-
         if (button.classList.contains('load-btn')) {
             await sessionManager.loadGame(id);
         } else if (button.classList.contains('delete-btn')) {
-            if (game.deleteSave(id)) {
-                if (saveCard) {
-                    saveCard.remove();
-                }
-                if (dom.saveSlotsList.children.length === 0) {
-                    dom.saveSlotsList.innerHTML = '<p class="no-saves">No adventures saved yet. Time to start one!</p>';
-                }
-            }
+            await sessionManager.deleteGame(id);
         }
     });
 
@@ -108,6 +99,11 @@ function setupMainAppEventListeners() {
         sessionManager.getServices().tts.setEnabled(isEnabled);
         localStorage.setItem('readAloudEnabled', String(isEnabled));
     });
+
+    /* dom.debugLogBtn.addEventListener('click', () => {
+        dom.debuggerPanel.classList.toggle('hidden');
+        ui.scrollToBottom();
+    }); */
 
     dom.buildRagBtn.addEventListener('click', sessionManager.handleBuildRag);
 
@@ -166,7 +162,7 @@ async function main() {
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/sw.js').then(reg => console.log('SW registered.', reg), err => console.log('SW reg failed: ', err));
+            navigator.serviceWorker.register('./sw.js').then(reg => console.log('SW registered.', reg), err => console.log('SW reg failed: ', err));
         });
     }
 
