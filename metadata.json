@@ -1,0 +1,8 @@
+{
+  "name": "Copy of Unfettered Storyteller - v0.1.12",
+  "description": "A classic tabletop RPG experience, powered by AI text generation.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "prompt": ""
+}
