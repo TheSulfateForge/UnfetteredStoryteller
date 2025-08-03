@@ -129,11 +129,11 @@ export async function init() {
         const [
             racesRes, classesRes, backgroundsRes, weaponsRes, armorRes
         ] = await Promise.all([
-            fetch('/data/races.json'),
-            fetch('/data/classes.json'),
-            fetch('/data/backgrounds.json'),
-            fetch('/data/weapons.json'),
-            fetch('/data/armor.json'),
+            fetch('/UnfetteredStoryteller/data/races.json'),
+            fetch('/UnfetteredStoryteller/data/classes.json'),
+            fetch('/UnfetteredStoryteller/data/backgrounds.json'),
+            fetch('/UnfetteredStoryteller/data/weapons.json'),
+            fetch('/UnfetteredStoryteller/data/armor.json'),
         ]);
 
         // Note: some Open5e files have the data in a `results` key, others do not.
