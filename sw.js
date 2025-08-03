@@ -1,5 +1,5 @@
-// A simple, "cache-first" service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v5'; // Bump version to include new icons
+// A robust, "network-first" for HTML & "cache-first" for assets service worker
+const CACHE_NAME = 'unfettered-storyteller-cache-v7'; // Bumped version to force update and reflect new strategy
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells.json', './data/monsters.json', './data/backgrounds.json', 
@@ -55,7 +55,7 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache');
+        console.log('Opened cache and caching app shell');
         return cache.addAll(urlsToCache);
       })
   );
@@ -79,18 +79,48 @@ self.addEventListener('activate', event => {
 });
 
 
-// Fetch event: serves assets from the cache first
+// Fetch event: implements a network-first strategy for navigation requests (HTML)
+// and a cache-first strategy for all other assets.
 self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        // Not in cache - fetch from network
-        return fetch(event.request);
-      }
-    )
-  );
+    // For navigation requests (e.g., loading the index.html), try the network first.
+    // This ensures the user always gets the latest version of the main page,
+    // which then loads the correctly versioned assets.
+    if (event.request.mode === 'navigate') {
+        event.respondWith(
+            fetch(event.request)
+                .then(response => {
+                    // If network is successful, cache the new response for offline use.
+                    return caches.open(CACHE_NAME).then(cache => {
+                        cache.put(event.request, response.clone());
+                        return response;
+                    });
+                })
+                .catch(() => {
+                    // If the network fails, fall back to the cache.
+                    return caches.match(event.request);
+                })
+        );
+        return;
+    }
+
+    // For all other requests (CSS, JS, images, data), use a cache-first strategy
+    // for speed and offline functionality.
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                // Cache hit - return response from cache.
+                if (response) {
+                    return response;
+                }
+                // Not in cache - fetch from network, then cache it for next time.
+                return fetch(event.request).then(
+                    networkResponse => {
+                        return caches.open(CACHE_NAME).then(cache => {
+                            cache.put(event.request, networkResponse.clone());
+                            return networkResponse;
+                        });
+                    }
+                );
+            })
+    );
 });
