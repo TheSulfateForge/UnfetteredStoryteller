@@ -12,6 +12,7 @@ export const landingNewBtn = document.getElementById('landing-new-btn');
 export const landingLoadBtn = document.getElementById('landing-load-btn');
 export const landingSettingsBtn = document.getElementById('landing-settings-btn');
 export const landingCreditLine = document.getElementById('landing-credit-line');
+export const versionDisplay = document.getElementById('version-display');
 
 
 // --- Main App & Modals ---

@@ -157,6 +157,21 @@ async function main() {
     const encodedCopyright = '436f707972696768742028632920323032352054686553756c66617465466f726765';
     dom.landingCreditLine.textContent = hexToString(encodedCopyright);
 
+    // Fetch and display version from metadata.json
+    try {
+        const response = await fetch('./metadata.json');
+        if (response.ok) {
+            const metadata = await response.json();
+            const name = metadata.name || '';
+            const versionMatch = name.match(/v\d+\.\d+\.\d+/);
+            if (versionMatch && dom.versionDisplay) {
+                dom.versionDisplay.textContent = versionMatch[0];
+            }
+        }
+    } catch (error) {
+        console.error("Could not load version from metadata.json", error);
+    }
+
     await dataManager.init();
     ui.populateCreationDropdowns();
 

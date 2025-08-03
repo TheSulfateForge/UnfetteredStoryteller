@@ -6,6 +6,10 @@
 // --- CONFIGURATION ---
 // User can add more models to this list for fallback. They will be tried in order.
 export const AI_TEXT_MODELS = ['gemini-2.5-flash', 'gemma-3-27b-it', 'gemini-2.5-flash-lite', 'gemini-2.0-flash', 'gemini-2.0-flash-lite'];
+
+// This model is specifically for generating embeddings for the RAG knowledge base.
+export const AI_EMBEDDING_MODELS = ['text-embedding-004'];
+
 export const IMAGE_MODEL_NAME = 'imagen-3.0-generate-002';
 export const TTS_VOICE_LANGUAGE_CODE = 'en-GB';
 export const TTS_VOICE_NAME = 'en-GB-Standard-A';

@@ -528,17 +528,26 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
   }
   
   async batchEmbedContents(texts) {
-    const modelName = 'text-embedding-004';
+    // Loop through the configured embedding models, trying each one until success.
+    for (const modelName of config.AI_EMBEDDING_MODELS) {
+      try {
+        const response = await promiseWithTimeout(this.ai.models.embedContent({
+          model: modelName,
+          contents: texts,
+        }), 60000, `Embedding request timed out for model ${modelName}.`);
+        
+        // If successful, return the embeddings.
+        return response.embeddings.map(e => e.values);
 
-    try {
-      const response = await promiseWithTimeout(this.ai.models.embedContent({
-        model: modelName,
-        contents: texts,
-      }), 60000, 'Embedding request timed out.');
-      return response.embeddings.map(e => e.values);
-    } catch (error) {
-      console.error("Error generating embeddings for batch:", error);
-      throw new Error(`Failed to generate embeddings. ${error}`);
+      } catch (error) {
+        console.warn(`Embedding generation failed with model '${modelName}':`, error);
+        // If it fails, the loop will continue to the next model.
+      }
     }
+
+    // If all models in the list fail, throw an error.
+    const errorMsg = `Failed to generate embeddings with all configured models: [${config.AI_EMBEDDING_MODELS.join(', ')}]. Please check your model configuration and API access.`;
+    console.error(errorMsg);
+    throw new Error(errorMsg);
   }
 }

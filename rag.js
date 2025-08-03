@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -147,42 +148,66 @@ export async function buildStore() {
             return; // Stop the build if a file is corrupt
         }
     }
+
+    const BATCH_SIZE = 100; // A safe batch size for embedding APIs
+    const totalChunks = chunks.length;
     
-    if (chunks.length === 0) {
+    if (totalChunks === 0) {
         return updateStatus('error', 'Failed to load any data from local files.');
     }
 
-    updateStatus('building', `Generating embeddings for ${chunks.length} documents...`);
+    updateStatus('building', `Generating embeddings for ${totalChunks} documents... This may take a few minutes.`);
+
     try {
-        const embeddings = await provider.batchEmbedContents(chunks.map(c => c.chunk));
+        const allEmbeddings = [];
+        const numBatches = Math.ceil(totalChunks / BATCH_SIZE);
+
+        for (let i = 0; i < numBatches; i++) {
+            const batchStart = i * BATCH_SIZE;
+            const batchEnd = Math.min(batchStart + BATCH_SIZE, totalChunks);
+            const batchChunks = chunks.slice(batchStart, batchEnd);
+
+            updateStatus('building', `Embedding batch ${i + 1} of ${numBatches} (${batchChunks.length} documents)...`);
+            
+            const batchEmbeddings = await provider.batchEmbedContents(batchChunks.map(c => c.chunk));
+            allEmbeddings.push(...batchEmbeddings);
+        }
         
         updateStatus('building', 'Saving to database...');
-        const transaction = db.transaction(STORE_NAME, 'readwrite');
-        const store = transaction.objectStore(STORE_NAME);
-        store.clear(); // Clear old store before writing new one
+        const clearTransaction = db.transaction(STORE_NAME, 'readwrite');
+        const clearStore = clearTransaction.objectStore(STORE_NAME);
+        await new Promise((resolve, reject) => { // Clearing the store is async
+            const req = clearStore.clear();
+            req.onsuccess = () => resolve();
+            req.onerror = () => reject(req.error);
+        });
         
-        vectorStore = [];
-        embeddings.forEach((embedding, i) => {
+        // Create a new transaction for adding items for robustness
+        const addTransaction = db.transaction(STORE_NAME, 'readwrite');
+        const addStore = addTransaction.objectStore(STORE_NAME);
+
+        vectorStore = []; // Reset in-memory store
+        allEmbeddings.forEach((embedding, i) => {
             const item = {
                 chunk: chunks[i].chunk,
                 embedding: embedding,
                 metadata: chunks[i].metadata
             };
-            store.add(item);
-            // Also update in-memory store, the ID will be wrong but it's not used
+            addStore.add(item);
+            // Also update in-memory store, the ID will be wrong but it's not used immediately
             vectorStore.push({ ...item, id: i + 1 });
         });
 
-        transaction.oncomplete = () => {
+        addTransaction.oncomplete = () => {
             updateStatus('ready', `${chunks.length} documents indexed successfully.`);
         };
-        transaction.onerror = () => {
+        addTransaction.onerror = () => {
             updateStatus('error', 'Failed to save knowledge base to database.');
         };
 
     } catch (e) {
         console.error('Embedding generation failed:', e);
-        updateStatus('error', `Failed to generate embeddings: ${e}`);
+        updateStatus('error', `Failed to generate embeddings: ${e.message || e}`);
     }
 }
 
