@@ -162,7 +162,7 @@ async function main() {
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js').then(reg => console.log('SW registered.', reg), err => console.log('SW reg failed: ', err));
+            navigator.serviceWorker.register('/UnfetteredStoryteller/sw.js').then(reg => console.log('SW registered.', reg), err => console.log('SW reg failed: ', err));
         });
     }
 
