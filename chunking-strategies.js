@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -142,6 +143,14 @@ function createSpellListChunk(item) {
     return `Type: Spell List\nClass: ${item.name}\nSpells: ${joinIfArray(item.spells)}`;
 }
 
+function createLoreChunk(item) {
+    let chunk = `Type: Custom Lore\n`;
+    if (item.name) chunk += `Topic: ${item.name}\n`;
+    if (item.type) chunk += `Category: ${item.type}\n`;
+    if (item.desc) chunk += `Content: ${sanitize(item.desc)}\n`;
+    return chunk;
+}
+
 const STRATEGIES = {
     spells: createSpellChunk,
     monsters: createMonsterChunk,
@@ -155,7 +164,9 @@ const STRATEGIES = {
     armor: createArmorChunk,
     planes: createPlaneOrSectionChunk,
     sections: createPlaneOrSectionChunk,
-    spelllist: createSpellListChunk
+    spelllist: createSpellListChunk,
+    documents: createPlaneOrSectionChunk,
+    lore: createLoreChunk,
 };
 
 /** Converts a structured data object into a text chunk for embedding using a strategy pattern. */

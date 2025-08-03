@@ -160,7 +160,24 @@ body {
   max-height: 90vh;
   display: flex;
   flex-direction: column;
+  position: relative;
 }
+
+.modal-close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-color);
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s ease;
+}
+.modal-close-btn:hover {
+    color: #ffb84d;
+}
+
 
 .modal-content h2 {
   font-family: var(--font-title);
@@ -588,9 +605,18 @@ body {
 }
 
 /* Legal Modal */
+#legal-modal-content {
+    overflow-y: auto;
+    text-align: center;
+}
+
 #legal-modal .modal-content p {
-    text-align: left;
+    text-align: center;
     font-size: 0.9rem;
+}
+
+#legal-modal .legal-section {
+    margin-bottom: 1.5rem;
 }
 
 
@@ -777,6 +803,7 @@ body {
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 header {
@@ -793,6 +820,8 @@ header {
 
 header .header-main {
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 header h1 {
@@ -1217,14 +1246,18 @@ footer {
 
 #chat-input {
   flex-grow: 1;
-  padding: 0.75rem;
-  height: 50px;
+  padding: 0.65rem 1rem;
   background-color: var(--dm-bubble-bg);
   border: 1px solid var(--border-color);
-  border-radius: 25px;
+  border-radius: 20px;
   color: var(--primary-text);
   font-size: 1rem;
   transition: border-color 0.3s, box-shadow 0.3s;
+  resize: none;
+  font-family: var(--font-body);
+  line-height: 1.4;
+  height: auto;
+  min-height: 50px;
 }
 
 #chat-input:focus {
@@ -1359,6 +1392,69 @@ footer {
 .skill-checkbox input:disabled + label {
     color: #888;
     text-decoration: line-through;
+}
+
+/* Sidebar Toggle Button (Mobile only) */
+.sidebar-toggle {
+    display: none; /* Hidden by default */
+    background: none;
+    border: none;
+    color: var(--primary-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+}
+
+.sidebar-toggle svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* Main content overlay for mobile sidebar */
+#app-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    z-index: 998; /* Below sidebar, above content */
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+#app.sidebar-open #app-overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Responsive sidebar for mobile */
+@media (max-width: 768px) {
+    #app {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-toggle {
+        display: block;
+    }
+
+    #player-stats {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        z-index: 999;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        width: var(--sidebar-width);
+        max-width: 80vw;
+        box-shadow: 5px 0 15px rgba(0,0,0,0.4);
+    }
+    
+    #app.sidebar-open #player-stats {
+        transform: translateX(0);
+    }
 }
 
 /* Debugger Panel Styles */

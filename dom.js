@@ -106,3 +106,5 @@ export const debugLogBtn = document.getElementById('debug-log-btn');
 export const debuggerPanel = document.getElementById('debugger-panel');
 export const debugInput = document.getElementById('debug-input');
 export const debugOutput = document.getElementById('debug-output');
+export const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
+export const appOverlay = document.getElementById('app-overlay');

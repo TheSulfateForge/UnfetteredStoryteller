@@ -1,4 +1,5 @@
 
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -30,7 +31,9 @@ const DATA_SOURCES = {
     armor: "data/armor.json",
     planes: "data/planes.json",
     sections: "data/sections.json",
-    spelllist: "data/spelllist.json"
+    spelllist: "data/spelllist.json",
+    documents: "data/documents.json",
+    lore: "data/lore.json",
 };
 
 // --- PRIVATE HELPERS ---
@@ -116,6 +119,11 @@ export async function buildStore() {
         try {
             const response = await fetch(url);
             if (!response.ok) {
+                // For the lore file, it's okay if it doesn't exist. Just warn and skip.
+                if (type === 'lore') {
+                    console.warn(`Optional lore file not found at ${url}. Skipping.`);
+                    continue;
+                }
                 console.error(`Failed to fetch ${url}: ${response.statusText}`);
                 updateStatus('error', `Could not find ${type}.json. Ensure it exists in a /data directory.`);
                 return; // Stop the build if a file is missing
@@ -237,4 +245,9 @@ export async function search(query, topK = 3) {
 /** Returns true if the RAG service is ready to perform searches. */
 export function isReady() {
     return status === 'ready' && vectorStore.length > 0;
+}
+
+/** Returns the current status of the RAG service. */
+export function getStatus() {
+    return status;
 }

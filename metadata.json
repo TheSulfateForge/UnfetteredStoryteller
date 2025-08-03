@@ -1,5 +1,6 @@
+
 {
-  "name": "Unfettered Storyteller - v0.1.15",
+  "name": "Unfettered Storyteller - v0.1.16",
   "description": "A classic tabletop RPG experience, powered by AI text generation.",
   "requestFramePermissions": [
     "microphone"

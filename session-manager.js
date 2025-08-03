@@ -1,3 +1,4 @@
+
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -111,9 +112,18 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
     dom.settingsForm.addEventListener('submit', handleSettingsSave);
 
     dom.providerSelector.addEventListener('change', () => {
-        const isLocal = dom.providerSelector.value === 'local';
+        const providerType = dom.providerSelector.value;
+        const isLocal = providerType === 'local';
         dom.geminiSettingsSection.classList.toggle('hidden', isLocal);
         dom.localLlmSettingsSection.classList.toggle('hidden', !isLocal);
+
+        // Re-evaluate RAG status based on the new provider.
+        if (providerType === 'local') {
+            ui.updateRagStatus('unsupported');
+        } else {
+            // When switching back to Gemini, restore the actual status of the RAG system.
+            ui.updateRagStatus(rag.getStatus());
+        }
     });
 
     dom.legalBtn.addEventListener('click', () => {

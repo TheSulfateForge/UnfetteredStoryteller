@@ -89,6 +89,14 @@ function setupMainAppEventListeners() {
 
     dom.chatForm.addEventListener('submit', gameLoop.handleFormSubmit);
 
+    // Handle Enter key for textarea submission
+    dom.chatInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' && !event.shiftKey) {
+            event.preventDefault();
+            dom.chatForm.requestSubmit();
+        }
+    });
+
     dom.micBtn.addEventListener('click', () => {
         const { speech, tts } = sessionManager.getServices();
         speech.toggle(tts.cancel);
@@ -150,6 +158,15 @@ function setupMainAppEventListeners() {
             }
         });
     }
+
+    // Sidebar toggle logic for mobile
+    dom.sidebarToggleBtn.addEventListener('click', () => {
+        dom.appElement.classList.toggle('sidebar-open');
+    });
+
+    dom.appOverlay.addEventListener('click', () => {
+        dom.appElement.classList.remove('sidebar-open');
+    });
 }
 
 
