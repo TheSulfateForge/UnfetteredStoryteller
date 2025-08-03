@@ -1,20 +1,19 @@
-
 {
   "short_name": "Unfettered Storyteller",
   "name": "Unfettered Storyteller",
   "icons": [
     {
-      "src": "/UnfetteredStoryteller/icon-192.png",
+      "src": "UFST-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/UnfetteredStoryteller/icon-512.png",
+      "src": "UFST-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/UnfetteredStoryteller/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#ff9900",
   "background_color": "#1a1a1d"
