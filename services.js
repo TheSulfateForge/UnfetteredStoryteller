@@ -20,22 +20,15 @@ class TtsService {
 
     init(initialState, providerSettings) {
         this.providerSettings = providerSettings;
-        this.isEnabled = initialState;
-        dom.readAloudToggle.checked = initialState;
-        
-        // Disable TTS if not using the Gemini provider, as it relies on the Google API
-        if (this.providerSettings.provider !== 'gemini') {
-            this.isAvailable = false;
-            this.isEnabled = false;
-            dom.readAloudToggle.checked = false;
-            dom.readAloudToggle.disabled = true;
-            const label = document.querySelector('label[for="read-aloud-toggle"]');
-            if (label) {
-                label.textContent = "Read Aloud (Gemini Only)";
-                 if(label.parentElement) {
-                    label.parentElement.title = "Text-to-Speech is only available when using the Google Gemini provider.";
-                 }
-            }
+        // Force the feature to be disabled as per the user's request.
+        this.isEnabled = false;
+        this.isAvailable = false;
+        dom.readAloudToggle.checked = false;
+        dom.readAloudToggle.disabled = true;
+
+        const labelParent = dom.readAloudToggle.closest('.switch')?.parentElement;
+        if (labelParent) {
+            labelParent.title = "The Read Aloud feature is currently disabled.";
         }
     }
 

@@ -24,6 +24,8 @@ export const TURNS_PER_DAY = 8; // Number of player actions to equal one in-game
 export const DICE_ROLL_REGEX = /\[ROLL\|([^|\]]+)\|([^|\]]*)(?:\|(ADVANTAGE|DISADVANTAGE|NONE))?\|?\]/g;
 // Captures [ATTACK|WEAPON_NAME|TARGET_DESCRIPTION|MODIFIER] where MODIFIER is optional and might have a trailing pipe.
 export const ATTACK_ROLL_REGEX = /\[ATTACK\|([^|\]]+)\|([^|\]]*)(?:\|(ADVANTAGE|DISADVANTAGE|NONE))?\|?\]/g;
+// Captures [EVENT|TYPE|DETAILS]
+export const EVENT_TAG_REGEX = /\[EVENT\|(ITEM|XP|MONEY)\|([^\]]+)\]/g;
 // Captures the JSON block from a state update tag, tolerant of missing brackets.
 export const STATE_UPDATE_REGEX = /(?:\[?STATE_UPDATE\]?)\s*(\{[\s\S]*?\})\s*(?:\[\/?STATE_UPDATE\])?/ig;
 // Captures [PIV_SEX|Male_Name|Female_Name]

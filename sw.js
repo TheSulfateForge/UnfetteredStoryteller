@@ -1,6 +1,5 @@
-
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v8'; // Bumped version to force update and reflect new strategy
+const CACHE_NAME = 'unfettered-storyteller-cache-v9'; // Bumped version to force update and reflect new strategy
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells.json', './data/monsters.json', './data/backgrounds.json', 
@@ -77,6 +76,13 @@ self.addEventListener('activate', event => {
       );
     }).then(() => self.clients.claim())
   );
+});
+
+// When the user clicks the update button, this message is received
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });
 
 

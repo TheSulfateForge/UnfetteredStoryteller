@@ -1082,6 +1082,41 @@ input:checked + .slider:before {
     animation: a-pulse 1.5s infinite;
 }
 
+/* Event Notification Message */
+.event-message {
+  align-self: center;
+  text-align: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 25px;
+  background-color: var(--dm-bubble-bg);
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+  font-family: var(--font-title);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  box-shadow: 0 0 15px rgba(255, 153, 0, 0.2);
+  font-size: 1.1rem;
+}
+
+.event-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.event-message.item {
+  color: #81c784; /* A soft green */
+  border-color: #81c784;
+  box-shadow: 0 0 15px rgba(129, 199, 132, 0.2);
+}
+
+.event-message.xp {
+  color: #64b5f6; /* A soft blue */
+  border-color: #64b5f6;
+  box-shadow: 0 0 15px rgba(100, 181, 246, 0.2);
+}
+
 /* --- Action Choice Button Styles --- */
 /* This container is used for the new multi-choice buttons */
 .roll-request-container {
@@ -1256,8 +1291,9 @@ footer {
   resize: none;
   font-family: var(--font-body);
   line-height: 1.4;
-  height: auto;
   min-height: 50px;
+  max-height: 150px; /* Limit growth */
+  overflow-y: auto; /* Show scrollbar if max-height is exceeded */
 }
 
 #chat-input:focus {
@@ -1501,4 +1537,43 @@ footer {
   font-family: monospace;
   font-size: 0.85rem;
   color: #ddd;
+}
+
+/* Update Notification Banner */
+#update-notification {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: linear-gradient(45deg, var(--accent-color), #ffbf60);
+    color: var(--background-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    z-index: 2000;
+    font-family: var(--font-body);
+    font-weight: bold;
+    animation: a-fade-in 0.5s forwards;
+}
+#update-notification p {
+    margin-bottom: 0;
+}
+#update-notification button {
+    padding: 0.5rem 1rem;
+    background-color: var(--background-color);
+    color: var(--accent-color);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-family: var(--font-title);
+    font-size: 1rem;
+}
+
+#update-notification button:hover {
+    background-color: #3a3a3d;
 }

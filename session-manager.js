@@ -1,4 +1,3 @@
-
 /**
  * @license
  * SPDX-License-Identifier: Apache-2.0
@@ -26,24 +25,27 @@ function isPlayerStateValid(state) {
 async function proceedToAdventure(action, setupMainAppEventListeners) {
     const providerSettings = game.getProviderSettings();
     
-    if (providerSettings.provider === 'gemini' && !providerSettings.apiKey) {
-        ui.showSettings(providerSettings);
-        return;
-    }
-    if (providerSettings.provider === 'local' && !providerSettings.localUrl) {
-        ui.showSettings(providerSettings);
-        return;
-    }
+    // Attempt to initialize services if they haven't been already
+    if (!gameState.getState().llmProvider) {
+        if (providerSettings.provider === 'gemini' && !providerSettings.apiKey) {
+            ui.showSettings(providerSettings);
+            return;
+        }
+        if (providerSettings.provider === 'local' && !providerSettings.localUrl) {
+            ui.showSettings(providerSettings);
+            return;
+        }
 
-    try {
-        const llmProvider = createLlmProvider(providerSettings);
-        gameState.updateState({ llmProvider });
-        rag.init(llmProvider, ui.updateRagStatus);
-    } catch(error) {
-        console.error("Failed to initialize LLM Provider", error);
-        alert(`There was an error initializing the AI provider. Please check your configuration in Settings. Error: ${error}`);
-        ui.showSettings(providerSettings);
-        return;
+        try {
+            const llmProvider = createLlmProvider(providerSettings);
+            gameState.updateState({ llmProvider });
+            await rag.init(llmProvider, ui.updateRagStatus);
+        } catch(error) {
+            console.error("Failed to initialize LLM Provider", error);
+            alert(`There was an error initializing the AI provider. Please check your configuration in Settings. Error: ${error}`);
+            ui.showSettings(providerSettings);
+            return;
+        }
     }
 
     const savedMatureEnabled = localStorage.getItem('matureEnabled') === 'true';
@@ -104,6 +106,22 @@ function handleSettingsSave(e) {
 // --- PUBLIC API ---
 
 export function setupInitialEventListeners(setupMainAppEventListeners) {
+    // Attempt to initialize services on page load to get RAG status immediately.
+    (async () => {
+        const providerSettings = game.getProviderSettings();
+        if ((providerSettings.provider === 'gemini' && providerSettings.apiKey) || (providerSettings.provider === 'local' && providerSettings.localUrl)) {
+            try {
+                if (!gameState.getState().llmProvider) {
+                    const llmProvider = createLlmProvider(providerSettings);
+                    gameState.updateState({ llmProvider });
+                    await rag.init(llmProvider, ui.updateRagStatus);
+                }
+            } catch (error) {
+                console.warn("Could not auto-initialize provider on page load.", error);
+            }
+        }
+    })();
+    
     dom.landingNewBtn.addEventListener('click', () => proceedToAdventure('new', setupMainAppEventListeners));
     dom.landingLoadBtn.addEventListener('click', () => proceedToAdventure('load', setupMainAppEventListeners));
     dom.landingSettingsBtn.addEventListener('click', () => ui.showSettings(game.getProviderSettings()));
@@ -116,7 +134,7 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
         const isLocal = providerType === 'local';
         dom.geminiSettingsSection.classList.toggle('hidden', isLocal);
         dom.localLlmSettingsSection.classList.toggle('hidden', !isLocal);
-
+    
         // Re-evaluate RAG status based on the new provider.
         if (providerType === 'local') {
             ui.updateRagStatus('unsupported');
@@ -237,7 +255,10 @@ export async function loadGame(characterId) {
     
     ui.updatePlayerStateUI(saveSlot.playerState, saveSlot.characterInfo);
     dom.chatLog.innerHTML = '';
-    saveSlot.chatHistory.forEach(message => {
+    
+    // Display the last 3 messages for context.
+    const recentHistory = saveSlot.chatHistory.slice(-3);
+    recentHistory.forEach(message => {
         const text = message.parts.map(p => p.text).join('');
         const sender = message.role === 'user' ? 'user' : 'dm';
         ui.addMessage(sender, cleanseResponseText(text));

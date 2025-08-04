@@ -108,3 +108,5 @@ export const debugInput = document.getElementById('debug-input');
 export const debugOutput = document.getElementById('debug-output');
 export const sidebarToggleBtn = document.getElementById('sidebar-toggle-btn');
 export const appOverlay = document.getElementById('app-overlay');
+export const updateNotificationBanner = document.getElementById('update-notification');
+export const updateReloadBtn = document.getElementById('update-reload-btn');

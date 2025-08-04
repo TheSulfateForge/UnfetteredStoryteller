@@ -10,7 +10,6 @@ import { hexToString } from './utils.js';
 import * as characterCreator from './character-creator.js';
 import * as gameLoop from './game-loop.js';
 import * as sessionManager from './session-manager.js';
-import * as game from './game.js';
 
 
 // --- SESSION & GAME LIFECYCLE ---
@@ -97,6 +96,13 @@ function setupMainAppEventListeners() {
         }
     });
 
+    // Handle auto-resizing for textarea
+    dom.chatInput.addEventListener('input', () => {
+        const input = dom.chatInput;
+        input.style.height = 'auto'; // Temporarily shrink to get the correct scrollHeight
+        input.style.height = `${input.scrollHeight}px`; // Expand to fit content
+    });
+
     dom.micBtn.addEventListener('click', () => {
         const { speech, tts } = sessionManager.getServices();
         speech.toggle(tts.cancel);
@@ -169,6 +175,38 @@ function setupMainAppEventListeners() {
     });
 }
 
+function setupServiceWorkerUpdateListener(reg) {
+    const showUpdateBanner = () => {
+        dom.updateNotificationBanner.classList.remove('hidden');
+    };
+
+    const onUpdateButtonClick = () => {
+        reg.waiting?.postMessage({ type: 'SKIP_WAITING' });
+    };
+    
+    dom.updateReloadBtn.addEventListener('click', onUpdateButtonClick);
+
+    navigator.serviceWorker.addEventListener('controllerchange', () => {
+        window.location.reload();
+    });
+
+    if (reg.waiting) {
+        showUpdateBanner();
+        return;
+    }
+
+    reg.addEventListener('updatefound', () => {
+        const newWorker = reg.installing;
+        if (newWorker) {
+            newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                    showUpdateBanner();
+                }
+            });
+        }
+    });
+}
+
 
 async function main() {
     const encodedCopyright = '436f707972696768742028632920323032352054686553756c66617465466f726765';
@@ -194,7 +232,10 @@ async function main() {
 
     if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js').then(reg => console.log('SW registered.', reg), err => console.log('SW reg failed: ', err));
+            navigator.serviceWorker.register('./sw.js').then(reg => {
+                console.log('SW registered.', reg);
+                setupServiceWorkerUpdateListener(reg);
+            }, err => console.log('SW reg failed: ', err));
         });
     }
 

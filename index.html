@@ -27,7 +27,8 @@
 }
 </script>
     <script type="module" src="./index.js"></script>
-  </head>
+  <link rel="stylesheet" href="/index.css">
+</head>
   <body>
     <!-- LANDING PAGE -->
     <div id="landing-page">
@@ -473,7 +474,7 @@
             -->
             <label for="read-aloud-toggle" class="toggle-label">Read Aloud</label>
             <label class="switch">
-              <input type="checkbox" id="read-aloud-toggle" />
+              <input type="checkbox" id="read-aloud-toggle" disabled />
               <span class="slider round"></span>
             </label>
           </div>
@@ -525,5 +526,10 @@
         </footer>
       </div>
     </div>
-  </body>
+    <div id="update-notification" class="hidden">
+        <p>A new version is available!</p>
+        <button id="update-reload-btn">Update & Reload</button>
+    </div>
+  <script type="module" src="/index.tsx"></script>
+</body>
 </html>

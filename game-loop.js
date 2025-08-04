@@ -115,11 +115,14 @@ async function processStream(stream, dmMessageElement) {
     let sentenceBuffer = '';
 
     for await (const chunk of stream) {
+        // Correctly get text from the chunk using the .text property accessor.
         const chunkText = chunk.text;
-        if(chunkText === undefined) {
-            console.warn("Received undefined text chunk from stream.");
+
+        if (chunkText === undefined || chunkText === null) {
+            console.warn("Received undefined or null text chunk from stream.", chunk);
             continue;
         }
+
         fullResponseText += chunkText;
         sentenceBuffer += chunkText;
 
@@ -165,6 +168,16 @@ async function processTagsAndActions(fullResponseText) {
         } catch (e) {
             console.error("Failed to parse player state JSON:", e);
         }
+    }
+
+    // --- Event Notification Logic ---
+    const eventMatches = [...fullResponseText.matchAll(config.EVENT_TAG_REGEX)];
+    if (eventMatches.length > 0) {
+        eventMatches.forEach(match => {
+            const type = match[1].toLowerCase();
+            const details = match[2];
+            ui.addEventMessage(type, details);
+        });
     }
     
     // Handle pregnancy tags if mature content is enabled

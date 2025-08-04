@@ -269,7 +269,8 @@ export async function handleCharacterCreationSubmit(event) {
     dom.storyHooksContainer.innerHTML = `<div class="spinner-container"><div class="spinner"></div><span>Generating creative story ideas...</span></div>`;
 
     try {
-        const result = await llmProvider.createStoryHooks(characterInfo, finalState);
+        const { isMatureEnabled } = gameState.getState();
+        const result = await llmProvider.createStoryHooks(characterInfo, finalState, isMatureEnabled);
         // Defensively handle cases where the model wraps the array in an object.
         const storyHooks = Array.isArray(result) ? result : (result.storyHooks || []);
         ui.displayStoryHooks(storyHooks, startAdventure);
