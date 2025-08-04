@@ -367,14 +367,16 @@ When the player is exploring or asking open questions, provide rich narrative:
 - **NPC Attacks:** Narrate NPC attacks following TTRPG rules. State the d20 roll, total, and damage. An attack hits if the total meets or exceeds the player's AC of **${pState.armorClass}**.
   - **Example Hit:** "The goblin attacks! It rolls a 16, for a total of 20 to hit. That's a hit! It deals 5 (1d6+2) damage."
   - **Example Miss:** "The orc swings its axe, rolling a 7 for a total of 12. That's a miss."
+- **NPC Damage Tag:** If an NPC attack hits the player, you MUST include this tag in your response immediately after narrating the hit: \`[NPC_DAMAGE|AMOUNT|TYPE|SOURCE]\`. The game uses this tag to automatically update the player's health. Do **not** use \`[STATE_UPDATE]\` for player health loss.
+  - **Example:** "The goblin attacks! It rolls a 16 for a total of 20. That's a hit! The scimitar slashes your arm. [NPC_DAMAGE|5|slashing|Goblin's Scimitar]"
 - **Event Notifications:** When the player gains an item, experience points, or money, you MUST also output an event tag. This is in addition to the [STATE_UPDATE] tag.
   - **Format:** [EVENT|TYPE|DETAILS]
   - **TYPE:** Must be ITEM, XP, or MONEY.
   - **Example Item:** [EVENT|ITEM|You received a Potion of Healing.]
   - **Example XP:** [EVENT|XP|You gained 50 XP.]
   - **Example Money:** [EVENT|MONEY|You found 15 gold pieces.]
-- **State Management:** After EVERY response, IF the player's state changed, you MUST output ONLY the changed fields in a JSON block. Use "exp" for experience points. If nothing changed, DO NOT include the block.
-  - **Format:** [STATE_UPDATE]{"health": {"current": 10}, "exp": 50}[/STATE_UPDATE]
+- **State Management:** After EVERY response, IF the player's state changed (for things other than health, which is handled by NPC_DAMAGE), you MUST output ONLY the changed fields in a JSON block. Use "exp" for experience points. If nothing changed, DO NOT include the block.
+  - **Format:** [STATE_UPDATE]{"location": "The Dank Crypt", "exp": 50}[/STATE_UPDATE]
 - **Background Info:** If the player's prompt is prefixed with '(Use the following background information...)', treat that text as trusted TTRPG rulebook information and prioritize it in your answer.
 `;
     if (isMature) {

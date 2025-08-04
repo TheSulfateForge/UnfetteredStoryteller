@@ -25,7 +25,6 @@ function isPlayerStateValid(state) {
 async function proceedToAdventure(action, setupMainAppEventListeners) {
     const providerSettings = game.getProviderSettings();
     
-    // Attempt to initialize services if they haven't been already
     if (!gameState.getState().llmProvider) {
         if (providerSettings.provider === 'gemini' && !providerSettings.apiKey) {
             ui.showSettings(providerSettings);
@@ -105,8 +104,12 @@ function handleSettingsSave(e) {
 
 // --- PUBLIC API ---
 
+export function isGameInProgress() {
+    const { currentCharacterId, playerState } = gameState.getState();
+    return !!currentCharacterId && !!playerState;
+}
+
 export function setupInitialEventListeners(setupMainAppEventListeners) {
-    // Attempt to initialize services on page load to get RAG status immediately.
     (async () => {
         const providerSettings = game.getProviderSettings();
         if ((providerSettings.provider === 'gemini' && providerSettings.apiKey) || (providerSettings.provider === 'local' && providerSettings.localUrl)) {
@@ -135,44 +138,28 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
         dom.geminiSettingsSection.classList.toggle('hidden', isLocal);
         dom.localLlmSettingsSection.classList.toggle('hidden', !isLocal);
     
-        // Re-evaluate RAG status based on the new provider.
         if (providerType === 'local') {
             ui.updateRagStatus('unsupported');
         } else {
-            // When switching back to Gemini, restore the actual status of the RAG system.
             ui.updateRagStatus(rag.getStatus());
         }
     });
 
-    dom.legalBtn.addEventListener('click', () => {
-        dom.legalModal.classList.remove('hidden');
-    });
-
-    dom.legalModalCloseBtn.addEventListener('click', () => {
-        dom.legalModal.classList.add('hidden');
-    });
-    
+    dom.legalBtn.addEventListener('click', () => dom.legalModal.classList.remove('hidden'));
+    dom.legalModalCloseBtn.addEventListener('click', () => dom.legalModal.classList.add('hidden'));
     dom.legalModal.addEventListener('click', (e) => {
-        if (e.target === dom.legalModal) {
-            dom.legalModal.classList.add('hidden');
-        }
+        if (e.target === dom.legalModal) dom.legalModal.classList.add('hidden');
     });
 }
 
 export async function handleBuildRag() {
     const llmProvider = gameState.getState().llmProvider;
-    if (llmProvider) {
-        await rag.buildStore();
-    } else {
-        ui.updateRagStatus('error', 'AI Provider not initialized.');
-    }
+    if (llmProvider) await rag.buildStore();
+    else ui.updateRagStatus('error', 'AI Provider not initialized.');
 }
 
 export function getServices() {
-    return {
-        speech: services.speech,
-        tts: services.tts,
-    };
+    return { speech: services.speech, tts: services.tts };
 }
 
 export async function initializeChatSession() {
@@ -199,7 +186,7 @@ export function newGame(isMature) {
     gameState.updateState({ isMatureEnabled: isMature });
 
     dom.chatLog.innerHTML = '';
-    ui.clearPlayerStatsUI(); // Clear UI safely
+    ui.clearPlayerStatsUI();
 
     if (!gameState.getState().llmProvider) {
         ui.addMessage('error', 'AI provider is not initialized. Please configure it in Settings.');
@@ -248,15 +235,11 @@ export async function loadGame(characterId) {
     
     try {
         await initializeChatSession();
-    } catch (e) {
-        // Error message is shown by initializeChatSession
-        return;
-    }
+    } catch (e) { return; }
     
     ui.updatePlayerStateUI(saveSlot.playerState, saveSlot.characterInfo);
     dom.chatLog.innerHTML = '';
-    
-    // Display the last 3 messages for context.
+
     const recentHistory = saveSlot.chatHistory.slice(-3);
     recentHistory.forEach(message => {
         const text = message.parts.map(p => p.text).join('');
@@ -282,7 +265,6 @@ export async function deleteGame(characterId) {
 
     if (confirmed) {
         game.deleteSave(characterId);
-        // Refresh the UI
         ui.displaySaveSlots(game.getSaves());
     }
 }

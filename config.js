@@ -26,6 +26,8 @@ export const DICE_ROLL_REGEX = /\[ROLL\|([^|\]]+)\|([^|\]]*)(?:\|(ADVANTAGE|DISA
 export const ATTACK_ROLL_REGEX = /\[ATTACK\|([^|\]]+)\|([^|\]]*)(?:\|(ADVANTAGE|DISADVANTAGE|NONE))?\|?\]/g;
 // Captures [EVENT|TYPE|DETAILS]
 export const EVENT_TAG_REGEX = /\[EVENT\|(ITEM|XP|MONEY)\|([^\]]+)\]/g;
+// NEW: Captures [NPC_DAMAGE|AMOUNT|TYPE|SOURCE]
+export const NPC_DAMAGE_REGEX = /\[NPC_DAMAGE\|(\d+)\|([^|\]]+)\|([^\]]+)\]/g;
 // Captures the JSON block from a state update tag, tolerant of missing brackets.
 export const STATE_UPDATE_REGEX = /(?:\[?STATE_UPDATE\]?)\s*(\{[\s\S]*?\})\s*(?:\[\/?STATE_UPDATE\])?/ig;
 // Captures [PIV_SEX|Male_Name|Female_Name]

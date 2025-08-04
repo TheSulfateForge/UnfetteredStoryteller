@@ -9,26 +9,26 @@ import './llm-provider.js';
 // --- UTILITY ---
 
 /**
- * Recursively merges properties of a source object into a target object.
+ * Recursively and immutably merges properties of a source object into a target object.
  * @param target The target object to merge into.
  * @param source The source object to merge from.
- * @returns The merged target object.
+ * @returns A new object with the merged properties.
  */
 function deepMerge(target, source) {
+    const output = { ...target };
+
     for (const key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
             const sourceValue = source[key];
-            if (sourceValue && typeof sourceValue === 'object' && !Array.isArray(sourceValue)) {
-                if (!target[key]) {
-                    Object.assign(target, { [key]: {} });
-                }
-                deepMerge(target[key], sourceValue);
+            const targetValue = output[key];
+            if (sourceValue && typeof sourceValue === 'object' && !Array.isArray(sourceValue) && targetValue && typeof targetValue === 'object' && !Array.isArray(targetValue)) {
+                output[key] = deepMerge(targetValue, sourceValue);
             } else {
-                Object.assign(target, { [key]: sourceValue });
+                output[key] = sourceValue;
             }
         }
     }
-    return target;
+    return output;
 }
 
 
@@ -70,12 +70,12 @@ class _GameStateManager {
     }
     
     /**
-     * Specifically updates the playerState using a deep merge to handle nested objects.
+     * Specifically updates the playerState using an immutable deep merge to handle nested objects.
      * @param playerStateUpdate A partial PlayerState object.
      */
     updatePlayerState(playerStateUpdate) {
         if (this.state.playerState) {
-            deepMerge(this.state.playerState, playerStateUpdate);
+            this.updateState({ playerState: deepMerge(this.state.playerState, playerStateUpdate) });
         } else {
             this.updateState({ playerState: playerStateUpdate });
         }

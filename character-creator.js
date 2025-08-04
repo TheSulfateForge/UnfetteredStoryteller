@@ -6,12 +6,11 @@
 import * as dom from './dom.js';
 import * as ui from './ui.js';
 import * as dataManager from './data-manager.js';
-import { generateBaseRpgPlayerState, getPointBuyCost, getStartingEquipment, getEquipmentFromBackground, getAbilityModifierValue, calculateArmorClass, getClassFeaturesForLevel } from './rpg-helpers.js';
+import { getPointBuyCost, getClassFeaturesForLevel } from './rpg-helpers.js';
 import { gameState } from './state-manager.js';
 import * as game from './game.js';
 import { startAdventure } from './game-loop.js';
 import { initializeChatSession } from './session-manager.js';
-import { toCamelCase } from './utils.js';
 
 // --- STATE & CONSTANTS ---
 
@@ -24,7 +23,7 @@ const STAT_ABBREVIATIONS = {
     charisma: 'cha',
 };
 
-export const POINT_BUY_TOTAL = 40;
+export const POINT_BUY_TOTAL = 35;
 let pointBuyState = {
     pointsRemaining: POINT_BUY_TOTAL,
     scores: {
@@ -220,76 +219,84 @@ export async function handleCharacterCreationSubmit(event) {
     const classData = dataManager.getClass(characterInfo.characterClass);
     const raceData = dataManager.getRace(characterInfo.race);
     const backgroundData = dataManager.getBackground(characterInfo.background);
-
     if (!classData || !raceData || !backgroundData) {
         alert("Error: Could not find rules data for selected options.");
         return;
     }
 
-    const finalState = generateBaseRpgPlayerState(characterInfo);
+    const fullCharacterDescription = `
+        This is the user's primary input for their character. PRIORITIZE THIS TEXT over any conflicting information from the form fields below. If this text contains a full character sheet (stats, skills, level, items, etc.), use it directly to populate the JSON.
 
-    // Apply point-buy scores and racial bonuses
-    for (const key in finalState.abilityScores) {
-        const baseScore = pointBuyState.scores[key];
-        finalState.abilityScores[key] = baseScore + (raceData.ability_bonuses?.[key] || 0);
-    }
+        --- USER'S FREE-TEXT DESCRIPTION ---
+        Name: ${characterInfo.name}
+        Appearance: ${characterInfo.desc}
+        Backstory: ${characterInfo.bio}
+        --- END OF FREE-TEXT DESCRIPTION ---
 
-    // Calculate final stats based on rules
-    finalState.health.max = (classData.hit_die || 8) + getAbilityModifierValue(finalState.abilityScores.constitution);
-    finalState.health.current = finalState.health.max;
-    
-    const classEquipment = getStartingEquipment(characterInfo.characterClass);
-    const backgroundEquipment = getEquipmentFromBackground(backgroundData);
-    finalState.equipment = classEquipment.equipment;
-    finalState.inventory = [...new Set([...classEquipment.inventory, ...backgroundEquipment])];
+        The following are supplementary selections from UI dropdowns. Use these ONLY to fill in details that are MISSING from the free-text description above.
+        Race Selection: ${characterInfo.race}
+        Class Selection: ${characterInfo.characterClass}
+        Background Selection: ${characterInfo.background}
+        Alignment Selection: ${characterInfo.alignment}
+        Gender Selection: ${characterInfo.gender}
+        Ability Scores (from Point Buy): Str ${pointBuyState.scores.strength}, Dex ${pointBuyState.scores.dexterity}, Con ${pointBuyState.scores.constitution}, Int ${pointBuyState.scores.intelligence}, Wis ${pointBuyState.scores.wisdom}, Cha ${pointBuyState.scores.charisma}
+    `;
 
-    finalState.armorClass = calculateArmorClass(finalState);
-    
-    (classData.prof_saving_throws || "").toLowerCase().split(', ').forEach(save => {
-        if (save in finalState.savingThrows) finalState.savingThrows[save] = 'proficient';
-    });
-
-    finalState.racialTraits = raceData.traits.map(t => t.name).filter(n => !['Ability Score Increase', 'Age', 'Alignment', 'Size', 'Speed', 'Languages'].includes(n));
-    finalState.classFeatures = getClassFeaturesForLevel(classData, 1);
-    backgroundData.benefits?.forEach(b => { if (b.type === 'feature') finalState.classFeatures.push(b.name); });
-    
-    document.querySelectorAll('#skill-selection-container input[type="checkbox"]:checked').forEach(checkbox => {
-        const skillKey = toCamelCase(checkbox.value);
-        if (skillKey in finalState.skills) finalState.skills[skillKey] = 'proficient';
-    });
-
-    gameState.updateState({ characterInfo, playerState: finalState });
-    ui.updatePlayerStateUI(finalState, characterInfo);
     dom.characterCreationModal.classList.add('hidden');
-    dom.characterForm.reset();
-    resetPointBuy();
-
-    // Call AI for creative story hooks
     dom.storyHooksModal.classList.remove('hidden');
-    dom.storyHooksContainer.innerHTML = `<div class="spinner-container"><div class="spinner"></div><span>Generating creative story ideas...</span></div>`;
+    dom.storyHooksContainer.innerHTML = `<div class="spinner-container"><div class="spinner"></div><span>The Storyteller is crafting your character and adventure... This may take a moment.</span></div>`;
 
     try {
         const { isMatureEnabled } = gameState.getState();
-        const result = await llmProvider.createStoryHooks(characterInfo, finalState, isMatureEnabled);
-        // Defensively handle cases where the model wraps the array in an object.
-        const storyHooks = Array.isArray(result) ? result : (result.storyHooks || []);
-        ui.displayStoryHooks(storyHooks, startAdventure);
+        const { playerState, storyHooks } = await llmProvider.createCharacterSheet(characterInfo, fullCharacterDescription, isMatureEnabled);
+
+        // Supplement the AI-generated state with app-managed properties
+        playerState.turnCount = 0;
+        playerState.pregnancy = null;
+        playerState.npcStates = {};
+
+        // Ensure arrays exist, even if AI omits them
+        playerState.feats = playerState.feats || [];
+        playerState.racialTraits = playerState.racialTraits || [];
+        playerState.classFeatures = playerState.classFeatures || [];
         
+        // Add base traits from rules data to ensure they aren't missed by the AI.
+        const baseRacialTraits = raceData.traits
+            .map(t => t.name)
+            .filter(n => !['Ability Score Increase', 'Age', 'Alignment', 'Size', 'Speed', 'Languages'].includes(n));
+        playerState.racialTraits = [...new Set([...playerState.racialTraits, ...baseRacialTraits])];
+        
+        const baseClassFeatures = getClassFeaturesForLevel(classData, 1);
+        backgroundData.benefits?.forEach(b => { if (b.type === 'feature') baseClassFeatures.push(b.name); });
+        playerState.classFeatures = [...new Set([...playerState.classFeatures, ...baseClassFeatures])];
+
+        gameState.updateState({ characterInfo, playerState });
+        ui.updatePlayerStateUI(playerState, characterInfo);
+        
+        dom.characterForm.reset();
+        resetPointBuy();
+
+        const finalHooks = Array.isArray(storyHooks) ? storyHooks : ((storyHooks).storyHooks || []);
+        ui.displayStoryHooks(finalHooks, startAdventure);
+
         const newCharacterId = Date.now().toString();
         gameState.updateState({ currentCharacterId: newCharacterId });
         const newSave = {
-            id: newCharacterId, 
-            characterInfo, 
-            playerState: finalState,
-            chatHistory: [], 
-            currentModelIndex: 0 
+            id: newCharacterId,
+            characterInfo,
+            playerState,
+            chatHistory: [],
+            currentModelIndex: llmProvider.getCurrentModelIndex()
         };
         game.addNewSave(newSave);
+        
         await initializeChatSession();
+
     } catch (error) {
-        console.error("Failed to generate story hooks:", error);
-        ui.addMessage('error', 'The storyteller had trouble coming up with story ideas. You can write your own below to start!');
-        ui.displayStoryHooks([], startAdventure);
+        console.error("Failed to generate character sheet:", error);
+        ui.addMessage('error', 'The storyteller had trouble creating your character. Please try again or simplify your description.');
+        dom.storyHooksModal.classList.add('hidden');
+        dom.characterCreationModal.classList.remove('hidden');
     }
 }
 

@@ -68,7 +68,7 @@ const savingThrowsSchema = {
 
 export const playerStateSchema = {
     type: Type.OBJECT,
-    description: "A complete representation of a TTRPG player character's state. Do not include turnCount, pregnancy, npcStates, feats, racialTraits, or classFeatures properties, as these are handled by the application.",
+    description: "A complete representation of a TTRPG player character's state. Do not include turnCount, pregnancy, or npcStates properties, as these are handled by the application.",
     properties: {
         name: { type: Type.STRING, description: "The character's name, potentially embellished by the AI." },
         backstory: { type: Type.STRING, description: "The character's backstory, potentially embellished by the AI." },
@@ -126,6 +126,21 @@ export const playerStateSchema = {
         abilityScores: abilityScoresSchema,
         skills: skillsSchema,
         savingThrows: savingThrowsSchema,
+        feats: {
+            type: Type.ARRAY,
+            description: "A list of feat names derived from the character description.",
+            items: { type: Type.STRING }
+        },
+        racialTraits: {
+            type: Type.ARRAY,
+            description: "A list of key racial traits derived from the character description.",
+            items: { type: Type.STRING }
+        },
+        classFeatures: {
+            type: Type.ARRAY,
+            description: "A list of key class features derived from the character description.",
+            items: { type: Type.STRING }
+        },
     },
     required: [
         "name", "backstory", "appearanceDescription", "alignment",

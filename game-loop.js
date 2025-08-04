@@ -17,31 +17,19 @@ import * as game from './game.js';
 
 // --- CORE GAME LOOP ---
 
-export async function sendMessageAndProcessStream(promptForApi, promptForHistory, targetElement) {
-    // Debugging logs requested by user
-    console.log("=== SENDING TO AI ===");
-    console.log("Prompt for API:", promptForApi);
-    console.log("Current state - isGenerating:", gameState.getState().isGenerating);
-    console.log("Chat history length:", gameState.getState().chatHistory.length);
-
+export async function sendMessageAndProcessStream(promptForApi, targetElement) {
     const { isGenerating, characterInfo, playerState, llmProvider, chatHistory } = gameState.getState();
     if (isGenerating || !characterInfo || !playerState || !llmProvider) {
-        console.log("❌ BLOCKED - isGenerating:", isGenerating, "characterInfo:", !!characterInfo, "playerState:", !!playerState, "llmProvider:", !!llmProvider);
         return;
     }
 
-
-    // --- Build Debugger Log ---
-    // Construct a comprehensive input log for the debugger BEFORE updating the main history state.
     const systemInstruction = llmProvider.getSystemInstructionContent(characterInfo, playerState, gameState.getState().isMatureEnabled);
     let fullInputForDebugger = `--- SYSTEM PROMPT ---\n${systemInstruction}\n\n--- CHAT HISTORY & CURRENT PROMPT ---`;
     chatHistory.forEach(msg => {
         const text = msg.parts.map(p => p.text).join('');
         fullInputForDebugger += `\n${msg.role}: ${text}`;
     });
-    // Append the new prompt that is being sent to the AI for this turn.
-    fullInputForDebugger += `\nuser: ${promptForApi}`;
-
+    
     const providerType = game.getProviderSettings().provider;
     if (providerType === 'local') {
         fullInputForDebugger = `(This is a reconstruction of the data sent to a local OpenAI-compatible API. The actual payload is a JSON object with this content.)\n\n` + fullInputForDebugger;
@@ -50,14 +38,6 @@ export async function sendMessageAndProcessStream(promptForApi, promptForHistory
     gameState.updateState({ lastApiInput: fullInputForDebugger, lastApiResponse: 'Waiting for AI response...' });
     ui.updateDebuggerUI(fullInputForDebugger, 'Waiting for AI response...');
 
-    // --- Update Game State ---
-    // Now that the log for the *current* turn is created, update the history for the *next* turn.
-    if (promptForHistory) {
-        const newHistory = [...chatHistory, { role: 'user', parts: [{ text: promptForHistory }] }];
-        gameState.updateState({ chatHistory: newHistory });
-    }
-
-    // --- Call API and Process Stream ---
     ui.setLoading(true);
     gameState.updateState({ isGenerating: true });
 
@@ -85,14 +65,9 @@ export async function sendMessageAndProcessStream(promptForApi, promptForHistory
                 const newModel = llmProvider.getCurrentModel();
                 dmMessageElement.innerHTML = `<em>API limit reached for ${oldModel}. Switching to fallback: ${newModel}. Retrying...</em>`;
                 await initializeChatSession();
-                
-                // The isGenerating flag from the failed call is still true.
-                // Reset it before retrying, otherwise the retry call will be blocked.
                 gameState.updateState({ isGenerating: false });
-                
-                // Retry the call. Pass the same dmMessageElement to be updated. Pass empty string for history prompt to avoid duplication.
-                await sendMessageAndProcessStream(promptForApi, '', dmMessageElement);
-                return; // Exit this failed call; the recursive one takes over.
+                await sendMessageAndProcessStream(promptForApi, dmMessageElement);
+                return; 
             } else {
                  dmMessageElement.innerHTML = `API limit reached, and no fallback models are available. Please check your plan and billing details.`;
                  dmMessageElement.classList.add('error-message');
@@ -102,11 +77,9 @@ export async function sendMessageAndProcessStream(promptForApi, promptForHistory
             dmMessageElement.classList.add('error-message');
         }
         
-        // This part is reached on unrecoverable error.
         ui.setLoading(false);
         gameState.updateState({ isGenerating: false, lastApiResponse: `ERROR: ${error.message || error}` });
         ui.updateDebuggerUI(gameState.getState().lastApiInput, gameState.getState().lastApiResponse);
-
     }
 }
 
@@ -115,24 +88,17 @@ async function processStream(stream, dmMessageElement) {
     let sentenceBuffer = '';
 
     for await (const chunk of stream) {
-        // Correctly get text from the chunk using the .text property accessor.
         const chunkText = chunk.text;
-
-        if (chunkText === undefined || chunkText === null) {
-            console.warn("Received undefined or null text chunk from stream.", chunk);
-            continue;
-        }
+        if (chunkText === undefined || chunkText === null) continue;
 
         fullResponseText += chunkText;
         sentenceBuffer += chunkText;
 
         const cleanedTextForDisplay = cleanseResponseText(fullResponseText);
-        
         dmMessageElement.innerHTML = cleanedTextForDisplay
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/\*(.*?)\*/g, '<em>$1</em>')
             .replace(/\n/g, '<br>');
-
         ui.scrollToBottom();
 
         let boundaryIndex;
@@ -158,29 +124,36 @@ async function processTagsAndActions(fullResponseText) {
     let stateWasUpdated = false;
     const { isMatureEnabled, playerState, characterInfo } = gameState.getState();
 
-    // --- State Update Logic ---
+    const npcDamageMatches = [...fullResponseText.matchAll(config.NPC_DAMAGE_REGEX)];
+    if (npcDamageMatches.length > 0) {
+        let totalDamage = 0;
+        npcDamageMatches.forEach(match => {
+            const damageAmount = parseInt(match[1], 10);
+            if (!isNaN(damageAmount)) {
+                totalDamage += damageAmount;
+            }
+        });
+
+        const currentPState = gameState.getState().playerState;
+        if (totalDamage > 0 && currentPState) {
+            const newHp = currentPState.health.current - totalDamage;
+            gameState.updatePlayerState({ health: { current: newHp, max: currentPState.health.max } });
+            stateWasUpdated = true;
+        }
+    }
+    
     const stateMatch = fullResponseText.match(config.STATE_UPDATE_REGEX);
     if (stateMatch && stateMatch[1]) {
         try {
             const parsedStateUpdate = JSON.parse(stateMatch[1]);
             gameState.updatePlayerState(parsedStateUpdate);
             stateWasUpdated = true;
-        } catch (e) {
-            console.error("Failed to parse player state JSON:", e);
-        }
+        } catch (e) { console.error("Failed to parse player state JSON:", e); }
     }
 
-    // --- Event Notification Logic ---
     const eventMatches = [...fullResponseText.matchAll(config.EVENT_TAG_REGEX)];
-    if (eventMatches.length > 0) {
-        eventMatches.forEach(match => {
-            const type = match[1].toLowerCase();
-            const details = match[2];
-            ui.addEventMessage(type, details);
-        });
-    }
+    eventMatches.forEach(match => ui.addEventMessage(match[1].toLowerCase(), match[2]));
     
-    // Handle pregnancy tags if mature content is enabled
     if (isMatureEnabled && playerState && characterInfo) {
         if (config.PIV_SEX_TAG.test(fullResponseText) && characterInfo.gender === 'female' && !playerState.pregnancy?.isPregnant && Math.random() < config.PREGNANCY_CHANCE) {
             const sireMatch = fullResponseText.match(config.PIV_SEX_TAG);
@@ -206,14 +179,11 @@ async function processTagsAndActions(fullResponseText) {
 
     const attackMatches = [...fullResponseText.matchAll(config.ATTACK_ROLL_REGEX)];
     const diceMatches = [...fullResponseText.matchAll(config.DICE_ROLL_REGEX)];
-
     const choices = [];
     attackMatches.forEach(match => choices.push({ type: 'attack', weaponName: match[1], targetDescription: match[2], modifier: match[3] }));
     diceMatches.forEach(match => choices.push({ type: 'roll', skillOrAbility: match[1], description: match[2], modifier: match[3] }));
 
     if (choices.length === 1) {
-        // This is part of a continuing generation sequence. Do not change the isGenerating state.
-        // It will be set to false only when a response with no actions is received.
         const choice = choices[0];
         if (choice.type === 'attack') {
             await handleAttackRollRequest(choice.weaponName, choice.targetDescription, choice.modifier);
@@ -221,86 +191,72 @@ async function processTagsAndActions(fullResponseText) {
             await handleDiceRollRequest(choice.skillOrAbility, choice.description, choice.modifier);
         }
     } else if (choices.length > 1) {
-        // Multiple choices are presented. The game is now waiting for player input.
         ui.displayActionChoices(choices);
-        ui.setLoading(true, false); // Keep spinner, but allow input via buttons.
-        gameState.updateState({ isGenerating: false }); // Set to false to allow choice button clicks to proceed.
+        ui.setLoading(true, false);
+        gameState.updateState({ isGenerating: false });
     } else {
-        // If no tags were found, the turn is purely narrative. The game is now waiting for player input.
         ui.setLoading(false);
         gameState.updateState({ isGenerating: false });
         dom.chatInput.focus();
         const lastDmMessageElement = dom.chatLog.querySelector('.dm-message:last-child');
-        if (lastDmMessageElement) {
-            ui.addPostResponseButtons(lastDmMessageElement);
-        }
+        if (lastDmMessageElement) ui.addPostResponseButtons(lastDmMessageElement);
     }
 }
 
-
 export async function handleAttackRollRequest(weaponName, description, rollModifier) {
-    const { playerState } = gameState.getState();
+    const { playerState, chatHistory } = gameState.getState();
     if (!playerState) return;
 
-    // A roll is an action that consumes a turn.
     gameState.updatePlayerState({ turnCount: playerState.turnCount + 1 });
-
     const weaponData = getWeaponData(weaponName);
     if (!weaponData) {
-        gameState.updateState({ isGenerating: false }); // Reset state before chained call
-        await sendMessageAndProcessStream(`(Attack failed: Weapon '${weaponName}' not found.)`, `Action: Attack failed, weapon not found.`);
+        const newHistory = [...chatHistory, { role: 'user', parts: [{ text: `Action: Attack failed, weapon not found.` }] }];
+        gameState.updateState({ chatHistory: newHistory, isGenerating: false });
+        saveCurrentGame();
+        await sendMessageAndProcessStream(`(Attack failed: Weapon '${weaponName}' not found.)`);
         return;
     }
 
     const abilityKey = weaponData.is_finesse && playerState.abilityScores.dexterity > playerState.abilityScores.strength ? 'dexterity' : 'strength';
     const attackBonus = getAbilityModifierValue(playerState.abilityScores[abilityKey]) + playerState.proficiencyBonus;
-
     let roll1 = Math.floor(Math.random() * 20) + 1, roll2 = Math.floor(Math.random() * 20) + 1;
     let attackRoll = rollModifier === 'ADVANTAGE' ? Math.max(roll1, roll2) : (rollModifier === 'DISADVANTAGE' ? Math.min(roll1, roll2) : roll1);
-    
     const isCritical = attackRoll === 20;
     const damageDice = weaponData.damage_dice;
     let damageRoll = rollDice(damageDice).total + (isCritical ? rollDice(damageDice).total : 0);
     const damageBonus = getAbilityModifierValue(playerState.abilityScores[abilityKey]);
     
-    const attackContent = {
-        description: `Attack with ${weaponName} on ${description}`, weaponName, attackRoll, attackBonus,
-        totalAttackRoll: attackRoll + attackBonus, damageRoll, damageBonus, totalDamage: Math.max(1, damageRoll + damageBonus),
-        damageDice, isCritical, allRolls: (rollModifier === 'ADVANTAGE' || rollModifier === 'DISADVANTAGE') ? [roll1, roll2] : [roll1], rollModifier
-    };
+    const attackContent = { description: `Attack with ${weaponName} on ${description}`, weaponName, attackRoll, attackBonus, totalAttackRoll: attackRoll + attackBonus, damageRoll, damageBonus, totalDamage: Math.max(1, damageRoll + damageBonus), damageDice, isCritical, allRolls: (rollModifier && rollModifier !== 'NONE') ? [roll1, roll2] : [roll1], rollModifier };
     ui.addMessage('attack', attackContent);
     
     const historyPrompt = `Action: Attacked ${description} with ${weaponName} (Attack Roll: ${attackContent.totalAttackRoll}, Damage: ${attackContent.totalDamage})`;
     const apiPrompt = `The attack roll against "${description}" with the ${weaponName} is ${attackContent.totalAttackRoll}, dealing ${attackContent.totalDamage} damage. ${attackContent.isCritical ? 'It was a critical hit. ' : ''}Narrate the outcome.`;
     
-    // IMPORTANT: Reset the generating state before sending result back
-    gameState.updateState({ isGenerating: false });
-    await sendMessageAndProcessStream(apiPrompt, historyPrompt);
+    const newHistory = [...chatHistory, { role: 'user', parts: [{ text: historyPrompt }] }];
+    gameState.updateState({ chatHistory: newHistory, isGenerating: false });
+    saveCurrentGame();
+    await sendMessageAndProcessStream(apiPrompt);
 }
 
 export async function handleDiceRollRequest(skillOrAbility, description, rollModifier) {
-    const { playerState } = gameState.getState();
+    const { playerState, chatHistory } = gameState.getState();
     if (!playerState) return;
 
-    // A roll is an action that consumes a turn.
     gameState.updatePlayerState({ turnCount: playerState.turnCount + 1 });
-
     const modifier = calculateRollModifier(skillOrAbility, playerState);
     let roll1 = Math.floor(Math.random() * 20) + 1, roll2 = Math.floor(Math.random() * 20) + 1;
     let chosenRoll = rollModifier === 'ADVANTAGE' ? Math.max(roll1, roll2) : (rollModifier === 'DISADVANTAGE' ? Math.min(roll1, roll2) : roll1);
 
-    const diceContent = {
-        description, roll: chosenRoll, modifier, total: chosenRoll + modifier, dieValue: 20,
-        diceString: `d20+${modifier}`, skillOrAbility, allRolls: (rollModifier === 'ADVANTAGE' || rollModifier === 'DISADVANTAGE') ? [roll1, roll2] : [roll1], rollModifier
-    };
+    const diceContent = { description, roll: chosenRoll, modifier, total: chosenRoll + modifier, dieValue: 20, diceString: `d20+${modifier}`, skillOrAbility, allRolls: (rollModifier && rollModifier !== 'NONE') ? [roll1, roll2] : [roll1], rollModifier };
     ui.addMessage('dice', diceContent);
     
     const historyPrompt = `Action: ${description} (Result: ${diceContent.total})`;
     const apiPrompt = `The ${skillOrAbility} check for my character's attempt to "${description}" resulted in a total of ${diceContent.total}. Narrate the outcome.`;
 
-    // IMPORTANT: Reset the generating state before sending result back
-    gameState.updateState({ isGenerating: false });
-    await sendMessageAndProcessStream(apiPrompt, historyPrompt);
+    const newHistory = [...chatHistory, { role: 'user', parts: [{ text: historyPrompt }] }];
+    gameState.updateState({ chatHistory: newHistory, isGenerating: false });
+    saveCurrentGame();
+    await sendMessageAndProcessStream(apiPrompt);
 }
 
 export async function handleFormSubmit(event) {
@@ -311,7 +267,13 @@ export async function handleFormSubmit(event) {
     services.tts.cancel();
     ui.addMessage('user', userInput);
     dom.chatInput.value = '';
-    gameState.updatePlayerState({ turnCount: (gameState.getState().playerState?.turnCount || 0) + 1 });
+
+    const { playerState, chatHistory } = gameState.getState();
+    const newTurnCount = (playerState?.turnCount || 0) + 1;
+    const newHistory = [...chatHistory, { role: 'user', parts: [{ text: userInput }] }];
+    gameState.updatePlayerState({ turnCount: newTurnCount });
+    gameState.updateState({ chatHistory: newHistory });
+    saveCurrentGame();
 
     let finalPrompt = userInput;
     if (rag.isReady()) {
@@ -322,7 +284,7 @@ export async function handleFormSubmit(event) {
         }
     }
     
-    await sendMessageAndProcessStream(finalPrompt, userInput);
+    await sendMessageAndProcessStream(finalPrompt);
 }
 
 export async function startAdventure(startingHook) {
@@ -331,8 +293,14 @@ export async function startAdventure(startingHook) {
     const initialPrompt = `My adventure begins with this scenario: ${startingHook}`;
     const startingMessageElement = ui.addMessage('dm', '<em>Your adventure begins...</em>');
     
-    gameState.updatePlayerState({ turnCount: (gameState.getState().playerState?.turnCount || 0) + 1 });
-    await sendMessageAndProcessStream(initialPrompt, initialPrompt, startingMessageElement);
+    const { playerState, chatHistory } = gameState.getState();
+    const newTurnCount = (playerState?.turnCount || 0) + 1;
+    const newHistory = [...chatHistory, { role: 'user', parts: [{ text: initialPrompt }] }];
+    gameState.updatePlayerState({ turnCount: newTurnCount });
+    gameState.updateState({ chatHistory: newHistory });
+    saveCurrentGame();
+
+    await sendMessageAndProcessStream(initialPrompt, startingMessageElement);
 }
 
 export async function handleRerollRequest(button) {
@@ -348,13 +316,11 @@ export async function handleRerollRequest(button) {
     const messages = Array.from(dom.chatLog.children);
     const diceIndex = messages.indexOf(diceMessage);
 
-    // Remove the dice roll, the DM response, and this button container
     messages[diceIndex]?.remove();
     messages[diceIndex + 1]?.remove();
     button.parentElement?.remove();
 
     const currentHistory = gameState.getState().chatHistory;
-    // History should be [..., user, model, user, model]. We want to remove the last model and user (the dice roll result).
     const newHistory = currentHistory.slice(0, -2);
     gameState.updateState({ chatHistory: newHistory });
 
@@ -372,12 +338,12 @@ export async function handleRegenerateRequest(button) {
 
     const currentHistory = gameState.getState().chatHistory;
     const lastUserContent = currentHistory[currentHistory.length - 2];
-    const newHistory = currentHistory.slice(0, -1); // Remove last model response
+    const newHistory = currentHistory.slice(0, -1);
     gameState.updateState({ chatHistory: newHistory });
 
     if (!lastUserContent || lastUserContent.role !== 'user') return;
 
     const userPrompt = lastUserContent.parts.map(p => p.text).join('');
     
-    await sendMessageAndProcessStream(userPrompt, '', dmMessage);
+    await sendMessageAndProcessStream(userPrompt, dmMessage);
 }

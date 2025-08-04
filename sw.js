@@ -1,5 +1,5 @@
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v9'; // Bumped version to force update and reflect new strategy
+const CACHE_NAME = 'unfettered-storyteller-cache-v11'; // Bumped version to force update and reflect new strategy
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells.json', './data/monsters.json', './data/backgrounds.json', 

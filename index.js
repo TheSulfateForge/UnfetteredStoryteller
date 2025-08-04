@@ -226,6 +226,23 @@ async function main() {
     } catch (error) {
         console.error("Could not load version from metadata.json", error);
     }
+    
+    // Add Save on Exit/Hide listener
+    const saveOnExit = () => {
+        // visibilityState becomes 'hidden' when switching tabs, minimizing, or on mobile when switching apps.
+        if (document.visibilityState === 'hidden' && sessionManager.isGameInProgress()) {
+            console.log('Page is hidden, saving game state...');
+            sessionManager.saveCurrentGame();
+        }
+    };
+    document.addEventListener('visibilitychange', saveOnExit);
+    
+    // beforeunload is a fallback for desktop tab/browser closing.
+    window.addEventListener('beforeunload', () => {
+        if (sessionManager.isGameInProgress()) {
+            sessionManager.saveCurrentGame();
+        }
+    });
 
     await dataManager.init();
     ui.populateCreationDropdowns();
