@@ -288,6 +288,7 @@ export async function handleFormSubmit(event) {
 }
 
 export async function startAdventure(startingHook) {
+    dom.appElement.classList.remove('hidden');
     dom.storyHooksModal.classList.add('hidden');
     dom.customHookForm.reset();
     const initialPrompt = `My adventure begins with this scenario: ${startingHook}`;

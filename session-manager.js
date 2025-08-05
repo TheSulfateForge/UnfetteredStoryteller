@@ -59,7 +59,6 @@ async function proceedToAdventure(action, setupMainAppEventListeners) {
         setupMainAppEventListeners();
         dom.landingPage.classList.add('hidden');
         if (action === 'new') {
-            dom.appElement.classList.remove('hidden');
             newGame(savedMatureEnabled);
         } else if (action === 'load') {
             const allSaves = game.getSaves();
