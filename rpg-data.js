@@ -2,18 +2,13 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-
+import { Type } from '@google/genai';
 // This file defines the JSON schema for the PlayerState object,
 // which is used to instruct the Gemini API on the expected format
 // for character sheet generation.
-
-const Type = {
-    OBJECT: 'OBJECT',
-    STRING: 'STRING',
-    INTEGER: 'INTEGER',
-    ARRAY: 'ARRAY',
-};
-
+/**
+ * JSON schema for a character's ability scores.
+ */
 const abilityScoresSchema = {
     type: Type.OBJECT,
     description: "The character's core ability scores.",
@@ -27,7 +22,9 @@ const abilityScoresSchema = {
     },
     required: ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
 };
-
+/**
+ * JSON schema for a character's skill proficiencies.
+ */
 const skillsSchema = {
     type: Type.OBJECT,
     description: "The character's skill proficiencies. For each skill, the value must be either 'proficient' or 'none'.",
@@ -52,7 +49,9 @@ const skillsSchema = {
         survival: { type: Type.STRING, description: "Must be 'proficient' or 'none'." },
     },
 };
-
+/**
+ * JSON schema for a character's saving throw proficiencies.
+ */
 const savingThrowsSchema = {
     type: Type.OBJECT,
     description: "The character's saving throw proficiencies. For each saving throw, the value must be either 'proficient' or 'none'.",
@@ -65,7 +64,10 @@ const savingThrowsSchema = {
         charisma: { type: Type.STRING, description: "Must be 'proficient' or 'none'." },
     },
 };
-
+/**
+ * The complete JSON schema for the PlayerState object, used to guide the AI's
+ * output during character sheet generation.
+ */
 export const playerStateSchema = {
     type: Type.OBJECT,
     description: "A complete representation of a TTRPG player character's state. Do not include turnCount, pregnancy, or npcStates properties, as these are handled by the application.",
@@ -141,6 +143,11 @@ export const playerStateSchema = {
             description: "A list of key class features derived from the character description.",
             items: { type: Type.STRING }
         },
+        spellsKnown: {
+            type: Type.ARRAY,
+            description: "An optional list of spell names the character knows. Only include if the character is a spellcaster.",
+            items: { type: Type.STRING }
+        }
     },
     required: [
         "name", "backstory", "appearanceDescription", "alignment",

@@ -5,7 +5,7 @@
 
 import { calculateRollModifier, getAbilityModifierValue, getWeaponData, rollDice } from './rpg-helpers.js';
 import * as config from './config.js';
-import * as dom from './dom.js';
+import { dom } from './dom.js';
 import * as ui from './ui.js';
 import { cleanseResponseText } from './api.js';
 import * as services from './services.js';
