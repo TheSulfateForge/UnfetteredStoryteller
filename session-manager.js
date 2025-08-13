@@ -10,6 +10,8 @@ import * as rag from './rag.js';
 import { gameState } from './state-manager.js';
 import { cleanseResponseText, createLlmProvider } from './api.js';
 import { resetPointBuy } from './character-creator.js';
+// --- MODULE STATE ---
+let mainAppListenersSetup = false;
 // --- HELPERS ---
 function isPlayerStateValid(state) {
     if (!state || typeof state !== 'object')
@@ -59,7 +61,10 @@ async function proceedToAdventure(action, setupMainAppEventListeners) {
     services.tts.init(savedReadAloudEnabled, providerSettings);
     services.speech.init((transcript) => { dom.chatInput.value = transcript; }, (error) => { ui.addMessage('error', `Mic error: ${error}`); });
     const startAction = () => {
-        setupMainAppEventListeners();
+        if (!mainAppListenersSetup) {
+            setupMainAppEventListeners();
+            mainAppListenersSetup = true;
+        }
         dom.landingPage.classList.add('hidden');
         if (action === 'new') {
             newGame(savedMatureEnabled);
