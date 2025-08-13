@@ -1,0 +1,39 @@
+
+[
+    {
+        "slug": "bard",
+        "name": "Bard",
+        "spells": [
+            "cure-wounds",
+            "detect-magic",
+            "healing-word",
+            "hideous-laughter",
+            "identify",
+            "invisibility",
+            "lesser-restoration",
+            "silent-image",
+            "sleep",
+            "speak-with-animals",
+            "thunderwave",
+            "unseen-servant"
+        ]
+    },
+    {
+        "slug": "cleric",
+        "name": "Cleric",
+        "spells": [
+            "bless",
+            "cure-wounds",
+            "detect-evil-and-good",
+            "detect-magic",
+            "detect-poison-and-disease",
+            "guiding-bolt",
+            "healing-word",
+            "inflict-wounds",
+            "protection-from-evil-and-good",
+            "purify-food-and-drink",
+            "sanctuary",
+            "shield-of-faith"
+        ]
+    }
+]
