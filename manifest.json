@@ -4,12 +4,12 @@
   "name": "Unfettered Storyteller",
   "icons": [
     {
-      "src": "UFST-192.png",
+      "src": "./UFST-192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "UFST-512.png",
+      "src": "./UFST-512.png",
       "type": "image/png",
       "sizes": "512x512"
     }

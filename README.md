@@ -21,7 +21,7 @@ Built as a modern Progressive Web App (PWA), it works entirely in your browser w
 - **Automatic Model Fallback:** To ensure a smooth gameplay experience, the game will automatically switch to a new model if the current one is unavailable (e.g., due to API rate limits). It will cycle through the following models in order: `gemini-2.5-flash`, `gemma-3-27b-it`, and other Gemini Flash variants.
 - **Deep Character Creation:** A full point-buy system with races, classes, backgrounds, and skills from the 5e SRD to build your perfect hero.
 - **RAG Knowledge Base:** Enhance the AI's accuracy by building a local vector database from TTRPG sourcebooks, ensuring the storyteller respects game rules and lore.
-- **Voice-to-Play:** Use your microphone for speech-to-text input and enable ~~"Read Aloud" (TTS) for an immersive, audio-based experience.~~ `Disabled due to very strict guidelines to work without killing existing game`
+- **Voice-to-Play:** Use your microphone for speech-to-text input and enable "Read Aloud" (TTS) for an immersive, audio-based experience.
 - **Installable & Offline:** Works like a native app. Add it to your home screen and play your saved games anytime, even without an internet connection.
 - **Private & Secure:** Your API keys and game saves are stored exclusively in your browser's `localStorage`—never uploaded to a server.
 - **Mature Content (18+):** An optional toggle for players who want a darker, more adult-themed adventure.

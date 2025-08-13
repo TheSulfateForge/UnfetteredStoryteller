@@ -2,136 +2,128 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import * as dom from './dom.js';
+import { dom } from './dom.js';
 import * as ui from './ui.js';
 import * as dataManager from './data-manager.js';
 import { hexToString } from './utils.js';
-
 import * as characterCreator from './character-creator.js';
 import * as gameLoop from './game-loop.js';
 import * as sessionManager from './session-manager.js';
-
-
 // --- SESSION & GAME LIFECYCLE ---
-
+/**
+ * Sets up the main event listeners for the application once it's running.
+ * This includes character creation, game actions, and UI interactions.
+ */
 function setupMainAppEventListeners() {
     dom.characterForm.addEventListener('submit', characterCreator.handleCharacterCreationSubmit);
     dom.customHookForm.addEventListener('submit', characterCreator.handleCustomHookSubmit);
-
+    // Character Creation Wizard Navigation
+    dom.ccNextBtn.addEventListener('click', (event) => {
+        if (event.target.type === 'button') {
+            characterCreator.handleNextPage();
+        }
+    });
+    dom.ccPrevBtn.addEventListener('click', characterCreator.handlePrevPage);
     dom.newAdventureBtn.addEventListener('click', () => {
         dom.loadGameModal.classList.add('hidden');
-        sessionManager.newGame(localStorage.getItem('matureEnabled') === 'true');
+        let matureEnabled = false;
+        try {
+            matureEnabled = localStorage.getItem('matureEnabled') === 'true';
+        }
+        catch (e) {
+            console.warn('Could not access localStorage for mature content setting.', e);
+        }
+        sessionManager.newGame(matureEnabled);
     });
-
     dom.loadGameCancelBtn.addEventListener('click', () => {
         dom.loadGameModal.classList.add('hidden');
         dom.landingPage.classList.remove('hidden');
     });
-
     dom.characterCreationCancelBtn.addEventListener('click', () => {
         dom.characterCreationModal.classList.add('hidden');
         dom.appElement.classList.add('hidden');
         dom.landingPage.classList.remove('hidden');
     });
-
     dom.pointBuyContainer.addEventListener('click', (event) => {
         const target = event.target;
         const button = target.closest('.stat-btn');
-        if (!button) return;
-
+        if (!button)
+            return;
         const stat = button.dataset.stat;
         const action = button.id.includes('increase') ? 'increase' : 'decrease';
-        
         characterCreator.updateAbilityScore(stat, action);
     });
-
     dom.chatLog.addEventListener('click', async (event) => {
         const target = event.target;
-
-        // --- NEW CHOICE-HANDLING LOGIC ---
         const choiceButton = target.closest('.action-choice-btn');
         if (choiceButton) {
             const { actionType, weaponName, targetDescription, skillOrAbility, description, modifier } = choiceButton.dataset;
-
-            choiceButton.parentElement?.remove(); // Remove the button container
-
+            choiceButton.parentElement?.remove();
             if (actionType === 'attack') {
                 await gameLoop.handleAttackRollRequest(weaponName, targetDescription, modifier);
-            } else if (actionType === 'roll') {
+            }
+            else if (actionType === 'roll') {
                 await gameLoop.handleDiceRollRequest(skillOrAbility, description, modifier);
             }
-            return; // Stop further processing
+            return;
         }
-        // --- END OF NEW LOGIC ---
-
         const actionButton = target.closest('.action-btn');
         if (actionButton) {
-            if (actionButton.classList.contains('reroll-btn')) await gameLoop.handleRerollRequest(actionButton);
-            else if (actionButton.classList.contains('regenerate-btn')) await gameLoop.handleRegenerateRequest(actionButton);
+            if (actionButton.classList.contains('reroll-btn'))
+                await gameLoop.handleRerollRequest(actionButton);
+            else if (actionButton.classList.contains('regenerate-btn'))
+                await gameLoop.handleRegenerateRequest(actionButton);
         }
     });
-
-    // NEW: Event delegation for save slots
     dom.saveSlotsList.addEventListener('click', async (event) => {
         const button = event.target.closest('button');
-        if (!button) return;
-
+        if (!button)
+            return;
         const { id } = button.dataset;
-        if (!id) return;
-
+        if (!id)
+            return;
         if (button.classList.contains('load-btn')) {
             await sessionManager.loadGame(id);
-        } else if (button.classList.contains('delete-btn')) {
+        }
+        else if (button.classList.contains('delete-btn')) {
             await sessionManager.deleteGame(id);
         }
     });
-
     dom.chatForm.addEventListener('submit', gameLoop.handleFormSubmit);
-
-    // Handle Enter key for textarea submission
     dom.chatInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' && !event.shiftKey) {
             event.preventDefault();
             dom.chatForm.requestSubmit();
         }
     });
-
-    // Handle auto-resizing for textarea
     dom.chatInput.addEventListener('input', () => {
         const input = dom.chatInput;
-        input.style.height = 'auto'; // Temporarily shrink to get the correct scrollHeight
-        input.style.height = `${input.scrollHeight}px`; // Expand to fit content
+        input.style.height = 'auto';
+        input.style.height = `${input.scrollHeight}px`;
     });
-
     dom.micBtn.addEventListener('click', () => {
         const { speech, tts } = sessionManager.getServices();
         speech.toggle(tts.cancel);
     });
-
     dom.readAloudToggle.addEventListener('change', () => {
         const isEnabled = dom.readAloudToggle.checked;
         sessionManager.getServices().tts.setEnabled(isEnabled);
-        localStorage.setItem('readAloudEnabled', String(isEnabled));
+        try {
+            localStorage.setItem('readAloudEnabled', String(isEnabled));
+        }
+        catch (e) {
+            console.warn('Could not save read-aloud setting to localStorage.', e);
+        }
     });
-
-    /* dom.debugLogBtn.addEventListener('click', () => {
-        dom.debuggerPanel.classList.toggle('hidden');
-        ui.scrollToBottom();
-    }); */
-
     dom.buildRagBtn.addEventListener('click', sessionManager.handleBuildRag);
-
-    // Accordion logic for player stats sidebar
+    // Accordion handler optimization: Cache the headers to avoid re-querying the DOM on every click.
+    const accordionHeaders = dom.playerStats.querySelectorAll('.accordion-header');
     dom.playerStats.addEventListener('click', (event) => {
         const target = event.target;
         const clickedHeader = target.closest('.accordion-header');
-        
-        if (!clickedHeader) return;
-
-        const allHeaders = dom.playerStats.querySelectorAll('.accordion-header');
-        
-        // Close other sections
-        allHeaders.forEach(header => {
+        if (!clickedHeader)
+            return;
+        accordionHeaders.forEach(header => {
             if (header !== clickedHeader) {
                 header.classList.remove('active');
                 const content = header.nextElementSibling;
@@ -140,63 +132,94 @@ function setupMainAppEventListeners() {
                 }
             }
         });
-
-        // Toggle the clicked section
         clickedHeader.classList.toggle('active');
         const content = clickedHeader.nextElementSibling;
         if (content && content.classList.contains('accordion-content')) {
             content.classList.toggle('expanded');
         }
     });
-
-    // Dropdown changes trigger a full UI redraw.
-    dom.charRaceInput.addEventListener('change', characterCreator.updateSkillSelectionUI);
-    dom.charClassInput.addEventListener('change', characterCreator.updateSkillSelectionUI);
-    dom.charBackgroundInput.addEventListener('change', characterCreator.updateSkillSelectionUI);
-
-    // Use a single, delegated event listener for all skill checkboxes that calls the state management function.
-    const skillSelectionContainer = document.getElementById('skill-selection-container');
-    if (skillSelectionContainer) {
-        skillSelectionContainer.addEventListener('change', (event) => {
-            const target = event.target;
-            if (target && target.type === 'checkbox' && target.id.startsWith('skill-choice-')) {
-                characterCreator.updateCheckboxStates();
+    dom.charRaceInput.addEventListener('change', characterCreator.handleCharacterCoreIdentityChange);
+    dom.charClassInput.addEventListener('change', characterCreator.handleCharacterCoreIdentityChange);
+    dom.charBackgroundInput.addEventListener('change', characterCreator.handleCharacterCoreIdentityChange);
+    dom.ccPagesContainer.addEventListener('change', (event) => {
+        const target = event.target;
+        if (target.closest('.skill-section')) {
+            characterCreator.updateCheckboxStates();
+        }
+        const spellSelectionPage = target.closest('#spell-selection-page');
+        if (spellSelectionPage) {
+            if (target.type === 'checkbox') {
+                const name = target.name;
+                let limit = 0;
+                if (name === 'rogueExpertise') {
+                    limit = parseInt(spellSelectionPage.dataset.expertiseLimit || '0', 10);
+                }
+                else if (name === 'cantrip-selection') {
+                    limit = parseInt(spellSelectionPage.dataset.cantripLimit || '0', 10);
+                }
+                else if (name === 'level1-selection') {
+                    limit = parseInt(spellSelectionPage.dataset.level1Limit || '0', 10);
+                }
+                if (limit > 0) {
+                    characterCreator.enforceCheckboxLimit(name, limit);
+                }
             }
-        });
-    }
-
-    // Sidebar toggle logic for mobile
+            else if (target.type === 'radio') {
+                characterCreator.updateSpecialSelectionsUI();
+            }
+        }
+    });
+    dom.ccPagesContainer.addEventListener('click', (event) => {
+        const target = event.target;
+        if (target.matches('#spell-selection-page label[data-spell-slug]')) {
+            characterCreator.displaySpellDetails(target);
+        }
+    });
     dom.sidebarToggleBtn.addEventListener('click', () => {
         dom.appElement.classList.toggle('sidebar-open');
     });
-
     dom.appOverlay.addEventListener('click', () => {
         dom.appElement.classList.remove('sidebar-open');
     });
+    dom.viewCharacterSheetBtn.addEventListener('click', ui.showCharacterSheetModal);
+    dom.characterSheetCloseBtn.addEventListener('click', () => {
+        dom.characterSheetModal.classList.add('hidden');
+    });
+    dom.characterSheetList.addEventListener('click', (event) => {
+        const target = event.target;
+        const itemElement = target.closest('.cs-list-item');
+        if (itemElement) {
+            ui.displayCharacterSheetDetail(itemElement);
+        }
+    });
+    // Level Up Listeners
+    dom.levelUpBtn.addEventListener('click', characterCreator.startLevelUp);
+    dom.levelUpCancelBtn.addEventListener('click', () => { dom.levelUpModal.classList.add('hidden'); });
+    dom.levelUpNextBtn.addEventListener('click', characterCreator.handleLevelUpNext);
+    dom.levelUpPrevBtn.addEventListener('click', characterCreator.handleLevelUpPrev);
 }
-
-function setupServiceWorkerUpdateListener(reg) {
+/**
+ * Sets up a listener for the service worker to handle application updates.
+ * Displays a notification banner when a new version is available.
+ * @param {ServiceWorkerRegistration} registration The service worker registration object.
+ */
+function setupServiceWorkerUpdateListener(registration) {
     const showUpdateBanner = () => {
         dom.updateNotificationBanner.classList.remove('hidden');
     };
-
     const onUpdateButtonClick = () => {
-        reg.waiting?.postMessage({ type: 'SKIP_WAITING' });
+        registration.waiting?.postMessage({ type: 'SKIP_WAITING' });
     };
-    
     dom.updateReloadBtn.addEventListener('click', onUpdateButtonClick);
-
     navigator.serviceWorker.addEventListener('controllerchange', () => {
         window.location.reload();
     });
-
-    if (reg.waiting) {
+    if (registration.waiting) {
         showUpdateBanner();
         return;
     }
-
-    reg.addEventListener('updatefound', () => {
-        const newWorker = reg.installing;
+    registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
         if (newWorker) {
             newWorker.addEventListener('statechange', () => {
                 if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
@@ -206,13 +229,13 @@ function setupServiceWorkerUpdateListener(reg) {
         }
     });
 }
-
-
+/**
+ * The main entry point for the application.
+ * Initializes data, sets up listeners, and handles application lifecycle.
+ */
 async function main() {
     const encodedCopyright = '436f707972696768742028632920323032352054686553756c66617465466f726765';
     dom.landingCreditLine.textContent = hexToString(encodedCopyright);
-
-    // Fetch and display version from metadata.json
     try {
         const response = await fetch('./metadata.json');
         if (response.ok) {
@@ -223,40 +246,38 @@ async function main() {
                 dom.versionDisplay.textContent = versionMatch[0];
             }
         }
-    } catch (error) {
+    }
+    catch (error) {
         console.error("Could not load version from metadata.json", error);
     }
-    
-    // Add Save on Exit/Hide listener
     const saveOnExit = () => {
-        // visibilityState becomes 'hidden' when switching tabs, minimizing, or on mobile when switching apps.
         if (document.visibilityState === 'hidden' && sessionManager.isGameInProgress()) {
             console.log('Page is hidden, saving game state...');
             sessionManager.saveCurrentGame();
         }
     };
     document.addEventListener('visibilitychange', saveOnExit);
-    
-    // beforeunload is a fallback for desktop tab/browser closing.
     window.addEventListener('beforeunload', () => {
         if (sessionManager.isGameInProgress()) {
             sessionManager.saveCurrentGame();
         }
     });
-
     await dataManager.init();
     ui.populateCreationDropdowns();
-
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('./sw.js').then(reg => {
-                console.log('SW registered.', reg);
-                setupServiceWorkerUpdateListener(reg);
-            }, err => console.log('SW reg failed: ', err));
-        });
-    }
-
     sessionManager.setupInitialEventListeners(setupMainAppEventListeners);
 }
-
-main();
+document.addEventListener('DOMContentLoaded', async () => {
+    if ('serviceWorker' in navigator) {
+        try {
+            // Correct, simplified registration
+            const registration = await navigator.serviceWorker.register('sw.js'); 
+            
+            console.log('SW registered.', registration);
+            setupServiceWorkerUpdateListener(registration);
+        }
+        catch (err) {
+            console.log('SW reg failed: ', err);
+        }
+    }
+    await main();
+});
