@@ -1,722 +1,1682 @@
-
 [
-  {
-    "url": "https://api.open5e.com/v2/races/srd_dwarf/",
-    "key": "srd_dwarf",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Constitution score increases by 2."
-      },
-      {
-        "name": "Age",
-        "desc": "Dwarves mature at the same rate as humans, but they’re considered young until they reach the age of 50. On average, they live about 350 years."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order."
-      },
-      {
-        "name": "Size",
-        "desc": "Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Dwarven Resilience",
-        "desc": "You have advantage on saving throws against poison, and you have resistance against poison damage."
-      },
-      {
-        "name": "Dwarven Combat Training",
-        "desc": "You have proficiency with the battleaxe, handaxe, light hammer, and warhammer."
-      },
-      {
-        "name": "Tool Proficiency",
-        "desc": "You gain proficiency with the artisan’s tools of your choice: smith’s tools, brewer’s supplies, or mason’s tools."
-      },
-      {
-        "name": "Stonecunning",
-        "desc": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak."
-      }
-    ],
-    "name": "Dwarf",
-    "desc": "Your Dwarf character has an assortment of inborn abilities, part and parcel of dwarven nature.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_hill-dwarf/",
-    "key": "srd_hill-dwarf",
-    "is_subrace": true,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Wisdom score increases by 1."
-      },
-      {
-        "name": "Dwarven Toughness",
-        "desc": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
-      }
-    ],
-    "name": "Hill Dwarf",
-    "desc": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.",
-    "subrace_of": "https://api.open5e.com/v2/races/srd_dwarf/"
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_elf/",
-    "key": "srd_elf",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Dexterity score increases by 2."
-      },
-      {
-        "name": "Age",
-        "desc": "Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Elves love freedom, variety, and self-expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not."
-      },
-      {
-        "name": "Size",
-        "desc": "Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Keen Senses",
-        "desc": "You have proficiency in the Perception skill."
-      },
-      {
-        "name": "Fey Ancestry",
-        "desc": "You have advantage on saving throws against being charmed, and magic can’t put you to sleep."
-      },
-      {
-        "name": "Trance",
-        "desc": "Elves don’t need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires."
-      }
-    ],
-    "name": "Elf",
-    "desc": "Your Elf character has a variety of natural abilities, the result of thousands of years of elven refinement.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_high-elf/",
-    "key": "srd_high-elf",
-    "is_subrace": true,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Intelligence score increases by 1."
-      },
-      {
-        "name": "Elf Weapon Training",
-        "desc": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
-      },
-      {
-        "name": "Cantrip",
-        "desc": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
-      },
-      {
-        "name": "Extra Language",
-        "desc": "You can speak, read, and write one extra language of your choice."
-      }
-    ],
-    "name": "High Elf",
-    "desc": "As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be superior to non-elves and even other elves. The other type is more common and more friendly, and often encountered among humans and other races.",
-    "subrace_of": "https://api.open5e.com/v2/races/srd_elf/"
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_halfling/",
-    "key": "srd_halfling",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Dexterity score increases by 2."
-      },
-      {
-        "name": "Age",
-        "desc": "A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways."
-      },
-      {
-        "name": "Size",
-        "desc": "Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 25 feet."
-      },
-      {
-        "name": "Lucky",
-        "desc": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
-      },
-      {
-        "name": "Brave",
-        "desc": "You have advantage on saving throws against being frightened."
-      },
-      {
-        "name": "Halfling Nimbleness",
-        "desc": "You can move through the space of any creature that is of a size larger than yours."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Halfling. The Halfling language isn’t secret, but halflings are loath to share it with others. They write very little, so they don’t have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling."
-      }
-    ],
-    "name": "Halfling",
-    "desc": "Your Halfling character has a number of traits in common with all other halflings.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_lightfoot/",
-    "key": "srd_lightfoot",
-    "is_subrace": true,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Charisma score increases by 1."
-      },
-      {
-        "name": "Naturally Stealthy",
-        "desc": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
-      }
-    ],
-    "name": "Lightfoot",
-    "desc": "As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You’re inclined to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings, and often dwell alongside other races or take up a nomadic life.",
-    "subrace_of": "https://api.open5e.com/v2/races/srd_halfling/"
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_human/",
-    "key": "srd_human",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your ability scores each increase by 1."
-      },
-      {
-        "name": "Age",
-        "desc": "Humans reach adulthood in their late teens and live less than a century."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Humans tend toward no particular alignment. The best and the worst are found among them."
-      },
-      {
-        "name": "Size",
-        "desc": "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on."
-      }
-    ],
-    "name": "Human",
-    "desc": "Your Human character has an assortment of inborn abilities.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_dragonborn/",
-    "key": "srd_dragonborn",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Strength score increases by 2, and your Charisma score increases by 1."
-      },
-      {
-        "name": "Age",
-        "desc": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains."
-      },
-      {
-        "name": "Size",
-        "desc": "Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Draconic Ancestry",
-        "desc": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table.\n\n| Dragon | Damage Type | Breath Weapon |\n|---|---|---|\n| Black | Acid | 5 by 30 ft. line (Dex. save) |\n| Blue | Lightning | 5 by 30 ft. line (Dex. save) |\n| Brass | Fire | 5 by 30 ft. line (Dex. save) |\n| Bronze | Lightning | 5 by 30 ft. line (Dex. save) |\n| Copper | Acid | 5 by 30 ft. line (Dex. save) |\n| Gold | Fire | 15 ft. cone (Dex. save) |\n| Green | Poison | 15 ft. cone (Con. save) |\n| Red | Fire | 15 ft. cone (Dex. save) |\n| Silver | Cold | 15 ft. cone (Con. save) |\n| White | Cold | 15 ft. cone (Con. save) |"
-      },
-      {
-        "name": "Breath Weapon",
-        "desc": "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation. When you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level. After you use your breath weapon, you can’t use it again until you complete a short or long rest."
-      },
-      {
-        "name": "Damage Resistance",
-        "desc": "You have resistance to the damage type associated with your draconic ancestry."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants."
-      }
-    ],
-    "name": "Dragonborn",
-    "desc": "Your Dragonborn character has an assortment of inborn abilities.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_gnome/",
-    "key": "srd_gnome",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Intelligence score increases by 2."
-      },
-      {
-        "name": "Age",
-        "desc": "Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious."
-      },
-      {
-        "name": "Size",
-        "desc": "Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 25 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Gnome Cunning",
-        "desc": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world."
-      }
-    ],
-    "name": "Gnome",
-    "desc": "Your Gnome character has an assortment of inborn abilities.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_rock-gnome/",
-    "key": "srd_rock-gnome",
-    "is_subrace": true,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Constitution score increases by 1."
-      },
-      {
-        "name": "Artificers Lore",
-        "desc": "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
-      },
-      {
-        "name": "Tinker",
-        "desc": "You have proficiency with artisan’s tools (tinker’s tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time. When you create a device, choose one of the following options: Clockwork Toy, Fire Starter, Music Box."
-      }
-    ],
-    "name": "Rock Gnome",
-    "desc": "As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.",
-    "subrace_of": "https://api.open5e.com/v2/races/srd_gnome/"
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_half-elf/",
-    "key": "srd_half-elf",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Charisma score increases by 2, and two other ability scores of your choice increase by 1."
-      },
-      {
-        "name": "Age",
-        "desc": "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others’ demands, and sometimes prove unreliable, or at least unpredictable."
-      },
-      {
-        "name": "Size",
-        "desc": "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Fey Ancestry",
-        "desc": "You have advantage on saving throws against being charmed, and magic can’t put you to sleep."
-      },
-      {
-        "name": "Skill Versatility",
-        "desc": "You gain proficiency in two skills of your choice."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common, Elvish, and one extra language of your choice."
-      }
-    ],
-    "name": "Half-Elf",
-    "desc": "Your Half-Elf character has an assortment of inborn abilities.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_half-orc/",
-    "key": "srd_half-orc",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Strength score increases by 2, and your Constitution score increases by 1."
-      },
-      {
-        "name": "Age",
-        "desc": "Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil."
-      },
-      {
-        "name": "Size",
-        "desc": "Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Menacing",
-        "desc": "You gain proficiency in the Intimidation skill."
-      },
-      {
-        "name": "Relentless Endurance",
-        "desc": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can’t use this feature again until you finish a long rest."
-      },
-      {
-        "name": "Savage Attacks",
-        "desc": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon’s damage dice one additional time and add it to the extra damage of the critical hit."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script."
-      }
-    ],
-    "name": "Half-Orc",
-    "desc": "Your Half-Orc character has an assortment of inborn abilities.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/srd_tiefling/",
-    "key": "srd_tiefling",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Intelligence score increases by 1, and your Charisma score increases by 2."
-      },
-      {
-        "name": "Age",
-        "desc": "Tieflings mature at the same rate as humans but live a few years longer."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment."
-      },
-      {
-        "name": "Size",
-        "desc": "Tieflings are about the same size and build as humans. Your size is Medium."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can’t discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Hellish Resistance",
-        "desc": "You have resistance to fire damage."
-      },
-      {
-        "name": "Infernal Legacy",
-        "desc": "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Infernal."
-      }
-    ],
-    "name": "Tiefling",
-    "desc": "Your Tiefling character has an assortment of inborn abilities.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/custom_alseid/",
-    "key": "custom_alseid",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/wotc-srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Dexterity score increases by 2, and your Wisdom score increases by 1."
-      },
-      {
-        "name": "Speed",
-        "desc": "Alseid are fast for their size, with a base walking speed of 40 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Accustomed to the limited light beneath the forest canopy, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Age",
-        "desc": "Alseid reach maturity by the age of 20. They can live well beyond 100 years, but it is unknown just how old they can become."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Alseid are generally chaotic, flowing with the unpredictable whims of nature, though variations are common, particularly among those rare few who leave their people."
-      },
-      {
-        "name": "Size",
-        "desc": "Alseid stand over 6 feet tall and weigh around 300 pounds. Your size is Medium."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common and Elvish."
-      },
-      {
-        "name": "Alseid Weapon Training",
-        "desc": "You have proficiency with spears and shortbows."
-      },
-      {
-        "name": "Light Hooves",
-        "desc": "You have proficiency in the Stealth skill."
-      },
-      {
-        "name": "Quadruped",
-        "desc": "The mundane details of the structures of humanoids can present considerable obstacles for you. You have to squeeze when moving through trapdoors, manholes, and similar structures even when a Medium humanoid wouldn't have to squeeze. In addition, ladders, stairs, and similar structures are difficult terrain for you."
-      },
-      {
-        "name": "Woodfriend",
-        "desc": "When in a forest, you leave no tracks and can automatically discern true north."
-      }
-    ],
-    "name": "Alseid",
-    "desc": "Your alseid character has certain characteristics in common with all other alseid.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/custom_catfolk/",
-    "key": "custom_catfolk",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/wotc-srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Dexterity score increases by 2."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "You have a cat's keen senses, especially in the dark. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Age",
-        "desc": "Catfolk mature at the same rate as humans and can live just past a century."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Catfolk tend toward two extremes. Some are free-spirited and chaotic, letting impulse and fancy guide their decisions. Others are devoted to duty and personal honor. Typically, catfolk deem concepts such as good and evil as less important than freedom or their oaths."
-      },
-      {
-        "name": "Size",
-        "desc": "Catfolk have a similar stature to humans but are generally leaner and more muscular. Your size is Medium."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Common."
-      },
-      {
-        "name": "Cat's Claws",
-        "desc": "Your sharp claws can cut with ease. Your claws are natural melee weapons, which you can use to make unarmed strikes. When you hit with a claw, your claw deals slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
-      },
-      {
-        "name": "Hunter's Senses",
-        "desc": "You have proficiency in the Perception and Stealth skills."
-      }
-    ],
-    "name": "Catfolk",
-    "desc": "Your catfolk character has the following traits.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/custom_drow/",
-    "key": "custom_drow",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/wotc-srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Intelligence score increases by 2."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 30 feet."
-      },
-      {
-        "name": "Superior Darkvision",
-        "desc": "Accustomed to life in the darkest depths of the world, you can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Age",
-        "desc": "Drow physically mature at the same rate as humans, but they aren't considered adults until they reach the age of 50. They typically live to be around 500."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Drow believe in reason and rationality, which leads them to favor lawful activities. However, their current dire situation makes them more prone than their ancestors to chaotic behavior. Their vicious fight for survival makes them capable of doing great evil in the name of self-preservation, although they are not, by nature, prone to evil in other circumstances."
-      },
-      {
-        "name": "Size",
-        "desc": "Drow are slightly shorter and slimmer than humans. Your size is Medium."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak, read, and write Elvish and your choice of Common or Undercommon."
-      },
-      {
-        "name": "Fey Ancestry",
-        "desc": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
-      },
-      {
-        "name": "Mind of Steel",
-        "desc": "You understand the complexities of minds, as well as the magic that can affect them. You have advantage on Wisdom, Intelligence, and Charisma saving throws against spells."
-      },
-      {
-        "name": "Sunlight Sensitivity",
-        "desc": "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
-      }
-    ],
-    "name": "Drow",
-    "desc": "Your drow character has certain characteristics in common with all other drow.",
-    "subrace_of": null
-  },
-  {
-    "url": "https://api.open5e.com/v2/races/custom_erina/",
-    "key": "custom_erina",
-    "is_subrace": false,
-    "document": "https://api.open5e.com/v2/documents/wotc-srd/",
-    "traits": [
-      {
-        "name": "Ability Score Increase",
-        "desc": "Your Dexterity score increases by 2, and you can choose to increase either your Wisdom or Charisma score by 1."
-      },
-      {
-        "name": "Speed",
-        "desc": "Your base walking speed is 25 feet."
-      },
-      {
-        "name": "Darkvision",
-        "desc": "Accustomed to life in the dark burrows of your people, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
-      },
-      {
-        "name": "Age",
-        "desc": "Erina reach maturity around 15 years and can live up to 60 years, though some erina burrow elders have memories of events which suggest erina can live much longer."
-      },
-      {
-        "name": "Alignment",
-        "desc": "Erina are good-hearted and extremely social creatures who have a difficult time adapting to the laws of other species."
-      },
-      {
-        "name": "Size",
-        "desc": "Erina average about 3 feet tall and weigh about 50 pounds. Your size is Small."
-      },
-      {
-        "name": "Languages",
-        "desc": "You can speak Erina and either Common or Sylvan."
-      },
-      {
-        "name": "Hardy",
-        "desc": "The erina diet of snakes and venomous insects has made them hardy. You have advantage on saving throws against poison, and you have resistance against poison damage."
-      },
-      {
-        "name": "Spines",
-        "desc": "Erina grow needle-sharp spines in small clusters atop their heads and along their backs. While you are grappling a creature or while a creature is grappling you, the creature takes 1d4 piercing damage at the start of your turn."
-      },
-      {
-        "name": "Keen Senses",
-        "desc": "You have proficiency in the Perception skill."
-      },
-      {
-        "name": "Digger",
-        "desc": "You have a burrowing speed of 20 feet, but you can use it to move through only earth and sand, not mud, ice, or rock."
-      }
-    ],
-    "name": "Erina",
-    "desc": "Your erina character has traits which complement its curiosity, sociability, and fierce nature.",
-    "subrace_of": null
-  }
+    {
+        "url": "https://api.open5e.com/v2/races/srd_dragonborn/",
+        "key": "srd_dragonborn",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 2, and your Charisma score increases by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Age",
+                "desc": "Young dragonborn grow quickly. They walk hours after hatching, attain the size and development of a 10-year-old human child by the age of 3, and reach adulthood by 15. They live to be around 80."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Dragonborn tend to extremes, making a conscious choice for one side or the other in the cosmic war between good and evil. Most dragonborn are good, but those who side with evil can be terrible villains."
+            },
+            {
+                "name": "Size",
+                "desc": "Dragonborn are taller and heavier than humans, standing well over 6 feet tall and averaging almost 250 pounds. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Draconic. Draconic is thought to be one of the oldest languages and is often used in the study of magic. The language sounds harsh to most other creatures and includes numerous hard consonants and sibilants."
+            },
+            {
+                "name": "Draconic Ancestry table",
+                "desc": "| Dragon       | Damage Type       | Breath Weapon                |\r\n|--------------|-------------------|------------------------------|\r\n| Black        | Acid              | 5 by 30 ft. line (Dex. save) |\r\n| Blue         | Lightning         | 5 by 30 ft. line (Dex. save) |\r\n| Brass        | Fire              | 5 by 30 ft. line (Dex. save) |\r\n| Bronze       | Lightning         | 5 by 30 ft. line (Dex. save) |\r\n| Copper       | Acid              | 5 by 30 ft. line (Dex. save) |\r\n| Gold         | Fire              | 15 ft. cone (Dex. save)      |\r\n| Green        | Poison            | 15 ft. cone (Con. save)      |\r\n| Red          | Fire              | 15 ft. cone (Dex. save)      |\r\n| Silver       | Cold              | 15 ft. cone (Con. save)      |\r\n| White        | Cold              | 15 ft. cone (Con. save)      |"
+            },
+            {
+                "name": "Draconic Ancestry",
+                "desc": "You have draconic ancestry. Choose one type of dragon from the Draconic Ancestry table. Your breath weapon and damage resistance are determined by the dragon type, as shown in the table."
+            },
+            {
+                "name": "Breath Weapon",
+                "desc": "You can use your action to exhale destructive energy. Your draconic ancestry determines the size, shape, and damage type of the exhalation.\r\nWhen you use your breath weapon, each creature in the area of the exhalation must make a saving throw, the type of which is determined by your draconic ancestry. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 2d6 damage on a failed save, and half as much damage on a successful one. The damage increases to 3d6 at 6th level, 4d6 at 11th level, and 5d6 at 16th level."
+            },
+            {
+                "name": "Damage Resistance",
+                "desc": "You have resistance to the damage type associated with your draconic ancestry."
+            }
+        ],
+        "name": "Dragonborn",
+        "desc": "Your draconic heritage manifests in a variety of traits you share with other dragonborn.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_dwarf/",
+        "key": "srd_dwarf",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 25 feet. Your speed is not reduced by wearing heavy armor."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Dwarves mature at the same rate as humans, but they're considered young until they reach the age of 50. On average, they live about 350 years."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Most dwarves are lawful, believing firmly in the benefits of a well-ordered society. They tend toward good as well, with a strong sense of fair play and a belief that everyone deserves to share in the benefits of a just order."
+            },
+            {
+                "name": "Size",
+                "desc": "Dwarves stand between 4 and 5 feet tall and average about 150 pounds. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Dwarvish. Dwarvish is full of hard consonants and guttural sounds, and those characteristics spill over into whatever other language a dwarf might speak."
+            },
+            {
+                "name": "Dwarven Resilience",
+                "desc": "You have advantage on saving throws against poison, and you have resistance against poison damage."
+            },
+            {
+                "name": "Dwarven Combat Training",
+                "desc": "You have proficiency with the battleaxe, handaxe, light hammer, and warhammer."
+            },
+            {
+                "name": "Tool Proficiency",
+                "desc": "You gain proficiency with the artisan's tools of your choice: smith's tools, brewer's supplies, or mason's tools."
+            },
+            {
+                "name": "Stonecunning",
+                "desc": "Whenever you make an Intelligence (History) check related to the origin of stonework, you are considered proficient in the History skill and add double your proficiency bonus to the check, instead of your normal proficiency bonus."
+            }
+        ],
+        "name": "Dwarf",
+        "desc": "Your dwarf character has an assortment of inborn abilities, part and parcel of dwarven nature.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_elf/",
+        "key": "srd_elf",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Accustomed to twilit forests and the night sky, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Although elves reach physical maturity at about the same age as humans, the elven understanding of adulthood goes beyond physical growth to encompass worldly experience. An elf typically claims adulthood and an adult name around the age of 100 and can live to be 750 years old."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Elves love freedom, variety, and self-­expression, so they lean strongly toward the gentler aspects of chaos. They value and protect others’ freedom as well as their own, and they are more often good than not."
+            },
+            {
+                "name": "Size",
+                "desc": "Elves range from under 5 to over 6 feet tall and have slender builds. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Elvish. Elvish is fluid, with subtle intonations and intricate grammar. Elven literature is rich and varied, and their songs and poems are famous among other races. Many bards learn their language so they can add Elvish ballads to their repertoires."
+            },
+            {
+                "name": "Keen Senses",
+                "desc": "You have proficiency in the Perception skill."
+            },
+            {
+                "name": "Fey Ancestry",
+                "desc": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            },
+            {
+                "name": "Trance",
+                "desc": "Elves don't need to sleep. Instead, they meditate deeply, remaining semiconscious, for 4 hours a day. (The Common word for such meditation is “trance.”) While meditating, you can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+            }
+        ],
+        "name": "Elf",
+        "desc": "Your elf character has a variety of natural abilities, the result of thousands of years of elven refinement.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_gnome/",
+        "key": "srd_gnome",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 25 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Accustomed to life underground, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Gnomes mature at the same rate humans do, and most are expected to settle down into an adult life by around age 40. They can live 350 to almost 500 years."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Gnomes are most often good. Those who tend toward law are sages, engineers, researchers, scholars, investigators, or inventors. Those who tend toward chaos are minstrels, tricksters, wanderers, or fanciful jewelers. Gnomes are good-hearted, and even the tricksters among them are more playful than vicious."
+            },
+            {
+                "name": "Size",
+                "desc": "Gnomes are between 3 and 4 feet tall and average about 40 pounds. Your size is Small."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Gnomish. The Gnomish language, which uses the Dwarvish script, is renowned for its technical treatises and its catalogs of knowledge about the natural world."
+            },
+            {
+                "name": "Gnome Cunning",
+                "desc": "You have advantage on all Intelligence, Wisdom, and Charisma saving throws against magic."
+            }
+        ],
+        "name": "Gnome",
+        "desc": "Your gnome character has certain characteristics in common with all other gnomes.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_half-elf/",
+        "key": "srd_half-elf",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 2, and two other ability scores of your choice increase by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Thanks to your elf blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Half-elves mature at the same rate humans do and reach adulthood around the age of 20. They live much longer than humans, however, often exceeding 180 years."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Half-elves share the chaotic bent of their elven heritage. They value both personal freedom and creative expression, demonstrating neither love of leaders nor desire for followers. They chafe at rules, resent others' demands, and sometimes prove unreliable, or at least unpredictable."
+            },
+            {
+                "name": "Size",
+                "desc": "Half-elves are about the same size as humans, ranging from 5 to 6 feet tall. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common, Elvish, and one extra language of your choice."
+            },
+            {
+                "name": "Fey Ancestry",
+                "desc": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            },
+            {
+                "name": "Skill Versatility",
+                "desc": "You gain proficiency in two skills of your choice."
+            }
+        ],
+        "name": "Half-Elf",
+        "desc": "Your half-elf character has some qualities in common with elves and some that are unique to half-elves.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_half-orc/",
+        "key": "srd_half-orc",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 2, and your Constitution score increases by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Thanks to your orc blood, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Half-orcs mature a little faster than humans, reaching adulthood around age 14. They age noticeably faster and rarely live longer than 75 years."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Half-orcs inherit a tendency toward chaos from their orc parents and are not strongly inclined toward good. Half-orcs raised among orcs and willing to live out their lives among them are usually evil."
+            },
+            {
+                "name": "Size",
+                "desc": "Half-orcs are somewhat larger and bulkier than humans, and they range from 5 to well over 6 feet tall. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Orc. Orc is a harsh, grating language with hard consonants. It has no script of its own but is written in the Dwarvish script."
+            },
+            {
+                "name": "Menacing",
+                "desc": "You gain proficiency in the Intimidation skill."
+            },
+            {
+                "name": "Relentless Endurance",
+                "desc": "When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. You can't use this feature again until you finish a long rest."
+            },
+            {
+                "name": "Savage Attacks",
+                "desc": "When you score a critical hit with a melee weapon attack, you can roll one of the weapon's damage dice one additional time and add it to the extra damage of the critical hit."
+            }
+        ],
+        "name": "Half-Orc",
+        "desc": "Your half-orc character has certain traits deriving from your orc ancestry.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_halfling/",
+        "key": "srd_halfling",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 25 feet."
+            },
+            {
+                "name": "Age",
+                "desc": "A halfling reaches adulthood at the age of 20 and generally lives into the middle of his or her second century."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Most halflings are lawful good. As a rule, they are good-hearted and kind, hate to see others in pain, and have no tolerance for oppression. They are also very orderly and traditional, leaning heavily on the support of their community and the comfort of their old ways."
+            },
+            {
+                "name": "Size",
+                "desc": "Halflings average about 3 feet tall and weigh about 40 pounds. Your size is Small."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Halfling. The Halfling language isn't secret, but halflings are loath to share it with others. They write very little, so they don't have a rich body of literature. Their oral tradition, however, is very strong. Almost all halflings speak Common to converse with the people in whose lands they dwell or through which they are traveling."
+            },
+            {
+                "name": "Lucky",
+                "desc": "When you roll a 1 on the d20 for an attack roll, ability check, or saving throw, you can reroll the die and must use the new roll."
+            },
+            {
+                "name": "Brave",
+                "desc": "You have advantage on saving throws against being frightened."
+            },
+            {
+                "name": "Halfling Nimbleness",
+                "desc": "You can move through the space of any creature that is of a size larger than yours."
+            }
+        ],
+        "name": "Halfling",
+        "desc": "Your halfling character has a number of traits in common with all other halflings.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_high-elf/",
+        "key": "srd_high-elf",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 1."
+            },
+            {
+                "name": "Elf Weapon Training",
+                "desc": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+            },
+            {
+                "name": "Cantrip",
+                "desc": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+            },
+            {
+                "name": "Extra Language",
+                "desc": "You can speak, read, and write one extra language of your choice."
+            }
+        ],
+        "name": "High Elf",
+        "desc": "As a high elf, you have a keen mind and a mastery of at least the basics of magic. In many fantasy gaming worlds, there are two kinds of high elves. One type is haughty and reclusive, believing themselves to be superior to non-elves and even other elves. The other type is more common and more friendly, and often encountered among humans and other races.",
+        "subrace_of": "https://api.open5e.com/v2/races/srd_elf/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_hill-dwarf/",
+        "key": "srd_hill-dwarf",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Wisdom score increases by 1."
+            },
+            {
+                "name": "Dwarven Toughness",
+                "desc": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+            }
+        ],
+        "name": "Hill Dwarf",
+        "desc": "As a hill dwarf, you have keen senses, deep intuition, and remarkable resilience.",
+        "subrace_of": "https://api.open5e.com/v2/races/srd_dwarf/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_human/",
+        "key": "srd_human",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your ability scores each increase by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Age",
+                "desc": "Humans reach adulthood in their late teens and live less than a century."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Humans tend toward no particular alignment. The best and the worst are found among them."
+            },
+            {
+                "name": "Size",
+                "desc": "Humans vary widely in height and build, from barely 5 feet to well over 6 feet tall. Regardless of your position in that range, your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and one extra language of your choice. Humans typically learn the languages of other peoples they deal with, including obscure dialects. They are fond of sprinkling their speech with words borrowed from other tongues: Orc curses, Elvish musical expressions, Dwarvish military phrases, and so on."
+            }
+        ],
+        "name": "Human",
+        "desc": "It’s hard to make generalizations about humans, but your human character has these traits.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_lightfoot/",
+        "key": "srd_lightfoot",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 1."
+            },
+            {
+                "name": "Naturally Stealthy",
+                "desc": "You can attempt to hide even when you are obscured only by a creature that is at least one size larger than you."
+            }
+        ],
+        "name": "Lightfoot",
+        "desc": "As a lightfoot halfling, you can easily hide from notice, even using other people as cover. You're inclined to be affable and get along well with others. Lightfoots are more prone to wanderlust than other halflings, and often dwell alongside other races or take up a nomadic life.",
+        "subrace_of": "https://api.open5e.com/v2/races/srd_halfling/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_rock-gnome/",
+        "key": "srd_rock-gnome",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 1."
+            },
+            {
+                "name": "Artificer's Lore",
+                "desc": "Whenever you make an Intelligence (History) check related to magic items, alchemical objects, or technological devices, you can add twice your proficiency bonus, instead of any proficiency bonus you normally apply."
+            },
+            {
+                "name": "Tinker",
+                "desc": "You have proficiency with artisan's tools (tinker's tools). Using those tools, you can spend 1 hour and 10 gp worth of materials to construct a Tiny clockwork device (AC 5, 1 hp). The device ceases to function after 24 hours (unless you spend 1 hour repairing it to keep the device functioning), or when you use your action to dismantle it; at that time, you can reclaim the materials used to create it. You can have up to three such devices active at a time.\r\n\r\nWhen you create a device, choose one of the following options:\r\n* _Clockwork Toy._ This toy is a clockwork animal, monster, or person, such as a frog, mouse, bird, dragon, or soldier. When placed on the ground, the toy moves 5 feet across the ground on each of your turns in a random direction. It makes noises as appropriate to the creature it represents.\r\n* _Fire Starter._ The device produces a miniature flame, which you can use to light a candle, torch, or campfire. Using the device requires your action.\r\n* _Music Box._ When opened, this music box plays a single song at a moderate volume. The box stops playing when it reaches the song's end or when it is closed."
+            }
+        ],
+        "name": "Rock Gnome",
+        "desc": "As a rock gnome, you have a natural inventiveness and hardiness beyond that of other gnomes.",
+        "subrace_of": "https://api.open5e.com/v2/races/srd_gnome/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/srd_tiefling/",
+        "key": "srd_tiefling",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/srd/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 1, and your Charisma score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Thanks to your infernal heritage, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Tieflings mature at the same rate as humans but live a few years longer."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Tieflings might not have an innate tendency toward evil, but many of them end up there. Evil or not, an independent nature inclines many tieflings toward a chaotic alignment."
+            },
+            {
+                "name": "Size",
+                "desc": "Tieflings are about the same size and build as humans. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Infernal."
+            },
+            {
+                "name": "Hellish Resistance",
+                "desc": "You have resistance to fire damage."
+            },
+            {
+                "name": "Infernal Legacy",
+                "desc": "You know the thaumaturgy cantrip. When you reach 3rd level, you can cast the hellish rebuke spell as a 2nd-level spell once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the darkness spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+            }
+        ],
+        "name": "Tiefling",
+        "desc": "Tieflings share certain racial traits as a result of their infernal descent.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_acid-cap/",
+        "key": "toh_acid-cap",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 1."
+            },
+            {
+                "name": "Acid Cap Resistance",
+                "desc": "You have resistance to acid damage."
+            },
+            {
+                "name": "Acid Spores",
+                "desc": "When you are hit by a melee weapon attack within 5 feet of you, you can use your reaction to emit acidic spores. If you do, the attacker takes acid damage equal to half your level (rounded up). You can use your acid spores a number of times equal to your Constitution modifier (a minimum of once). You regain any expended uses when you finish a long rest."
+            },
+            {
+                "name": "Clan Athlete",
+                "desc": "You have proficiency in the Athletics skill."
+            }
+        ],
+        "name": "Acid Cap",
+        "desc": "You were one of the warriors and guardians of your clan, using your strength and acid spores to protect your clanmates and your territory.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_mushroomfolk/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_alseid/",
+        "key": "toh_alseid",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2, and your Wisdom score increases by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Alseid are fast for their size, with a base walking speed of 40 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Accustomed to the limited light beneath the forest canopy, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Alseid reach maturity by the age of 20. They can live well beyond 100 years, but it is unknown just how old they can become."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Alseid are generally chaotic, flowing with the unpredictable whims of nature, though variations are common, particularly among those rare few who leave their people."
+            },
+            {
+                "name": "Size",
+                "desc": "Alseid stand over 6 feet tall and weigh around 300 pounds. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Elvish."
+            },
+            {
+                "name": "Alseid Weapon Training",
+                "desc": "You have proficiency with spears and shortbows."
+            },
+            {
+                "name": "Light Hooves",
+                "desc": "You have proficiency in the Stealth skill."
+            },
+            {
+                "name": "Quadruped",
+                "desc": "The mundane details of the structures of humanoids can present considerable obstacles for you. You have to squeeze when moving through trapdoors, manholes, and similar structures even when a Medium humanoid wouldn't have to squeeze. In addition, ladders, stairs, and similar structures are difficult terrain for you."
+            },
+            {
+                "name": "Woodfriend",
+                "desc": "When in a forest, you leave no tracks and can automatically discern true north."
+            }
+        ],
+        "name": "Alseid",
+        "desc": "Your alseid character has certain characteristics in common with all other alseid.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_bhain-kwai/",
+        "key": "toh_bhain-kwai",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 2, and your Strength score increases by 1."
+            },
+            {
+                "name": "Strong Back",
+                "desc": "Your carrying capacity is your Strength score multiplied by 20, instead of by 15."
+            },
+            {
+                "name": "Wetland Dweller",
+                "desc": "You are adapted to your home terrain. Difficult terrain composed of mud or from wading through water up to waist deep doesn't cost you extra movement. You have a swimming speed of 25 feet."
+            }
+        ],
+        "name": "Bhain Kwai",
+        "desc": "You are a minotaur adapted to life in the bogs and wetlands of the world.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_minotaur/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_boghaid/",
+        "key": "toh_boghaid",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Wisdom score increases by 2, and your Constitution score increases by 1."
+            },
+            {
+                "name": "Highlander",
+                "desc": "You are adapted to life at high altitudes, and you suffer no ill effects or penalties from elevations above 8,000 feet."
+            },
+            {
+                "name": "Storied Culture",
+                "desc": "You have proficiency in the Performance skill, and you gain proficiency with one of the following musical instruments: bagpipes, drum, horn, or shawm."
+            },
+            {
+                "name": "Wooly",
+                "desc": "Your thick, wooly coat of hair keeps you warm, allowing you to function in cold weather without special clothing or gear. You have advantage on saving throws against spells and other effects that deal cold damage."
+            }
+        ],
+        "name": "Boghaid",
+        "desc": "You are a minotaur adapted to life in cold climates and high altitudes.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_minotaur/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_catfolk/",
+        "key": "toh_catfolk",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "You have a cat's keen senses, especially in the dark. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Catfolk mature at the same rate as humans and can live just past a century."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Catfolk tend toward two extremes. Some are free-spirited and chaotic, letting impulse and fancy guide their decisions. Others are devoted to duty and personal honor. Typically, catfolk deem concepts such as good and evil as less important than freedom or their oaths."
+            },
+            {
+                "name": "Size",
+                "desc": "Catfolk have a similar stature to humans but are generally leaner and more muscular. Your size is Medium"
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common."
+            },
+            {
+                "name": "Cat's Claws",
+                "desc": "Your sharp claws can cut with ease. Your claws are natural melee weapons, which you can use to make unarmed strikes. When you hit with a claw, your claw deals slashing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+            },
+            {
+                "name": "Hunter's Senses",
+                "desc": "You have proficiency in the Perception and Stealth skills."
+            }
+        ],
+        "name": "Catfolk",
+        "desc": "Your catfolk character has the following traits.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_darakhul/",
+        "key": "toh_darakhul",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is determined by your Heritage Subrace."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "You can see in dim light within 60 feet as though it were bright light and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "An upper limit of darakhul age has never been discovered; most darakhul die violently."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Your alignment does not change when you become a darakhul, but most darakhul have a strong draw toward evil."
+            },
+            {
+                "name": "Size",
+                "desc": "Your size is determined by your Heritage Subrace."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common, Darakhul, and a language associated with your Heritage Subrace."
+            },
+            {
+                "name": "Hunger for Flesh",
+                "desc": "You must consume 1 pound of raw meat each day or suffer the effects of starvation. If you go 24 hours without such a meal, you gain one level of exhaustion. While you have any levels of exhaustion from this trait, you can't regain hit points or remove levels of exhaustion until you spend at least 1 hour consuming 10 pounds of raw meat."
+            },
+            {
+                "name": "Imperfect Undeath",
+                "desc": "You transitioned into undeath, but your transition was imperfect. Though you are a humanoid, you are susceptible to effects that target undead. You can regain hit points from spells like cure wounds, but you can also be affected by game effects that specifically target undead, such as a cleric's Turn Undead feature. Game effects that raise a creature from the dead work on you as normal, but they return you to life as a darakhul. A true resurrection or wish spell can restore you to life as a fully living member of your original race."
+            },
+            {
+                "name": "Powerful Jaw",
+                "desc": "Your heavy jaw is powerful enough to crush bones to powder. Your bite is a natural melee weapon, which you can use to make unarmed strikes. When you hit with it, your bite deals piercing damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+            },
+            {
+                "name": "Sunlight Sensitivity",
+                "desc": "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+            },
+            {
+                "name": "Undead Resilience",
+                "desc": "You are infused with the dark energy of undeath, which frees you from some frailties that plague most creatures. You have resistance to necrotic damage and poison damage, you are immune to disease, and you have advantage on saving throws against being charmed or poisoned. When you finish a short rest, you can reduce your exhaustion level by 1, provided you have ingested at least 1 pound of raw meat in the last 24 hours (see Hunger for Flesh)."
+            },
+            {
+                "name": "Undead Vitality",
+                "desc": "You don't need to breathe, and you don't sleep the way most creatures do. Instead, you enter a dormant state that resembles death, remaining semiconscious, for 6 hours a day. While dormant, you have disadvantage on Wisdom (Perception) checks. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+            },
+            {
+                "name": "Heritage Subrace",
+                "desc": "You were something else before you became a darakhul. This heritage determines some of your traits. Choose one Heritage Subrace below and apply the listed traits."
+            }
+        ],
+        "name": "Darakhul",
+        "desc": "Your darakhul character has certain characteristics in common with all other darakhul.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_delver/",
+        "key": "toh_delver",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength or Dexterity score increases by 1."
+            },
+            {
+                "name": "Rapport with Insects",
+                "desc": "Your caste's years of working alongside the giant spiders and beetles that your people utilized in building and defending cities has left your caste with an innate affinity with the creatures. You can communicate simple ideas with insect-like beasts with an Intelligence of 3 or lower, such as spiders, beetles, wasps, scorpions, and centipedes. You can understand them in return, though this understanding is often limited to knowing the creature's current or most recent state, such as “hungry,” “content,” or “in danger.” Delver drow often keep such creatures as pets, mounts, or beasts of burden."
+            },
+            {
+                "name": "Specialized Training",
+                "desc": "You are proficient in one skill and one tool of your choice."
+            },
+            {
+                "name": "Martial Excellence",
+                "desc": "You are proficient with one martial weapon of your choice and with light armor."
+            }
+        ],
+        "name": "Delver",
+        "desc": "You are one of the workers whose labors prop up most of drow society. You were trained from birth to follow orders and serve the collective. You learned your trade well, whether it was building or fighting or erecting the traps that protected passages to your population centers.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_drow/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_derro/",
+        "key": "toh_derro",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Derro are fast for their size. Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Superior Darkvision",
+                "desc": "Accustomed to life underground, you can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Derro reach maturity by the age of 15 and live to be around 75."
+            },
+            {
+                "name": "Alignment",
+                "desc": "The derro's naturally unhinged minds are nearly always chaotic, and many, but not all, are evil."
+            },
+            {
+                "name": "Size",
+                "desc": "Derro stand between 3 and 4 feet tall with slender limbs and wide shoulders. Your size is Small."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Dwarvish and your choice of Common or Undercommon."
+            },
+            {
+                "name": "Eldritch Resilience",
+                "desc": "You have advantage on Constitution saving throws against spells."
+            },
+            {
+                "name": "Sunlight Sensitivity",
+                "desc": "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+            }
+        ],
+        "name": "Derro",
+        "desc": "Your derro character has certain characteristics in common with all other derro.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_derro-heritage/",
+        "key": "toh_derro-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 2."
+            },
+            {
+                "name": "Calculating Insanity",
+                "desc": "The insanity of your race was compressed into a cold, hard brilliance when you took on your darakhul form. These flashes of brilliance come to you at unexpected moments. You know the true strike cantrip. Charisma is your spellcasting ability for it. You can cast true strike as a bonus action a number of times equal to your Charisma modifier (a minimum of once). You regain any expended uses when you finish a long rest."
+            }
+        ],
+        "name": "Derro Heritage",
+        "desc": "Your darakhul character was a derro before transforming into a darakhul. For you, the quieting of the otherworldly voices did not bring peace and tranquility. The impulses simply became more focused, and the desire to feast on flesh overwhelmed other urges. The darkness is still there; it just has a new, clearer form.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_dragonborn-heritage/",
+        "key": "toh_dragonborn-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 2."
+            },
+            {
+                "name": "Corrupted Bite",
+                "desc": "The inherent breath weapon of your draconic heritage is corrupted by the necrotic energy of your new darakhul form. Instead of forming a line or cone, your breath weapon now oozes out of your ghoulish maw. As a bonus action, you breathe necrotic energy onto your fangs and make one bite attack. If the attack hits, it deals extra necrotic damage equal to your level. You can't use this trait again until you finish a long rest."
+            }
+        ],
+        "name": "Dragonborn Heritage",
+        "desc": "Your darakhul character was a dragonborn before transforming into a darakhul. The dark power of undeath overwhelmed your elemental nature, replacing it with the foul energy and strength of the undead. Occasionally, your draconic heritage echoes a peal of raw power through your form, but it is quickly converted into necrotic waves.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_drow/",
+        "key": "toh_drow",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Superior Darkvision",
+                "desc": "Accustomed to life in the darkest depths of the world, you can see in dim light within 120 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Drow physically mature at the same rate as humans, but they aren't considered adults until they reach the age of 50. They typically live to be around 500."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Drow believe in reason and rationality, which leads them to favor lawful activities. However, their current dire situation makes them more prone than their ancestors to chaotic behavior. Their vicious fight for survival makes them capable of doing great evil in the name of self-preservation, although they are not, by nature, prone to evil in other circumstances."
+            },
+            {
+                "name": "Size",
+                "desc": "Drow are slightly shorter and slimmer than humans. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Elvish and your choice of Common or Undercommon."
+            },
+            {
+                "name": "Fey Ancestry",
+                "desc": "You have advantage on saving throws against being charmed, and magic can't put you to sleep."
+            },
+            {
+                "name": "Mind of Steel",
+                "desc": "You understand the complexities of minds, as well as the magic that can affect them. You have advantage on Wisdom, Intelligence, and Charisma saving throws against spells."
+            },
+            {
+                "name": "Sunlight Sensitivity",
+                "desc": "You have disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight when you, the target of your attack, or whatever you are trying to perceive is in direct sunlight."
+            }
+        ],
+        "name": "Drow",
+        "desc": "Your drow character has certain characteristics in common with all other drow.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_drow-heritage/",
+        "key": "toh_drow-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 2."
+            },
+            {
+                "name": "Poison Bite",
+                "desc": "When you hit with your bite attack, you can release venom into your foe. If you do, your bite deals an extra 1d6 poison damage. The damage increases to 3d6 at 11th level. After you release this venom into a creature, you can't do so again until you finish a short or long rest."
+            }
+        ],
+        "name": "Drow Heritage",
+        "desc": "Your darakhul character was a drow before transforming into a darakhul. Your place within the highly regimented drow society doesn't feel that much different from your new place in the darakhul empires. But an uncertainty buzzes in your mind, and a hunger gnaws at your gut. You are now what you once hated and feared. Does it feel right, or is it something you fight against?",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_dwarf-chassis/",
+        "key": "toh_dwarf-chassis",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 1."
+            },
+            {
+                "name": "Always Armed",
+                "desc": "Every dwarf knows that it's better to leave home without pants than without your weapon. Choose a weapon with which you are proficient and that doesn't have the two-handed property. You can integrate this weapon into one of your arms. While the weapon is integrated, you can't be disarmed of it by any means, though you can use an action to remove the weapon. You can draw or sheathe the weapon as normal, the weapon folding into or springing from your arm instead of a sheath. While the integrated weapon is drawn in this way, it is considered held in that arm's hand, which can't be used for other actions such as casting spells. You can integrate a new weapon or replace an integrated weapon as part of a short or long rest. You can have up to two weapons integrated at a time, one per arm. You have advantage on Dexterity (Sleight of Hand) checks to conceal an integrated weapon."
+            },
+            {
+                "name": "Remembered Training",
+                "desc": "You remember some of your combat training from your previous life. You have proficiency with two martial weapons of your choice and with light and medium armor."
+            }
+        ],
+        "name": "Dwarf Chassis",
+        "desc": "The original dwarven gearforged engineers valued function over form, eschewing aesthetics in favor of instilling their chassis with toughness and strength. The chassis' metal face is clearly crafted to look dwarven, but its countenance is entirely unactuated and forged of a dark metal—often brass—sometimes with a lighter-colored mane of hair and a braided beard and mustaches made of fine metal strands. The gearforged's eyes glow a dark turquoise, staring dispassionately with a seemingly blank expression. Armor and helms worn by the gearforged are often styled to appear as if they were integrated into its chassis, making it all-but-impossible to tell where the armor ends and the gearforged begins.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_gearforged/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_dwarf-heritage/",
+        "key": "toh_dwarf-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Wisdon score increases by 2."
+            },
+            {
+                "name": "Dwarven Stoutness",
+                "desc": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+            }
+        ],
+        "name": "Dwarf Heritage",
+        "desc": "Your darakhul character was a dwarf before transforming into a darakhul. The hum of the earth, the tranquility of the stone and the dust, drained from you as the darakhul fever overwhelmed your once-resilient body. The stone is still there, but its touch has gone from a welcome embrace to a cold grip of death. But it's all the same to you now.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_elfshadow-fey-heritage/",
+        "key": "toh_elfshadow-fey-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Supernatural Senses",
+                "desc": "Your keen elven senses are honed even more by the power of undeath and the hunger within you. You can now smell when blood is in the air. You have proficiency in the Perception skill, and you have advantage on Wisdom (Perception) checks to notice or find a creature within 30 feet of you that doesn't have all of its hit points."
+            }
+        ],
+        "name": "Elf/Shadow Fey Heritage",
+        "desc": "Your darakhul character was an elf or shadow fey (see Midgard Heroes Handbook) before transforming into a darakhul. The deathly power coursing through you reminds you of the lithe beauty and magic of your former body. If you just use your imagination, the blood tastes like wine once did. The smell of rotting flesh has the bouquet of wildflowers. The moss beneath the surface feels like the leaves of the forest.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_erina/",
+        "key": "toh_erina",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2, and you can choose to increase either your Wisdom or Charisma score by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 25 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Accustomed to life in the dark burrows of your people, you have superior vision in dark and dim conditions. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Erina reach maturity around 15 years and can live up to 60 years, though some erina burrow elders have memories of events which suggest erina can live much longer."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Erina are good-hearted and extremely social creatures who have a difficult time adapting to the laws of other species."
+            },
+            {
+                "name": "Size",
+                "desc": "Erina average about 3 feet tall and weigh about 50 pounds. Your size is Small."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak Erina and either Common or Sylvan."
+            },
+            {
+                "name": "Hardy",
+                "desc": "The erina diet of snakes and venomous insects has made them hardy. You have advantage on saving throws against poison, and you have resistance against poison damage."
+            },
+            {
+                "name": "Spines",
+                "desc": "Erina grow needle-sharp spines in small clusters atop their heads and along their backs. While you are grappling a creature or while a creature is grappling you, the creature takes 1d4 piercing damage at the start of your turn."
+            },
+            {
+                "name": "Keen Senses",
+                "desc": "You have proficiency in the Perception skill."
+            },
+            {
+                "name": "Digger",
+                "desc": "You have a burrowing speed of 20 feet, but you can use it to move through only earth and sand, not mud, ice, or rock."
+            }
+        ],
+        "name": "Erina",
+        "desc": "Your erina character has traits which complement its curiosity, sociability, and fierce nature.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_far-touched/",
+        "key": "toh_far-touched",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 1."
+            },
+            {
+                "name": "Insanity",
+                "desc": "You have advantage on saving throws against being charmed or frightened. In addition, you can read and understand Void Speech, but you can speak only a few words of the dangerous and maddening language—the words necessary for using the spells in your Mad Fervor trait."
+            },
+            {
+                "name": "Mad Fervor",
+                "desc": "The driving force behind your insanity has blessed you with a measure of its power. You know the vicious mockery cantrip. When you reach 3rd level, you can cast the enthrall spell with this trait, and starting at 5th level, you can cast the fear spell with it. Once you cast a non-cantrip spell with this trait, you can't do so again until you finish a long rest. Charisma is your spellcasting ability for these spells. If you are using Deep Magic for 5th Edition, these spells are instead crushing curse, maddening whispers, and alone, respectively."
+            }
+        ],
+        "name": "Far-Touched",
+        "desc": "You grew up firmly ensconced in the mad traditions of the derro, your mind touched by the raw majesty and power of your society's otherworldly deities. Your abilities in other areas have made you more than a typical derro, of course. But no matter how well-trained and skilled you get in other magical or martial arts, the voices of your gods forever reverberate in your ears, driving you forward to do great or terrible things.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_derro/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_favored/",
+        "key": "toh_favored",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 1."
+            },
+            {
+                "name": "Blessed Help",
+                "desc": "Your intuition and connection to your allies allows you to assist and protect them. You know the spare the dying cantrip. When you reach 3rd level, you can cast the bless spell once with this trait and regain the ability to do so when you finish a long rest. Charisma is your spellcasting ability for these spells."
+            },
+            {
+                "name": "Clan Leader",
+                "desc": "You have proficiency in the Persuasion skill."
+            },
+            {
+                "name": "Restful Spores",
+                "desc": "If you or any friendly creatures within 30 feet of you regain hit points at the end of a short rest by spending one or more Hit Dice, each of those creatures regains additional hit points equal to your proficiency bonus. Once a creature benefits from your restful spores, it can't do so again until it finishes a long rest."
+            }
+        ],
+        "name": "Favored",
+        "desc": "A few special mushroomfolk grow to become shamans, generals, and other types of leaders. Your spores invite cooperation, peace, and healing among your allies. Others look to you for guidance and succor in the harsh underground environs.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_mushroomfolk/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_fever-bit/",
+        "key": "toh_fever-bit",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 1."
+            },
+            {
+                "name": "Deathly Resilience",
+                "desc": "Your long exposure to the life-sapping energies of darakhul fever has made you more resilient. You have resistance to necrotic damage, and advantage on death saving throws."
+            },
+            {
+                "name": "Iron Constitution",
+                "desc": "You are immune to disease."
+            },
+            {
+                "name": "Near-Death Experience",
+                "desc": "Your brush with death has made you more stalwart in the face of danger. You have advantage on saving throws against being frightened."
+            }
+        ],
+        "name": "Fever-Bit",
+        "desc": "You were once a typical drow, then you fell victim to the ravaging claws and teeth of a darakhul. The deadly darakhul fever almost took your life, but, when you were on the verge of succumbing, you rallied and survived. You were changed, however, in ways that even the greatest healers of your people can't fathom. But now that you are immune to darakhul fever, your commanders have a job for you.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_drow/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_gearforged/",
+        "key": "toh_gearforged",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Two different ability scores of your choice increase by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is determined by your Race Chassis."
+            },
+            {
+                "name": "Age",
+                "desc": "The soul inhabiting a gearforged can be any age. As long as its new body is kept in good repair, there is no known limit to how long it can function."
+            },
+            {
+                "name": "Alignment",
+                "desc": "No single alignment typifies gearforged, but most gearforged maintain the alignment they had before becoming gearforged."
+            },
+            {
+                "name": "Size",
+                "desc": "Your size is determined by your Race Chassis."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common, Machine Speech (a whistling, clicking language that's incomprehensible to non-gearforged), and a language associated with your Race Chassis."
+            },
+            {
+                "name": "Construct Resilience",
+                "desc": "Your body is constructed, which frees you from some of the limits of fleshand- blood creatures. You have resistance to poison damage, you are immune to disease, and you have advantage on saving throws against being poisoned."
+            },
+            {
+                "name": "Construct Vitality",
+                "desc": "You don't need to eat, drink, or breathe, and you don't sleep the way most creatures do. Instead, you enter a dormant state where you resemble a statue and remain semiconscious for 6 hours a day. During this time, the magic in your soul gem and everwound springs slowly repairs the day's damage to your mechanical body. While in this dormant state, you have disadvantage on Wisdom (Perception) checks. After resting in this way, you gain the same benefit that a human does from 8 hours of sleep."
+            },
+            {
+                "name": "Living Construct",
+                "desc": "Your consciousness and soul reside within a soul gem to animate your mechanical body. As such, you are a living creature with some of the benefits and drawbacks of a construct. Though you can regain hit points from spells like cure wounds, you can also be affected by game effects that specifically target constructs, such as the shatter spell. As long as your soul gem remains intact, game effects that raise a creature from the dead work on you as normal, repairing the damaged pieces of your mechanical body (restoring lost sections only if the spell normally restores lost limbs) and returning you to life as a gearforged. Alternatively, if your body is destroyed but your soul gem and memory gears are intact, they can be installed into a new body with a ritual that takes one day and 10,000 gp worth of materials. If your soul gem is destroyed, only a wish spell can restore you to life, and you return as a fully living member of your original race."
+            },
+            {
+                "name": "Race Chassis",
+                "desc": "Four races are known to create unique gearforged, building mechanical bodies similar in size and shape to their people: dwarf, gnome, human, and kobold. Choose one of these forms."
+            }
+        ],
+        "name": "Gearforged",
+        "desc": "The range of gearforged anatomy in all its variants is remarkable, but all gearforged share some common parts.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_gnome-chassis/",
+        "key": "toh_gnome-chassis",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 1."
+            },
+            {
+                "name": "Mental Fortitude",
+                "desc": "When creating their first gearforged, gnome engineers put their efforts toward ensuring that the gnomish mind remained a mental fortress, though they were unable to fully replicate the gnomish mind's resilience once transferred to a soul gem. Choose Intelligence, Wisdom, or Charisma. You have advantage on saving throws made with that ability score against magic."
+            },
+            {
+                "name": "Quick Fix",
+                "desc": "When you are below half your hit point maximum, you can use a bonus action to apply a quick patch up to your damaged body. You gain temporary hit points equal to your proficiency bonus. You can't use this trait again until you finish a short or long rest."
+            }
+        ],
+        "name": "Gnome Chassis",
+        "desc": "Crafted for both exceptional functionality and aesthetic beauty, a gnome chassis' skin is clearly metallic but is meticulously colored to closely match gnomish skin tones, except at the joints, where gears and darker steel pistons are visible. Gnome chassis are almost always bald, with elaborate artistic patterns painted or etched on the face and skull in lieu of hair. Their eyes are vivid and lifelike, as is the chassis' gnomish face, which has a sculpted metal nose and articulated mouth and jaw. The gnome artisans who pioneered the first gearforged chassis saw it as an opportunity to not merely build a better body but to make it a work of art.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_gearforged/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_gnome-heritage/",
+        "key": "toh_gnome-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 2."
+            },
+            {
+                "name": "Magical Hunger",
+                "desc": "When a creature you can see within 30 feet of you casts a spell, you can use your reaction to consume the spell's residual magic. Your consumption doesn't counter or otherwise affect the spell or the spellcaster. When you consume this residual magic, you gain temporary hit points (minimum of 1) equal to your Constitution modifier, and you can't use this trait again until you finish a short or long rest."
+            }
+        ],
+        "name": "Gnome Heritage",
+        "desc": "Your darakhul character was a gnome before transforming into a darakhul. The spark of magic that drove you before your transformation still burns inside of you, but now it is a constant ache instead of a source of creation and inspiration. This ache is twisted by your hunger, making you hunger for magic itself.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_halfling-heritage/",
+        "key": "toh_halfling-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Ill Fortune",
+                "desc": "Your uncanny halfling luck has taken a dark turn since your conversion to an undead creature. When a creature rolls a 20 on the d20 for an attack roll against you, the creature must reroll the attack and use the new roll. If the second attack roll misses you, the attacking creature takes necrotic damage equal to twice your Constitution modifier (minimum of 2)."
+            }
+        ],
+        "name": "Halfling Heritage",
+        "desc": "Your darakhul character was a halfling before transforming into a darakhul. Everything you loved as a halfling—food, drink, exploration, adventure— still drives you in your undead form; it is simply a more ghoulish form of those pleasures now: raw flesh instead of stew, warm blood instead of cold mead. You still want to explore the dark corners of the world, but now you seek something different.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_human-chassis/",
+        "key": "toh_human-chassis",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "One ability score of your choice increases by 1."
+            },
+            {
+                "name": "Adaptable Acumen",
+                "desc": "You gain proficiency in two skills or tools of your choice. Choose one of those skills or tools or another skill or tool proficiency you have. Your proficiency bonus is doubled for any ability check you make that uses the chosen skill or tool."
+            },
+            {
+                "name": "Inspired Ingenuity",
+                "desc": "When you roll a 9 or lower on the d20 for an ability check, you can use a reaction to change the roll to a 10. You can't use this trait again until you finish a short or long rest."
+            }
+        ],
+        "name": "Human Chassis",
+        "desc": "As humans invented the first gearforged, it should be no surprise that the human chassis remains the one that is most frequently encountered. However, it would be a mistake to assume that simply because the original chassis is more commonplace that there is anything common about them. While dwarves, gnomes, and kobolds have made clever additions and changes to the base model, the human chassis remains extremely versatile and is battle-proven.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_gearforged/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_humanhalf-elf-heritage/",
+        "key": "toh_humanhalf-elf-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "One ability score of your choice, other than Constitution, increases by 2."
+            },
+            {
+                "name": "Versatility",
+                "desc": "The training and experience of your early years was not lost when you became a darakhul. You have proficiency in two skills and one tool of your choice."
+            }
+        ],
+        "name": "Human/Half-Elf Heritage",
+        "desc": "Your darakhul character was a human or half-elf before transforming into a darakhul. Where there was once light there is now darkness. Where there was once love there is now hunger. You know if the darkness and hunger become all-consuming, you are truly lost. But the powers of your new form are strangely comfortable. How much of your old self is still there, and what can this new form give you that your old one couldn't?",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_kobold-chassis/",
+        "key": "toh_kobold-chassis",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 1."
+            },
+            {
+                "name": "Clutch Aide",
+                "desc": "Kobolds spend their lives alongside their clutchmates, both those hatched around the same time as them and those they choose later in life, and you retain much of this group-oriented intuition. You can take the Help action as a bonus action."
+            },
+            {
+                "name": "Resourceful",
+                "desc": "If you have at least one set of tools, you can cobble together one set of makeshift tools of a different type with 1 minute of work. For example, if you have cook's utensils, you can use them to create a temporary set of thieves' tools. The makeshift tools last for 10 minutes then collapse into their component parts, returning your tools to their normal forms. While the makeshift tools exist, you can't use the set of tools you used to create the makeshift tools. At the GM's discretion, you might not be able to replicate some tools, such as an alchemist's alembic or a disguise kit's cosmetics. A creature other than you that uses the makeshift tools has disadvantage on the check."
+            }
+        ],
+        "name": "Kobold Chassis",
+        "desc": "Kobolds are naturally curious tinkerers, constantly modifying their devices and tools. As such, kobolds, in spite of what many dwarf or gnome engineers might say, were the second race to master the nuances of gearforged creation after studying human gearforged. However, most of these early kobold gearforged no longer exist, as the more draconic forms (homages to the kobolds' draconic masters) proved too alien to the kobold soul gems to maintain stable, long-term connections with the bodies. Kobold engineers have since resolved that problem, and kobold gearforged can be found among many kobold communities, aiding its members and tinkering right alongside their scale-and-blood brethren.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_gearforged/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_kobold-heritage/",
+        "key": "toh_kobold-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 2."
+            },
+            {
+                "name": "Devious Bite",
+                "desc": "When you hit a creature with your bite attack and you have advantage on the attack roll, your bite deals an extra 1d4 piercing damage."
+            }
+        ],
+        "name": "Kobold Heritage",
+        "desc": "Your darakhul character was a kobold before transforming into a darakhul. The dark, although it was often your home, generally held terrors that you needed to survive. Now you are the dark, and its pull on your soul is strong. You fight to keep a grip on the intellect and cunning that sustained you in your past life. Sometimes it is easy, but often the driving hunger inside you makes it hard to think as clearly as you once did.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_malkin/",
+        "key": "toh_malkin",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Intelligence score increases by 1."
+            },
+            {
+                "name": "Curiously Clever",
+                "desc": "You have proficiency in the Investigation skill."
+            },
+            {
+                "name": "Charmed Curiosity",
+                "desc": "When you roll a 1 on the d20 for a Dexterity check or saving throw, you can reroll the die and must use the new roll."
+            }
+        ],
+        "name": "Malkin",
+        "desc": "It's often said curiosity killed the cat, and this applies with equal frequency to catfolk. As a malkin catfolk you are adept at finding clever solutions to escape difficult situations, even (or perhaps especially) situations of your own making. Your diminutive size also gives you an uncanny nimbleness that helps you avoid the worst consequences of your intense inquisitiveness. Most often found in densely populated regions, these catfolk are as curious about the comings and goings of other humanoids as they are about natural or magical phenomena and artifacts. While malkins are sometimes referred to as \"housecats\" by other humanoids and even by other catfolk, doing so in a malkin's hearing is a surefire way to get a face full of claws…",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_catfolk/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_minotaur/",
+        "key": "toh_minotaur",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 2, and your Constitution score increases by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Minotaurs age at roughly the same rate as humans but mature 3 years earlier. Childhood ends around the age of 10 and adulthood is celebrated at 15."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Minotaurs possess a wide range of alignments, just as humans do. Mixing a love for personal freedom and respect for history and tradition, the majority of minotaurs fall into neutral alignments."
+            },
+            {
+                "name": "Size",
+                "desc": "Adult males can reach a height of 7 feet, with females averaging 3 inches shorter. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and Minotaur."
+            },
+            {
+                "name": "Natural Attacks",
+                "desc": "Your horns are sturdy and sharp. Your horns are a natural melee weapon, which you can use to make unarmed strikes. When you hit with your horns, they deal piercing damage equal to 1d6 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike."
+            },
+            {
+                "name": "Charge",
+                "desc": "Once per turn, if you move at least 10 feet toward a target and hit it with a horn attack in the same turn, you deal an extra 1d6 piercing damage and you can shove the target up to 5 feet as a bonus action. At 11th level, when you shove a creature with Charge, you can push it up to 10 feet instead. You can use this trait a number of times per day equal to your Constitution modifier (minimum of once), and you regain all expended uses when you finish a long rest."
+            },
+            {
+                "name": "Labyrinth Sense",
+                "desc": "You can retrace without error any path you have previously taken, with no ability check."
+            }
+        ],
+        "name": "Minotaur",
+        "desc": "Your minotaur character has certain characteristics in common with all other minotaurs.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_morel/",
+        "key": "toh_morel",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 1."
+            },
+            {
+                "name": "Adaptable Camouflage",
+                "desc": "If you spend at least 1 minute in an environment with ample naturally occurring plants or fungi, such as a grassland, a forest, or an underground fungal cavern, you can adjust your natural coloration to blend in with the local plant life. If you do so, you have advantage on Dexterity (Stealth) checks for the next 24 hours while in that environment."
+            },
+            {
+                "name": "Clan Scout",
+                "desc": "You have proficiency in the Stealth skill."
+            }
+        ],
+        "name": "Morel",
+        "desc": "Your specialty for your clan was acting as a scout and a wayfinder. Your abilities to avoid problems and locate new sources of food for your clan was instrumental in their survival, and your interactions with other clans helped keep your people alive and well.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_mushroomfolk/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_mushroomfolk/",
+        "key": "toh_mushroomfolk",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Wisdom score increases by 2."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Accustomed to life underground, you can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Mushroomfolk reach maturity by the age of 5 and rarely live longer than 50 years."
+            },
+            {
+                "name": "Alignment",
+                "desc": "The limited interaction mushroomfolk have with other creatures leaves them with a fairly neutral view of the world in terms of good and evil, while their societal structure makes them more prone to law than chaos."
+            },
+            {
+                "name": "Size",
+                "desc": "A mushroomfolk's size is determined by its subrace."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Mushroomfolk and your choice of Common or Undercommon."
+            },
+            {
+                "name": "Fungoid Form",
+                "desc": "You are a humanoid, though the fungal nature of your body and your unique diet of decayed vegetable and animal matter marks you with some plant-like characteristics. You have advantage on saving throws against poison, and you have resistance to poison damage. In addition, you are immune to disease."
+            },
+            {
+                "name": "Hardy Survivor",
+                "desc": "Your upbringing in mushroomfolk society has taught you how to defend yourself and find food. You have proficiency in the Survival skill."
+            },
+            {
+                "name": "Subrace",
+                "desc": "Three subraces of mushroomfolk are known to wander the world: acid cap, favored, and morel. Choose one of these subraces."
+            }
+        ],
+        "name": "Mushroomfolk",
+        "desc": "Your mushroomfolk character has characteristics in common with all other mushroomfolk.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_mutated/",
+        "key": "toh_mutated",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 1."
+            },
+            {
+                "name": "Athletic Training",
+                "desc": "You have proficiency in the Athletics skill, and you are proficient with two martial weapons of your choice."
+            },
+            {
+                "name": "Otherworldly Influence",
+                "desc": "Your close connection to the strange powers that your people worship has mutated your form. Choose one of the following:\r\n\r\n**Alien Appendage.** You have a tentacle-like growth on your body. This tentacle is a natural melee weapon, which you can use to make unarmed strikes. When you hit with it, your tentacle deals bludgeoning damage equal to 1d4 + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike. This tentacle has a reach of 5 feet and can lift a number of pounds equal to double your Strength score. The tentacle can't wield weapons or shields or perform tasks that require manual precision, such as performing the somatic components of a spell, but it can perform simple tasks, such as opening an unlocked door or container, stowing or retrieving an object, or pouring the contents out of a vial.\r\n**Tainted Blood.** Your blood is tainted by your connection with otherworldly entities. When you take piercing or slashing damage, you can use your reaction to force your blood to spray out of the wound. You and each creature within 5 feet of you take necrotic damage equal to your level. Once you use this trait, you can't use it again until you finish a short or long rest.\r\n**Tenebrous Flesh.** Your skin is rubbery and tenebrous, granting you a +1 bonus to your Armor Class."
+            }
+        ],
+        "name": "Mutated",
+        "desc": "Most derro go through the process of indoctrination into their society and come out of it with visions and delusion, paranoia and mania. You, on the other hand, were not affected as much mentally as you were physically. The connection to the dark deities of your people made you stronger and gave you a physical manifestation of their gift that other derro look upon with envy and awe.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_derro/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_pantheran/",
+        "key": "toh_pantheran",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Wisdom score increases by 1."
+            },
+            {
+                "name": "Hunter's Charge",
+                "desc": "Once per turn, if you move at least 10 feet toward a target and hit it with a melee weapon attack in the same turn, you can use a bonus action to attack that creature with your Cat's Claws. You can use this trait a number of times per day equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+            },
+            {
+                "name": "One With the Wilds",
+                "desc": "You have proficiency in one of the following skills of your choice: Insight, Medicine, Nature, or Survival."
+            }
+        ],
+        "name": "Pantheran",
+        "desc": "Pantheran catfolk are a wise, observant, and patient people who pride themselves on being resourceful and self-sufficient. Less social than many others of their kind, these catfolk typically dwell in small, close-knit family groups in the forests, jungles, and grasslands of the world, away from larger population centers or cities. Their family clans teach the importance of living off of and protecting the natural world, and pantherans act swiftly and mercilessly when their forest homes are threatened by outside forces. Conversely, pantherans can be the most fierce and loyal of neighbors to villages who respect nature and who take from the land and forest no more than they need. As a pantheran, you value nature and kinship, and your allies know they can count on your wisdom and, when necessary, your claws.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_catfolk/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_purified/",
+        "key": "toh_purified",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 1."
+            },
+            {
+                "name": "Innate Spellcasting",
+                "desc": "You know the poison spray cantrip. When you reach 3rd level, you can cast suggestion once with this trait and regain the ability to do so when you finish a long rest. When you reach 5th level, you can cast the tongues spell once and regain the ability to do so when you finish a long rest. Intelligence is your spellcasting ability for these spells."
+            },
+            {
+                "name": "Born Leader",
+                "desc": "You gain proficiency with two of the following skills of your choice: History, Insight, Performance, and Persuasion."
+            }
+        ],
+        "name": "Purified",
+        "desc": "You were born into the caste that produces the leaders and planners, the priests and wizards, the generals and officers of drow society. Your people, it is believed, were tested by the beneficent powers you worship, and you passed those tests to become something more. Your innate magic proves your superiority over your fellows.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_drow/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_ravenfolk/",
+        "key": "toh_ravenfolk",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Dexterity score increases by 2."
+            },
+            {
+                "name": "Sudden Bite and Flight",
+                "desc": "If you surprise a creature during the first round of combat, you can make a bite attack as a bonus action. If it hits, you can immediately take the Dodge action as a reaction."
+            }
+        ],
+        "name": "Ravenfolk",
+        "desc": "Your darakhul character was a ravenfolk (see Midgard Heroes Handbook) before transforming into a darakhul. Your new form feels different. It is more powerful and less fidgety, and your beak has become razor sharp. There is still room for trickery, of course. But with your new life comes a disconnection from the All Father. Does this loss gnaw at you like your new hunger or do you feel freed from the destiny of your people?",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_satarre/",
+        "key": "toh_satarre",
+        "is_subrace": false,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Constitution score increases by 2, and your Intelligence score increases by 1."
+            },
+            {
+                "name": "Speed",
+                "desc": "Your base walking speed is 30 feet."
+            },
+            {
+                "name": "Darkvision",
+                "desc": "Thanks to your dark planar parentage, you have superior vision in darkness. You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can't discern color in darkness, only shades of gray."
+            },
+            {
+                "name": "Age",
+                "desc": "Satarre grow quickly, walking soon after hatching and reaching the development of a 15-year-old human by age 6. They maintain the same appearance until about 50, then begin a rapid decline. Satarre often die violently, but those who live longer survive to no more than 65 years of age."
+            },
+            {
+                "name": "Alignment",
+                "desc": "Satarre are born with a tendency toward evil akin to that of rapacious dragons, and, when raised among other satarre or darakhul, they are usually evil. Those raised among other cultures tend toward the norm for those cultures."
+            },
+            {
+                "name": "Size",
+                "desc": "Satarre are tall but thin, from 6 to 7 feet tall with peculiar, segmented limbs. Your size is Medium."
+            },
+            {
+                "name": "Languages",
+                "desc": "You can speak, read, and write Common and one of the following: Abyssal, Infernal, or Void Speech. Void Speech is a language of dark gods and ancient blasphemies, and the mere sound of its sibilant tones makes many other creatures quite uncomfortable."
+            },
+            {
+                "name": "A Friend to Death",
+                "desc": "You have resistance to necrotic damage."
+            },
+            {
+                "name": "Keeper of Secrets",
+                "desc": "You have proficiency in the Arcana skill, and you have advantage on Intelligence (Arcana) checks related to the planes and planar travel. In addition, you have proficiency in one of the following skills of your choice: History, Insight, and Religion."
+            },
+            {
+                "name": "Carrier of Rot",
+                "desc": "You can use your action to inflict rot on a creature you can see within 10 feet of you. The creature must make a Constitution saving throw. The DC for this saving throw equals 8 + your Constitution modifier + your proficiency bonus. A creature takes 1d4 necrotic damage on a failed save, and half as much damage on a successful one. A creature that fails the saving throw also rots for 1 minute. A rotting creature takes 1d4 necrotic damage at the end of each of its turns. The target or a creature within 5 feet of it can use an action to excise the rot with a successful Wisdom (Medicine) check. The DC for the check equals the rot's Constitution saving throw DC. The rot also disappears if the target receives magical healing. The damage for the initial action and the rotting increases to 2d4 at 6th level, 3d4 at 11th level, and 4d4 at 16th level. After you use your Carrier of Rot trait, you can't use it again until you complete a short or long rest."
+            }
+        ],
+        "name": "Satarre",
+        "desc": "Your satarre heritage is apparent in a variety of traits you share with other satarre.",
+        "subrace_of": null
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_tiefling-heritage/",
+        "key": "toh_tiefling-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Charisma score increases by 1."
+            },
+            {
+                "name": "Necrotic Rebuke",
+                "desc": "When you are hit by a weapon attack, you can use a reaction to envelop the attacker in shadowy flames. The attacker takes necrotic damage equal to your Charisma modifier (minimum of 1), and it has disadvantage on attack rolls until the end of its next turn. You must finish a long rest before you can use this feature again."
+            }
+        ],
+        "name": "Tiefling Heritage",
+        "desc": "Your darakhul character was a tiefling before transforming into a darakhul. You are no stranger to the pull of powerful forces raging through your blood. You have traded one dark pull for another, and this one seems much stronger. Is that a good feeling, or do you miss your old one?",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_trollkin-heritage/",
+        "key": "toh_trollkin-heritage",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Strength score increases by 2."
+            },
+            {
+                "name": "Regenerative Bite",
+                "desc": "The regenerative powers of your trollkin heritage are less potent than they were in life and need a little help. As an action, you can make a bite attack against a creature that isn't undead or a construct. On a hit, you regain hit points (minimum of 1) equal to half the amount of damage dealt. Once you use this trait, you can't use it again until you finish a long rest."
+            }
+        ],
+        "name": "Trollkin Heritage",
+        "desc": "Your darakhul character was a trollkin (see Midgard Heroes Handbook) before transforming into a darakhul. Others saw you as a monster because of your ancestry. You became inured to the fearful looks and hurried exits of those around you. If only they could see you now. Does your new state make you seek revenge on them, or are you able to maintain your self-control despite the new urges you feel?",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_darakhul/"
+    },
+    {
+        "url": "https://api.open5e.com/v2/races/toh_uncorrupted/",
+        "key": "toh_uncorrupted",
+        "is_subrace": true,
+        "document": "https://api.open5e.com/v2/documents/toh/",
+        "traits": [
+            {
+                "name": "Ability Score Increase",
+                "desc": "Your Wisdom score increases by 1."
+            },
+            {
+                "name": "Psychic Barrier",
+                "desc": "Your time among your less sane brethren has inured you to their madness. You have resistance to psychic damage, and you have advantage on ability checks and saving throws made against effects that inflict insanity, such as spells like contact other plane and symbol, and effects that cause short-term, long-term, or indefinite madness."
+            },
+            {
+                "name": "Studied Insight",
+                "desc": "You are skilled at discerning other creature's motives and intentions. You have proficiency in the Insight skill, and, if you study a creature for at least 1 minute, you have advantage on any initiative checks in combat against that creature for the next hour."
+            }
+        ],
+        "name": "Uncorrupted",
+        "desc": "Someone in your past failed to do their job of driving you to the brink of insanity. It might have been a doting parent that decided to buck tradition. It might have been a touched seer who had visions of your future without the connections to the mad gods your people serve. It might have been a whole outcast community of derro rebels who refused to serve the madness of your ancestors. Whatever happened in your past, you are quite sane—or at least quite sane for a derro.",
+        "subrace_of": "https://api.open5e.com/v2/races/toh_derro/"
+    }
 ]
