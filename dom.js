@@ -66,11 +66,11 @@ class DOMElements {
     get saveSlotsList() { return query('save-slots-list'); }
     get newAdventureBtn() { return query('new-adventure-btn'); }
     get loadGameCancelBtn() { return query('load-game-cancel-btn'); }
-    get characterCreationCancelBtn() { return query('character-creation-cancel-btn'); }
     get changeSettingsBtn() { return query('change-settings-btn'); }
     get readAloudToggle() { return query('read-aloud-toggle'); }
     get micBtn() { return query('mic-btn'); }
     get characterCreationModal() { return query('character-creation-modal'); }
+    get characterCreationCloseBtn() { return query('character-creation-close-btn'); }
     get characterForm() { return query('character-form'); }
     get charNameInput() { return query('char-name'); }
     get charDescInput() { return query('char-desc'); }

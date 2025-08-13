@@ -39,7 +39,7 @@ function setupMainAppEventListeners() {
         dom.loadGameModal.classList.add('hidden');
         dom.landingPage.classList.remove('hidden');
     });
-    dom.characterCreationCancelBtn.addEventListener('click', () => {
+    dom.characterCreationCloseBtn.addEventListener('click', () => {
         dom.characterCreationModal.classList.add('hidden');
         dom.appElement.classList.add('hidden');
         dom.landingPage.classList.remove('hidden');
