@@ -163,6 +163,21 @@ body {
   position: relative;
 }
 
+#character-creation-modal.modal-overlay {
+    padding: 0;
+}
+
+#character-creation-modal .modal-content {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+
 .modal-close-btn {
     position: absolute;
     top: 1rem;
@@ -215,6 +230,7 @@ body {
   gap: 1rem;
   margin-top: 1.5rem;
   flex-shrink: 0; /* Prevent buttons from shrinking */
+  position: relative;
 }
 
 .modal-content button {
@@ -332,7 +348,7 @@ body {
   margin-top: 1.5rem;
 }
 
-#character-form {
+#character-form, #level-up-form {
   display: flex;
   flex-direction: column;
   flex-grow: 1; 
@@ -341,14 +357,46 @@ body {
   overflow: hidden; 
 }
 
-.form-scroll-container {
-    overflow-y: auto;
+#cc-pages-container {
     flex-grow: 1;
-    padding: 0.5rem 1rem 0.5rem 0.5rem; /* Space for scrollbar and breathing room */
+    overflow-y: auto;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
     margin: 0 -1rem 0 -0.5rem;
-    display: flex;
+}
+
+.cc-page {
+    display: none;
     flex-direction: column;
     gap: 1.25rem;
+}
+
+.cc-page.active {
+    display: flex;
+}
+
+.cc-page > *:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+#character-creation-modal .modal-actions {
+    justify-content: space-between;
+    align-items: center;
+}
+
+#cc-step-indicator {
+    display: flex;
+    gap: 0.5rem;
+}
+.step-dot {
+    width: 10px;
+    height: 10px;
+    background-color: var(--border-color);
+    border-radius: 50%;
+    transition: background-color 0.3s;
+}
+.step-dot.active {
+    background-color: var(--accent-color);
 }
 
 .form-group {
@@ -357,12 +405,6 @@ body {
   border-top: 1px solid var(--border-color);
   padding-top: 1.25rem;
 }
-
-.form-scroll-container > *:first-child {
-    border-top: none;
-    padding-top: 0;
-}
-
 
 .form-group label {
   font-family: var(--font-title);
@@ -392,7 +434,8 @@ body {
 #character-form textarea,
 #character-form select,
 #settings-form input,
-#settings-form select {
+#settings-form select,
+#level-up-form select {
   width: 100%;
   padding: 0.75rem;
   background-color: var(--background-color);
@@ -408,14 +451,16 @@ body {
 #character-form textarea:focus,
 #character-form select:focus,
 #settings-form input:focus,
-#settings-form select:focus {
+#settings-form select:focus,
+#level-up-form select:focus {
   outline: none;
   border-color: var(--accent-color);
   box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.3);
 }
 
 #character-form select,
-#settings-form select {
+#settings-form select,
+#level-up-form select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -426,7 +471,8 @@ body {
 }
 
 #character-form select option,
-#settings-form select option {
+#settings-form select option,
+#level-up-form select option {
     background-color: var(--dm-bubble-bg);
     color: var(--primary-text);
 }
@@ -445,10 +491,76 @@ body {
   align-self: center;
 }
 
+/* --- CC Summary Box --- */
+.summary-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border: 1px dashed var(--border-color);
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    max-height: 40vh; /* Set a max height */
+    overflow-y: auto;   /* Allow scrolling */
+    padding-right: 0.5rem; /* Add space for scrollbar */
+}
+
+.summary-box h4 {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin: 0 0 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.25rem;
+}
+
+.summary-box ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0.75rem;
+}
+
+.summary-box ul:last-child {
+    margin-bottom: 0;
+}
+
+.summary-box li {
+    margin-bottom: 0.75rem;
+}
+
+.summary-box li strong {
+    display: block;
+    color: var(--primary-text);
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.summary-box li span {
+    font-size: 0.85rem;
+    color: #aaa;
+    padding-left: 0.75rem;
+    display: block;
+    border-left: 3px solid var(--border-color);
+    line-height: 1.4;
+}
+
+.summary-box .placeholder-text {
+    color: #888;
+    font-style: italic;
+    text-align: center;
+    padding: 1rem 0;
+}
+
+.summary-box p.placeholder-text {
+    margin: 0;
+    padding: 0.25rem 0;
+}
+
+
 /* --- Point Buy Styles --- */
 .point-buy-section {
-    border-top: 1px solid #444;
-    padding-top: 15px;
+    border-top: none; /* No border in page view */
+    padding-top: 0;
 }
 
 .point-buy-header {
@@ -533,6 +645,10 @@ body {
   gap: 1rem;
   margin: 1.5rem 0;
   text-align: left;
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+  flex-grow: 1; /* Allow this section to take available space */
+  padding-right: 1rem; /* Add space for the scrollbar */
+  margin-right: -1rem; /* Counteract padding to maintain alignment */
 }
 
 .story-hook-card {
@@ -641,6 +757,8 @@ body {
   border-right: 1px solid var(--border-color);
   overflow-y: auto;
   color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
 }
 
 .stats-header {
@@ -648,6 +766,35 @@ body {
   margin-bottom: 1.5rem;
   border-bottom: 1px dashed var(--border-color);
   padding-bottom: 1rem;
+  position: relative;
+}
+
+#level-up-btn {
+    position: absolute;
+    top: -1rem;
+    right: -0.5rem;
+    padding: 0.5rem 1rem;
+    font-family: var(--font-title);
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, #4CAF50, #81C784);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    transition: all 0.2s ease;
+    animation: a-pulse-green 2s infinite;
+}
+
+#level-up-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+}
+
+@keyframes a-pulse-green {
+  0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7); }
+  70% { box-shadow: 0 0 12px 10px rgba(76, 175, 80, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
 }
 
 .stats-header h2 {
@@ -704,6 +851,193 @@ body {
 #player-stats li strong {
   color: #ccc;
 }
+
+/* Sidebar footer button */
+#player-stats .sidebar-footer {
+    padding-top: 1rem;
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+}
+
+#view-character-sheet-btn {
+    width: 100%;
+    padding: 0.75rem;
+    font-family: var(--font-title);
+    font-size: 1.1rem;
+    color: var(--background-color);
+    background: linear-gradient(45deg, var(--accent-color), #ffbf60);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+#view-character-sheet-btn:hover {
+    box-shadow: 0 0 10px rgba(255, 153, 0, 0.5);
+    transform: translateY(-2px);
+}
+
+/* Character Sheet Modal */
+#character-sheet-modal .modal-content {
+    max-width: 90vw;
+    width: 1200px;
+    height: 90vh;
+    max-height: 800px;
+}
+
+.character-sheet-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    flex-grow: 1;
+    overflow: hidden;
+    margin-top: 1rem;
+}
+
+.cs-list-pane, .cs-details-pane {
+    overflow-y: auto;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 6px;
+    border: 1px solid var(--border-color);
+}
+
+.cs-list-pane h4 {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-top: 1.25rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.cs-list-pane h4:first-child {
+    margin-top: 0;
+}
+
+.cs-list-pane ul {
+    list-style: none;
+    padding: 0;
+}
+
+.cs-list-item {
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
+}
+
+.cs-list-item:hover {
+    background-color: var(--dm-bubble-bg);
+}
+
+.cs-list-item.active {
+    background-color: var(--user-bubble-bg);
+    color: white;
+    font-weight: bold;
+}
+
+.cs-list-pane .cs-static-section {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 1rem;
+    background: rgba(0,0,0,0.15);
+    padding: 0.75rem;
+    border-radius: 4px;
+}
+
+.cs-list-pane .cs-static-section li {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    padding: 0.1rem 0;
+}
+
+.cs-list-pane-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.cs-ability-score-small {
+    background: rgba(0,0,0,0.25);
+    padding: 0.5rem;
+    border-radius: 4px;
+    text-align: center;
+}
+.cs-ability-score-small .cs-ability-name {
+    font-weight: bold;
+    display: block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--accent-color);
+}
+.cs-ability-score-small .cs-ability-value {
+    font-size: 0.9rem;
+}
+
+
+.cs-list-pane .stat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.cs-list-pane .stat-grid li {
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.35rem 0.5rem;
+    border-radius: 4px;
+    white-space: nowrap;
+}
+.cs-list-pane .stat-grid li.proficient {
+    color: var(--proficient-color);
+    font-weight: bold;
+}
+.cs-list-pane .stat-grid li.not-proficient {
+    color: var(--not-proficient-color);
+}
+
+.cs-details-pane .placeholder-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: #888;
+    font-style: italic;
+    font-size: 1.2rem;
+}
+
+.cs-details-pane h3 {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.5rem;
+}
+.cs-details-pane p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.cs-details-pane ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.cs-details-pane ul li {
+    background-color: rgba(0,0,0,0.2);
+    padding: 0.5rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+.cs-details-pane ul li strong {
+    color: var(--accent-color);
+}
+
 
 /* NEW TTRPG STATS STYLING & ACCORDION */
 .accordion-section {
@@ -1397,6 +1731,8 @@ footer {
 /* --- Master Skill Section Styles --- */
 .skill-section {
     margin-top: 20px;
+    border-top: none; /* No border in page view */
+    padding-top: 0;
 }
 .skill-section-header {
     font-family: var(--font-title);
@@ -1406,12 +1742,25 @@ footer {
 }
 .skill-choice-block {
     margin-bottom: 20px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
 }
+.skill-choice-block:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
 .skill-choice-block h5 {
     font-family: var(--font-title);
     margin-top: 0;
     margin-bottom: 10px;
     color: var(--accent-color);
+}
+.skill-choice-header {
+    margin-top: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+    color: #ccc;
 }
 .skill-choice-grid {
     display: grid;
@@ -1428,6 +1777,133 @@ footer {
 .skill-checkbox input:disabled + label {
     color: #888;
     text-decoration: line-through;
+}
+
+/* --- Spell & Special Ability Selection Styles --- */
+#spell-selection-page {
+    gap: 1.5rem;
+}
+
+.special-selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.choice-block {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5rem;
+}
+
+.choice-block:first-child {
+    border-top: none;
+    padding-top: 0;
+}
+
+.choice-block h4 {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.choice-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0rem;
+}
+
+.choice-item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.choice-item input {
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+}
+
+.choice-item label {
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.choice-item .choice-desc {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-top: 0.25rem;
+    padding-left: 1.75rem; /* Indent under the label */
+    line-height: 1.4;
+}
+
+.spell-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.spell-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 0.5rem;
+}
+
+.spell-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.spell-item-header {
+    display: flex;
+    align-items: center;
+}
+
+.spell-item label {
+    cursor: pointer;
+    font-family: var(--font-body);
+    flex-grow: 1;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.spell-item label:hover {
+    background-color: var(--background-color);
+}
+
+.spell-item input:disabled + label {
+    color: #888;
+    cursor: not-allowed;
+}
+
+.spell-item label.active {
+    color: var(--accent-color);
+    background-color: var(--background-color);
+    font-weight: bold;
+}
+
+#spell-description-display {
+    margin: 1.5rem 0;
+    min-height: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+#spell-description-display .spell-description-text {
+     flex-grow: 1;
+     overflow-y: auto;
+}
+
+#spell-description-display p.placeholder-text {
+    margin: auto; /* Center the placeholder text */
 }
 
 /* Sidebar Toggle Button (Mobile only) */
@@ -1576,4 +2052,58 @@ footer {
 
 #update-notification button:hover {
     background-color: #3a3a3d;
+}
+
+/* Level Up Modal styles */
+#level-up-modal .modal-content {
+    max-width: 700px;
+}
+
+#level-up-pages-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 0.5rem 1rem 0.5rem 0.5rem;
+    margin: 0 -1rem 0 -0.5rem;
+    min-height: 40vh;
+    max-height: 60vh;
+}
+
+.level-up-page {
+    display: none;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.level-up-page.active {
+    display: flex;
+}
+
+.level-up-summary h3 {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    margin-top: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+.level-up-summary ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+}
+.level-up-summary li {
+    margin: 0.5rem 0;
+}
+
+#level-up-form .form-group {
+    border-top: none;
+    padding-top: 0;
+}
+
+/* Re-use cc styles for step indicator */
+#level-up-modal .modal-actions {
+    justify-content: space-between;
+    align-items: center;
+}
+#level-up-step-indicator {
+    display: flex;
+    gap: 0.5rem;
 }

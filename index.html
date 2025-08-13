@@ -122,150 +122,167 @@
         <h2>Create Your Character</h2>
         <p>Define your hero to the Storyteller. This will shape your journey.</p>
         <form id="character-form">
-            <div class="form-scroll-container">
-                <div class="form-group">
-                    <label for="char-name">Character Name</label>
-                    <input type="text" id="char-name" required placeholder="e.g., Kaelen d'Rivis">
-                </div>
-                <div class="form-group">
-                    <label for="char-desc">Appearance & Description</label>
-                    <textarea id="char-desc" rows="10" placeholder="e.g., A tall human with intricate tattoos... You can also paste a full character sheet here."></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="char-bio">Backstory & Bio</label>
-                    <textarea id="char-bio" rows="15" placeholder="e.g., A former soldier haunted by the last war, now seeking answers in the shadows of the city."></textarea>
-                </div>
-                
-                <!-- START: New Point Buy Section -->
-                <div class="point-buy-section">
-                    <div class="point-buy-header">
-                        <h4>Ability Scores (Point Buy)</h4>
-                        <div class="points-display">
-                            Points Remaining: <span id="points-remaining">35</span>
-                        </div>
+            <div id="cc-pages-container">
+                <!-- Page 1: Core Identity -->
+                <div class="cc-page" data-page="1">
+                    <div class="form-group">
+                        <label for="char-race">Race</label>
+                        <select id="char-race" required>
+                            <option value="" disabled selected>Select a Race...</option>
+                        </select>
                     </div>
-                    <div id="point-buy-container" class="point-buy-grid">
-                        <!-- Strength -->
-                        <div class="stat-row">
-                            <label>Strength</label>
-                            <div class="stat-controls">
-                                <button type="button" class="stat-btn" id="str-decrease" data-stat="strength">-</button>
-                                <span class="stat-score" id="strength-score">10</span>
-                                <button type="button" class="stat-btn" id="str-increase" data-stat="strength">+</button>
-                            </div>
-                            <div class="stat-cost">Cost: <span id="strength-cost">0</span></div>
-                        </div>
-                        <!-- Dexterity -->
-                        <div class="stat-row">
-                            <label>Dexterity</label>
-                            <div class="stat-controls">
-                                <button type="button" class="stat-btn" id="dex-decrease" data-stat="dexterity">-</button>
-                                <span class="stat-score" id="dexterity-score">10</span>
-                                <button type="button" class="stat-btn" id="dex-increase" data-stat="dexterity">+</button>
-                            </div>
-                            <div class="stat-cost">Cost: <span id="dexterity-cost">0</span></div>
-                        </div>
-                        <!-- Constitution -->
-                        <div class="stat-row">
-                            <label>Constitution</label>
-                            <div class="stat-controls">
-                                <button type="button" class="stat-btn" id="con-decrease" data-stat="constitution">-</button>
-                                <span class="stat-score" id="constitution-score">10</span>
-                                <button type="button" class="stat-btn" id="con-increase" data-stat="constitution">+</button>
-                            </div>
-                            <div class="stat-cost">Cost: <span id="constitution-cost">0</span></div>
-                        </div>
-                        <!-- Intelligence -->
-                        <div class="stat-row">
-                            <label>Intelligence</label>
-                            <div class="stat-controls">
-                                <button type="button" class="stat-btn" id="int-decrease" data-stat="intelligence">-</button>
-                                <span class="stat-score" id="intelligence-score">10</span>
-                                <button type="button" class="stat-btn" id="int-increase" data-stat="intelligence">+</button>
-                            </div>
-                            <div class="stat-cost">Cost: <span id="intelligence-cost">0</span></div>
-                        </div>
-                        <!-- Wisdom -->
-                        <div class="stat-row">
-                            <label>Wisdom</label>
-                            <div class="stat-controls">
-                                <button type="button" class="stat-btn" id="wis-decrease" data-stat="wisdom">-</button>
-                                <span class="stat-score" id="wisdom-score">10</span>
-                                <button type="button" class="stat-btn" id="wis-increase" data-stat="wisdom">+</button>
-                            </div>
-                            <div class="stat-cost">Cost: <span id="wisdom-cost">0</span></div>
-                        </div>
-                        <!-- Charisma -->
-                        <div class="stat-row">
-                            <label>Charisma</label>
-                            <div class="stat-controls">
-                                <button type="button" class="stat-btn" id="cha-decrease" data-stat="charisma">-</button>
-                                <span class="stat-score" id="charisma-score">10</span>
-                                <button type="button" class="stat-btn" id="cha-increase" data-stat="charisma">+</button>
-                            </div>
-                            <div class="stat-cost">Cost: <span id="charisma-cost">0</span></div>
-                        </div>
+                    <div class="form-group">
+                        <label for="char-class">Class</label>
+                        <select id="char-class" required>
+                            <option value="" disabled selected>Select a Class...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="char-background">Background</label>
+                        <select id="char-background" required>
+                            <option value="" disabled selected>Select a Background...</option>
+                        </select>
+                    </div>
+                    <div id="cc-summary-box" class="summary-box">
+                        <!-- Summary will be injected here -->
                     </div>
                 </div>
-                <!-- END: New Point Buy Section -->
-
-                <!-- TTRPG CHARACTER CREATION INPUTS START HERE -->
-                <div class="form-group">
-                    <label for="char-race">Race</label>
-                    <select id="char-race" required>
-                        <option value="" disabled selected>Select a Race...</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="char-class">Class</label>
-                    <select id="char-class" required>
-                        <option value="" disabled selected>Select a Class...</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="char-background">Background</label>
-                    <select id="char-background" required>
-                        <option value="" disabled selected>Select a Background...</option>
-                    </select>
-                </div>
-                
-                <!-- START: New Master Skill Section -->
-                <div id="skill-selection-section" class="skill-section">
-                    <h4 class="skill-section-header">Skill Proficiencies</h4>
-                    <div id="skill-selection-container">
-                        <!-- The script will dynamically render all skill choices here -->
+                <!-- Page 2: Ability Scores -->
+                <div class="cc-page" data-page="2">
+                    <div class="point-buy-section">
+                        <div class="point-buy-header">
+                            <h4>Ability Scores (Point Buy)</h4>
+                            <div class="points-display">
+                                Points Remaining: <span id="points-remaining">35</span>
+                            </div>
+                        </div>
+                        <div id="point-buy-container" class="point-buy-grid">
+                            <!-- Strength -->
+                            <div class="stat-row">
+                                <label>Strength</label>
+                                <div class="stat-controls">
+                                    <button type="button" class="stat-btn" id="str-decrease" data-stat="strength">-</button>
+                                    <span class="stat-score" id="strength-score">10</span>
+                                    <button type="button" class="stat-btn" id="str-increase" data-stat="strength">+</button>
+                                </div>
+                                <div class="stat-cost">Cost: <span id="strength-cost">0</span></div>
+                            </div>
+                            <!-- Dexterity -->
+                            <div class="stat-row">
+                                <label>Dexterity</label>
+                                <div class="stat-controls">
+                                    <button type="button" class="stat-btn" id="dex-decrease" data-stat="dexterity">-</button>
+                                    <span class="stat-score" id="dexterity-score">10</span>
+                                    <button type="button" class="stat-btn" id="dex-increase" data-stat="dexterity">+</button>
+                                </div>
+                                <div class="stat-cost">Cost: <span id="dexterity-cost">0</span></div>
+                            </div>
+                            <!-- Constitution -->
+                            <div class="stat-row">
+                                <label>Constitution</label>
+                                <div class="stat-controls">
+                                    <button type="button" class="stat-btn" id="con-decrease" data-stat="constitution">-</button>
+                                    <span class="stat-score" id="constitution-score">10</span>
+                                    <button type="button" class="stat-btn" id="con-increase" data-stat="constitution">+</button>
+                                </div>
+                                <div class="stat-cost">Cost: <span id="constitution-cost">0</span></div>
+                            </div>
+                            <!-- Intelligence -->
+                            <div class="stat-row">
+                                <label>Intelligence</label>
+                                <div class="stat-controls">
+                                    <button type="button" class="stat-btn" id="int-decrease" data-stat="intelligence">-</button>
+                                    <span class="stat-score" id="intelligence-score">10</span>
+                                    <button type="button" class="stat-btn" id="int-increase" data-stat="intelligence">+</button>
+                                </div>
+                                <div class="stat-cost">Cost: <span id="intelligence-cost">0</span></div>
+                            </div>
+                            <!-- Wisdom -->
+                            <div class="stat-row">
+                                <label>Wisdom</label>
+                                <div class="stat-controls">
+                                    <button type="button" class="stat-btn" id="wis-decrease" data-stat="wisdom">-</button>
+                                    <span class="stat-score" id="wisdom-score">10</span>
+                                    <button type="button" class="stat-btn" id="wis-increase" data-stat="wisdom">+</button>
+                                </div>
+                                <div class="stat-cost">Cost: <span id="wisdom-cost">0</span></div>
+                            </div>
+                            <!-- Charisma -->
+                            <div class="stat-row">
+                                <label>Charisma</label>
+                                <div class="stat-controls">
+                                    <button type="button" class="stat-btn" id="cha-decrease" data-stat="charisma">-</button>
+                                    <span class="stat-score" id="charisma-score">10</span>
+                                    <button type="button" class="stat-btn" id="cha-increase" data-stat="charisma">+</button>
+                                </div>
+                                <div class="stat-cost">Cost: <span id="charisma-cost">0</span></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- END: New Master Skill Section -->
-
-                <div class="form-group">
-                    <label for="char-alignment">Alignment</label>
-                    <select id="char-alignment" required>
-                        <option value="" disabled selected>Select an Alignment...</option>
-                        <option value="Lawful Good">Lawful Good</option>
-                        <option value="Lawful Neutral">Lawful Neutral</option>
-                        <option value="Lawful Evil">Lawful Evil</option>
-                        <option value="Neutral Good">Neutral Good</option>
-                        <option value="True Neutral">True Neutral</option>
-                        <option value="Neutral Evil">Neutral Evil</option>
-                        <option value="Chaotic Good">Chaotic Good</option>
-                        <option value="Chaotic Neutral">Chaotic Neutral</option>
-                        <option value="Chaotic Evil">Chaotic Evil</option>
-                    </select>
+                <!-- Page 3: Skills & Details -->
+                <div class="cc-page" data-page="3">
+                     <div id="skill-selection-section" class="skill-section">
+                        <h4 class="skill-section-header">Skill Proficiencies</h4>
+                        <div id="skill-selection-container">
+                            <!-- The script will dynamically render all skill choices here -->
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="char-alignment">Alignment</label>
+                        <select id="char-alignment" required>
+                            <option value="" disabled selected>Select an Alignment...</option>
+                            <option value="Lawful Good">Lawful Good</option>
+                            <option value="Lawful Neutral">Lawful Neutral</option>
+                            <option value="Lawful Evil">Lawful Evil</option>
+                            <option value="Neutral Good">Neutral Good</option>
+                            <option value="True Neutral">True Neutral</option>
+                            <option value="Neutral Evil">Neutral Evil</option>
+                            <option value="Chaotic Good">Chaotic Good</option>
+                            <option value="Chaotic Neutral">Chaotic Neutral</option>
+                            <option value="Chaotic Evil">Chaotic Evil</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="char-gender">Gender</label>
+                        <select id="char-gender" required>
+                            <option value="" disabled selected>Select a Gender...</option>
+                            <option value="female">Female</option>
+                            <option value="male">Male</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="form-group">
-                    <label for="char-gender">Gender</label>
-                    <select id="char-gender" required>
-                        <option value="" disabled selected>Select a Gender...</option>
-                        <option value="female">Female</option>
-                        <option value="male">Male</option>
-                    </select>
+                <!-- Page 4: Spell Selection -->
+                <div class="cc-page" data-page="4" id="spell-selection-page">
+                    <!-- Spell selection UI will be dynamically injected here -->
+                </div>
+                <!-- Page 5: Persona -->
+                <div class="cc-page" data-page="5">
+                    <div class="form-group">
+                        <label for="char-name">Character Name</label>
+                        <input type="text" id="char-name" required placeholder="e.g., Kaelen d'Rivis">
+                    </div>
+                    <div class="form-group">
+                        <label for="char-desc">Appearance & Description</label>
+                        <textarea id="char-desc" rows="6" placeholder="e.g., A tall human with intricate tattoos... You can also paste a full character sheet here."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="char-bio">Backstory & Bio</label>
+                        <textarea id="char-bio" rows="8" placeholder="e.g., A former soldier haunted by the last war, now seeking answers in the shadows of the city."></textarea>
+                    </div>
                 </div>
             </div>
-            <!-- TTRPG CHARACTER CREATION INPUTS END HERE -->
             <div class="modal-actions">
-                <button type="submit">Create Character</button>
                 <button type="button" id="character-creation-cancel-btn" class="secondary">Cancel</button>
+                <button type="button" id="cc-prev-btn" class="secondary hidden">&lt; Previous</button>
+                <div id="cc-step-indicator">
+                    <span class="step-dot active" data-step="1"></span>
+                    <span class="step-dot" data-step="2"></span>
+                    <span class="step-dot" data-step="3"></span>
+                    <span class="step-dot" data-step="4"></span>
+                    <span class="step-dot" data-step="5"></span>
+                </div>
+                <button type="button" id="cc-next-btn">Next &gt;</button>
             </div>
         </form>
       </div>
@@ -337,12 +354,47 @@
       </div>
     </div>
 
+    <div id="character-sheet-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <span id="character-sheet-close-btn" class="modal-close-btn">×</span>
+        <h2><span id="cs-char-name">Character</span>'s Sheet</h2>
+        <div class="character-sheet-content">
+          <div id="character-sheet-list" class="cs-list-pane">
+            <!-- Items will be populated here -->
+          </div>
+          <div id="character-sheet-details" class="cs-details-pane">
+            <p class="placeholder-text">Select an item to see its details.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="level-up-modal" class="modal-overlay hidden">
+      <div class="modal-content">
+        <h2 id="level-up-title">Level Up!</h2>
+        <form id="level-up-form">
+          <div id="level-up-pages-container">
+            <!-- Level up pages will be injected here -->
+          </div>
+          <div class="modal-actions">
+            <button type="button" id="level-up-cancel-btn" class="secondary">Cancel</button>
+            <button type="button" id="level-up-prev-btn" class="secondary hidden">&lt; Previous</button>
+            <div id="level-up-step-indicator">
+                <!-- Dots will be injected here -->
+            </div>
+            <button type="button" id="level-up-next-btn">Next &gt;</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <!-- MAIN APP LAYOUT -->
     <div id="app" class="hidden">
       <aside id="player-stats">
         <div class="stats-header">
           <h2 id="stats-char-name">Character</h2>
           <p id="stats-location">Unknown</p>
+          <button id="level-up-btn" class="hidden">Level Up!</button>
         </div>
 
         <div class="accordion-section">
@@ -439,6 +491,15 @@
         </div>
         
         <div class="accordion-section">
+            <h3 class="accordion-header">Spells</h3>
+            <div class="accordion-content">
+                <ul id="stats-spells-known">
+                    <li>(None)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="accordion-section">
             <h3 class="accordion-header">Features & Traits</h3>
             <div class="accordion-content">
                 <h4>Feats</h4>
@@ -448,6 +509,9 @@
                 <h4>Class Features</h4>
                 <ul id="stats-class-features"></ul>
             </div>
+        </div>
+        <div class="sidebar-footer">
+            <button id="view-character-sheet-btn">View Full Character Sheet</button>
         </div>
       </aside>
       
