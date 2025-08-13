@@ -1,0 +1,28 @@
+
+[
+  {
+    "name": "Silverhaven",
+    "type": "City",
+    "desc": "A major port city and trade hub. Founded by dwarves to mine rich silver veins in the nearby mountains. It is now a bustling center for commerce, famous for its intricate clockwork devices crafted by a large gnomish population."
+  },
+  {
+    "name": "The Merchant's Guild",
+    "type": "Faction",
+    "desc": "The official governing body of Silverhaven. They control all legal trade and taxation within the city. They are outwardly powerful but often find their influence checked by the Gilded Hand."
+  },
+  {
+    "name": "The Gilded Hand",
+    "type": "Faction",
+    "desc": "A secretive and powerful thieves' guild operating in Silverhaven's underbelly. They control smuggling, espionage, and the black market. They are a rival power to the Merchant's Guild."
+  },
+  {
+    "name": "Elder Kaelen",
+    "type": "NPC",
+    "desc": "The elderly and pragmatic leader of the Merchant's Guild in Silverhaven. He is known for his shrewd business sense and his deep distrust of The Gilded Hand."
+  },
+  {
+    "name": "Chronomancy",
+    "type": "Magic",
+    "desc": "A rare and forbidden school of magic focused on manipulating time. Its practice is rumored to be the source of Silverhaven's advanced clockwork technology, but it is outlawed by the Merchant's Guild due to its potential for catastrophe."
+  }
+]
