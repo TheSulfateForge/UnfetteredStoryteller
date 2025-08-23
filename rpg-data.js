@@ -107,7 +107,15 @@ export const playerStateSchema = {
         },
         party: {
             type: Type.ARRAY,
-            items: { type: Type.STRING }
+            description: "List of current party members, each with a name and a short description.",
+            items: {
+                type: Type.OBJECT,
+                properties: {
+                    name: { type: Type.STRING, description: "The party member's name." },
+                    description: { type: Type.STRING, description: "A short description of the party member, including their class or role." }
+                },
+                required: ['name', 'description']
+            }
         },
         quests: {
             type: Type.ARRAY,
@@ -147,6 +155,18 @@ export const playerStateSchema = {
             type: Type.ARRAY,
             description: "An optional list of spell names the character knows. Only include if the character is a spellcaster.",
             items: { type: Type.STRING }
+        },
+        conditions: {
+            type: Type.ARRAY,
+            description: "An optional list of conditions currently affecting the character.",
+            items: {
+                type: Type.OBJECT,
+                properties: {
+                    name: { type: Type.STRING },
+                    duration: { type: Type.INTEGER }
+                },
+                required: ['name', 'duration']
+            }
         }
     },
     required: [

@@ -49,6 +49,7 @@ class DOMElements {
     // --- Main App & Modals ---
     get appElement() { return query('app'); }
     get chatLog() { return query('chat-log'); }
+    get combatTracker() { return query('combat-tracker'); } // <-- Add this line
     get chatForm() { return query('chat-form'); }
     get chatInput() { return query('chat-input'); }
     get loadingIndicator() { return query('loading'); }

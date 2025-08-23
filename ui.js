@@ -46,7 +46,8 @@ function updateEquipmentAndLists(playerState) {
     dom.equipArmor.textContent = playerState.equipment.armor || 'None';
     const createList = (items) => items.length > 0 ? items.map(item => `<li>${item}</li>`).join('') : '<li>(None)</li>';
     dom.statsInventory.innerHTML = createList(playerState.inventory);
-    dom.statsParty.innerHTML = createList(playerState.party);
+    const partyItems = playerState.party.map(member => `<li><strong>${member.name}:</strong> ${member.description}</li>`);
+    dom.statsParty.innerHTML = partyItems.length > 0 ? partyItems.join('') : '<li>(None)</li>';
     const questItems = playerState.quests.map(quest => `<li><strong>${quest.name}:</strong> ${quest.description}</li>`);
     dom.statsQuests.innerHTML = questItems.length > 0 ? questItems.join('') : '<li>(None)</li>';
 }
@@ -651,4 +652,26 @@ export function displayCharacterSheetDetail(itemElement) {
         html = `<h3>${name}</h3><p>No detailed information found.</p>`;
     }
     detailsContainer.innerHTML = html;
+}
+export function updateCombatTrackerUI(combatants, isInCombat) {
+    if (!dom.combatTracker)
+        return;
+    if (!isInCombat || !combatants || combatants.length === 0) {
+        dom.combatTracker.classList.add('hidden');
+        dom.combatTracker.innerHTML = '';
+        return;
+    }
+    dom.combatTracker.classList.remove('hidden');
+    let html = '<h4>Combat Order</h4>';
+    combatants.forEach(c => {
+        const typeClass = c.isPlayer ? 'player' : 'enemy';
+        const defeatedClass = c.hp === 0 ? 'defeated' : '';
+        html += `
+            <div class="combatant-entry ${typeClass} ${defeatedClass}">
+                <span class="combatant-name">${c.name} (Init: ${c.initiative})</span>
+                <span class="combatant-hp">HP: ${c.hp}/${c.maxHp}</span>
+            </div>
+        `;
+    });
+    dom.combatTracker.innerHTML = html;
 }

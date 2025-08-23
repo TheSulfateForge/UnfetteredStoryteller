@@ -1,5 +1,6 @@
+
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v12'; // Bumped version to force update and reflect new strategy
+const CACHE_NAME = 'unfettered-storyteller-cache-v14'; // Bumped version to force update and reflect new strategy
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/monsters.json', './data/backgrounds.json', 
@@ -44,8 +45,6 @@ const urlsToCache = [
   './LICENSES/LICENSE-SRD.md',
   // Fonts
   'https://fonts.googleapis.com/css2?family=MedievalSharp&family=Lato:wght@400;700&display=swap',
-  'https://fonts.gstatic.com/s/medievalsharp/v27/EvNf_SysZdDAg_8s61I-0G55_Dt_c131.woff2',
-  'https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHjx4wXg.woff2'
 ].concat(dataFiles);
 
 // Install event: opens the cache and adds the app shell files to it

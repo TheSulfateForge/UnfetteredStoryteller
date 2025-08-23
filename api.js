@@ -36,11 +36,9 @@ export function createLlmProvider(settings) {
  */
 export function cleanseResponseText(text) {
     return text
-        .replace(config.STATE_UPDATE_REGEX, '')
+        .replace(config.GAME_ACTION_REGEX, '')
         .replace(config.DICE_ROLL_REGEX, '')
         .replace(config.ATTACK_ROLL_REGEX, '')
-        .replace(config.EVENT_TAG_REGEX, '')
-        .replace(config.NPC_DAMAGE_REGEX, '')
         .replace(config.PIV_SEX_TAG, '')
         .replace(config.PREGNANCY_REVEALED_TAG, '')
         .trim();

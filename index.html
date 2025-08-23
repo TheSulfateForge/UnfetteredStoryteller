@@ -75,7 +75,7 @@
           </div>
           
           <div class="form-group" id="rag-section">
-            <label>Knowledge Base (RAG)</label>
+            <h4>Knowledge Base (RAG)</h4>
             <p class="form-hint">Build a local knowledge base from TTRPG sourcebooks for more accurate answers. This can take several minutes and requires a Gemini API key.</p>
             <div id="rag-status" class="form-hint">Status: Not initialized</div>
             <button type="button" id="build-rag-btn" class="secondary" style="margin-top: 0.5rem;" disabled>Build Knowledge Base</button>
@@ -160,7 +160,7 @@
                         <div id="point-buy-container" class="point-buy-grid">
                             <!-- Strength -->
                             <div class="stat-row">
-                                <label>Strength</label>
+                                <span>Strength</span>
                                 <div class="stat-controls">
                                     <button type="button" class="stat-btn" id="str-decrease" data-stat="strength">-</button>
                                     <span class="stat-score" id="strength-score">10</span>
@@ -170,7 +170,7 @@
                             </div>
                             <!-- Dexterity -->
                             <div class="stat-row">
-                                <label>Dexterity</label>
+                                <span>Dexterity</span>
                                 <div class="stat-controls">
                                     <button type="button" class="stat-btn" id="dex-decrease" data-stat="dexterity">-</button>
                                     <span class="stat-score" id="dexterity-score">10</span>
@@ -180,7 +180,7 @@
                             </div>
                             <!-- Constitution -->
                             <div class="stat-row">
-                                <label>Constitution</label>
+                                <span>Constitution</span>
                                 <div class="stat-controls">
                                     <button type="button" class="stat-btn" id="con-decrease" data-stat="constitution">-</button>
                                     <span class="stat-score" id="constitution-score">10</span>
@@ -190,7 +190,7 @@
                             </div>
                             <!-- Intelligence -->
                             <div class="stat-row">
-                                <label>Intelligence</label>
+                                <span>Intelligence</span>
                                 <div class="stat-controls">
                                     <button type="button" class="stat-btn" id="int-decrease" data-stat="intelligence">-</button>
                                     <span class="stat-score" id="intelligence-score">10</span>
@@ -200,7 +200,7 @@
                             </div>
                             <!-- Wisdom -->
                             <div class="stat-row">
-                                <label>Wisdom</label>
+                                <span>Wisdom</span>
                                 <div class="stat-controls">
                                     <button type="button" class="stat-btn" id="wis-decrease" data-stat="wisdom">-</button>
                                     <span class="stat-score" id="wisdom-score">10</span>
@@ -210,7 +210,7 @@
                             </div>
                             <!-- Charisma -->
                             <div class="stat-row">
-                                <label>Charisma</label>
+                                <span>Charisma</span>
                                 <div class="stat-controls">
                                     <button type="button" class="stat-btn" id="cha-decrease" data-stat="charisma">-</button>
                                     <span class="stat-score" id="charisma-score">10</span>
@@ -401,19 +401,19 @@
             <h3 class="accordion-header active">Vitals & Status</h3>
             <div class="accordion-content expanded">
                 <div class="stat-item">
-                    <label>Health</label>
+                    <span>Health</span>
                     <span id="stats-health">--/--</span>
                 </div>
                 <div class="stat-item">
-                    <label>Money</label>
+                    <span>Money</span>
                     <span id="stats-money">--</span>
                 </div>
                 <div class="stat-item">
-                    <label>Experience</label>
+                    <span>Experience</span>
                     <span id="stats-exp">--</span>
                 </div>
                 <div id="stats-pregnancy-status" class="stat-item hidden">
-                    <label>Condition</label>
+                    <span>Condition</span>
                     <span id="stats-pregnancy-value">--</span>
                 </div>
             </div>
@@ -543,6 +543,7 @@
           </div>
         </header>
         <main id="chat-container">
+          <div id="combat-tracker" class="hidden"></div>
           <div id="chat-log" role="log" aria-live="polite"></div>
           <div id="loading" class="hidden">
             <div class="spinner"></div>

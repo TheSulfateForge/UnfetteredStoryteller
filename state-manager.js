@@ -38,6 +38,9 @@ const initialState = {
     currentCharacterId: null,
     lastApiInput: null,
     lastApiResponse: null,
+    isInCombat: false,
+    combatants: [],
+    worldState: {},
 };
 /**
  * Manages the global state of the application using a singleton pattern.

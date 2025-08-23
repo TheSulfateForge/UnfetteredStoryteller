@@ -4,6 +4,7 @@
  */
 import { toCamelCase, escapeRegExp } from './utils.js';
 import { DEFAULT_SKILLS } from './rpg-helpers.js';
+import { createChunk } from './chunking-strategies.js';
 // --- DATA STORE ---
 let races = [];
 let classes = [];
@@ -74,6 +75,41 @@ export function getBackground(backgroundName) {
     if (!backgroundName)
         return undefined;
     return backgrounds.find(b => b.name.toLowerCase() === backgroundName.toLowerCase());
+}
+/**
+ * Searches through all loaded game data to find an entity whose name is mentioned in the given text.
+ * It prioritizes longer matches to avoid partial matches (e.g., "Shield" over "Shield of Faith").
+ * @param text The text to search within.
+ * @returns The found entity's name and a formatted text chunk, or null if no entity is found.
+ */
+export function findEntityInText(text) {
+    const allEntities = [];
+    // Collate all entities from different data stores
+    races.forEach(r => allEntities.push({ name: r.name, data: r, type: 'races' }));
+    classes.forEach(c => allEntities.push({ name: c.name, data: c, type: 'classes' }));
+    backgrounds.forEach(b => allEntities.push({ name: b.name, data: b, type: 'backgrounds' }));
+    feats.forEach(f => allEntities.push({ name: f.name, data: f, type: 'feats' }));
+    // Spells are in a Map, iterate over values
+    for (const spell of spells.values()) {
+        allEntities.push({ name: spell.name, data: spell, type: 'spells' });
+    }
+    // Weapons and Armor are in Records, iterate over values
+    Object.values(weapons).forEach(w => allEntities.push({ name: w.name, data: w, type: 'weapons' }));
+    Object.values(armor).forEach(a => allEntities.push({ name: a.name, data: a, type: 'armor' }));
+    // Sort by name length descending to match longer names first
+    allEntities.sort((a, b) => b.name.length - a.name.length);
+    const lowerText = text.toLowerCase();
+    for (const entity of allEntities) {
+        // Use a regex with word boundaries to avoid partial matches
+        const entityRegex = new RegExp(`\\b${escapeRegExp(entity.name.toLowerCase())}\\b`);
+        if (entityRegex.test(lowerText)) {
+            return {
+                name: entity.name,
+                chunk: createChunk(entity.data, entity.type)
+            };
+        }
+    }
+    return null;
 }
 // --- INITIALIZATION ---
 /**
@@ -167,26 +203,36 @@ export async function init() {
                         benefit.from.forEach((skill) => bg.parsed_skill_proficiencies.granted.push(toCamelCase(skill.trim().replace(/\./g, ''))));
                     }
                     else if (benefit.type === 'choose' && Array.isArray(benefit.from)) {
-                        bg.parsed_skill_proficiencies.choices.push({ choose: 1, from: benefit.from.map((s) => s.trim().replace(/\./g, '')) });
+                        const skills = benefit.from.flatMap(s => s.split(/, | or /i)).map(sk => sk.trim().replace(/\./g, ''));
+                        bg.parsed_skill_proficiencies.choices.push({ choose: 1, from: skills });
                     }
                     else if (benefit.type === 'skill_proficiency' && benefit.desc) {
-                        if (benefit.desc.toLowerCase().includes('plus your choice of')) {
-                            const parts = benefit.desc.split(/plus your choice of/i);
-                            parts[0].split(',').forEach(skill => {
-                                if (skill.trim())
-                                    bg.parsed_skill_proficiencies.granted.push(toCamelCase(skill.trim()));
-                            });
-                            if (parts[1]) {
-                                const numToChooseMatch = parts[1].trim().match(/^(one|two)/i);
-                                const numToChoose = numToChooseMatch ? (numToChooseMatch[1].toLowerCase() === 'one' ? 1 : 2) : 1;
-                                const choicesText = parts[1].replace(/^(one|two)\s+(from|between|among)/i, '').trim();
-                                const choices = choicesText.split(/or|,/g).map(s => s.trim().replace(/\./g, ''));
-                                bg.parsed_skill_proficiencies.choices.push({ choose: numToChoose, from: choices });
+                        let desc = benefit.desc.trim().replace(/\.$/, ''); // clean trailing period
+                        const choiceRegex = /plus (your choice of )?(one|two)( between| from among)?/i;
+                        const choiceMatch = desc.match(choiceRegex);
+                        if (choiceMatch) {
+                            const grantedPart = desc.substring(0, choiceMatch.index).trim().replace(/,$/, '').trim();
+                            const choicePart = desc.substring(choiceMatch.index + choiceMatch[0].length).trim();
+                            const numToChoose = (choiceMatch[2] && choiceMatch[2].toLowerCase() === 'two') ? 2 : 1;
+                            // Process granted skills
+                            if (grantedPart) {
+                                grantedPart.split(/, | and /i).forEach(skill => {
+                                    if (skill)
+                                        bg.parsed_skill_proficiencies.granted.push(toCamelCase(skill));
+                                });
                             }
+                            // Process choice part
+                            const choices = choicePart.split(/ or |,/i).map(s => s.trim()).filter(Boolean);
+                            bg.parsed_skill_proficiencies.choices.push({ choose: numToChoose, from: choices });
                         }
                         else {
-                            benefit.desc.split(',').forEach((skill) => { if (skill.trim())
-                                bg.parsed_skill_proficiencies.granted.push(toCamelCase(skill.trim())); });
+                            // No "choice" keyword, so all skills are granted
+                            desc.split(/, | and /i).forEach(skill => {
+                                const cleanedSkill = skill.trim();
+                                if (cleanedSkill) {
+                                    bg.parsed_skill_proficiencies.granted.push(toCamelCase(cleanedSkill));
+                                }
+                            });
                         }
                     }
                 });

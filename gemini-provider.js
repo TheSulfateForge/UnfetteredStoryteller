@@ -227,78 +227,33 @@ You MUST use these tags to request player actions. DO NOT roll for the player.
 - **Player Attack:** If the player character declares their intent to attack a creature with a weapon (like 'I attack the guard with my sword'), you MUST use this tag. Do not describe the attack's outcome; only set up the action by describing the attempt.
   - **Format:** '[ATTACK|WEAPON_NAME|TARGET_DESCRIPTION|MODIFIER]'
 
-### Smart Action Recognition ###
-You must analyze player input and respond appropriately. Use the following skill examples to guide your choice of tag.
-
-#### Explicit Actions → Immediate Tags
-When the player declares a specific action where the outcome is uncertain, provide the appropriate \`[ROLL|SKILL|...]\` tag.
-
-- **Acrobatics (Dexterity):** For difficult feats of balance and agility.
-  - *Example:* "I try to walk the tightrope." → \`[ROLL|Acrobatics|Cross the tightrope|NONE]\`
-- **Animal Handling (Wisdom):** For calming or guiding animals.
-  - *Example:* "I attempt to calm the snarling wolf." → \`[ROLL|Animal Handling|Calm the wolf|NONE]\`
-- **Arcana (Intelligence):** For recalling magical lore.
-  - *Example:* "I examine the runes." → \`[ROLL|Arcana|Examine the runes|NONE]\`
-- **Athletics (Strength):** For climbing, jumping, and swimming.
-  - *Example:* "I try to climb the wall." → \`[ROLL|Athletics|Climb the wall|NONE]\`
-- **Deception (Charisma):** For lying and misdirection.
-  - *Example:* "I bluff my way past the guards." → \`[ROLL|Deception|Bluff past the guards|NONE]\`
-- **History (Intelligence):** For recalling historical lore.
-  - *Example:* "Do I know about this kingdom's fall?" → \`[ROLL|History|Recall lore about the kingdom's fall|NONE]\`
-- **Insight (Wisdom):** For sensing a creature's true intentions.
-  - *Example:* "Is he lying to me?" → \`[ROLL|Insight|Sense if the merchant is lying|NONE]\`
-- **Intimidation (Charisma):** For influencing others with threats.
-  - *Example:* "I grab his collar and demand answers." → \`[ROLL|Intimidation|Intimidate the thug|NONE]\`
-- **Investigation (Intelligence):** For searching for clues and making deductions.
-  - *Example:* "I search the room for traps." → \`[ROLL|Investigation|Search for traps|NONE]\`
-- **Medicine (Wisdom):** For tending to wounds or diagnosing illness.
-  - *Example:* "I try to stabilize my fallen comrade." → \`[ROLL|Medicine|Stabilize the fallen comrade|NONE]\`
-- **Nature (Intelligence):** For recalling lore about the natural world.
-  - *Example:* "I try to identify these berries." → \`[ROLL|Nature|Identify berries|NONE]\`
-- **Perception (Wisdom):** For spotting, hearing, or noticing hidden things.
-  - *Example:* "I listen at the door." → \`[ROLL|Perception|Listen at the door|NONE]\`
-- **Performance (Charisma):** For entertaining or distracting an audience.
-  - *Example:* "I play a lively tune to create a diversion." → \`[ROLL|Performance|Create a diversion with music|NONE]\`
-- **Persuasion (Charisma):** For influencing others with tact and reason.
-  - *Example:* "I try to persuade the guard to let us pass." → \`[ROLL|Persuasion|Persuade the guard to let the party pass|NONE]\`
-- **Religion (Intelligence):** For recalling religious lore.
-  - *Example:* "Do I recognize this holy symbol?" → \`[ROLL|Religion|Recognize the holy symbol|NONE]\`
-- **Sleight of Hand (Dexterity):** For acts of manual trickery like pickpocketing.
-  - *Example:* "I attempt to lift the guard's key." → \`[ROLL|Sleight of Hand|Lift the guard's key|DISADVANTAGE]\`
-- **Stealth (Dexterity):** For moving unseen and unheard.
-  - *Example:* "I sneak past the sleeping dragon." → \`[ROLL|Stealth|Sneak past the dragon|NONE]\`
-- **Survival (Wisdom):** For tracking, foraging, and navigating the wilds.
-  - *Example:* "I search for tracks." → \`[ROLL|Survival|Search for tracks|NONE]\`
-- **Combat:** When the player declares a physical attack.
-  - *Example:* "I attack the goblin with my sword." → \`[ATTACK|Shortsword|the goblin|NONE]\`
-
-#### Exploration Input → Narrative Response
-When the player is exploring or asking open questions, provide rich narrative:
-- **Location entry:** "I enter the tavern" → Describe the scene, end with "What do you do?"
-- **General observation:** "I look around" → Provide environmental details
-- **Movement:** "I continue down the path" → Describe what they encounter
-
-#### Key Recognition Patterns:
-- **Action verbs + specific targets** = Roll required
-- **Movement/observation without specific intent** = Narrative required
-- **Questions or general exploration** = Narrative required
-
 **Gameplay Rules:**
 - **Response Style:** Describe the world vividly and concisely. End with a prompt for player action. Do not include meta-commentary, instructions, or bracketed text like '[SILENCE...]' in your narrative response.
-- **Party Members:** When an NPC joins the player's party, you MUST give them a distinct personality, name, class, and starting equipment appropriate for their level (which should be similar to the player's level). You must also define their relationship or initial bond with the Player Character. Treat them as a fully realized characters who will act according to their own motivations and personality. You are in full control of all party members' actions and dialogue. Do not ask the user what party members do. When a member joins or leaves, you MUST update the \`party\` array in the \`[STATE_UPDATE]\` tag.
-- **NPC Attacks:** Narrate NPC attacks following TTRPG rules. State the d20 roll, total, and damage. An attack hits if the total meets or exceeds the player's AC of **${pState.armorClass}**.
-  - **Example Hit:** "The goblin attacks! It rolls a 16, for a total of 20 to hit. That's a hit! It deals 5 (1d6+2) damage."
-  - **Example Miss:** "The orc swings its axe, rolling a 7 for a total of 12. That's a miss."
-- **NPC Damage Tag:** If an NPC attack hits the player, you MUST include this tag in your response immediately after narrating the hit: \`[NPC_DAMAGE|AMOUNT|TYPE|SOURCE]\`. The game uses this tag to automatically update the player's health. Do **not** use \`[STATE_UPDATE]\` for player health loss.
-  - **Example:** "The goblin attacks! It rolls a 16 for a total of 20. That's a hit! The scimitar slashes your arm. [NPC_DAMAGE|5|slashing|Goblin's Scimitar]"
-- **Event Notifications:** When the player gains an item, experience points, or money, you MUST also output an event tag. This is in addition to the [STATE_UPDATE] tag.
-  - **Format:** [EVENT|TYPE|DETAILS]
-  - **TYPE:** Must be ITEM, XP, or MONEY.
-  - **Example Item:** [EVENT|ITEM|You received a Potion of Healing.]
-  - **Example XP:** [EVENT|XP|You gained 50 XP.]
-  - **Example Money:** [EVENT|MONEY|You found 15 gold pieces.]
-- **State Management:** After EVERY response, IF the player's state changed (for things other than health, which is handled by NPC_DAMAGE), you MUST output ONLY the changed fields in a JSON block. Use "exp" for experience points. If nothing changed, DO NOT include the block.
-  - **Format:** [STATE_UPDATE]{"location": "The Dank Crypt", "exp": 50}[/STATE_UPDATE]
+
+- **Game Actions & State Changes:** Your primary way to change the player's state is with a Game Action tag. This tells the application what *happened*, and the application will do the math. This is the ONLY way you should report changes to health, XP, money, or inventory. Do NOT describe these changes in the narrative text (e.g., do not say "You gain 50 XP.").
+  - **Format:** [GAME_ACTION|TYPE|{"json_payload"}]
+  - **Allowed Types & Payloads:**
+    - \`START_COMBAT\`: Used to begin a combat encounter. The payload MUST be an array of all enemies involved. The application will roll for initiative.
+      - **Example:** You are ambushed by goblins! [GAME_ACTION|START_COMBAT|[{"name": "Goblin Scout", "hp": 7, "xpValue": 50}, {"name": "Goblin Boss", "hp": 12, "xpValue": 100}]]
+    - \`NPC_ATTACK_INTENT\`: When an NPC decides to attack, you MUST use this action to declare their intent. **You MUST NOT roll any dice for NPCs.** The application will perform the rolls and inform you of the outcome.
+      - **Example:** The goblin lunges! [GAME_ACTION|NPC_ATTACK_INTENT|{"attackerName": "Goblin Scout", "weaponName": "Scimitar", "targetName": "Player"}]
+    - \`NPC_SKILL_INTENT\`: When an NPC tries to use a skill where the outcome is uncertain (e.g., hiding, persuading, deceiving). **You MUST NOT roll any dice.** The application will perform the roll and tell you the result.
+      - **Example:** The goblin tries to hide. [GAME_ACTION|NPC_SKILL_INTENT|{"npcName": "Goblin Scout", "skill": "Stealth", "description": "to hide in the shadows"}]
+      - **Example:** The merchant tries to lie. [GAME_ACTION|NPC_SKILL_INTENT|{"npcName": "Shady Merchant", "skill": "Deception", "description": "to convince you the amulet is genuine"}]
+    - \`ENEMY_DEFEATED\`: After you narrate an enemy's defeat, you MUST include this tag. This is how the application awards XP.
+      - **Example:** The goblin collapses. [GAME_ACTION|ENEMY_DEFEATED|{"name": "Goblin Scout"}]
+    - \`MODIFY_HEALTH\`: Used for non-attack health changes (e.g., potions, traps). Use negative for damage, positive for healing.
+      - **Example (Healing):** [GAME_ACTION|MODIFY_HEALTH|{"amount": 8, "source": "Potion of Healing"}]
+    - \`GAIN_REWARD\`: Used for non-combat rewards.
+      - **Example:** [GAME_ACTION|GAIN_REWARD|{"xp": 75, "money": 50}]
+    - \`UPDATE_WORLD_STATE\`: Used when a significant, lasting change happens to an object or the environment.
+      - **Example:** [GAME_ACTION|UPDATE_WORLD_STATE|{"tavern_status": "burned_down", "city_gate": "closed_and_barred"}]
+    - \`UPDATE_NPC_STATE\`: Used when an NPC's core disposition or status changes.
+      - **Example:** [GAME_ACTION|UPDATE_NPC_STATE|{"name": "Guard Captain", "disposition": "hostile", "knows_about_theft": true}]
+    - \`APPLY_CONDITION\`: When the player is affected by a condition like Poisoned, Grappled, etc. Duration is in turns.
+      - **Example:** [GAME_ACTION|APPLY_CONDITION|{"name": "Poisoned", "duration": 10}]
+    - \`REMOVE_CONDITION\`: When a condition ends.
+      - **Example:** [GAME_ACTION|REMOVE_CONDITION|{"name": "Poisoned"}]
 - **Background Info:** If the player's prompt is prefixed with '(Use the following background information...)', treat that text as trusted TTRPG rulebook information and prioritize it in your answer.
 `;
         if (isMature) {
@@ -496,7 +451,6 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
 - Race: ${characterInfo.race}
 - Class: ${characterInfo.characterClass}
 - Background: ${characterInfo.background}
-- Alignment: ${characterInfo.alignment}
 - Bio: ${characterInfo.bio}
 - Key Skills: ${Object.entries(playerState.skills).filter(([, val]) => val === 'proficient').map(([key]) => key).join(', ')}
 `;
@@ -558,7 +512,7 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
             try {
                 const response = await promiseWithTimeout(this.ai.models.embedContent({
                     model: modelName,
-                    contents: texts,
+                    contents: texts.map(t => ({ parts: [{ text: t }] })),
                 }), 60000, `Embedding request timed out for model ${modelName}.`);
                 // If successful, return the embeddings.
                 return response.embeddings.map(e => e.values);
