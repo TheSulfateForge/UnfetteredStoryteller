@@ -11,7 +11,6 @@ import * as game from './game.js';
 import { startAdventure } from './game-loop.js';
 import { initializeChatSession, saveCurrentGame } from './session-manager.js';
 import { toCamelCase } from './utils.js';
-
 // Type guards to help TypeScript narrow the union type
 function isRaceData(data) {
     return 'is_subrace' in data;
@@ -47,8 +46,8 @@ let levelUpState = null;
 // --- HELPERS ---
 /**
  * Extracts a short, clean blurb from a long description.
- * @param desc The full description text.
- * @returns A concise summary.
+ * @param {string} desc The full description text.
+ * @returns {string} A concise summary.
  */
 function createBlurb(desc) {
     if (!desc)
@@ -64,7 +63,7 @@ function createBlurb(desc) {
 // --- WIZARD NAVIGATION ---
 /**
  * Navigates to a specific page in the character creation wizard.
- * @param page The page number to display.
+ * @param {number} page The page number to display.
  */
 function navigateToPage(page) {
     currentPage = page;
@@ -87,8 +86,8 @@ function navigateToPage(page) {
 }
 /**
  * Validates the current page before proceeding.
- * @param page The page number to validate.
- * @returns True if the page is valid, false otherwise.
+ * @param {number} page The page number to validate.
+ * @returns {boolean} True if the page is valid, false otherwise.
  */
 function validatePage(page) {
     switch (page) {
@@ -581,7 +580,16 @@ export async function handleCharacterCreationSubmit(event) {
         if (value && value.length > 0)
             specialSelectionsText += `\n${key}: ${value}`;
     });
-    const fullCharacterDescription = `This is the user's primary input for their character. PRIORITIZE THIS TEXT. If it contains a full character sheet (stats, skills, etc.), use it directly.\n\n--- USER'S FREE-TEXT DESCRIPTION ---\nName: ${characterInfo.name}\nAppearance: ${characterInfo.desc}\nBackstory: ${characterInfo.bio}\n--- END OF FREE-TEXT ---\n\nUse the following selections to fill in missing details:\nRace: ${characterInfo.race}\nClass: ${characterInfo.characterClass}\nBackground: ${characterInfo.background}\nAlignment: ${characterInfo.alignment}\nGender: ${characterInfo.gender}\nAbility Scores: Str ${pointBuyState.scores.strength}, Dex ${pointBuyState.scores.dexterity}, Con ${pointBuyState.scores.constitution}, Int ${pointBuyState.scores.intelligence}, Wis ${pointBuyState.scores.wisdom}, Cha ${pointBuyState.scores.charisma}${specialSelectionsText}`;
+    const finalAbilityScores = { ...pointBuyState.scores };
+    const raceData = dataManager.getRace(characterInfo.race);
+    if (raceData && raceData.ability_bonuses) {
+        for (const [stat, bonus] of Object.entries(raceData.ability_bonuses)) {
+            if (finalAbilityScores[stat] !== undefined) {
+                finalAbilityScores[stat] += bonus;
+            }
+        }
+    }
+    const fullCharacterDescription = `This is the user's primary input for their character. PRIORITIZE THIS TEXT. If it contains a full character sheet (stats, skills, etc.), use it directly.\n\n--- USER'S FREE-TEXT DESCRIPTION ---\nName: ${characterInfo.name}\nAppearance: ${characterInfo.desc}\nBackstory: ${characterInfo.bio}\n--- END OF FREE-TEXT ---\n\nUse the following selections to fill in missing details:\nRace: ${characterInfo.race}\nClass: ${characterInfo.characterClass}\nBackground: ${characterInfo.background}\nAlignment: ${characterInfo.alignment}\nGender: ${characterInfo.gender}\nAbility Scores: Str ${finalAbilityScores.strength}, Dex ${finalAbilityScores.dexterity}, Con ${finalAbilityScores.constitution}, Int ${finalAbilityScores.intelligence}, Wis ${finalAbilityScores.wisdom}, Cha ${finalAbilityScores.charisma}${specialSelectionsText}`;
     dom.characterCreationModal.classList.add('hidden');
     dom.storyHooksModal.classList.remove('hidden');
     dom.storyHooksContainer.innerHTML = `<div class="spinner-container"><div class="spinner"></div><span>The Storyteller is crafting your character and adventure... This may take a moment.</span></div>`;
@@ -592,7 +600,9 @@ export async function handleCharacterCreationSubmit(event) {
         playerState.pregnancy = null;
         playerState.npcStates = {};
         // --- REBUILD CORE STATS FROM CANONICAL DATA ---
-        // 1. Rebuild Traits & Features to prevent duplicates/naming issues from AI
+        // 1. Enforce final calculated ability scores to override any AI deviation.
+        playerState.abilityScores = finalAbilityScores;
+        // 2. Rebuild Traits & Features to prevent duplicates/naming issues from AI
         playerState.racialTraits = [];
         playerState.classFeatures = [];
         playerState.feats = playerState.feats || []; // Keep any feats AI might have inferred from backstory
@@ -610,7 +620,7 @@ export async function handleCharacterCreationSubmit(event) {
         }
         playerState.racialTraits = [...new Set(playerState.racialTraits)];
         playerState.classFeatures = [...new Set(playerState.classFeatures)];
-        // 2. Rebuild Skills from form selections to ensure user choice is respected
+        // 3. Rebuild Skills from form selections to ensure user choice is respected
         const finalSkills = { ...DEFAULT_SKILLS };
         const skillContainer = document.getElementById('skill-selection-container');
         if (skillContainer) {
@@ -622,7 +632,7 @@ export async function handleCharacterCreationSubmit(event) {
             });
         }
         playerState.skills = finalSkills;
-        // 3. Rebuild Saving Throws from class data
+        // 4. Rebuild Saving Throws from class data
         if (classData) {
             const profSaves = classData.prof_saving_throws.toLowerCase().split(', ');
             const finalSaves = { ...DEFAULT_SAVING_THROWS };
@@ -643,7 +653,7 @@ export async function handleCharacterCreationSubmit(event) {
             });
             playerState.savingThrows = finalSaves;
         }
-        // 4. Set spells from form selections
+        // 5. Set spells from form selections
         playerState.spellsKnown = characterInfo.spellsSelected;
         // --- END REBUILD ---
         gameState.updateState({ characterInfo, playerState });
