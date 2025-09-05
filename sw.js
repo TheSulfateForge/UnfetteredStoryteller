@@ -3,11 +3,13 @@
 const CACHE_NAME = 'unfettered-storyteller-cache-v47'; // Bumped version to force update and reflect new strategy
 // List all the files that make up the app shell
 const dataFiles = [
-    './data/spells-0-1.json', './data/monsters.json', './data/backgrounds.json', 
-    './data/feats.json', './data/conditions.json', './data/races.json', 
-    './data/classes.json', './data/magicitems.json', './data/weapons.json', 
-    './data/armor.json', './data/planes.json', './data/sections.json',
-    './data/spelllist.json', './data/documents.json', './data/lore.json'
+    './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
+    './data/spells-6-7.json', './data/spells-8-9.json', './data/monsters.json', 
+    './data/backgrounds.json', './data/feats.json', './data/conditions.json', 
+    './data/races.json', './data/classes.json', './data/magicitems.json', 
+    './data/weapons.json', './data/armor.json', './data/planes.json', 
+    './data/sections.json', './data/spelllist.json', './data/documents.json', 
+    './data/lore.json'
 ];
 
 const urlsToCache = [

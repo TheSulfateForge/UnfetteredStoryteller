@@ -15,6 +15,10 @@ const DB_VERSION = 1;
 const STORE_NAME = 'vectors';
 const DATA_SOURCES = {
     spells: "data/spells-0-1.json",
+    spells2to3: "data/spells-2-3.json",
+    spells4to5: "data/spells-4-5.json",
+    spells6to7: "data/spells-6-7.json",
+    spells8to9: "data/spells-8-9.json",
     monsters: "data/monsters.json",
     backgrounds: "data/backgrounds.json",
     feats: "data/feats.json",
