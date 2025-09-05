@@ -7,9 +7,8 @@ import * as config from './config.js';
 import { dom } from './dom.js';
 import * as ui from './ui.js';
 import { cleanseResponseText } from './api.js';
-import * as services from './services.js';
 import * as rag from './rag.js';
-import { gameState } from './state-manager.js';
+import { gameState, deepMerge } from './state-manager.js';
 import { saveCurrentGame, initializeChatSession } from './session-manager.js';
 import { promiseWithTimeout } from './utils.js';
 import * as game from './game.js';
@@ -153,22 +152,20 @@ async function processGameActions(matches) {
                     stateWasUpdated = true;
                     break;
                 case 'UPDATE_WORLD_STATE':
-                    stateUpdate.worldState = { ...stateUpdate.worldState, ...payload };
+                    stateUpdate.worldState = deepMerge(stateUpdate.worldState, payload);
                     stateWasUpdated = true;
                     break;
                 case 'UPDATE_NPC_STATE':
                     const npcName = payload.name;
                     if (npcName) {
-                        if (!stateUpdate.worldState[npcName])
-                            stateUpdate.worldState[npcName] = {};
-                        stateUpdate.worldState[npcName] = { ...stateUpdate.worldState[npcName], ...payload };
+                        stateUpdate.worldState[npcName] = deepMerge(stateUpdate.worldState[npcName] || {}, payload);
                         stateWasUpdated = true;
                     }
                     break;
                 case 'APPLY_CONDITION':
                     if (!stateUpdate.playerState.conditions)
                         stateUpdate.playerState.conditions = [];
-                    // Remove existing condition with same name before adding new one to prevent duplicates
+                    // Remove existing condition with same name before adding new one
                     stateUpdate.playerState.conditions = stateUpdate.playerState.conditions.filter(c => c.name !== payload.name);
                     stateUpdate.playerState.conditions.push(payload);
                     stateWasUpdated = true;
@@ -190,6 +187,25 @@ async function processGameActions(matches) {
     }
     return stateWasUpdated;
 }
+/**
+ * Determines the correct unarmed strike damage die based on class and level.
+ * @param {import('./types.js').PlayerState} playerState The player's current state.
+ * @param {import('./types.js').CharacterInfo} characterInfo The character's static info.
+ * @returns {string} The dice notation for the unarmed strike (e.g., '1d6' or '1').
+ */
+function getUnarmedStrikeDice(playerState, characterInfo) {
+    if (characterInfo.characterClass.toLowerCase() === 'monk') {
+        if (playerState.level < 5)
+            return '1d4';
+        if (playerState.level < 11)
+            return '1d6';
+        if (playerState.level < 17)
+            return '1d8';
+        return '1d10';
+    }
+    // Add other checks here for feats like Tavern Brawler if implemented
+    return '1'; // Default unarmed strike damage
+}
 // --- CORE GAME LOOP ---
 export async function sendMessageAndProcessStream(promptForApi, targetElement) {
     const { isGenerating, characterInfo, playerState, llmProvider, chatHistory } = gameState.getState();
@@ -202,12 +218,12 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
         const text = msg.parts.map(p => p.text).join('');
         fullInputForDebugger += `\n${msg.role}: ${text}`;
     });
+    fullInputForDebugger += `\nuser: ${promptForApi}`;
     const providerType = game.getProviderSettings().provider;
     if (providerType === 'local') {
         fullInputForDebugger = `(This is a reconstruction of the data sent to a local OpenAI-compatible API. The actual payload is a JSON object with this content.)\n\n` + fullInputForDebugger;
     }
-    gameState.updateState({ lastApiInput: fullInputForDebugger, lastApiResponse: 'Waiting for AI response...' });
-    ui.updateDebuggerUI(fullInputForDebugger, 'Waiting for AI response...');
+    ui.logToDebugger('input', 'Sent to AI', fullInputForDebugger);
     ui.setLoading(true);
     gameState.updateState({ isGenerating: true });
     let dmMessageElement = targetElement;
@@ -221,36 +237,26 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
         const streamPromise = chat.sendMessageStream({ message: promptForApi });
         const streamResult = await promiseWithTimeout(streamPromise, 30000, 'The storyteller took too long to respond. The request timed out.');
         let fullResponseText = '';
-        let sentenceBuffer = '';
         for await (const chunk of streamResult) {
             const chunkText = chunk.text;
             if (chunkText === undefined || chunkText === null)
                 continue;
             fullResponseText += chunkText;
-            sentenceBuffer += chunkText;
             const cleanedTextForDisplay = cleanseResponseText(fullResponseText);
             dmMessageElement.innerHTML = cleanedTextForDisplay
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>')
                 .replace(/\n/g, '<br>');
             ui.scrollToBottom();
-            let boundaryIndex;
-            while ((boundaryIndex = sentenceBuffer.search(/[.!?]\s/)) !== -1) {
-                const sentenceToSpeak = sentenceBuffer.substring(0, boundaryIndex + 1);
-                sentenceBuffer = sentenceBuffer.substring(boundaryIndex + 2);
-                services.tts.queue(cleanseResponseText(sentenceToSpeak));
-            }
         }
-        if (sentenceBuffer.trim())
-            services.tts.queue(cleanseResponseText(sentenceBuffer.trim()));
-        gameState.updateState({ lastApiResponse: fullResponseText });
-        ui.updateDebuggerUI(gameState.getState().lastApiInput, fullResponseText);
+        ui.logToDebugger('output', 'Received from AI', fullResponseText);
         const newHistory = [...gameState.getState().chatHistory, { role: 'model', parts: [{ text: fullResponseText }] }];
         gameState.updateState({ chatHistory: newHistory });
         await processTagsAndActions(fullResponseText);
     }
     catch (error) {
         console.error("API call failed:", error);
+        ui.logToDebugger('error', 'API Error', error.message || String(error));
         const errorString = (error.message || String(error)).toLowerCase();
         const isQuotaError = (errorString.includes('resource_exhausted') || errorString.includes('429'));
         if (isQuotaError && llmProvider) {
@@ -274,8 +280,7 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
             dmMessageElement.classList.add('error-message');
         }
         ui.setLoading(false);
-        gameState.updateState({ isGenerating: false, lastApiResponse: `ERROR: ${error.message || error}` });
-        ui.updateDebuggerUI(gameState.getState().lastApiInput, gameState.getState().lastApiResponse);
+        gameState.updateState({ isGenerating: false });
     }
 }
 async function processTagsAndActions(fullResponseText) {
@@ -341,8 +346,8 @@ async function processTagsAndActions(fullResponseText) {
     }
 }
 export async function handleAttackRollRequest(weaponName, description, rollModifier) {
-    const { playerState, chatHistory } = gameState.getState();
-    if (!playerState)
+    const { playerState, characterInfo, chatHistory } = gameState.getState();
+    if (!playerState || !characterInfo)
         return;
     let effectiveWeaponName = weaponName;
     const equippedWeapon = playerState.equipment.weapon;
@@ -354,15 +359,29 @@ export async function handleAttackRollRequest(weaponName, description, rollModif
         effectiveWeaponName = equippedWeapon;
     }
     gameState.updatePlayerState({ turnCount: playerState.turnCount + 1 });
-    const weaponData = getWeaponData(effectiveWeaponName);
-    if (!weaponData) {
-        const newHistory = [...chatHistory, { role: 'user', parts: [{ text: `Action: Attack failed, no valid weapon found.` }] }];
-        gameState.updateState({ chatHistory: newHistory, isGenerating: false });
-        saveCurrentGame();
-        await sendMessageAndProcessStream(`(Attack failed: No weapon named '${effectiveWeaponName}' was found in the rulebook.)`);
-        return;
+    let weaponData;
+    const normalizedWeaponName = effectiveWeaponName.toLowerCase();
+    const isUnarmed = ['unarmed', 'kick', 'punch', 'headbutt', 'stomp', 'slap'].some(term => normalizedWeaponName.includes(term));
+    if (isUnarmed) {
+        weaponData = {
+            name: 'Unarmed Strike',
+            damage_dice: getUnarmedStrikeDice(playerState, characterInfo),
+            is_finesse: false,
+            properties: ['Melee'],
+            category: 'Simple Melee',
+        };
     }
-    const abilityKey = weaponData.is_finesse && playerState.abilityScores.dexterity > playerState.abilityScores.strength ? 'dexterity' : 'strength';
+    else {
+        weaponData = getWeaponData(effectiveWeaponName);
+    }
+    if (!weaponData) {
+        console.warn(`Could not find base weapon data for '${effectiveWeaponName}'. Using default stats.`);
+        ui.addMessage('dm', `<em>(No standard stats found for "${effectiveWeaponName}". Using default magic weapon stats (1d8 damage) to proceed.)</em>`);
+        weaponData = { name: effectiveWeaponName, damage_dice: '1d8', is_finesse: false, properties: ['Magical'], category: 'Martial Melee' };
+    }
+    // Monks can use Dexterity for their unarmed strikes.
+    const canUseFinesse = (weaponData.is_finesse || (isUnarmed && characterInfo.characterClass.toLowerCase() === 'monk'));
+    const abilityKey = canUseFinesse && playerState.abilityScores.dexterity > playerState.abilityScores.strength ? 'dexterity' : 'strength';
     const attackBonus = getAbilityModifierValue(playerState.abilityScores[abilityKey]) + playerState.proficiencyBonus;
     let finalModifier = rollModifier;
     if (playerState.conditions?.some(c => c.name === 'Poisoned')) {
@@ -376,6 +395,7 @@ export async function handleAttackRollRequest(weaponName, description, rollModif
     const damageBonus = getAbilityModifierValue(playerState.abilityScores[abilityKey]);
     const attackContent = { description: `Attack with ${effectiveWeaponName} on ${description}`, weaponName: effectiveWeaponName, attackRoll, attackBonus, totalAttackRoll: attackRoll + attackBonus, damageRoll, damageBonus, totalDamage: Math.max(1, damageRoll + damageBonus), damageDice, isCritical, allRolls: (finalModifier && finalModifier !== 'NONE') ? [roll1, roll2] : [roll1], rollModifier: finalModifier };
     ui.addMessage('attack', attackContent);
+    ui.logToDebugger('event', 'Player Attack Roll', JSON.stringify(attackContent, null, 2));
     const { isInCombat, combatants } = gameState.getState();
     if (isInCombat) {
         const targetName = description.toLowerCase();
@@ -429,6 +449,7 @@ async function handleNpcAttackIntent(intent) {
         rollModifier: 'NONE'
     };
     ui.addMessage('attack', attackContent);
+    ui.logToDebugger('event', 'NPC Attack Roll', JSON.stringify(attackContent, null, 2));
     let damageApplied = 0;
     if (attackContent.totalAttackRoll >= playerState.armorClass) {
         damageApplied = attackContent.totalDamage;
@@ -462,6 +483,7 @@ async function handleNpcSkillIntent(intent) {
         allRolls: [roll]
     };
     ui.addMessage('dice', diceContent);
+    ui.logToDebugger('event', 'NPC Skill Check', JSON.stringify(diceContent, null, 2));
     const apiPrompt = `The character "${npcName}" just attempted to use the ${intent.skill} skill for the purpose of "${intent.description}". The result of their roll was ${total}. Narrate the outcome of this attempt.`;
     const newHistory = [...chatHistory, { role: 'user', parts: [{ text: `(System: NPC skill check resolved. Result: ${total}.)` }] }];
     gameState.updateState({ chatHistory: newHistory, isGenerating: false });
@@ -482,6 +504,7 @@ export async function handleDiceRollRequest(skillOrAbility, description, rollMod
     let chosenRoll = finalModifier === 'ADVANTAGE' ? Math.max(roll1, roll2) : (finalModifier === 'DISADVANTAGE' ? Math.min(roll1, roll2) : roll1);
     const diceContent = { description, roll: chosenRoll, modifier, total: chosenRoll + modifier, dieValue: 20, diceString: `d20+${modifier}`, skillOrAbility, allRolls: (finalModifier && finalModifier !== 'NONE') ? [roll1, roll2] : [roll1], rollModifier: finalModifier };
     ui.addMessage('dice', diceContent);
+    ui.logToDebugger('event', 'Player Skill Check', JSON.stringify(diceContent, null, 2));
     const historyPrompt = `Action: ${description} (Result: ${diceContent.total})`;
     const apiPrompt = `The ${skillOrAbility} check for my character's attempt to "${description}" resulted in a total of ${diceContent.total}. Narrate the outcome.`;
     const newHistory = [...chatHistory, { role: 'user', parts: [{ text: historyPrompt }] }];
@@ -494,7 +517,6 @@ export async function handleFormSubmit(event) {
     const userInput = dom.chatInput.value.trim();
     if (!userInput || gameState.getState().isGenerating)
         return;
-    services.tts.cancel();
     ui.addMessage('user', userInput);
     dom.chatInput.value = '';
     const { playerState, chatHistory } = gameState.getState();
@@ -537,7 +559,6 @@ export async function startAdventure(startingHook) {
 export async function handleRerollRequest(button) {
     if (gameState.getState().isGenerating)
         return;
-    services.tts.cancel();
     const diceMessage = button.closest('.dice-roll-message');
     if (!diceMessage)
         return;
@@ -557,7 +578,6 @@ export async function handleRerollRequest(button) {
 export async function handleRegenerateRequest(button) {
     if (gameState.getState().isGenerating)
         return;
-    services.tts.cancel();
     const dmMessage = button.parentElement?.previousElementSibling;
     if (!dmMessage || !dmMessage.classList.contains('dm-message'))
         return;

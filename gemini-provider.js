@@ -224,7 +224,7 @@ You MUST use these tags to request player actions. DO NOT roll for the player.
 - **Ability/Skill Check:** For uncertain non-combat actions.
   - **Format:** '[ROLL|SKILL_or_ABILITY|DESCRIPTION|MODIFIER]'
   - **MODIFIER:** Optional 'ADVANTAGE' or 'DISADVANTAGE'.
-- **Player Attack:** If the player character declares their intent to attack a creature with a weapon (like 'I attack the guard with my sword'), you MUST use this tag. Do not describe the attack's outcome; only set up the action by describing the attempt.
+- **Player Attack:** If the player character declares their intent to attack a creature with a weapon (like 'I attack the guard with my sword'), you MUST use this tag. **If the player specifies a weapon, you MUST use that exact weapon name for \`WEAPON_NAME\`.** Do not substitute a different weapon. Do not describe the attack's outcome; only set up the action by describing the attempt.
   - **Format:** '[ATTACK|WEAPON_NAME|TARGET_DESCRIPTION|MODIFIER]'
 
 **Gameplay Rules:**
@@ -246,14 +246,6 @@ You MUST use these tags to request player actions. DO NOT roll for the player.
       - **Example (Healing):** [GAME_ACTION|MODIFY_HEALTH|{"amount": 8, "source": "Potion of Healing"}]
     - \`GAIN_REWARD\`: Used for non-combat rewards.
       - **Example:** [GAME_ACTION|GAIN_REWARD|{"xp": 75, "money": 50}]
-    - \`UPDATE_WORLD_STATE\`: Used when a significant, lasting change happens to an object or the environment.
-      - **Example:** [GAME_ACTION|UPDATE_WORLD_STATE|{"tavern_status": "burned_down", "city_gate": "closed_and_barred"}]
-    - \`UPDATE_NPC_STATE\`: Used when an NPC's core disposition or status changes.
-      - **Example:** [GAME_ACTION|UPDATE_NPC_STATE|{"name": "Guard Captain", "disposition": "hostile", "knows_about_theft": true}]
-    - \`APPLY_CONDITION\`: When the player is affected by a condition like Poisoned, Grappled, etc. Duration is in turns.
-      - **Example:** [GAME_ACTION|APPLY_CONDITION|{"name": "Poisoned", "duration": 10}]
-    - \`REMOVE_CONDITION\`: When a condition ends.
-      - **Example:** [GAME_ACTION|REMOVE_CONDITION|{"name": "Poisoned"}]
 - **Background Info:** If the player's prompt is prefixed with '(Use the following background information...)', treat that text as trusted TTRPG rulebook information and prioritize it in your answer.
 `;
         if (isMature) {
@@ -451,6 +443,7 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
 - Race: ${characterInfo.race}
 - Class: ${characterInfo.characterClass}
 - Background: ${characterInfo.background}
+- Alignment: ${characterInfo.alignment}
 - Bio: ${characterInfo.bio}
 - Key Skills: ${Object.entries(playerState.skills).filter(([, val]) => val === 'proficient').map(([key]) => key).join(', ')}
 `;

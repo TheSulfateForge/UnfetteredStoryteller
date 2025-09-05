@@ -10,7 +10,7 @@
  * @param {any} source The source object to merge from.
  * @returns {any} A new object with the merged properties.
  */
-function deepMerge(target, source) {
+export function deepMerge(target, source) {
     const output = { ...target };
     for (const key in source) {
         if (Object.prototype.hasOwnProperty.call(source, key)) {
@@ -36,8 +36,6 @@ const initialState = {
     isGenerating: false,
     isMatureEnabled: false,
     currentCharacterId: null,
-    lastApiInput: null,
-    lastApiResponse: null,
     isInCombat: false,
     combatants: [],
     worldState: {},

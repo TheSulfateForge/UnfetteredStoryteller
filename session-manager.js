@@ -45,11 +45,9 @@ async function proceedToAdventure(action, setupMainAppEventListeners) {
         }
     }
     let savedMatureEnabled = false;
-    let savedReadAloudEnabled = false;
     let ageConfirmed = false;
     try {
         savedMatureEnabled = localStorage.getItem('matureEnabled') === 'true';
-        savedReadAloudEnabled = localStorage.getItem('readAloudEnabled') === 'true';
         ageConfirmed = localStorage.getItem('ageConfirmed') === 'true';
     }
     catch (e) {
@@ -58,7 +56,6 @@ async function proceedToAdventure(action, setupMainAppEventListeners) {
     }
     gameState.updateState({ isMatureEnabled: savedMatureEnabled });
     dom.ageGateMatureToggle.checked = savedMatureEnabled;
-    services.tts.init(savedReadAloudEnabled, providerSettings);
     services.speech.init((transcript) => { dom.chatInput.value = transcript; }, (error) => { ui.addMessage('error', `Mic error: ${error}`); });
     const startAction = () => {
         if (!mainAppListenersSetup) {
@@ -105,14 +102,6 @@ function handleSettingsSave(e) {
         const llmProvider = createLlmProvider(providerSettings);
         gameState.updateState({ llmProvider });
         rag.init(llmProvider, ui.updateRagStatus);
-        let savedReadAloudEnabled = false;
-        try {
-            savedReadAloudEnabled = localStorage.getItem('readAloudEnabled') === 'true';
-        }
-        catch (e) {
-            console.warn("Could not access localStorage to read settings.", e);
-        }
-        services.tts.init(savedReadAloudEnabled, providerSettings);
     }
     catch (error) {
         alert(`Settings saved, but there was an error initializing the provider: ${error.message}`);
@@ -171,14 +160,13 @@ export async function handleBuildRag() {
         ui.updateRagStatus('error', 'AI Provider not initialized.');
 }
 export function getServices() {
-    return { speech: services.speech, tts: services.tts };
+    return { speech: services.speech };
 }
 export async function initializeChatSession() {
     const { llmProvider, isMatureEnabled, characterInfo, playerState, chatHistory } = gameState.getState();
     if (!llmProvider || !characterInfo || !playerState) {
         throw new Error("Cannot initialize chat: core state missing.");
     }
-    services.tts.cancel();
     try {
         const chat = await llmProvider.createChatSession(characterInfo, playerState, isMatureEnabled, chatHistory);
         gameState.updateState({ chat });
@@ -190,7 +178,6 @@ export async function initializeChatSession() {
     }
 }
 export function newGame(isMature) {
-    services.tts.cancel();
     gameState.resetForNewGame();
     gameState.updateState({ isMatureEnabled: isMature });
     dom.chatLog.innerHTML = '';

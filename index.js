@@ -6,6 +6,7 @@ import { dom } from './dom.js';
 import * as ui from './ui.js';
 import * as dataManager from './data-manager.js';
 import { hexToString } from './utils.js';
+import * as game from './game.js';
 import * as characterCreator from './character-creator.js';
 import * as gameLoop from './game-loop.js';
 import * as sessionManager from './session-manager.js';
@@ -102,17 +103,22 @@ function setupMainAppEventListeners() {
         input.style.height = `${input.scrollHeight}px`;
     });
     dom.micBtn.addEventListener('click', () => {
-        const { speech, tts } = sessionManager.getServices();
-        speech.toggle(tts.cancel);
+        const { speech } = sessionManager.getServices();
+        speech.toggle();
     });
-    dom.readAloudToggle.addEventListener('change', () => {
-        const isEnabled = dom.readAloudToggle.checked;
-        sessionManager.getServices().tts.setEnabled(isEnabled);
-        try {
-            localStorage.setItem('readAloudEnabled', String(isEnabled));
-        }
-        catch (e) {
-            console.warn('Could not save read-aloud setting to localStorage.', e);
+    // In-game header buttons
+    dom.changeSettingsBtn.addEventListener('click', () => {
+        ui.showSettings(game.getProviderSettings());
+    });
+    dom.debugLogBtn.addEventListener('click', () => {
+        dom.debuggerModal.classList.remove('hidden');
+    });
+    dom.debuggerModalCloseBtn.addEventListener('click', () => {
+        dom.debuggerModal.classList.add('hidden');
+    });
+    dom.debuggerModal.addEventListener('click', (event) => {
+        if (event.target === dom.debuggerModal) {
+            dom.debuggerModal.classList.add('hidden');
         }
     });
     dom.buildRagBtn.addEventListener('click', sessionManager.handleBuildRag);
@@ -270,8 +276,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if ('serviceWorker' in navigator) {
         try {
             // Correct, simplified registration
-            const registration = await navigator.serviceWorker.register('sw.js'); 
-            
+            const registration = await navigator.serviceWorker.register('sw.js');
             console.log('SW registered.', registration);
             setupServiceWorkerUpdateListener(registration);
         }

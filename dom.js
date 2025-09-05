@@ -20,7 +20,7 @@ function query(id) {
     const el = document.getElementById(id);
     // Some elements are intentionally commented out in the HTML for debugging.
     // Return null for those to avoid breaking the app if they are used.
-    const commentedOutIds = ['debug-log-btn', 'debugger-panel', 'debug-input', 'debug-output'];
+    const commentedOutIds = [];
     if (!el) {
         if (commentedOutIds.includes(id)) {
             return null;
@@ -49,7 +49,7 @@ class DOMElements {
     // --- Main App & Modals ---
     get appElement() { return query('app'); }
     get chatLog() { return query('chat-log'); }
-    get combatTracker() { return query('combat-tracker'); } // <-- Add this line
+    get combatTracker() { return query('combat-tracker'); }
     get chatForm() { return query('chat-form'); }
     get chatInput() { return query('chat-input'); }
     get loadingIndicator() { return query('loading'); }
@@ -68,7 +68,6 @@ class DOMElements {
     get newAdventureBtn() { return query('new-adventure-btn'); }
     get loadGameCancelBtn() { return query('load-game-cancel-btn'); }
     get changeSettingsBtn() { return query('change-settings-btn'); }
-    get readAloudToggle() { return query('read-aloud-toggle'); }
     get micBtn() { return query('mic-btn'); }
     get characterCreationModal() { return query('character-creation-modal'); }
     get characterCreationCloseBtn() { return query('character-creation-close-btn'); }
@@ -87,6 +86,8 @@ class DOMElements {
     get statsMoney() { return query('stats-money'); }
     get statsExp() { return query('stats-exp'); }
     get statsPregnancyStatus() { return query('stats-pregnancy-status'); }
+    get statsConditions() { return query('stats-conditions'); }
+    get statsConditionsList() { return query('stats-conditions-list'); }
     get equipWeapon() { return query('equip-weapon'); }
     get equipArmor() { return query('equip-armor'); }
     get statsInventory() { return query('stats-inventory'); }
@@ -135,8 +136,10 @@ class DOMElements {
     get confirmModalText() { return query('confirm-modal-text'); }
     get confirmModalYesBtn() { return query('confirm-modal-yes-btn'); }
     get confirmModalNoBtn() { return query('confirm-modal-no-btn'); }
-    get debugInput() { return query('debug-input'); }
-    get debugOutput() { return query('debug-output'); }
+    get debugLogBtn() { return query('debug-log-btn'); }
+    get debuggerModal() { return query('debugger-modal'); }
+    get debuggerModalCloseBtn() { return query('debugger-modal-close-btn'); }
+    get debuggerLogContent() { return query('debugger-log-content'); }
     get sidebarToggleBtn() { return query('sidebar-toggle-btn'); }
     get appOverlay() { return query('app-overlay'); }
     get updateNotificationBanner() { return query('update-notification'); }

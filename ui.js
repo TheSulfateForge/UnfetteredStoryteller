@@ -90,6 +90,12 @@ function updateProficiencyLists(playerState) {
     dom.statsRacialTraits.innerHTML = createList(playerState.racialTraits);
     dom.statsClassFeatures.innerHTML = createList(playerState.classFeatures);
 }
+function createRegenerateButton() {
+    const button = document.createElement('button');
+    button.className = 'regenerate-btn action-btn';
+    button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0-8 3.58-8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg> Regenerate`;
+    return button;
+}
 // --- EXPORTED UI FUNCTIONS ---
 export function addMessage(sender, content) {
     const messageElement = document.createElement('div');
@@ -166,15 +172,12 @@ export function addEventMessage(type, details) {
     let iconSvg = '';
     switch (type) {
         case 'item':
-            // Icon: Backpack/Bag
             iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 6h-3V4c0-1.11-.89-2-2-2h-6c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zM10 4h4v2h-4V4zm10 15H4V8h16v11z"/></svg>`;
             break;
         case 'xp':
-            // Icon: Star/Sparkle
             iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27z"/></svg>`;
             break;
         case 'money':
-            // Icon: Coin stack
             iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 15H9v-2H7v2H5v2h2v2h2v-2h2v2h2v-2h2v-2h-2v-2zm0-4.5c0-1.38-1.12-2.5-2.5-2.5S10 9.12 10 10.5H8.5c0-2.21 1.79-4 4-4s4 1.79 4 4v.5h-2V10.5zm-5 0c0-1.38-1.12-2.5-2.5-2.5S5 9.12 5 10.5H3.5c0-2.21 1.79-4 4-4s4 1.79 4 4v.5h-2V10.5z"/></svg>`;
             break;
     }
@@ -218,26 +221,20 @@ export function updatePlayerStateUI(playerState, characterInfo) {
         const currentLevel = playerState.level;
         const currentXp = playerState.exp;
         let highestAttainableLevel = currentLevel;
-        // Find the highest level the character can be with their current XP.
         for (let level = currentLevel + 1; level <= 20; level++) {
             const xpNeeded = LEVEL_XP_THRESHOLDS[level - 1];
             if (xpNeeded !== undefined && currentXp >= xpNeeded) {
                 highestAttainableLevel = level;
             }
             else {
-                break; // Stop when they don't have enough XP for the next level
+                break;
             }
         }
         const levelsToGain = highestAttainableLevel - currentLevel;
         const canLevelUp = levelsToGain > 0;
         dom.levelUpBtn.classList.toggle('hidden', !canLevelUp);
         if (canLevelUp) {
-            if (levelsToGain > 1) {
-                dom.levelUpBtn.textContent = `Level Up! (${levelsToGain} levels)`;
-            }
-            else {
-                dom.levelUpBtn.textContent = 'Level Up!';
-            }
+            dom.levelUpBtn.textContent = (levelsToGain > 1) ? `Level Up! (${levelsToGain} levels)` : 'Level Up!';
         }
     }
     else {
@@ -366,7 +363,7 @@ export function updateRagStatus(status, message) {
             break;
         case 'ready':
             statusText = `Status: Ready. ${message || ''}`;
-            isButtonDisabled = false; // Can rebuild
+            isButtonDisabled = false;
             dom.buildRagBtn.textContent = 'Rebuild Knowledge Base';
             break;
         case 'error':
@@ -389,40 +386,31 @@ export function populateCreationDropdowns() {
     const races = dataManager.getRaces();
     const classes = dataManager.getClasses();
     const backgrounds = dataManager.getBackgrounds();
-    // --- Race Dropdown Population ---
     const raceUrlMap = new Map();
     races.forEach(r => raceUrlMap.set(r.url, r));
     const raceOptions = races.map(race => {
         let text = race.name;
         if (race.is_subrace && race.subrace_of) {
             const parentRace = raceUrlMap.get(race.subrace_of);
-            const parentName = parentRace ? parentRace.name : 'Unknown';
-            text = `${parentName} (${race.name})`;
+            text = `${parentRace ? parentRace.name : 'Unknown'} (${race.name})`;
         }
         return { value: race.name, text: text };
-    });
-    raceOptions.sort((a, b) => a.text.localeCompare(b.text));
-    // Clear and rebuild the race dropdown
+    }).sort((a, b) => a.text.localeCompare(b.text));
     dom.charRaceInput.innerHTML = '<option value="" disabled selected>Select a Race...</option>';
-    const raceOptgroup = document.createElement('optgroup');
-    raceOptgroup.label = "Available Races";
     raceOptions.forEach(opt => {
         const option = document.createElement('option');
         option.value = opt.value;
         option.textContent = opt.text;
-        raceOptgroup.appendChild(option);
+        dom.charRaceInput.appendChild(option);
     });
-    dom.charRaceInput.appendChild(raceOptgroup);
-    // --- Class and Background Dropdowns ---
-    // Clear existing options to prevent duplication if function is called more than once
     dom.charClassInput.innerHTML = '<option value="" disabled selected>Select a Class...</option>';
-    dom.charBackgroundInput.innerHTML = '<option value="" disabled selected>Select a Background...</option>';
     classes.forEach(c => {
         const option = document.createElement('option');
         option.value = c.name;
         option.textContent = c.name;
         dom.charClassInput.appendChild(option);
     });
+    dom.charBackgroundInput.innerHTML = '<option value="" disabled selected>Select a Background...</option>';
     backgrounds.forEach(b => {
         const option = document.createElement('option');
         option.value = b.name;
@@ -430,18 +418,7 @@ export function populateCreationDropdowns() {
         dom.charBackgroundInput.appendChild(option);
     });
 }
-export function createRegenerateButton() {
-    const button = document.createElement('button');
-    button.className = 'regenerate-btn action-btn';
-    button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" height="18px" viewBox="0 0 24 24" width="18px" fill="currentColor"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M12 6v3l4-4-4-4v3c-4.42 0-8 3.58-8 8 0 1.57.46 3.03 1.24 4.26L6.7 14.8c-.45-.83-.7-1.79-.7-2.8 0-3.31 2.69-6 6-6zm6.76 1.74L17.3 9.2c.44.84.7 1.79.7 2.8 0 3.31-2.69 6-6 6v-3l-4 4 4 4v-3c4.42 0-8 3.58-8-8 0-1.57-.46-3.03-1.24-4.26z"/></svg> Regenerate`;
-    return button;
-}
-/**
- * Renders a list of action choices as interactive buttons for the player.
- * @param {any[]} choices An array of parsed tag objects from the AI's response.
- */
 export function displayActionChoices(choices) {
-    console.log("UI: Rendering action choices:", choices); // For debugging
     const container = document.createElement('div');
     container.className = 'roll-request-container';
     choices.forEach(choice => {
@@ -467,13 +444,7 @@ export function displayActionChoices(choices) {
     dom.chatLog.appendChild(container);
     scrollToBottom();
 }
-/**
- * Adds post-response action buttons (like Regenerate) after a DM message.
- * @param {HTMLElement} dmMessageElement The DM message element to add buttons after.
- */
 export function addPostResponseButtons(dmMessageElement) {
-    // Only add buttons if the preceding message was from the user,
-    // to avoid adding buttons after dice rolls etc. which have their own actions.
     const prevSibling = dmMessageElement.previousElementSibling;
     if (prevSibling && prevSibling.classList.contains('user-message')) {
         const buttonContainer = document.createElement('div');
@@ -483,28 +454,15 @@ export function addPostResponseButtons(dmMessageElement) {
         dmMessageElement.insertAdjacentElement('afterend', buttonContainer);
     }
 }
-/**
- * Displays a confirmation modal and returns a promise that resolves with the user's choice.
- * @param {string} text The message to display in the modal.
- * @param {string} title The title for the modal.
- * @returns {Promise<boolean>} A promise that resolves to true if confirmed, false otherwise.
- */
 export function showConfirmModal(text, title = 'Confirm Action') {
     return new Promise((resolve) => {
         dom.confirmModalTitle.textContent = title;
         dom.confirmModalText.textContent = text;
         dom.confirmModal.classList.remove('hidden');
-        const handleYes = () => {
-            dom.confirmModal.classList.add('hidden');
-            cleanup();
-            resolve(true);
-        };
-        const handleNo = () => {
-            dom.confirmModal.classList.add('hidden');
-            cleanup();
-            resolve(false);
-        };
+        const handleYes = () => { cleanup(); resolve(true); };
+        const handleNo = () => { cleanup(); resolve(false); };
         const cleanup = () => {
+            dom.confirmModal.classList.add('hidden');
             dom.confirmModalYesBtn.removeEventListener('click', handleYes);
             dom.confirmModalNoBtn.removeEventListener('click', handleNo);
         };
@@ -512,13 +470,23 @@ export function showConfirmModal(text, title = 'Confirm Action') {
         dom.confirmModalNoBtn.addEventListener('click', handleNo, { once: true });
     });
 }
-export function updateDebuggerUI(input, output) {
-    if (dom.debugInput) {
-        dom.debugInput.textContent = input || 'No input captured yet.';
-    }
-    if (dom.debugOutput) {
-        dom.debugOutput.textContent = output || 'No response captured yet.';
-    }
+export function logToDebugger(type, title, data) {
+    const logContent = dom.debuggerLogContent;
+    if (!logContent)
+        return;
+    const entry = document.createElement('div');
+    entry.className = `log-entry log-type-${type}`;
+    const timestamp = new Date().toLocaleTimeString('en-US', { hour12: false });
+    entry.innerHTML = `
+        <div class="log-header">
+            <span class="log-timestamp">${timestamp}</span>
+            <span class="log-type-badge log-type-${type}">${type}</span>
+            <span class="log-title">${title}</span>
+        </div>
+        <pre class="log-data">${data}</pre>
+    `;
+    logContent.appendChild(entry);
+    logContent.scrollTop = logContent.scrollHeight;
 }
 export function showCharacterSheetModal() {
     const { playerState, characterInfo } = gameState.getState();
@@ -528,10 +496,8 @@ export function showCharacterSheetModal() {
     }
     dom.csCharName.textContent = characterInfo.name;
     const list = dom.characterSheetList;
-    list.innerHTML = ''; // Clear previous list
-    let listHtml = '';
-    // Stats, Skills, Saves (Not clickable items, but a static view)
-    listHtml += `
+    list.innerHTML = '';
+    let listHtml = `
         <h4>Stats & Skills</h4>
         <ul class="cs-static-section">
             <li>Level: <span>${playerState.level}</span></li>
@@ -579,7 +545,6 @@ export function displayCharacterSheetDetail(itemElement) {
     const name = itemElement.dataset.name;
     if (!type || !name)
         return;
-    // Update active state in the list
     dom.characterSheetList.querySelectorAll('.cs-list-item.active').forEach(item => item.classList.remove('active'));
     itemElement.classList.add('active');
     const detailsContainer = dom.characterSheetDetails;
@@ -587,28 +552,23 @@ export function displayCharacterSheetDetail(itemElement) {
     let itemData = null;
     switch (type) {
         case 'trait':
-            const race = dataManager.getRace(characterInfo.race);
-            itemData = race?.traits.find(t => t.name === name);
+            itemData = dataManager.getRace(characterInfo.race)?.traits.find(t => t.name === name);
             break;
         case 'feature':
             const charClass = dataManager.getClass(characterInfo.characterClass);
             const background = dataManager.getBackground(characterInfo.background);
-            itemData = charClass?.features?.find(f => f.name === name) ||
-                charClass?.archetypes?.flatMap(a => a.features || []).find(f => f.name === name) ||
-                background?.benefits?.find(b => b.name === name);
+            itemData = charClass?.features?.find(f => f.name === name) || charClass?.archetypes?.flatMap(a => a.features || []).find(f => f.name === name) || background?.benefits?.find(b => b.name === name);
             break;
         case 'feat':
             itemData = dataManager.getFeats().find(f => f.name === name);
             break;
         case 'spell':
-            const spellSlug = name.toLowerCase().replace(/[\s/]+/g, '-');
-            itemData = dataManager.getSpell(spellSlug);
+            itemData = dataManager.getSpell(name.toLowerCase().replace(/[\s/]+/g, '-'));
             break;
         case 'equipment':
             const weapons = dataManager.getWeapons();
             const armors = dataManager.getArmor();
             const normalizedName = name.toLowerCase();
-            // Find the best match by checking which key is a substring of the item name
             const weaponKey = Object.keys(weapons).find(k => normalizedName.includes(k));
             const armorKey = Object.keys(armors).find(k => normalizedName.includes(k));
             if (weaponKey)
@@ -621,12 +581,11 @@ export function displayCharacterSheetDetail(itemElement) {
     }
     if (itemData) {
         html = `<h3>${itemData.name}</h3>`;
-        // Use 'desc' for most items, 'description' for spells
         const description = itemData.desc || itemData.description || '';
         html += `<p>${description.replace(/\r\n/g, '<br>').replace(/\n/g, '<br>')}</p>`;
         if (itemData.prerequisite)
             html += `<p><strong>Prerequisite:</strong> ${itemData.prerequisite}</p>`;
-        if (type === 'spell') {
+        if (type === 'spell' && itemData.school) {
             html += `<ul>
                 <li><strong>Level:</strong> ${itemData.level === 0 ? 'Cantrip' : itemData.level} ${itemData.school}</li>
                 <li><strong>Casting Time:</strong> ${itemData.casting_time}</li>
