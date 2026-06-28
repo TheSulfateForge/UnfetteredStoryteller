@@ -13,7 +13,7 @@ export const AI_TEXT_MODELS = ['gemini-3.1-flash-lite', 'gemini-3-flash-preview'
  * A list of AI embedding models for the RAG knowledge base.
  * The application will try them in order if the previous one fails.
  */
-export const AI_EMBEDDING_MODELS = ['text-embedding-004'];
+export const AI_EMBEDDING_MODELS = ['gemini-embedding-001'];
 /** The key used for storing save game data in localStorage. */
 export const SAVE_GAME_KEY = 'unfettered-storyteller-saves';
 /** A legacy key used for storing the API key in localStorage (for backward compatibility). */
