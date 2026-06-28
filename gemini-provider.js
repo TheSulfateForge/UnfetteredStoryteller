@@ -500,15 +500,44 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
         return true;
     }
     async batchEmbedContents(texts) {
+        // NOTE: gemini-embedding-001 accepts only ONE input per embedContent request
+        // (unlike the retired text-embedding-004, which allowed multi-input batches).
+        // So we embed each text individually, with limited concurrency and retry/backoff
+        // to stay within free-tier rate limits.
+        const CONCURRENCY = 4;
+        const MAX_RETRIES = 4;
+        // Embeds a single text, retrying with exponential backoff on transient/rate-limit errors.
+        const embedOne = async (modelName, text) => {
+            for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+                try {
+                    const response = await promiseWithTimeout(this.ai.models.embedContent({
+                        model: modelName,
+                        contents: text,
+                    }), 60000, `Embedding request timed out for model ${modelName}.`);
+                    return response.embeddings[0].values;
+                }
+                catch (error) {
+                    const message = String(error?.message || error);
+                    const isRateLimited = /429|rate limit|resource[_\s-]?exhausted|quota/i.test(message);
+                    if (attempt < MAX_RETRIES && isRateLimited) {
+                        const delayMs = 1000 * Math.pow(2, attempt);
+                        await new Promise(resolve => setTimeout(resolve, delayMs));
+                        continue;
+                    }
+                    throw error;
+                }
+            }
+        };
         // Loop through the configured embedding models, trying each one until success.
         for (const modelName of config.AI_EMBEDDING_MODELS) {
             try {
-                const response = await promiseWithTimeout(this.ai.models.embedContent({
-                    model: modelName,
-                    contents: texts.map(t => ({ parts: [{ text: t }] })),
-                }), 60000, `Embedding request timed out for model ${modelName}.`);
-                // If successful, return the embeddings.
-                return response.embeddings.map(e => e.values);
+                const results = new Array(texts.length);
+                for (let i = 0; i < texts.length; i += CONCURRENCY) {
+                    const slice = texts.slice(i, i + CONCURRENCY);
+                    const sliceEmbeddings = await Promise.all(slice.map(text => embedOne(modelName, text)));
+                    sliceEmbeddings.forEach((embedding, j) => { results[i + j] = embedding; });
+                }
+                return results;
             }
             catch (error) {
                 console.warn(`Embedding generation failed with model '${modelName}':`, error);
