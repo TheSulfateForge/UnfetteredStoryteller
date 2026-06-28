@@ -5,7 +5,7 @@
 import { dom } from './dom.js';
 import * as ui from './ui.js';
 import * as dataManager from './data-manager.js';
-import { getPointBuyCost, DEFAULT_SKILLS, getAbilityModifierValue, DEFAULT_SAVING_THROWS, calculateProficiencyBonus } from './rpg-helpers.js';
+import { getPointBuyCost, DEFAULT_SKILLS, getAbilityModifierValue, DEFAULT_SAVING_THROWS, calculateProficiencyBonus, calculateArmorClass } from './rpg-helpers.js';
 import { gameState } from './state-manager.js';
 import * as game from './game.js';
 import { startAdventure } from './game-loop.js';
@@ -41,7 +41,7 @@ let pointBuyState = {
     }
 };
 let currentPage = 1;
-const totalPages = 5;
+const totalPages = 6;
 let levelUpState = null;
 // --- HELPERS ---
 /**
@@ -83,6 +83,8 @@ function navigateToPage(page) {
         updateSkillSelectionUI();
     else if (page === 4)
         updateSpecialSelectionsUI();
+    else if (page === 5)
+        updateGearSelectionUI();
 }
 /**
  * Validates the current page before proceeding.
@@ -169,7 +171,28 @@ function validatePage(page) {
             }
             return true;
         }
-        case 5:
+        case 5: {
+            const gearPage = document.getElementById('gear-selection-page');
+            if (!gearPage)
+                return true;
+            const errors = [];
+            gearPage.querySelectorAll('.gear-choice-block').forEach((block, i) => {
+                if (!block.querySelector('input[type="radio"]:checked')) {
+                    errors.push(`Please choose an option for equipment choice #${i + 1}.`);
+                }
+            });
+            gearPage.querySelectorAll('.gear-select').forEach(sel => {
+                if (!sel.disabled && !sel.value) {
+                    errors.push('Please resolve all "any weapon / instrument" equipment selections.');
+                }
+            });
+            if (errors.length > 0) {
+                alert([...new Set(errors)].join('\n'));
+                return false;
+            }
+            return true;
+        }
+        case 6:
             return dom.characterForm.reportValidity();
         default:
             return true;
@@ -542,6 +565,201 @@ export function displaySpellDetails(label) {
     }).map(([key, value]) => `<li><strong>${key}:</strong> <span>${value}</span></li>`).join('')}</ul>
     <p><strong>Description:</strong></p><div class="spell-description-text">${createBlurb(spell.description)}</div>`;
 }
+// --- STARTING GEAR SELECTION ---
+const MUSICAL_INSTRUMENTS = ['Bagpipes', 'Drum', 'Dulcimer', 'Flute', 'Horn', 'Lute', 'Lyre', 'Pan flute', 'Shawm', 'Viol'];
+/** Minimal HTML-attribute escaping for dynamically injected gear labels. */
+function escapeGearText(text) {
+    return String(text ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+/** Returns canonical weapon names from the data store filtered by category. */
+function getWeaponNamesByCategory(isMartial, meleeOnly) {
+    const weapons = dataManager.getWeapons();
+    if (!weapons)
+        return [];
+    return Object.values(weapons)
+        .filter(w => (isMartial ? w.is_martial : w.is_simple) && (meleeOnly ? w.is_melee : true))
+        .map(w => w.name)
+        .sort((a, b) => a.localeCompare(b));
+}
+/**
+ * Resolves a single equipment clause into either a fixed item or a selectable,
+ * open-ended category (e.g. "any simple weapon", "any musical instrument").
+ */
+function resolveGearClause(clause) {
+    const label = clause.trim().replace(/\s+/g, ' ');
+    const lower = label.toLowerCase();
+    const weaponMatch = lower.match(/(simple|martial)\s*(melee|ranged)?\s*weapons?/);
+    if (weaponMatch) {
+        const count = /\btwo\b|\b2\b/.test(lower) ? 2 : 1;
+        const options = getWeaponNamesByCategory(weaponMatch[1] === 'martial', weaponMatch[2] === 'melee');
+        if (options.length > 0)
+            return { type: 'select', label, count, options };
+    }
+    if (/musical instrument/.test(lower)) {
+        return { type: 'select', label, count: 1, options: MUSICAL_INSTRUMENTS };
+    }
+    return { type: 'fixed', label };
+}
+/** Splits a clause string into individual item clauses on commas / "and". */
+function splitGearItems(text) {
+    return text.split(/\s*,\s*|\s+and\s+/i)
+        .map(s => s.replace(/^(?:and|or)\s+/i, '').trim())
+        .filter(Boolean);
+}
+/** Parses a class's SRD equipment string into granted blocks and choice blocks. */
+function parseClassEquipment(equipmentStr) {
+    if (!equipmentStr)
+        return [];
+    return equipmentStr.split(';').map(s => s.trim()).filter(Boolean).map(segment => {
+        const clean = segment.replace(/\.\s*$/, '').trim();
+        if (/\([a-c]\)/i.test(clean)) {
+            const options = clean.split(/\([a-c]\)/i)
+                .map(p => p.replace(/,?\s+or\s*$/i, '').replace(/,\s*$/, '').trim())
+                .filter(Boolean);
+            return { kind: 'choice', options };
+        }
+        return { kind: 'granted', text: clean };
+    });
+}
+/** Extracts the background's equipment description text, if any. */
+function getBackgroundEquipmentText(backgroundData) {
+    if (!backgroundData || !backgroundData.benefits)
+        return '';
+    const eq = backgroundData.benefits.find(b => b.type === 'equipment');
+    return eq ? (eq.desc || '').replace(/\s+/g, ' ').replace(/\.\s*$/, '').trim() : '';
+}
+/** Renders a set of item clauses as fixed labels and/or resolver dropdowns. */
+function renderGearClauses(clauses, idPrefix) {
+    return clauses.map((clause, i) => {
+        const resolved = resolveGearClause(clause);
+        if (resolved.type === 'fixed') {
+            const safe = escapeGearText(resolved.label);
+            return `<span class="gear-item" data-item="${safe}">${safe}</span>`;
+        }
+        let selects = '';
+        for (let n = 0; n < resolved.count; n++) {
+            selects += `<select class="gear-select" data-prefix="${idPrefix}-${i}-${n}">` +
+                resolved.options.map(o => `<option value="${escapeGearText(o)}">${escapeGearText(o)}</option>`).join('') +
+                `</select>`;
+        }
+        return `<span class="gear-item gear-item-select"><em>${escapeGearText(resolved.label)}:</em> ${selects}</span>`;
+    }).join(' ');
+}
+/** Builds the starting-gear selection UI from the chosen class and background. */
+export function updateGearSelectionUI() {
+    const page = document.getElementById('gear-selection-page');
+    if (!page)
+        return;
+    const classData = dataManager.getClass(dom.charClassInput.value);
+    const backgroundData = dataManager.getBackground(dom.charBackgroundInput.value);
+    let html = '<div class="gear-selection-container">';
+    html += `<p class="gear-intro">Choose your starting equipment. Granted items are included automatically; pick one option for each choice.</p>`;
+    html += `<h4>From Class (${escapeGearText(classData ? classData.name : '—')})</h4>`;
+    const classSegments = parseClassEquipment(classData ? classData.equipment : '');
+    if (classSegments.length === 0) {
+        html += `<p class="placeholder-text">No class starting equipment found.</p>`;
+    }
+    classSegments.forEach((seg, gi) => {
+        if (seg.kind === 'granted') {
+            html += `<div class="gear-granted-block" data-group="class-${gi}"><span class="gear-granted-label">Granted:</span> ${renderGearClauses(splitGearItems(seg.text), `class-${gi}`)}</div>`;
+        }
+        else {
+            html += `<div class="gear-choice-block" data-group="class-${gi}"><p class="gear-choice-header">Choose one:</p>`;
+            seg.options.forEach((opt, oi) => {
+                const radioId = `gear-class-${gi}-${oi}`;
+                html += `<div class="gear-option" data-option="${oi}">
+                        <input type="radio" id="${radioId}" name="gear-class-${gi}" value="${oi}" ${oi === 0 ? 'checked' : ''}>
+                        <span class="gear-option-content">${renderGearClauses(splitGearItems(opt), `class-${gi}-${oi}`)}</span>
+                    </div>`;
+            });
+            html += `</div>`;
+        }
+    });
+    const bgText = getBackgroundEquipmentText(backgroundData);
+    html += `<h4>From Background (${escapeGearText(backgroundData ? backgroundData.name : '—')})</h4>`;
+    if (bgText) {
+        html += `<div class="gear-granted-block" data-group="background-0"><span class="gear-granted-label">Granted:</span> ${renderGearClauses(splitGearItems(bgText), 'background-0')}</div>`;
+    }
+    else {
+        html += `<p class="placeholder-text">No background equipment.</p>`;
+    }
+    html += '</div>';
+    page.innerHTML = html;
+    updateGearSelectionState();
+}
+/** Enables resolver dropdowns only within the currently selected choice option. */
+export function updateGearSelectionState() {
+    const page = document.getElementById('gear-selection-page');
+    if (!page)
+        return;
+    page.querySelectorAll('.gear-choice-block').forEach(block => {
+        const selected = block.querySelector('input[type="radio"]:checked');
+        const selectedOption = selected ? selected.value : null;
+        block.querySelectorAll('.gear-option').forEach(optEl => {
+            const isSelected = optEl.dataset.option === selectedOption;
+            optEl.classList.toggle('gear-option-active', isSelected);
+            optEl.querySelectorAll('.gear-select').forEach(sel => { sel.disabled = !isSelected; });
+        });
+    });
+}
+/** Collects the player's resolved starting gear as a list of concrete item strings. */
+function collectStartingGear() {
+    const page = document.getElementById('gear-selection-page');
+    const items = [];
+    if (!page)
+        return items;
+    const pushFrom = (el) => {
+        el.querySelectorAll('.gear-item[data-item]').forEach(s => { if (s.dataset.item) items.push(s.dataset.item); });
+        el.querySelectorAll('.gear-select').forEach(sel => { if (!sel.disabled && sel.value) items.push(sel.value); });
+    };
+    page.querySelectorAll('.gear-granted-block').forEach(pushFrom);
+    page.querySelectorAll('.gear-choice-block').forEach(block => {
+        const selected = block.querySelector('input[type="radio"]:checked');
+        if (!selected)
+            return;
+        const optEl = block.querySelector(`.gear-option[data-option="${selected.value}"]`);
+        if (optEl)
+            pushFrom(optEl);
+    });
+    // Tidy article casing and de-duplicate while preserving order.
+    const seen = new Set();
+    return items
+        .map(s => s.replace(/\s+/g, ' ').trim())
+        .filter(Boolean)
+        .filter(s => { const k = s.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
+}
+/** Finds the canonical equipped weapon name from a list of gear items. */
+function findGearWeaponName(gear) {
+    const weapons = dataManager.getWeapons();
+    if (!weapons)
+        return null;
+    const keys = Object.keys(weapons);
+    for (const item of gear) {
+        const norm = item.toLowerCase();
+        const key = keys.filter(k => norm.includes(k)).sort((a, b) => b.length - a.length)[0];
+        if (key)
+            return weapons[key].name;
+    }
+    return null;
+}
+/** Finds the canonical equipped (body) armor name from a list of gear items. */
+function findGearArmorName(gear) {
+    const armors = dataManager.getArmor();
+    if (!armors)
+        return null;
+    const keys = Object.keys(armors);
+    for (const item of gear) {
+        const norm = item.toLowerCase();
+        const key = keys.filter(k => norm.includes(k) && armors[k].category !== 'shield').sort((a, b) => b.length - a.length)[0];
+        if (key)
+            return armors[key].name;
+    }
+    return null;
+}
 // --- FORM SUBMISSION ---
 export async function handleCharacterCreationSubmit(event) {
     event.preventDefault();
@@ -580,6 +798,11 @@ export async function handleCharacterCreationSubmit(event) {
         if (value && value.length > 0)
             specialSelectionsText += `\n${key}: ${value}`;
     });
+    const startingGear = collectStartingGear();
+    characterInfo.startingGear = startingGear;
+    const startingGearText = startingGear.length > 0
+        ? `\n\n--- STARTING EQUIPMENT (use these EXACT items as the character's starting inventory and equipped gear; calculate AC from any armor/shield listed) ---\n${startingGear.join('; ')}`
+        : '';
     const finalAbilityScores = { ...pointBuyState.scores };
     const raceData = dataManager.getRace(characterInfo.race);
     if (raceData && raceData.ability_bonuses) {
@@ -589,7 +812,7 @@ export async function handleCharacterCreationSubmit(event) {
             }
         }
     }
-    const fullCharacterDescription = `This is the user's primary input for their character. PRIORITIZE THIS TEXT. If it contains a full character sheet (stats, skills, etc.), use it directly.\n\n--- USER'S FREE-TEXT DESCRIPTION ---\nName: ${characterInfo.name}\nAppearance: ${characterInfo.desc}\nBackstory: ${characterInfo.bio}\n--- END OF FREE-TEXT ---\n\nUse the following selections to fill in missing details:\nRace: ${characterInfo.race}\nClass: ${characterInfo.characterClass}\nBackground: ${characterInfo.background}\nAlignment: ${characterInfo.alignment}\nGender: ${characterInfo.gender}\nAbility Scores: Str ${finalAbilityScores.strength}, Dex ${finalAbilityScores.dexterity}, Con ${finalAbilityScores.constitution}, Int ${finalAbilityScores.intelligence}, Wis ${finalAbilityScores.wisdom}, Cha ${finalAbilityScores.charisma}${specialSelectionsText}`;
+    const fullCharacterDescription = `This is the user's primary input for their character. PRIORITIZE THIS TEXT. If it contains a full character sheet (stats, skills, etc.), use it directly.\n\n--- USER'S FREE-TEXT DESCRIPTION ---\nName: ${characterInfo.name}\nAppearance: ${characterInfo.desc}\nBackstory: ${characterInfo.bio}\n--- END OF FREE-TEXT ---\n\nUse the following selections to fill in missing details:\nRace: ${characterInfo.race}\nClass: ${characterInfo.characterClass}\nBackground: ${characterInfo.background}\nAlignment: ${characterInfo.alignment}\nGender: ${characterInfo.gender}\nAbility Scores: Str ${finalAbilityScores.strength}, Dex ${finalAbilityScores.dexterity}, Con ${finalAbilityScores.constitution}, Int ${finalAbilityScores.intelligence}, Wis ${finalAbilityScores.wisdom}, Cha ${finalAbilityScores.charisma}${specialSelectionsText}${startingGearText}`;
     dom.characterCreationModal.classList.add('hidden');
     dom.storyHooksModal.classList.remove('hidden');
     dom.storyHooksContainer.innerHTML = `<div class="spinner-container"><div class="spinner"></div><span>The Storyteller is crafting your character and adventure... This may take a moment.</span></div>`;
@@ -655,6 +878,18 @@ export async function handleCharacterCreationSubmit(event) {
         }
         // 5. Set spells from form selections
         playerState.spellsKnown = characterInfo.spellsSelected;
+        // 6. Rebuild starting equipment & inventory from the player's gear selections
+        if (startingGear.length > 0) {
+            playerState.inventory = [...startingGear];
+            const equippedWeapon = findGearWeaponName(startingGear);
+            const equippedArmor = findGearArmorName(startingGear);
+            playerState.equipment = {
+                weapon: equippedWeapon || 'Unarmed',
+                armor: equippedArmor || 'None'
+            };
+            // Recalculate AC now th            // Recalculate AC now that armor/shield are canonical (shields detected from inventory).
+            playerState.armorClass = calculateArmorClass(playerState);
+        }
         // --- END REBUILD ---
         gameState.updateState({ characterInfo, playerState });
         ui.updatePlayerStateUI(playerState, characterInfo);

@@ -8,7 +8,7 @@
  * The application will try them in order, falling back to the next one upon encountering
  * specific API errors like resource exhaustion.
  */
-export const AI_TEXT_MODELS = ['gemini-2.5-flash', 'gemma-3-27b-it', 'gemini-2.5-flash-lite', 'gemini-2.0-flash', 'gemini-2.0-flash-lite'];
+export const AI_TEXT_MODELS = ['gemini-3.1-flash-lite', 'gemini-3-flash-preview', 'gemini-2.5-flash', 'gemini-2.5-flash-lite'];
 /**
  * A list of AI embedding models for the RAG knowledge base.
  * The application will try them in order if the previous one fails.

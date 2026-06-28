@@ -1898,6 +1898,99 @@ footer {
     line-height: 1.4;
 }
 
+/* --- Starting Gear Selection --- */
+.gear-selection-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.gear-selection-container .gear-intro {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin: 0 0 0.5rem;
+}
+
+.gear-selection-container h4 {
+    font-family: var(--font-title);
+    color: var(--accent-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.4rem;
+    margin: 1rem 0 0.5rem;
+}
+
+.gear-granted-block {
+    padding: 0.4rem 0.25rem;
+    line-height: 1.7;
+}
+
+.gear-granted-label {
+    font-weight: bold;
+    color: #8fbf8f;
+    margin-right: 0.4rem;
+}
+
+.gear-choice-block {
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+}
+
+.gear-choice-header {
+    font-weight: bold;
+    margin: 0 0 0.5rem;
+    color: var(--accent-color);
+}
+
+.gear-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.4rem 0.5rem;
+    border-radius: 4px;
+}
+
+.gear-option.gear-option-active {
+    background: rgba(255, 153, 0, 0.08);
+}
+
+.gear-option input[type="radio"] {
+    margin-top: 0.35rem;
+    flex-shrink: 0;
+}
+
+.gear-option-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem 0.6rem;
+    line-height: 1.7;
+}
+
+.gear-item-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.gear-item-select em {
+    color: #ccc;
+    font-style: italic;
+}
+
+.gear-select {
+    background: var(--bg-color, #1a1a1d);
+    color: var(--text-color, #eee);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+}
+
+.gear-select:disabled {
+    opacity: 0.5;
+}
+
 .spell-list {
     display: flex;
     flex-direction: column;

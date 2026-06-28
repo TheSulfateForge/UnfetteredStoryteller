@@ -18,7 +18,7 @@ Built as a modern Progressive Web App (PWA), it works entirely in your browser w
 
 - **Dynamic AI Game Master:** Experience a reactive story that adapts to your choices, powered by a sophisticated rules-based prompt.
 - **Flexible AI Providers:** Connect to the powerful **Google Gemini** API or use your own **Local LLM** (like `oobabooga/text-generation-webui` with an OpenAI-compatible endpoint) for complete privacy and control.
-- **Automatic Model Fallback:** To ensure a smooth gameplay experience, the game will automatically switch to a new model if the current one is unavailable (e.g., due to API rate limits). It will cycle through the following models in order: `gemini-2.5-flash`, `gemma-3-27b-it`, and other Gemini Flash variants.
+- **Automatic Model Fallback:** To ensure a smooth gameplay experience, the game will automatically switch to a new model if the current one is unavailable (e.g., due to API rate limits). It will cycle through the following models in order: `gemini-3.1-flash-lite`, `gemini-3-flash-preview`, `gemini-2.5-flash`, and `gemini-2.5-flash-lite`.
 - **Deep Character Creation:** A full point-buy system with races, classes, backgrounds, and skills from the 5e SRD to build your perfect hero.
 - **RAG Knowledge Base:** Enhance the AI's accuracy by building a local vector database from TTRPG sourcebooks, ensuring the storyteller respects game rules and lore.
 - **Voice-to-Play:** Use your microphone for speech-to-text input and enable "Read Aloud" (TTS) for an immersive, audio-based experience.

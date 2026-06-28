@@ -152,6 +152,9 @@ function setupMainAppEventListeners() {
         if (target.closest('.skill-section')) {
             characterCreator.updateCheckboxStates();
         }
+        if (target.closest('#gear-selection-page')) {
+            characterCreator.updateGearSelectionState();
+        }
         const spellSelectionPage = target.closest('#spell-selection-page');
         if (spellSelectionPage) {
             if (target.type === 'checkbox') {

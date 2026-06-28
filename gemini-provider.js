@@ -289,7 +289,7 @@ You MUST use these tags to request player actions. DO NOT roll for the player.
         const modelName = this.getCurrentModel();
         const chatConfig = {};
         let effectiveHistory;
-        if (modelName.startsWith('gemini-2.5')) {
+        if (modelName.startsWith('gemini-2.5') || modelName.startsWith('gemini-3')) {
             chatConfig.systemInstruction = systemInstructionText;
             effectiveHistory = history;
         }
@@ -395,7 +395,7 @@ ${armorDataForPrompt}
         };
         const apiCall = this.apiCallWithModelFallback(async (modelName) => {
             const genConfig = {};
-            if (modelName.startsWith('gemini-2.5')) {
+            if (modelName.startsWith('gemini-2.5') || modelName.startsWith('gemini-3')) {
                 genConfig.responseMimeType = "application/json";
                 genConfig.responseSchema = responseSchema;
             }
@@ -461,7 +461,7 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
         };
         const apiCall = this.apiCallWithModelFallback(async (modelName) => {
             const genConfig = {};
-            if (modelName.startsWith('gemini-2.5')) {
+            if (modelName.startsWith('gemini-2.5') || modelName.startsWith('gemini-3')) {
                 genConfig.responseMimeType = "application/json";
                 genConfig.responseSchema = responseSchema;
             }
