@@ -138,12 +138,9 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
         const isLocal = providerType === 'local';
         dom.geminiSettingsSection.classList.toggle('hidden', isLocal);
         dom.localLlmSettingsSection.classList.toggle('hidden', !isLocal);
-        if (providerType === 'local') {
-            ui.updateRagStatus('unsupported');
-        }
-        else {
-            ui.updateRagStatus(rag.getStatus());
-        }
+        // Embeddings are generated locally now, so the knowledge base works with
+        // either provider — always reflect the real RAG status.
+        ui.updateRagStatus(rag.getStatus());
     });
     dom.legalBtn.addEventListener('click', () => dom.legalModal.classList.remove('hidden'));
     dom.legalModalCloseBtn.addEventListener('click', () => dom.legalModal.classList.add('hidden'));

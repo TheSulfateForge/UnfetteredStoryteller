@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import { createChunk } from './chunking-strategies.js';
+import * as localEmbedder from './local-embedder.js';
 // --- STATE ---
 let provider = null;
 let statusCallback = null;
@@ -70,10 +71,8 @@ export async function init(llmProvider, callback) {
     provider = llmProvider;
     statusCallback = callback;
     updateStatus('initializing');
-    if (!provider.supportsEmbeddings()) {
-        updateStatus('unsupported');
-        return;
-    }
+    // Embeddings are generated locally (in-browser), independent of the chat AI
+    // provider, so the knowledge base is always supported.
     try {
         db = await openDb();
         const transaction = db.transaction(STORE_NAME, 'readonly');
@@ -99,10 +98,8 @@ export async function init(llmProvider, callback) {
 }
 /** Builds the entire vector store from local JSON files. */
 export async function buildStore() {
-    if (!provider || !db)
+    if (!db)
         return updateStatus('error', 'Service not initialized.');
-    if (!provider.supportsEmbeddings())
-        return updateStatus('unsupported');
     updateStatus('building', 'Loading data from local files...');
     const chunks = [];
     for (const [type, url] of Object.entries(DATA_SOURCES)) {
@@ -151,8 +148,11 @@ export async function buildStore() {
     if (totalChunks === 0) {
         return updateStatus('error', 'Failed to load any data from local files.');
     }
-    updateStatus('building', `Generating embeddings for ${totalChunks} documents... This may take a few minutes.`);
     try {
+        // Load the local embedding model first (downloads ~25MB once, then cached).
+        updateStatus('building', 'Loading embedding model (first run downloads ~25MB)...');
+        await localEmbedder.warmUp(msg => updateStatus('building', msg));
+        updateStatus('building', `Generating embeddings for ${totalChunks} documents locally... This may take a few minutes.`);
         const allEmbeddings = [];
         const numBatches = Math.ceil(totalChunks / BATCH_SIZE);
         for (let i = 0; i < numBatches; i++) {
@@ -160,7 +160,7 @@ export async function buildStore() {
             const batchEnd = Math.min(batchStart + BATCH_SIZE, totalChunks);
             const batchChunks = chunks.slice(batchStart, batchEnd);
             updateStatus('building', `Embedding batch ${i + 1} of ${numBatches} (${batchChunks.length} documents)...`);
-            const batchEmbeddings = await provider.batchEmbedContents(batchChunks.map(c => c.chunk));
+            const batchEmbeddings = await localEmbedder.embedTexts(batchChunks.map(c => c.chunk));
             allEmbeddings.push(...batchEmbeddings);
         }
         updateStatus('building', 'Saving to database...');
@@ -199,11 +199,11 @@ export async function buildStore() {
 }
 /** Searches the vector store for the most relevant chunks. */
 export async function search(query, topK = 3) {
-    if (status !== 'ready' || !provider || vectorStore.length === 0) {
+    if (status !== 'ready' || vectorStore.length === 0) {
         return [];
     }
     try {
-        const queryEmbedding = (await provider.batchEmbedContents([query]))[0];
+        const queryEmbedding = (await localEmbedder.embedTexts([query]))[0];
         const scoredItems = vectorStore.map(item => ({
             ...item,
             score: cosineSimilarity(queryEmbedding, item.embedding)

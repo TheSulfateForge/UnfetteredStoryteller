@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v49'; // Bumped to force refresh of updated JS (RAG embedding fix)
+const CACHE_NAME = 'unfettered-storyteller-cache-v50'; // Bumped for in-browser (local) RAG embeddings via Transformers.js
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
@@ -33,6 +33,7 @@ const urlsToCache = [
   './gemini-provider.js',
   './llm-provider.js',
   './local-llm-provider.js',
+  './local-embedder.js',
   './rag.js',
   './rpg-data.js',
   './rpg-helpers.js',
