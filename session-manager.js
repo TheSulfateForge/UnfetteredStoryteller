@@ -120,19 +120,22 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
                 if (!gameState.getState().llmProvider) {
                     const llmProvider = createLlmProvider(providerSettings);
                     gameState.updateState({ llmProvider });
-                    await rag.init(llmProvider, ui.updateRagStatus);
                 }
             }
             catch (error) {
                 console.warn("Could not auto-initialize provider on page load.", error);
             }
         }
+        // Embeddings are generated locally, so the knowledge base works even with
+        // no AI provider configured. Always initialize it so the Build button is live.
+        await rag.init(gameState.getState().llmProvider || null, ui.updateRagStatus);
     })();
     dom.landingNewBtn.addEventListener('click', () => proceedToAdventure('new', setupMainAppEventListeners));
     dom.landingLoadBtn.addEventListener('click', () => proceedToAdventure('load', setupMainAppEventListeners));
     dom.landingSettingsBtn.addEventListener('click', () => ui.showSettings(game.getProviderSettings()));
     dom.changeSettingsBtn.addEventListener('click', () => ui.showSettings(game.getProviderSettings()));
     dom.settingsForm.addEventListener('submit', handleSettingsSave);
+    dom.buildRagBtn.addEventListener('click', handleBuildRag);
     dom.providerSelector.addEventListener('change', () => {
         const providerType = dom.providerSelector.value;
         const isLocal = providerType === 'local';
@@ -150,11 +153,9 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
     });
 }
 export async function handleBuildRag() {
-    const llmProvider = gameState.getState().llmProvider;
-    if (llmProvider)
-        await rag.buildStore();
-    else
-        ui.updateRagStatus('error', 'AI Provider not initialized.');
+    // Embeddings are generated locally in the browser, so no AI provider or API
+    // key is required to build the knowledge base.
+    await rag.buildStore();
 }
 export function getServices() {
     return { speech: services.speech };

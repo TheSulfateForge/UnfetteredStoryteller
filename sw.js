@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v50'; // Bumped for in-browser (local) RAG embeddings via Transformers.js
+const CACHE_NAME = 'unfettered-storyteller-cache-v51'; // Bumped: Build Knowledge Base button wiring fix
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 

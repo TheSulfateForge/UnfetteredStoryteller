@@ -121,7 +121,9 @@ function setupMainAppEventListeners() {
             dom.debuggerModal.classList.add('hidden');
         }
     });
-    dom.buildRagBtn.addEventListener('click', sessionManager.handleBuildRag);
+    // NOTE: the Build Knowledge Base listener is registered in
+    // sessionManager.setupInitialEventListeners so it also works from the
+    // landing-page Settings dialog (before an adventure is started).
     // Accordion handler optimization: Cache the headers to avoid re-querying the DOM on every click.
     const accordionHeaders = dom.playerStats.querySelectorAll('.accordion-header');
     dom.playerStats.addEventListener('click', (event) => {
