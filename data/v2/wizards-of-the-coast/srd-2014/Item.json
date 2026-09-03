@@ -1,0 +1,6401 @@
+[
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "An abacus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Abacus",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_abacus"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Acid",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_acid"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as an improvised weapon. On a hit, the target takes 2d6 acid damage.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Acid (vial)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_acid-vial"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its action to make a DC 10 Dexterity check to extinguish the flames.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Alchemist's Fire (Flask)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_alchemists-fire-flask"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Alchemist's Supplies",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "8.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_alchemists-supplies"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as a holy symbol.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Amulet",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_amulet"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefit to undead or constructs.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Antitoxin (Vial)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_antitoxin-vial"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "ammunition",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "An arrow for a bow.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Arrow (bow)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.050"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_arrow-bow"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "150.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must make a DC 10 Constitution saving throw. On a failed save, it takes 6 (1d12) poison damage and is poisoned for 24 hours. On a successful save, the creature takes half damage and isn't poisoned.\\n\\n\r\n\r\n**_Ingested._** A creature must swallow an entire dose of ingested poison to suffer its effects. The dose can be delivered in food or a liquid. You may decide that a partial dose has a reduced effect, such as allowing advantage on the saving throw or dealing only half damage on a failed save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Assassin's Blood",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_assassins-blood"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A backpack. Capacity: 1 cubic foot/30 pounds of gear.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Backpack",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_backpack"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "30.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Bagpipes",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_bagpipes"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn't need to make the save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ball Bearings (bag of 1000)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ball-bearings-bag-of-1000"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A barrel. Capacity: 40 gallons liquid, 4 cubic feet solid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Barrel",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "medium",
+    "weapon": null,
+    "weight": "70.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_barrel"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.40",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A basket. Capacity: 2 cubic feet/40 pounds of gear.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Basket",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_basket"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A battleaxe.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Battleaxe",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_battleaxe",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_battleaxe"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A bedroll.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Bedroll",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "7.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_bedroll"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A bell.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Bell",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_bell"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A blanket.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Blanket",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_blanket"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle allows you to hoist up to four times the weight you can normally lift.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Block and Tackle",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_block-and-tackle"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A blowgun.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Blowgun",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_blowgun",
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_blowgun"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "ammunition",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Needles to be fired with a blowgun.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Blowgun needles",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.020"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_blowgun-needles"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or just about anything else that can be represented using text or pictures. A book of spells is a spellbook (described later in this section).",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Book",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_book"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A glass bottle. Capacity: 1.5 pints liquid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Bottle, glass",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_bottle-glass"
+},
+{
+  "fields": {
+    "armor": "srd_breastplate",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "400.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Breastplate",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "20.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_breastplate"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "20.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Brewer's Supplies",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "9.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_brewers-supplies"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A bucket. Capacity: 3 gallons liquid, 1/2 cubic foot solid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Bucket",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_bucket"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "500.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 13 Constitution saving throw or take 10 (3d6) poison damage, and must repeat the saving throw at the start of each of its turns. On each successive failed save, the character takes 3 (1d6) poison damage. After three successful saves, the poison ends.\\n\\n**_Inhaled._** These poisons are powders or gases that take effect when inhaled. Blowing the powder or releasing the gas subjects creatures in a 5-foot cube to its effect. The resulting cloud dissipates immediately afterward. Holding one's breath is ineffective against inhaled poisons, as they affect nasal membranes, tear ducts, and other parts of the body.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Burnt othur fumes",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_burnt-othur-fumes"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Calligrapher's supplies",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_calligraphers-supplies"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "As an action, you can spread a bag of caltrops to cover a square area that is 5 feet on a side. Any creature that enters the area must succeed on a DC 15 Dexterity saving throw or stop moving this turn and take 1 piercing damage. Taking this damage reduces the creature's walking speed by 10 feet until the creature regains at least 1 hit point. A creature moving through the area at half speed doesn't need to make the save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Caltrops (bag of 20)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_caltrops-bag-of-20"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Candle",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_candle"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1 sq. yd. of canvas",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Canvas",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_canvas"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "8.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Carpenter's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_carpenters-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "land-vehicle",
+    "cost": "100.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Drawn vehicle.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Carriage",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "huge",
+    "weapon": null,
+    "weight": "600.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_carriage"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "land-vehicle",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Drawn vehicle",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cart",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "200.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cart"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cartographer's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cartographers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This wooden case can hold up to twenty crossbow bolts.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Case, Crossbow Bolt",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_case-crossbow-bolt"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Case, Map or Scroll",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_case-map-or-scroll"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A chain has 10 hit points. It can be burst with a successful DC 20 Strength check.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chain (10 feet)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chain-10-feet"
+},
+{
+  "fields": {
+    "armor": "srd_chain-mail",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "75.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the impact of blows. The suit includes gauntlets.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chain mail",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "55.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chain-mail"
+},
+{
+  "fields": {
+    "armor": "srd_chain-shirt",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Made of interlocking metal rings, a chain shirt is worn between layers of clothing or leather. This armor offers modest protection to the wearer's upper body and allows the sound of the rings rubbing against one another to be muffled by outer layers.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chain shirt",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "20.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chain-shirt"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A piece of chalk.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chalk (1 piece)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chalk-1-piece"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "land-vehicle",
+    "cost": "250.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Drawn vehicle.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chariot",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "100.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chariot"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A chest. Capacity: 12 cubic feet/300 pounds of gear.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chest",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "small",
+    "weapon": null,
+    "weight": "25.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chest"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One chicken",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Chicken",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_chicken"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of cinnamon",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cinnamon",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cinnamon"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A climber's kit includes special pitons, boot tips, gloves, and a harness. You can use the climber's kit as an action to anchor yourself; when you do, you can't fall more than 25 feet from the point where you anchored yourself, and you can't climb more than 25 feet away from that point without undoing the anchor.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Climber's Kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "12.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_climbers-kit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Common clothes.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Clothes, Common",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_clothes-common"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A costume.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Clothes, costume",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_clothes-costume"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Fine clothing.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Clothes, fine",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_clothes-fine"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Traveler's clothing.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Clothes, traveler's",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_clothes-travelers"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "3.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of cloves.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cloves",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cloves"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A club",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Club",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_club",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_club"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cobbler's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cobblers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Component Pouch",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_component-pouch"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cook's utensils",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "8.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cooks-utensils"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of copper.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Copper",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_copper"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One silver piece is worth ten copper pieces, which are common among laborers and beggars. A single copper piece buys a candle, a torch, or a piece of chalk.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Copper Piece",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.020"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_copper-piece"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1 sq. yd. of cotton cloth.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Cotton Cloth",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cotton-cloth"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 10,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One cow.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 15,
+    "name": "Cow",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "1000.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_cow"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "200.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This poison must be harvested from a dead or incapacitated crawler. A creature subjected to this poison must succeed on a DC 13 Constitution saving throw or be poisoned for 1 minute. The poisoned creature is paralyzed. The creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.\\n\\n\r\n**_Contact._** Contact poison can be smeared on an object and remains potent until it is touched or washed off. A creature that touches contact poison with exposed skin suffers its effects.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crawler mucus",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crawler-mucus"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "ammunition",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Bolts to be used in a crossbow.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crossbow bolt",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.080"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crossbow-bolt"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "75.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A hand crossbow.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crossbow, hand",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_crossbow-hand",
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crossbow-hand"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A heavy crossbow",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crossbow, heavy",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_crossbow-heavy",
+    "weight": "18.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crossbow-heavy"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A light crossbow.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crossbow, light",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_crossbow-light",
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crossbow-light"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crowbar",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crowbar"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as an arcane focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Crystal",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_crystal"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A dagger.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Dagger",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_dagger",
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_dagger"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A dart.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Dart",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_dart",
+    "weight": "0.250"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_dart"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-­‐‑Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Dice set",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_dice-set"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Disguise kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_disguise-kit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "200.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This poison is typically made only by the drow, and only in a place far removed from sunlight. A creature subjected to this poison must succeed on a DC 13 Constitution saving throw or be poisoned for 1 hour. If the saving throw fails by 5 or more, the creature is also unconscious while poisoned in this way. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.\r\n\\n\\n**_Injury._** Injury poison can be applied to weapons, ammunition, trap components, and other objects that deal piercing or slashing damage and remains potent until delivered through a wound or washed off. A creature that takes piercing or slashing damage from an object coated with the poison is exposed to its effects.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Drow poison",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_drow-poison"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "6.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Drum",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_drum"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Dulcimer",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_dulcimer"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "In addition, unusual coins made of other precious metals sometimes appear in treasure hoards. The electrum piece (ep) and the platinum piece (pp) originate from fallen empires and lost kingdoms, and they sometimes arouse suspicion and skepticism when used in transactions. An electrum piece is worth five silver pieces, and a platinum piece is worth ten gold pieces.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Electrum Piece",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.020"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_electrum-piece"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as a holy symbol.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Emblem",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_emblem"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "300.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 15 Constitution saving throw or become poisoned for 8 hours. The poisoned creature is unconscious. The creature wakes up if it takes damage or if another creature takes an action to shake it awake.\\n\\n**_Inhaled._** These poisons are powders or gases that take effect when inhaled. Blowing the powder or releasing the gas subjects creatures in a 5-foot cube to its effect. The resulting cloud dissipates immediately afterward. Holding one's breath is ineffective against inhaled poisons, as they affect nasal membranes, tear ducts, and other parts of the body.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Essense of either",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_essense-of-either"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Fishing Tackle",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_fishing-tackle"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A flail.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Flail",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_flail",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_flail"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For drinking. Capacity: 1 pint liquid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Flask or tankard",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_flask-or-tankard"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of flour",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Flour",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_flour"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Flute",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_flute"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, and other supplies necessary to create convincing forgeries of physical documents. \\n\\nProficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a physical forgery of a document.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Forgery kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_forgery-kit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "waterborne-vehicle",
+    "cost": "30000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A waterborne vehicle. Speed 4 mph",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Galley",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "gargantuan",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_galley"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of Ginger.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ginger",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ginger"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "20.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A glaive.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Glaive",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_glaive",
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_glaive"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "30.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Glassblower's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_glassblowers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 10,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One goat.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 4,
+    "name": "Goat",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "medium",
+    "weapon": null,
+    "weight": "75.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_goat"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of gold.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Gold",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_gold"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "With one gold piece, a character can buy a bedroll, 50 feet of good rope, or a goat. A skilled (but not exceptional) artisan can earn one gold piece a day. The gold piece is the standard unit of measure for wealth, even if the coin itself is not commonly used. When merchants discuss deals that involve goods or services worth hundreds or thousands of gold pieces, the transactions don't usually involve the exchange of individual coins. Rather, the gold piece is a standard measure of value, and the actual exchange is in gold bars, letters of credit, or valuable goods.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Gold Piece",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.020"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_gold-piece"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A grappling hook.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Grappling hook",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_grappling-hook"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "30.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A greataxe.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Greataxe",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_greataxe",
+    "weight": "7.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_greataxe"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "0.20",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A greatclub.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Greatclub",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_greatclub",
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_greatclub"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A great sword.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Greatsword",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_greatsword",
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_greatsword"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "20.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A halberd.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Halberd",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_halberd",
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_halberd"
+},
+{
+  "fields": {
+    "armor": "srd_half-plate",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "750.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Half plate consists of shaped metal plates that cover most of the wearer's body. It does not include leg protection beyond simple greaves that are attached with leather straps.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Half plate",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "40.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_half-plate"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A hammer.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Hammer",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_hammer"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sledgehammer",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Hammer, sledge",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_hammer-sledge"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A handaxe.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Handaxe",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_handaxe",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_handaxe"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This kit is a leather pouch containing bandages, salves, and splints. The kit has ten uses. As an action, you can expend one use of the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Healer's Kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_healers-kit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This kit contains a variety of instruments such as clippers, mortar and pestle, and pouches and vials used by herbalists to create remedies and potions. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to identify or apply herbs. Also, proficiency with this kit is required to create antitoxin and potions of healing.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Herbalism Kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_herbalism-kit"
+},
+{
+  "fields": {
+    "armor": "srd_hide",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This crude armor consists of thick furs and pelts. It is commonly worn by barbarian tribes, evil humanoids, and other folk who lack access to the tools and materials needed to create better armor.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Hide Armor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "12.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_hide-armor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact.In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the target is a fiend or undead, it takes 2d6 radiant damage.\\n\\nA cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered silver, and requires the caster to expend a 1st-­‐‑level spell slot.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Holy Water (flask)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_holy-water-flask"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "3.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Horn",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_horn"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "An hourglass.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Hourglass",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_hourglass"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "When you use your action to set it, this trap forms a saw-­‐‑toothed steel ring that snaps shut when a creature steps on a pressure plate in the center. The trap is affixed by a heavy chain to an immobile object, such as a tree or a spike driven into the ground. A creature that steps on the plate must succeed on a DC 13 Dexterity saving throw or take 1d4 piercing damage and stop moving. Thereafter, until the creature breaks free of the trap, its movement is limited by the length of the chain (typically 3 feet long). A creature can use its action to make a DC 13 Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1 piercing damage to the trapped creature.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Hunting Trap",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "25.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_hunting-trap"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A bottle of ink.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ink (1 ounce bottle)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ink-1-ounce-bottle"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A pen for writing with ink.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ink pen",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ink-pen"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of iron.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Iron",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_iron"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A javelin",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Javelin",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_javelin",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_javelin"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Jeweler's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_jewelers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For drinking a lot. Capacity: 1 gallon liquid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Jug or pitcher",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_jug-or-pitcher"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "waterborne-vehicle",
+    "cost": "3000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Waterborne vehicle. Speed is 1mph.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Keelboat",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "gargantuan",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_keelboat"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A 10 foot ladder.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ladder (10-foot)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "25.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ladder-10-foot"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A lamp casts bright light in a 15-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lamp",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lamp"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. You can also pour a flask of oil on the ground to cover a 5-­foot‑square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lamp oil (flask)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lamp-oil-flask"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A lance.\r\n\r\nYou have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a lance requires two hands to wield when you aren't mounted.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lance",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_lance",
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lance"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A bullseye lantern casts bright light in a 60-­‐‑foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lantern, Bullseye",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lantern-bullseye"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A hooded lantern casts bright light in a 30-­‐‑foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. As an action, you can lower the hood, reducing the light to dim light in a 5-­‐‑foot radius.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lantern, Hooded",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lantern-hooded"
+},
+{
+  "fields": {
+    "armor": "srd_leather",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. The rest of the armor is made of softer and more flexible materials.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Leather Armor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_leather-armor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Leatherworker's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_leatherworkers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A light hammer.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Light hammer",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_light-hammer",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_light-hammer"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1 sq. yd. of linen.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Linen",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_linen"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A key is provided with the lock. Without the key, a creature proficient with thieves’ tools can pick this lock with a successful DC 15 Dexterity check. Your GM may decide that better locks are available for higher prices.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lock",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lock"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A longbow.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Longbow",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_longbow",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_longbow"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "waterborne-vehicle",
+    "cost": "10000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Waterborne vehicle. Speed 3mph.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Longship",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "gargantuan",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_longship"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A longsword",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Longsword",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_longsword",
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_longsword"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "35.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lute",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lute"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "30.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Lyre",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_lyre"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A mace.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Mace",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_mace",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_mace"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "100.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This lens allows a closer look at small objects. It is also useful as a substitute for flint and steel when starting fires. Lighting a fire with a magnifying glass requires light as bright as sunlight to focus, tinder to ignite, and about 5 minutes for the fire to ignite. A magnifying glass grants advantage on any ability check made to appraise or inspect an item that is small or highly detailed.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Magnifying Glass",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_magnifying-glass"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "250.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 15 Constitution saving throw or become poisoned for 1 hour. The poisoned creature is blinded.\\n\\n**_Inhaled._** These poisons are powders or gases that take effect when inhaled. Blowing the powder or releasing the gas subjects creatures in a 5-foot cube to its effect. The resulting cloud dissipates immediately afterward. Holding one's breath is ineffective against inhaled poisons, as they affect nasal membranes, tear ducts, and other parts of the body.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Malice",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_malice"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These metal restraints can bind a Small or Medium creature. Escaping the manacles requires a successful DC 20 Dexterity check. Breaking them requires a successful DC 20 Strength check. Each set of manacles comes with one key. Without the key, a creature proficient with thieves’ tools can pick the manacles’ lock with a successful DC 15 Dexterity check. Manacles have 15 hit points.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 15,
+    "name": "Manacles",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_manacles"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Mason's Tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "8.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_masons-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A maul.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Maul",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_maul",
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_maul"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.20",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Mess Kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_mess-kit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "1500.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature that ingests this poison suffers no effect until the stroke of midnight. If the poison has not been neutralized before then, the creature must succeed on a DC 17 Constitution saving throw, taking 31 (9d6) poison damage on a failed save, or half as much damage on a successful one.\\n\\n **_Ingested._** A creature must swallow an entire dose of ingested poison to suffer its effects. The dose can be delivered in food or a liquid. You may decide that a partial dose has a reduced effect, such as allowing advantage on the saving throw or dealing only half damage on a failed save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Midnight tears",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_midnight-tears"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A mirror.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Mirror, steel",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.500"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_mirror-steel"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A morningstar",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Morningstar",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_morningstar",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_morningstar"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This set of instruments is used for navigation at sea. Proficiency with navigator's tools lets you chart a ship's course and follow navigation charts. In addition, these tools allow you to add your proficiency bonus to any ability check you make to avoid getting lost at sea.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Navigator's tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_navigators-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A net.\r\n\r\nA Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) also frees the creature without harming it, ending the effect and destroying the net.\r\n\r\nWhen you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless of the number of attacks you can normally make.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Net",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_net",
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_net"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "400.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 13 Constitution saving throw or become poisoned for 24 hours. The poisoned creature is unconscious. The creature wakes up if it takes damage.\\n\\n **_Contact._** Contact poison can be smeared on an object and remains potent until it is touched or washed off. A creature that touches contact poison with exposed skin suffers its effects.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Oil of taggit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_oil-of-taggit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "20.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as an Arcane Focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Orb",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_orb"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 10,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One ox.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 15,
+    "name": "Ox",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "1500.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ox"
+},
+{
+  "fields": {
+    "armor": "srd_padded",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Padded armor consists of quilted layers of cloth and batting.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Padded Armor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "8.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_padded-armor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Painter's Supplies",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_painters-supplies"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "250.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 16 Constitution saving throw or take 3 (1d6) poison damage and become poisoned. The poisoned creature must repeat the saving throw every 24 hours, taking 3 (1d6) poison damage on a failed save. Until this poison ends, the damage the poison deals can't be healed by any means. After seven successful saving throws, the effect ends and the creature can heal normally. \\n\\n **_Ingested._** A creature must swallow an entire dose of ingested poison to suffer its effects. The dose can be delivered in food or a liquid. You may decide that a partial dose has a reduced effect, such as allowing advantage on the saving throw or dealing only half damage on a failed save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pale tincture",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pale-tincture"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "12.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pan flute",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pan-flute"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.20",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sheet of paper",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Paper (one sheet)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_paper-one-sheet"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sheet of parchment",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Parchment (one sheet)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_parchment-one-sheet"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of pepper.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pepper",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pepper"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A vial of perfume.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Perfume (vial)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_perfume-vial"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A pick for mining.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pick, miner's",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pick-miners"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 10,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "3.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One pig.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 4,
+    "name": "Pig",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "medium",
+    "weapon": null,
+    "weight": "400.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pig"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A pike.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pike",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_pike",
+    "weight": "18.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pike"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A piton for climbing.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Piton",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.250"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_piton"
+},
+{
+  "fields": {
+    "armor": "srd_plate",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "1500.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Plate Armor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "65.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_plate-armor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "500.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1 lb. of platinum.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Platinum",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_platinum"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "In addition, unusual coins made of other precious metals sometimes appear in treasure hoards. The electrum piece (ep) and the platinum piece (pp) originate from fallen empires and lost kingdoms, and they sometimes arouse suspicion and skepticism when used in transactions. An electrum piece is worth five silver pieces, and a platinum piece is worth ten gold pieces.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Platinum Piece",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.020"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_platinum-piece"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This item encompasses a wide range of game pieces, including dice and decks of cards (for games such as Three-­‐‑Dragon Ante). A few common examples appear on the Tools table, but other kinds of gaming sets exist. If you are proficient with a gaming set, you can add your proficiency bonus to ability checks you make to play a game with that set. Each type of gaming set requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Playing card set",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_playing-card-set"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "100.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "You can use the poison in this vial to coat one slashing or piercing weapon or up to three pieces of ammunition. Applying the poison takes an action. A creature hit by the poisoned weapon or ammunition must make a DC 10 Constitution saving throw or take 1d4 poison damage. Once applied, the poison retains potency for 1 minute before drying.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Poison, Basic",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_poison-basic"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A poisoner’s kit includes the vials, chemicals, and other equipment necessary for the creation of poisons. Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to craft or use poisons.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Poisoner's kit",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_poisoners-kit"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A 10 foot pole.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pole (10-foot)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "7.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pole-10-foot"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "An iron pot. Capacity: 1 gallon liquid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pot, iron",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pot-iron"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Potter's tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_potters-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A cloth or leather pouch can hold up to 20 sling bullets or 50 blowgun needles, among other things. A compartmentalized pouch for holding spell components is called a component pouch (described earlier in this section).\r\nCapacity: 1/5 cubic foot/6 pounds of gear.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Pouch",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_pouch"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "2000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This poison must be harvested from a dead or incapacitated purple worm. A creature subjected to this poison must make a DC 19 Constitution saving throw, taking 42 (12d6) poison damage on a failed save, or half as much damage on a successful one.\r\n\\n\\n\r\n**_Injury._** Injury poison can be applied to weapons, ammunition, trap components, and other objects that deal piercing or slashing damage and remains potent until delivered through a wound or washed off. A creature that takes piercing or slashing damage from an object coated with the poison is exposed to its effects.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Purple worm poison",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_purple-worm-poison"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "0.20",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A quarterstaff.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Quarterstaff",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_quarterstaff",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_quarterstaff"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A quiver can hold up to 20 arrows.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Quiver",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_quiver"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "4.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. One other character can help you use the ram, giving you advantage on this check.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ram, Portable",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "35.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ram-portable"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A rapier.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Rapier",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_rapier",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_rapier"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Rations (1 day)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_rations-1-day"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as a holy symbol.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Reliquary",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_reliquary"
+},
+{
+  "fields": {
+    "armor": "srd_ring-mail",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "30.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This armor is leather armor with heavy rings sewn into it. The rings help reinforce the armor against blows from swords and axes. Ring mail is inferior to chain mail, and it's usually worn only by those who can't afford better armor.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Ring mail",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "40.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_ring-mail"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Robes, for wearing.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Robes",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_robes"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "rod",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as an arcane focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Rod",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_rod"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 2,
+    "name": "Rope, hempen (50 feet)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_rope-hempen-50-feet"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Rope, whether made of hemp or silk, has 2 hit points and can be burst with a DC 17 Strength check.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Rope, silk (50 feet)",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_rope-silk-50-feet"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "waterborne-vehicle",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Waterborne vehicle. Speed 1.5mph",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Rowboat",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "100.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_rowboat"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sack. Capacity: 1 cubic foot/30 pounds of gear.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sack",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.500"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sack"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of saffron.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Saffron",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_saffron"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "waterborne-vehicle",
+    "cost": "10000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Waterborne vehicle. Speed 2mph",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sailing Ship",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "gargantuan",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sailing-ship"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of salt.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Salt",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_salt"
+},
+{
+  "fields": {
+    "armor": "srd_scale-mail",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This armor consists of a coat and leggings (and perhaps a separate skirt) of leather covered with overlapping pieces of metal, much like the scales of a fish. The suit includes gauntlets.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Scale mail",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "45.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_scale-mail"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. With it, you can measure the exact weight of small objects, such as raw precious metals or trade goods, to help determine their worth.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Scale, Merchant's",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_scale-merchants"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A scimitar.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Scimitar",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_scimitar",
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_scimitar"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For sealing written letters.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sealing wax",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sealing-wax"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "200.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This poison must be harvested from a dead or incapacitated giant poisonous snake. A creature subjected to this poison must succeed on a DC 11 Constitution saving throw, taking 10 (3d6) poison damage on a failed save, or half as much damage on a successful one.\r\n\\n\\n\r\n**_Injury._** Injury poison can be applied to weapons, ammunition, trap components, and other objects that deal piercing or slashing damage and remains potent until delivered through a wound or washed off. A creature that takes piercing or slashing damage from an object coated with the poison is exposed to its effects.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Serpent venom",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_serpent-venom"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Shawm",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_shawm"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 10,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One sheep.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 4,
+    "name": "Sheep",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "medium",
+    "weapon": null,
+    "weight": "75.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sheep"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "shield",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A shield is made from wood or metal and is carried in one hand. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Shield",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "6.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_shield"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A shortbow",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Shortbow",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_shortbow",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_shortbow"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A short sword.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Shortsword",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_shortsword",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_shortsword"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A shovel.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Shovel",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_shovel"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sickle.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sickle",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_sickle",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sickle"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.05",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For signalling.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Signal whistle",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_signal-whistle"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "ring",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A ring with a signet on it.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Signet Ring",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_signet-ring"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1 sq. yd. of silk.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Silk",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_silk"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1lb of silver",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Silver",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_silver"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "One gold piece is worth ten silver pieces, the most prevalent coin among commoners. A silver piece buys a laborer's work for half a day, a flask of lamp oil, or a night's rest in a poor inn.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Silver Piece",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.020"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_silver-piece"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "land-vehicle",
+    "cost": "20.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Drawn vehicle",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sled",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "300.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sled"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sling.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sling",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_sling",
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sling"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "ammunition",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Technically their cost is 20 for 4cp.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sling bullets",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.075"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sling-bullets"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "20.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Smith's tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "8.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_smiths-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.02",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For cleaning.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Soap",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_soap"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A spear.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Spear",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_spear",
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_spear"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Essential for wizards, a spellbook is a leather-­‐‑bound tome with 100 blank vellum pages suitable for recording spells.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Spellbook",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_spellbook"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.10",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "An iron spike.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Spike, iron",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.500"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_spike-iron"
+},
+{
+  "fields": {
+    "armor": "srd_splint",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "200.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This armor is made of narrow vertical strips of metal riveted to a backing of leather that is worn over cloth padding. Flexible chain mail protects the joints.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Splint Armor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "60.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_splint-armor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A sprig of mistletoe that can be used as a druidic focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Sprig of mistletoe",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_sprig-of-mistletoe"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Objects viewed through a spyglass are magnified to twice their size.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Spyglass",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_spyglass"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "staff",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as an arcane focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Staff",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_quarterstaff",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_staff"
+},
+{
+  "fields": {
+    "armor": "srd_studded-leather",
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "armor",
+    "cost": "45.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Studded Leather Armor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "13.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_studded-leather-armor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A simple and portable canvas shelter, a tent sleeps two.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Tent",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "20.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_tent"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "25.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of narrow-­‐‑bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus to any ability checks you make to disarm traps or open locks.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Thieves' tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_thieves-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.50",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) used to kindle a fire. Using it to light a torch—or anything else with abundant, exposed fuel—takes an action. Lighting any other fire takes 1 minute.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Tinderbox",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_tinderbox"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "50.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Tinker's tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "10.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_tinkers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A torch burns for 1 hour, providing bright light in a 20-­‐‑foot radius and dim light for an additional 20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Torch",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_torch"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "600.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 15 Constitution saving throw or become poisoned for 4d6 hours. The poisoned creature is incapacitated.\r\n\\n\\n\r\n**_Ingested._** A creature must swallow an entire dose of ingested poison to suffer its effects. The dose can be delivered in food or a liquid. You may decide that a partial dose has a reduced effect, such as allowing advantage on the saving throw or dealing only half damage on a failed save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Torpor",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_torpor"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as a druidic focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Totem",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_totem"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A trident.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Trident",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_trident",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_trident"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "150.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A creature subjected to this poison must succeed on a DC 11 Constitution saving throw or become poisoned for 1 hour. The poisoned creature can't knowingly speak a lie, as if under the effect of a zone of truth spell.\r\n\\n\\n\r\n**_Ingested._** A creature must swallow an entire dose of ingested poison to suffer its effects. The dose can be delivered in food or a liquid. You may decide that a partial dose has a reduced effect, such as allowing advantage on the saving throw or dealing only half damage on a failed save.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Truth serum",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_truth-serum"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For holding liquids. Capacity: 4 ounces liquid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Vial",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_vial"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "30.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Several of the most common types of musical instruments are shown on the table as examples. If you have proficiency with a given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use a musical instrument as a spellcasting focus. Each type of musical instrument requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Viol",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_viol"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "land-vehicle",
+    "cost": "35.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Drawn vehicle.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Wagon",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "large",
+    "weapon": null,
+    "weight": "400.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_wagon"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "wand",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as an arcane focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Wand",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_wand"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A war pick.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "War pick",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_war-pick",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_war-pick"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "15.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A warhammer.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Warhammer",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_warhammer",
+    "weight": "2.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_warhammer"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "waterborne-vehicle",
+    "cost": "25000.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Waterborne vehicle. Speed 2.5mph",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Warship",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "gargantuan",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_warship"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.20",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For drinking. 5lb is the full weight. Capacity: 4 pints liquid.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Waterskin",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_waterskin"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Weaver's tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_weavers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "trade-good",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "1 pound of wheat.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Wheat",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_wheat"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "0.01",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "For sharpening.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Whetstone",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_whetstone"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "weapon",
+    "cost": "2.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "A whip.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Whip",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_whip",
+    "weight": "3.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_whip"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "tools",
+    "cost": "1.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "These special tools include the items needed to pursue a craft or trade.\\n\\n\r\nProficiency with a set of artisan’s tools lets you add your proficiency bonus to any ability checks you make using the tools in your craft. Each type of artisan’s tools requires a separate proficiency.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Woodcarver's tools",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "5.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_woodcarvers-tools"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "adventuring-gear",
+    "cost": "5.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as a druidic focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Wooden staff",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": "srd_quarterstaff",
+    "weight": "4.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_wooden-staff"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "poison",
+    "cost": "1200.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "This poison must be harvested from a dead or incapacitated wyvern. A creature subjected to this poison must make a DC 15 Constitution saving throw, taking 24 (7d6) poison damage on a failed save, or half as much damage on a successful one.\r\n\\n\\n\r\n**_Injury._** Injury poison can be applied to weapons, ammunition, trap components, and other objects that deal piercing or slashing damage and remains potent until delivered through a wound or washed off. A creature that takes piercing or slashing damage from an object coated with the poison is exposed to its effects.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Wyvern poison",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "0.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_wyvern-poison"
+},
+{
+  "fields": {
+    "armor": null,
+    "armor_class": 0,
+    "armor_detail": "",
+    "category": "wand",
+    "cost": "10.00",
+    "damage_immunities": [
+      "poison",
+      "psychic"
+    ],
+    "damage_resistances": [],
+    "damage_vulnerabilities": [],
+    "desc": "Can be used as a druidic focus.",
+    "document": "srd-2014",
+    "hit_dice": null,
+    "hit_points": 0,
+    "name": "Yew wand",
+    "nonmagical_attack_immunity": false,
+    "nonmagical_attack_resistance": false,
+    "size": "tiny",
+    "weapon": null,
+    "weight": "1.000"
+  },
+  "model": "api_v2.item",
+  "pk": "srd_yew-wand"
+}
+]

@@ -1,0 +1,13 @@
+[
+{
+  "fields": {
+    "desc": "You've developed the skills necessary to hold your own in close-quarters grappling. You gain the following benefits:",
+    "document": "srd-2014",
+    "name": "Grappler",
+    "prerequisite": "Strength 13 or higher",
+    "type": "GENERAL"
+  },
+  "model": "api_v2.feat",
+  "pk": "srd_grappler"
+}
+]
