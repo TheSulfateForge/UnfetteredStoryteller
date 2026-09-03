@@ -2,7 +2,18 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import { GoogleGenAI, Type, HarmCategory, HarmBlockThreshold } from '@google/genai';
+import { Type, HarmCategory, HarmBlockThreshold } from './genai-constants.js';
+
+// The Google SDK is imported lazily (see getClient) so that a CDN outage cannot
+// prevent the whole application from starting.
+let GoogleGenAICtor = null;
+async function loadGoogleGenAI() {
+    if (!GoogleGenAICtor) {
+        const mod = await import('@google/genai');
+        GoogleGenAICtor = mod.GoogleGenAI;
+    }
+    return GoogleGenAICtor;
+}
 import * as config from './config.js';
 import { dom } from './dom.js';
 import { playerStateSchema } from './rpg-data.js';
@@ -136,7 +147,16 @@ export class GeminiAPIProvider {
     ai;
     currentModelIndex = 0;
     constructor(apiKey) {
-        this.ai = new GoogleGenAI({ apiKey });
+        this.apiKey = apiKey;
+        this.ai = null; // created on first use by ensureClient()
+    }
+    /** Lazily constructs the SDK client the first time the API is actually needed. */
+    async ensureClient() {
+        if (!this.ai) {
+            const Ctor = await loadGoogleGenAI();
+            this.ai = new Ctor({ apiKey: this.apiKey });
+        }
+        return this.ai;
     }
     async useNextModel() {
         if (this.currentModelIndex < config.AI_TEXT_MODELS.length - 1) {
@@ -298,6 +318,7 @@ You MUST use these tags to request player actions. DO NOT roll for the player.
         return instruction;
     }
     async createChatSession(charInfo, pState, isMature, history) {
+        await this.ensureClient();
         const systemInstructionText = this.getSystemInstructionContent(charInfo, pState, isMature);
         const modelName = this.getCurrentModel();
         const chatConfig = {};
@@ -337,6 +358,7 @@ You MUST use these tags to request player actions. DO NOT roll for the player.
         return Promise.resolve(chat);
     }
     async createCharacterSheet(characterInfo, fullCharacterDescription, isMature) {
+        await this.ensureClient();
         const armorDataForPrompt = `
 **Armor & AC Rules:**
 - If the user does not specify a custom Armor Class (AC), you MUST calculate it.
@@ -441,6 +463,7 @@ ${armorDataForPrompt}
         return sanitizeAndParseJson(responseText);
     }
     async createStoryHooks(characterInfo, playerState, isMature) {
+        await this.ensureClient();
         const storyHookPrompt = `
 You are a data formatting API. Your ONLY purpose is to generate a valid JSON array of objects.
 
@@ -513,6 +536,7 @@ You are a data formatting API. Your ONLY purpose is to generate a valid JSON arr
         return true;
     }
     async batchEmbedContents(texts) {
+        await this.ensureClient();
         // NOTE: gemini-embedding-001 accepts only ONE input per embedContent request
         // (unlike the retired text-embedding-004, which allowed multi-input batches).
         // So we embed each text individually, with limited concurrency and retry/backoff

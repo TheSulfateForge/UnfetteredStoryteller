@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v60'; // Bumped: resilient install (addAll was atomic and could wedge updates permanently)
+const CACHE_NAME = 'unfettered-storyteller-cache-v61'; // Bumped: zero-CDN startup - SDK imports made lazy so app boots offline
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
@@ -31,6 +31,7 @@ const urlsToCache = [
   './game-loop.js',
   './game.js',
   './gemini-provider.js',
+  './genai-constants.js',
   './llm-provider.js',
   './local-llm-provider.js',
   './local-embedder.js',

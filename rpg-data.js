@@ -2,7 +2,7 @@
  * @license
  * SPDX-License-Identifier: Apache-2.0
  */
-import { Type } from '@google/genai';
+import { Type } from './genai-constants.js';
 // This file defines the JSON schema for the PlayerState object,
 // which is used to instruct the Gemini API on the expected format
 // for character sheet generation.
