@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v59'; // Bumped: CRITICAL - embedder CDN import made lazy so it can't block app startup
+const CACHE_NAME = 'unfettered-storyteller-cache-v60'; // Bumped: resilient install (addAll was atomic and could wedge updates permanently)
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
@@ -56,9 +56,23 @@ self.addEventListener('install', event => {
   self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
-      .then(cache => {
-        console.log('Opened cache and caching app shell');
-        return cache.addAll(urlsToCache);
+      .then(async cache => {
+        // IMPORTANT: cache.addAll() is atomic - a single failed request (an
+        // offline CDN font, a large data file, a transient network error) rejects
+        // the whole install. The new worker then never activates and the OLD one
+        // keeps serving stale files forever, so version bumps stop taking effect.
+        // Cache entries individually instead and tolerate failures.
+        const results = await Promise.allSettled(
+          urlsToCache.map(url => cache.add(url).catch(err => {
+            throw new Error(`${url}: ${err && err.message ? err.message : err}`);
+          }))
+        );
+        const failed = results.filter(r => r.status === 'rejected').map(r => r.reason && r.reason.message);
+        if (failed.length) {
+          console.warn(`SW: ${failed.length}/${urlsToCache.length} assets could not be pre-cached (install continues):`, failed);
+        } else {
+          console.log(`SW: pre-cached ${urlsToCache.length} assets.`);
+        }
       })
   );
 });
