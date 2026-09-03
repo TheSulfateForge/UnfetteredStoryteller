@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v61'; // Bumped: zero-CDN startup - SDK imports made lazy so app boots offline
+const CACHE_NAME = 'unfettered-storyteller-cache-v62'; // Bumped: index.html 404 fixes (index.css path, stale index.tsx tag)
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
