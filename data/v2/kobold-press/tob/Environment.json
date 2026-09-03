@@ -1,0 +1,14 @@
+[
+{
+  "fields": {
+    "aquatic": false,
+    "desc": "[None Provided]",
+    "document": "tob",
+    "interior": false,
+    "name": "Badlands",
+    "planar": false
+  },
+  "model": "api_v2.environment",
+  "pk": "tob_badlands"
+}
+]

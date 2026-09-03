@@ -1,0 +1,9 @@
+[
+{
+  "fields": {
+    "name": "Kobold Press"
+  },
+  "model": "api_v2.publisher",
+  "pk": "kobold-press"
+}
+]

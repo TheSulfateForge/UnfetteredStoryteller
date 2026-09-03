@@ -1,0 +1,1066 @@
+[
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You have made a pact with one or more ancient dragons or a dragon god. You wield a measure of their control over the elements and have insight into their deep mysteries. As your power and connection to your patron or patrons grows, you take on more draconic features, even sprouting scales and wings.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Ancient Dragons",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_warlock"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_ancient-dragons"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "While humanoids have vast pantheons and divine figures of every stripe, the animals of the world have much simpler forms of faith. Among each species there is always one paragon that embodies the animal spirit in a humanoid form, the better to speak to others and represent the animals in the fey courts and the Upper Planes. These timeless entities are connected to every animal of the kind they represent, and their primary concerns are for the well-being of these animals and the natural world as a whole.\n  Your patron is one such animal lord. Animal lords are varied in their motivations and often come into conflict with each other. They each command legions of animal followers and gather information from all of them. Unlike many other patrons, animal lords often have close relationships with those they bind with pacts, some to control, others to guide and advise. You are your animal lord's hand in the affairs of humanoids, and your allies are as numerous as the spiders in the corner or the birds in the sky.\n  You choose a specific animal lord to be your patron using the Animal Lord table. Each type of animal in the world can potentially have an animal lord. If you want to follow a specific type of animal lord, work with your GM to determine the animal lord's affinity and beast type and where that animal lord fits in the world. For a deeper dive on specific animal lords and for their game statistics, see *Creature Codex* and *Tome of Beasts 2*. These books aren't required to choose an animal lord as your patron or to play this class option.\n\n**Animal Lords (table)**\n\n| Animal Lord        | Affinity | Beast Type              |\r\n|--------------------|----------|-------------------------|\r\n| Bat King           | Air      | Bats                    |\r\n| Brother Ox         | Earth    | Hooved mammals          |\r\n| Lord of Vultures   | Air      | Vultures, birds of prey |\r\n| Mouse King         | Earth    | Rodents                 |\r\n| Queen of Birds     | Air      | Birds                   |\r\n| Queen of Cats      | Earth    | Felines                 |\r\n| Queen of Serpents  | Earth    | Reptiles                |\r\n| Queen of Scorpions | Earth    | Arachnids               |\r\n| Toad King          | Water    | Amphibians              |",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Animal Lords",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_warlock"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_animal-lords"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "People have used animals in their war efforts since time immemorial. As a beast trainer, you teach animals how to fight and survive on the battlefield. You also train them to recognize and obey your allies when you aren't able to direct them. While a beast trainer can train any type of animal, they often generate a strong bond with one species and focus their training on beasts of that type.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Beast Trainer",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_ranger"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_beast-trainer"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "It's easy to dismiss the humble cantrip as nothing more than an unsophisticated spell practiced by hedge wizards that proper mages need not focus on. But clever and cautious wizards sometimes specialize in such spells because while other mages fret when they're depleted of arcane resources, Cantrip Adepts hardly even notice … and at their command, the cantrips are not so humble.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Cantrip Adept",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_wizard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_cantrip-adept"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "As a cat burglar, you've honed your ability to enter closed or restricted areas, drawing upon a tradition first developed among the catfolk, who often are innately curious and driven to learn what wonders, riches, or unusual friends and foes lie beyond their reach or just out of sight. In ages past, some allowed this inquisitiveness to guide them toward a rogue's life devoted to bridging that gap by breaking into any and all structures, dungeons, or walled-off regions that prevented them from satisfying their curiosity.\n\nSo successful were these first catfolk burglars that other rogues soon began emulating their techniques. Walls become but minor inconveniences once you work out the best methods of scaling them and learn to mitigate injuries from falls. In time, cat burglars become adept at breaching any openings they find; after all, if a door was not meant to be opened, why would it have been placed there? Those who devote a lifetime to such endeavors eventually learn to spot and bypass even the cleverest traps and hidden doors, including those disguised or warded by magic.\n\nSome cat burglars use their abilities to help themselves to the contents of treasure vaults or uncover hidden secrets, others become an integral part of an adventuring party that values skillful infiltration techniques, and still others get the jump on their foes by taking the fight to them where and when they least expect it, up to and including private bed chambers or inner sanctums. You'll likely end up someplace you're not supposed to be, but those are the places most worth visiting!",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Cat Burglar",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_rogue"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_cat-burglar"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Militaries and mercenary companies often contain members of various clergies among their ranks. These chaplains typically come from religious sects whose tenets promote war, healing, peace, protection, or freedom, and they tend to the emotional and physical well-being of their charges. In the eyes of your companions, you are as much a counselor and spiritual leader as you are a fellow warrior.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Chaplain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_fighter"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_chaplain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Druids of the Circle of Ash believe in the power of rebirth and resurrection, both physical and spiritual. The ash they take as their namesake is the result of burning and death, but it can fertilize the soil and help bring forth new life. For these druids, ash is the ultimate symbol of the elegant cycle of life and death that is the foundation of the natural world. Some such druids even use fresh ash to clean themselves, and the residue is often kept visible on their faces.\n\nDruids of this circle often use the phoenix as their symbol, an elemental creature that dies and is reborn from its own ashes. These druids aspire to the same purity and believe resurrection is possible if they are faithful to their beliefs. Others of this circle are drawn to volcanos and find volcanic eruptions and their resulting ash clouds to be auspicious events.\n\nAll Circle of Ash druids request to be cremated after death, and their ashes are often given over to others of their order. What later happens with these ashes, none outside the circle know.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of Ash",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-ash"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Druids of the Circle of Bees are friends to all stinging insects but focus their attention on honeybees and other pollinating insects. When not adventuring, they tend hives, either created by the insects or by themselves. They tap into the horror inherent in stinging insects to protect their allies or the fields hosting their bee friends.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of Bees",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-bees"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Circle of Crystals druids first arose in subterranean environments, where they helped tend giant crystal gardens, but now they can be found most anywhere with access to underground caverns or geothermal activity. These druids view crystals as a naturally occurring form of order and perfection, and they value the crystals' slow growth cycle, as it reminds them the natural world moves gradually but eternally. This teaches young druids patience and assures elder druids their legacy will be carried on in each spire of crystal. As druids of this circle tend their crystals, they learn how to use the harmonic frequencies of different crystals to create a variety of effects, including storing magic.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of Crystals",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-crystals"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The Circle of Sand originally arose among the desert dunes, where druids forged an intimate connection with the sands that surrounded them. Now such circles gather anywhere with excess sand, including coastlines or badlands.\n  While the unacquainted might view sand as lifeless and desolate, druids of this circle know the truth—there is life within the sand, as there is almost anywhere. These druids have witnessed the destructive power of sand and the sandstorm and know to fear and respect them. Underestimating the power of sand is only for the foolish.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of Sand",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-sand"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Druids of the Circle of the Green devote themselves to the plants and green things of the world, recognizing the role of plants in giving life. By continued communion with plant life, they believe they draw nearer to what they call “The Green,” a cosmic thread that binds all plant life. Druids of this circle believe they gain their abilities by tapping into the Green, and they use this connection to summon a spirit from it.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of the Green",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-the-green"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Druids of the Circle of the Shapeless believe that oozes, puddings, and jellies serve an important and integral role in the natural world, particularly in decomposition and in clearing detritus. Druids of this circle also admire the adaptability of these gelatinous creatures and study them to learn how to duplicate some of their abilities.\n\nThe sworn enemies of Circle of the Shapeless druids are the so-called ooze lords and their servants who pervert the natural order by controlling and weaponizing such creatures.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of the Shapeless",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-the-shapeless"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Founded in deserts, badlands, and grasslands, where wind dominates and controls the landscape, the teachings of the Circle of Wind have spread far and wide, like a mighty storm. Druids who follow this circle's teachings embrace the mercurial winds to create several effects.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Circle of Wind",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_druid"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_circle-of-wind"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The serpentfolk slithered across the surface of the world in the primordial times before the warmblooded races became dominant. They worked their will upon the land and ocean and created works to show their mastery of the magical arts. Their artistry did not end with the landscape. They also experimented on any warm-blooded creatures they captured until they had warped and molded the creatures into new and deadly forms.\n\nOne or more of your ancestors was experimented on or an associate of the world's earliest serpentfolk. Your ancestor's natural affinity for magic was nurtured, expanded, and warped by the experimentation of their ophidian masters in order to transform them into something closer to the serpentine ideal. Those alterations made so long ago have waxed in you, allowing you to influence intelligent creatures more easily. Now you must decide if you will follow the serpent's path of dominance and subjugation or if you will fight against their influence and use your power for a greater purpose.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Cold-Blooded",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_sorcerer"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_cold-blooded"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "In the caverns beneath the surface of the world, sound works differently. Your exposure to echoes has taught you about how sound changes as it moves and encounters obstacles. Inspired by the effect caves and tunnels have on sounds, you have learned to manipulate sound with your magic, curving it and altering it as it moves. You can silence the most violent explosions, you can make whispers seem to reverberate forever, and you can even change the sounds of music and words as they are created.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "College of Echoes",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_bard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_college-of-echoes"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Bards pick up all sorts of information as they travel the land. Some bards focus on a certain type of information, like epic poetry, love ballads, or bawdy drinking songs. Others, however, turn to the shadowy occupation of investigating crimes. These bards use their knack for gathering information to learn about criminals and vigilantes, their tactics, and their weaknesses. Some work with agents of the law to catch criminals, but shadier members of this college use their dark knowledge to emulate the malefactors they have studied for so long.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "College of Investigation",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_bard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_college-of-investigation"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Some bards are as proficient in the art of espionage as they are in poetry and song. Their primary medium is information and secrets, though they are known to slip a dagger between ribs when necessary. Masters of insight and manipulation, these bards use every tool at their disposal in pursuit of their goals, and they value knowledge above all else. The more buried a secret, the deeper they delve to uncover it. Knowledge is power; it can cement empires or topple dynasties.\n\nCollege of Shadows bards undergo careful training before they're sent out into the world. Skilled in both music and manipulation, they're the perfect blend of charm and cunning. The tricks they learn in their tutelage make them ideal for the subtle work of coaxing out secrets, entrancing audiences, and dazzling the minds of their chosen targets.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "College of Shadows",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_bard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_college-of-shadows"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Bards of the College of Sincerity know it is easier for someone to get what they want when they mask their true intentions behind a pleasant façade. These minstrels gain a devoted following and rarely lack for company. Some of their devotees go so far as to put themselves at the service of the bard they admire. Though members of the college can be found as traveling minstrels and adventuring troubadours, they gravitate to large urban areas where their silver tongues and mind-bending performances have the greatest influence. Devious rulers sometimes seek out members of the college as counsellors, but the rulers must be wary lest they become a mere pawn of their new aide.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "College of Sincerity",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_bard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_college-of-sincerity"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Bards of the College of Tactics are calculating strategists who scour historical records of famous battles for tricks they can use to give their own troops, and those of their patrons, an edge on the battlefield. Members of this college travel from war zone to combat site and interview the veterans of those engagements, trying to discern how the victors won the day and leveraging that information for their personal glory.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "College of Tactics",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_bard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_college-of-tactics"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Scholars and spies, heroes and hunters: whether wooing an admirer in the bright sunlight or stalking prey under the gentle rays of the moon, bards of the College of the Cat excel at diverse skills and exhibit contrary tendencies. The adventurous spirits who favor the College of the Cat let their curiosity and natural talents get them into impossible places. Most are skilled, cunning, and vicious enough to extricate themselves from even the most dangerous situations.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "College of the Cat",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_bard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_college-of-the-cat"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "A tradition more focused on stalking prey than reading dozens of books, courser mages generally choose more subtle spells that aid in finding or hiding from their enemies. They learn to imbue their arrows with spell energy to deliver more deadly shots.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Courser Mage",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_wizard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_courser-mage"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Even churches and temples of deities of goodness and light have need of those willing to get their hands dirty and willing to sully their honor in service of what must be done. Dawn blades are devout rogues, drawing divine power from deities of light to strike as a sudden ray of searing sunlight in the darkness. They are often considered controversial by other adherents of their faith, yet the faith's leadership understands such agents are sometimes necessary.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Dawn Blade",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_rogue"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_dawn-blade"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Each wizard has a strong connection with their familiar, but some mages eschew specializing in a school of magic in favor of forming a powerful bond with a familiar. This bond allows the two to work in tandem in ways that few arcane practitioners could even dream of. Those who encounter such a familiar never look at a rodent or bird the same way again.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Familiar Master",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_wizard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_familiar-master"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "While most wizards who desire power over the dead focus their efforts on necromancy, there are other, rarer, paths one can choose. Gravebinders focus their efforts on safeguarding tombs and graveyards to ensure the dead remain at rest and the living remain safe from the dead. When undead rise to prey upon the living, a gravebinder hunts downs the abominations and returns them to their eternal slumber.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Gravebinding",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_wizard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_gravebinding"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Fiercely protective of their territory, alseid herds form close bonds with their home forests. In return for their diligent protection, the forests offer their blessings to dedicated alseid rangers. In recent years, woodsy adventurers of other races who have earned the forests' trust also received this blessing, though their numbers are scant. These Grove Wardens can tap into the living magic of ancient forests. Your senses travel through the plants and earth of the woods, and the very land rises up to strike down your enemies.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Grove Warden",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_ranger"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_grove-warden"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "It is no secret the wilds are dangerous and that many an intrepid adventurer has met an untimely end while exploring them. Haunted wardens are rangers who have come face to face with the restless spirit of one of those lost wanderers. Somehow during the course of this meeting, the yearning phantom tethers its spirit to the warden's in order to put its unfinished business to rest. Even after its final wishes are met, or in the tragic instance they can't come to fruition, your companion remains with you until you meet your end, both as a constant confidante and a reminder that the veil between life and death is thin indeed.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Haunted Warden",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_ranger"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_haunted-warden"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Your innate magic comes from a deep, primal source of hunger and craving. Perhaps your line was cursed for its greed by a god of plenty or generosity. Perhaps one of your forebears was marked by the hungering undead. Sorcerers with this origin have an unyielding appetite for arcana and go to nearly any length to satiate their desire to increase their magical power.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Hungering",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_sorcerer"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_hungering"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Many terrible creatures prey on the villages, towns, and inns that dot the forests of Midgard. When such creatures become particularly aggressive or can't be dissuaded by local druids, the settlements often call on servants of gods of the hunt to solve the problem.\n  Deities devoted to hunting value champions who aid skillful hunters or who lead hunts themselves. Similarly, deities focused on protecting outlier settlements or who promote strengthening small communities also value such clerics. While these clerics might not have the utmost capability for tracking and killing prey, their gods grant them blessings to ensure successful hunts. These clerics might use their abilities to ensure their friends and communities have sufficient food to survive difficult times, or they might enjoy the sport of pursuing and slaying intelligent prey.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Hunt Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_hunt-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The Hunter in Darkness is an entity that sees all creatures as prey and enjoys instilling fear in its prey. It prefers intelligent prey over mere beasts, as their fear tastes so much sweeter. Hunters who display impressive prowess for hunting pique its interest. The Hunter in Darkness often bestows its power on such individuals to spread fear further than the Hunter can by itself.\n  Though your patron isn't mindless, it cares only for the thrill of the hunt and the spreading of fear. It cares not what you do with the power it grants you beyond that. Your connection with the Hunter can sometimes cause changes in your worldview. You might view every creature you meet as either predator or prey, or you might face problems with a “kill or be killed” attitude.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Hunter in Darkness",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_warlock"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_hunter-in-darkness"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "A legionary follows the techniques of close-quarters combat developed by soldiers fighting shoulder to shoulder with their allies. This style of fighting spread far and wide, finding an honored place among the armies and mercenary companies of other races. True legionaries scoff at the image of the storybook hero standing alone against impossible odds, knowing together they can face any danger and emerge victorious.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Legionary",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_fighter"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_legionary"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Mercy can mean promoting healing instead of harm, but it can also mean ending suffering with a quick death. These often-contradictory ideals are the two sides of mercy. The tenets of deities who embody mercy promote ways to end bloody conflicts or deliver healing magics to those in need. While mercy for some may be benevolent, for others it is decidedly not so. More pragmatic mercy gods teach the best method to relieve the agony and torment brought on by monsters and the forces of evil is to bring about the end of that evil.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Mercy Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_mercy-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The Oath of Justice is a commitment not to the tenets of good or evil but a holy vow sworn to uphold the laws of a nation, a city, or even a tiny village. When lawlessness threatens the peace, those who swear to uphold the Oath of Justice intervene to maintain order, for if order falls to lawlessness, it is only a matter of time before all of civilization collapses into anarchy.\n\nWhile many young paladins take this oath to protect their country and the people close to them from criminals, some older adherents to this oath know that what is just is not necessarily what is right.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Oath of Justice",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_paladin"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_oath-of-justice"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Paladins who choose the Oath of Safeguarding spend their lives in service to others, conserving the people and places they vow to protect. They take missions to guard against assassination attempts, safely transport a person or group through treacherous lands, and stand as bastions for locations under attack. These paladins are no mere mercenaries, however, as they view their missions as sacred vows.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Oath of Safeguarding",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_paladin"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_oath-of-safeguarding"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The Oath of the Elements is taken by those paladins who have dedicated their lives to serving the awakened spirits of air, earth, fire, and water. Such paladins might also serve a genie, elemental deity, or other powerful elemental creature.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Oath of the Elements",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_paladin"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_oath-of-the-elements"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "A paladin who takes the Oath of the Guardian is sworn to defend the community. Taking the mantle of a guardian is a solemn vow to place the needs of the many before the needs of yourself and requires constant vigilance.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Oath of the Guardian",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_paladin"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_oath-of-the-guardian"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Paladins who swear the Oath of the Hearth endeavor to extend the comforts of home to others, by allaying the rigors of travel or simply assuring those who grow despondent of the possibility of returning home. Ironically, paladins who follow this oath remain far from home in pursuit of their goals. Their oath reflects the welcoming warmth and light provided by the hearth, and paladins following the oath use these elements to turn away the cold or defeat enemies who employ cold as weapons.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Oath of the Hearth",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_paladin"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_oath-of-the-hearth"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "After suffering an attack by a darakhul, you were infected with the dreaded—and generally fatal— darakhul fever. As you felt your life draining away and the grasp of eternal undeath clenching its cold fingers around your heart, you called out to any power that would answer your prayers. You pledged that you would do anything asked of you, if only you would be spared this fate worse than death.\n\nThat prayer was answered. The source of that answered prayer is not known, but its power flowed through you, helping you drive off the horrible unlife that was your fate. That power flows through you still. It drives you to defend innocents from the scourge of undeath, and it provides special powers for you to use in that fight.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Oath of the Plaguetouched",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_paladin"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_oath-of-the-plaguetouched"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You have made a pact with the ancient intelligence of a primeval forest. Before the rise of human civilization, before the time of the elves, before even the dragons, there were the forests. Empires rise and fall around them, but the forests remain as a testament to nature's endurance.\n\nHowever, times are changing, and the unchecked growth of civilization threatens the green. The intelligences that imbue the antediluvian forests seek emissaries in the world that can act beyond their boughs, and one has heard your call for power. You are a guardian of the Old Wood, a questing branch issuing from a vast, slumbering intelligence sent to act on its behalf, perhaps even to excise these lesser beings from its borders.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Old Wood",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_warlock"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_old-wood"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Barbarians who walk the Path of Booming Magnificence strive to be as lions among their people: symbols of vitality, majesty, and courage. They serve at the vanguard, leading their allies at each charge and drawing their opponents' attention away from more vulnerable members of their group. As they grow more experienced, members of this path often take on roles as leaders or in other integral positions.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of Booming Magnificence",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-booming-magnificence"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Devils have long been known to grant power to mortals as part of a pact or bargain. While this may take the form of unique magic or boons, those who follow the Path of Hellfire are gifted with command over the fires of the Lower Planes, which they channel for short periods to become powerful and furious fighting machines.\n\nWhile some of these barbarians are enlisted to support the devils' interests as soldiers or enforcers, some escape their devilish fates, while others still are released after their term of service.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of Hellfire",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-hellfire"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The first barbarians that traveled the path of mistwood were elves who expanded upon their natural gifts to become masters of the forests. Over time, members of other races who saw the need to protect and cherish the green places of the world joined and learned from them. Often these warriors haunt the woods alone, only seen when called to action by something that would despoil their home.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of Mistwood",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-mistwood"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Few creatures embody the power and majesty of dragons. By walking the path of the dragon, you don't solely aspire to emulate these creatures—you seek to become one. The barbarians who follow this path often do so after surviving a dragon encounter or are raised in a culture that worships them. Dragons tend to have a mixed view of the barbarians who choose this path. Some dragons, in particular the metallic dragons, view such a transformation as a flattering act of admiration. Others may recognize or even fully embrace them as useful to their own ambitions. Still others view this path as embarrassing at best and insulting at worst, for what puny, two-legged creature can ever hope to come close to the natural ferocity of a dragon? When choosing this path, consider what experiences drove you to such a course. These experiences will help inform how you deal with the judgment of dragons you encounter in the world.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of the Dragon",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-the-dragon"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "In northern lands, the savage warriors charge into battle behind chanting warrior-poets. These wise men and women collect the histories, traditions, and accumulated knowledge of the people to preserve and pass on. Barbarians who follow the Path of the Herald lead their people into battle, chanting the tribe's sagas and spurring them on to new victories while honoring the glory of the past.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of the Herald",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-the-herald"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The barbarians who follow the Path of the Inner Eye elevate their rage beyond anger to glimpse premonitions of the future.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of the Inner Eye",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-the-inner-eye"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Path of Thorns barbarians use ancient techniques developed by the druids of old that enable them to grow thorns all over their body. The first barbarians of this path fought alongside these druids to defend the natural order. In the centuries since, the knowledge of these techniques has spread, allowing others access to this power.\n\nThough named for the thorns that covered the first barbarians to walk this path, current followers of this path can display thorns, spines, or boney growths while raging.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Path of Thorns",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_barbarian"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_path-of-thorns"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You have dedicated yourself to the study and protection of the doors, gateways, and rips in the boundaries between the physical world and the infinite planar multiverse. Stepping through portals is a sacred prayer and woe betide any who seek to misuse them.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Portal Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_portal-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Some who search for power settle on lesser gods or demon lords, others delve into deeper mysteries until they touch elder entities. These great entities build worlds, crafting mountains and species as if sculpting clay, or annihilate them utterly. Embodying creation, destruction, and the land itself, your patron is an ancient power beyond mortal understanding.\n\nPrimordials stand in opposition to the Great Old Ones, the other side of the scale that maintains the balance of reality. Your primordial patron speaks to you in the language of omens, dreams, or intuition, and may call upon you to defend the natural world, to root out the forces of the Void, or even to manipulate seemingly random people or locations for reasons known only to their unfathomable purpose. While you can't grasp the full measure of your patron's designs, as long as your bond is strong, there is nothing that can stand in your way.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Primordial",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_warlock"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_primordial"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Pugilists live by their fists, bare-knuckle warriors who do not hesitate to throw hands if the situation demands it. They know the intense, close, violent intimacy of melee, and they operate unapologetically in that space. Whether in fighting pits by the docks to make some extra coin, in the king's grand arena as champions of quarreling nobles, or in the employ of local merchants in need of seemingly weaponless guards, pugilists can be found in all rungs of society. Pugilists take pleasure in a battle hard won and thrill in the energy of the fight rather than in a kill. They can often be found celebrating or having drinks with a former opponent hours after the fight, regardless of the bout's winner.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Pugilist",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_fighter"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_pugilist"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You were a member of an order of knights dedicated to a deity of sun and light. You know that next to your deity's favor, a soldier's greatest strength is their comrades. You wield a spear, glaive, halberd, or other polearm as a piercing ray of sunlight against your enemies.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Radiant Pikeman",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_fighter"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_radiant-pikeman"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You are a conduit for the power that exists in sounds and vibrations, your body a living tuning fork capable of emitting, focusing, muting, and transmuting sound and sonic forms of magic. Perhaps you endured overexposure to transmutation magic, arcane thunder, or the ear-splitting cries of an androsphinx, bukavac (see *Tome of Beasts*), or avalanche screamer (see *Tome of Beasts 2*). Maybe you can trace your lineage to an ancestor who spent an extended period on a plane dominated by elemental lightning and thunder or by unceasing screams of madness; you yourself may have been born on such a cacophonous plane. Alternately, you or a forebear may have suffered prolonged exposure to the deafening thunderclaps of a bronze dragon's lair. Or you may even have been experimented on by aboleths or other maniacal spellcasters, escaping before the transformation was complete.…\n\nWhatever its source, resonant magic infuses your very existence, causing you to manifest one or more unusual characteristics. At your option, you can create a quirk or roll a d6 and consult the Resonant Body Quirks table to determine a quirk for your character.\n\n**Resonant Body Quirks (table)**\n\n| d6  | Quirk  |\r\n|---|---------|\r\n| 1 | You emit a faint hum, audible to any creature within 5 feet of you. |\r\n| 2 | In response to natural or magical thunder, your body flickers into brief transparency with the sound of each thunderclap |\r\n| 3 | Beasts with the Keen Hearing trait initially respond aggressively when you come within 30 feet of them. |\r\n| 4 | If you hold a delicate, nonmagical glass object such as a crystal wine glass for longer than one round, the object shatters. |\r\n| 5 | Every time you speak, your voice randomly changes in pitch, tone, and/or resonance, so that you never sound quite the same. |\r\n| 6 | When another living creature touches you, you emit a brief, faint tone like a chime, the volume of which increases with the force of the touch. |",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Resonant Body",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_sorcerer"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_resonant-body"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Rifthoppers are the living embodiment of wanderlust. The yearn to travel and witness unseen vistas burns in them and manifests in their ability to move nearly at the speed of thought. The origin of the rifthoppers' powers remains a mystery, as they refuse to stay in one place long enough to be studied extensively. Given the lack of empirical evidence, many scholars have hypothesized that rifthoppers absorb energy from the world itself, typically through an innate connection with ley lines or with areas where the borders between planes are thin, and can use it to alter their own magic.\n  Adventuring rifthoppers often concern themselves with investigating mysterious portals to unknown locations, researching ley lines and other mystic phenomena, or seeking out and stopping spatial and temporal disturbances.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Rifthopper",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_sorcerer"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_rifthopper"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You focus as much on identifying the weak points of structures as on the weak points of creatures. Sappers are deployed with the soldiery to dig trenches, build bridges, and breach defenses. When troops move into a heavily defended area, it's your job to make it happen as efficiently as possible.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Sapper",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_rogue"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_sapper"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Liminal spaces are spaces on the boundary, at the edge between what's real and what's unreal. A liminal space can be neither here nor there, and yet be both *here and there* at the same time. Stories of liminal spaces are common across cultures, though their true nature often isn't recognized by the uninitiated: the stranger who appears suddenly at a lonely crossroads, the troll that snatches at unwary travelers from a hiding spot beneath a bridge where no such hiding spot exists, the strangely familiar yet unsettlingly different scene that's sometimes glimpsed in a looking glass.\n\nThese are only the most obvious encounters with liminal spaces! Most liminalities are more easily overlooked, being as unconscious as the heartbeat between waking and sleeping, as fleeting as drawing in breath as an apprentice and exhaling it as a master, or as unassumingly familiar—and as fraught with potential—as a doorway that's crossed a hundred times without incident.\n\nThose who specialize in liminal magic are known as liminists. They've learned to tap into the mysticism at the heart of spaces between spaces and to bend the possibilities inherent in transitional moments to their own ends. Like filaments of a dream, strands of liminality can be woven into forms new and wondrous—or strange and terrifying.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "School of Liminality",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_wizard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_school-of-liminality"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You embody the deadly, secretive, and mesmerizing nature of serpents. Others tremble at your majesty. You practice the stealth and envenomed attacks that give serpents their dreaded reputation, but you also learn the shedding of skin that has made snakes into symbols of medicine.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Serpent Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_serpent-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The shadow domain embraces the darkness that surrounds all things and manipulates the transitory gray that separates light from dark. Shadow domain clerics walk a subtle path, frequently changing allegiances and preferring to operate unseen.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Shadow Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_shadow-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The transport of goods, creatures, and even people can be a lucrative business, particularly if you know how to avoid expensive import and export taxes, bridge, highway, and port tolls, and other legal requirements. Exotic poisons from far-off locales, banned or cursed magic items, and illicit drugs or bootleg liquor all fetch a high price on the black market. Thieves-guilds, pirates, and criminal kingpins pay well to those who can avoid law enforcement when moving stolen goods, provide safe channels of communication, break associates free from jail cells or dungeons, or deliver supplies past guards. You've become adept at all of these things, perhaps even having developed a network of contacts as a criminal, noble, con artist, or sailor during an earlier part of your life.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Smuggler",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_rogue"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_smuggler"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Like the serpents they adore, snake speakers are highly adaptable hunters. Snakes are common throughout the world, and people who need to travel through snake-filled jungles often retain a snake speaker guide, trusting the guide to protect them from scaly poisoners.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Snake Speaker",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_ranger"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_snake-speaker"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "In the eternal war between good and evil, between light and darkness, between life and death, there are many types of participants on each side. Soulspies are agents of the divine who lurk in the shadows, taking a less-visible role in the fight. Occasionally, they aid other agents of their deities, but most often they locate and manage or eliminate threats to their deities that more scrupulous agents might be unwilling or unable to handle.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Soulspy",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_rogue"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_soulspy"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The alseid have long defended the limits of their forest homes. These warriors can make a dizzying variety of ranged and melee attacks in quick succession, using ancient magic to flash across the battlefield.\n\n##### Restriction: Alseid\nYou can choose this archetype only if you are an alseid.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Spear of the Weald",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_ranger"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_spear-of-the-weald"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Some wizards pride themselves on being spell artisans, carefully sculpting the magical energy of spells like smiths sculpt iron. Focusing on the artistry inherent in spellcasting, these wizards learn to tap the magical energy of spells and manipulate that energy to amplify or modify spells like no other arcane practitioners.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Spellsmith",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_wizard"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_spellsmith"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "One of the most omnipresent elements in the atmosphere is practically invisible and often ignored: spores. Plants of all varieties, fungal sentient life forms like mushroomfolk, and even animals emit these tiny pieces of life. You've always had an affinity for the natural world, and your innate magic is carried within the power of these omnipresent spores.\n\nSpore sorcerers are regularly found among the mushroomfolk and derro who grow large gardens of fungi deep beneath the surface of the world. Spore sorcerers can also be found in any area with an abundance of plant life, such as forests, swamps, and deep jungles.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Spore Sorcery",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_sorcerer"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_spore-sorcery"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "There are warriors who move so quickly that they seem to stop time, then there are those who actually alter time with their attacks. The timeblade augments physical attacks by manipulating temporal powers and eventually learns to step outside time itself.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Timeblade",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_fighter"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_timeblade"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "For untold ages, the dwarves have paid in blood to keep their subterranean homes safe. The keystone to the defense of the dwarven citadels are the tunnel watchers, warriors trained in the tight, uneven paths beneath the surface of the world. While the techniques of the tunnel watchers originated with the dwarves, others see the value in such specialization. Tunnel watchers can thus be found throughout the mountainous regions of the world.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Tunnel Watcher",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_fighter"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_tunnel-watcher"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Though most rogues prefer ambushing their opponents from the shadows, erina rogues ambush their opponents from below. These Underfoot use druidic magic and their natural aptitude for burrowing to defend their forest homes. The Underfoot are an elite order of burrow warriors in every erina colony. Using a combination of guerilla attacks and druidic magic, they are a force to be reckoned with, diving into fights nose-forward.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Underfoot",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_rogue"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_underfoot"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You exemplify the cunning, stealth, and invasiveness of vermin (rodents, scorpions, spiders, ants, and other insects). As your dedication to this domain grows in strength, you realize a simple truth: vermin are everywhere, and you are legion.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Vermin Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_vermin-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "A barren landscape wracked by chaotic magics, crawling with strange monstrosities and twisted aberrations that warp the minds of those who lay eyes upon them … you have learned to traverse these wastes and face these creatures without flinching. You patrol its boundaries and stride unseen through its harsh landscape, evading danger and protecting those who find themselves at the mercy of the arcana-laced wilds and eldritch horrors.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Wasteland Strider",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_ranger"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_wasteland-strider"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Eldritch power and residual magical energy left over from a horrific arcane war is drawn to you as a lodestone is drawn to iron. Perhaps this attraction is due to a pact one of your ancestors made with an ancient eldritch horror. Perhaps it is an unfortunate twist of circumstance. Regardless, your physiology is in a constant state of transformation as a result of your condition. Some sorcerers who arise from magical wastelands embrace their body's modifications, others take to adventuring to find a cure for what they see as their affliction, while others still seek to make a mark on the world before oblivion claims them.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Wastelander",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_sorcerer"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_wastelander"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The monks of Concordant Motion follow a tradition developed and honed by various goblin and kobold clans that favored tactics involving swarming warriors. The tradition combines tactical disciplines designed to encourage groups to work as one unit with practical strategies for enhancing allies. Where many warrior-monks view ki as a power best kept within, the Way of Concordant Motion teaches its followers to project their ki into their allies through ascetic meditation and mental exercises. Followers of this tradition value teamwork and promote functioning as a cohesive whole above any search for triumph or glory.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of Concordant Motion",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-concordant-motion"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You have studied at a monastery devoted to dragonkind. Warriors trained in these places adapt their fighting styles to match the dragons they hold in such esteem. They are respected and feared by students of other traditions. Once they are trained, followers of this Way travel far and wide, rarely settling in one place for long.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of the Dragon",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-the-dragon"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Like their namesake, monks of the Way of the Humble Elephant are respectful and accommodating. A large part of their training involves traveling through their home region and assisting local farmers and common folk with problems ranging from rebuilding burned homes to dispatching troublesome bandits. In areas where their Way is known, adherents are welcomed into the community and their needs are seen to in exchange for the host of benefits their presence brings to the community.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of the Humble Elephant",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-the-humble-elephant"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Monks who follow the Way of the Still Waters are like placid mountain lakes; they are still and calm until some outside force disrupts them and forces a reaction. Many adherents live a pacifistic lifestyle and never seek conflict. When strife finds them, though, they deal with it in a swift and decisive use of power and grace.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of the Still Waters",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-the-still-waters"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Monks who practice the Way of the Tipsy Monkey lurch and waddle across the battlefield, seeming to be too intoxicated to comport themselves. Their school of fighting is typified by its low-standing stance, periods of swaying in place punctuated with bursts of wild, staggering movement, and the disorienting manner in which they seem to never be in the place they appear to be standing.\n\nDespite the name of their style, monks of this Way often abstain from drinking alcohol, though they are not prohibited from doing so. Many do, however, display traits of their patron monkey in their love of jests and their easy laughter, even in the most fraught situations.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of the Tipsy Monkey",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-the-tipsy-monkey"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "The inner peace of contemplation, the artistry of focused breathing, and the calm awareness which leads to pinpoint accuracy all contribute to the Way of the Unerring Arrow. Some are dedicated soldiers, others walk the path of a wandering warrior-mendicant, but all of them hone their art of self-control, spirituality, and the martial arts, combining unarmed combat with archery. Select this tradition if you want to play a character who is as comfortable trading kicks and blows as they are with snatching an arrow from the air and firing it back in a single motion.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of the Unerring Arrow",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-the-unerring-arrow"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Monks of the Wildcat train relentlessly to incorporate speed, acrobatics, and precision strikes to exert control over the field of battle and foes alike. They learn techniques that emulate the grace and agility of felines, including reflexively avoiding blows and bounding between opponents with ease. Embodying the Way of the Wildcat requires intense devotion, endless practice, and no small amount of daring.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Way of the Wildcat",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_monk"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_way-of-the-wildcat"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "You have dedicated yourself to the service of the primordial winds. In their service, you are the gentle zephyr brushing away adversity or the vengeful storm scouring the stones from the mountainside.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Wind Domain",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_cleric"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_wind-domain"
+},
+{
+  "fields": {
+    "caster_type": null,
+    "desc": "Your patron is probability itself, the personified wellspring of chance as embodied by chosen deities, entities, and eldritch beings across the planes. By binding yourself to the Wyrdweaver, you live by the roll of the dice and the flip of the coin, delighting in the randomness of life and the thrill of new experiences. You might find yourself driven to invade a lich's keep to ask it about its favorite song, or you might leap onto a dragon's back to have the right to call yourself a dragonrider. Life with a pact-bond to your patron might not be long, but it will be exciting.",
+    "document": "toh",
+    "hit_dice": null,
+    "name": "Wyrdweaver",
+    "primary_abilities": [],
+    "saving_throws": [],
+    "subclass_of": "srd_warlock"
+  },
+  "model": "api_v2.characterclass",
+  "pk": "toh_wyrdweaver"
+}
+]

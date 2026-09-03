@@ -1,0 +1,1262 @@
+[
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4912
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_2"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4914
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4915
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4916
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4917
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4918
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4919
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 8,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4920
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ambush",
+    "range": null,
+    "shape_size": null,
+    "target_count": 9,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4921
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_blood-strike",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4922
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_blood-strike",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "ritual"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4923
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_conjure-manabane-swarm",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4924
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_curse-of-formlessness",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4925
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_delay-passing",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4926
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-ancient-decrepitude",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4927
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4928
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4930
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4931
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4932
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4933
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4934
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_doom-of-voracity",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4935
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_feed-the-worms",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4936
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_greater-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4937
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_greater-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4939
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "kp_greater-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4940
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_hirvsths-call",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4941
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_hirvsths-call",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4943
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_hirvsths-call",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4944
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_hirvsths-call",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4945
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_hirvsths-call",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4946
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_hirvsths-call",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4947
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_incantation-of-lies-made-truth",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4948
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_incantation-of-lies-made-truth",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "ritual"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4949
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_jeweled-fissure",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4950
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_lesser-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4951
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_lesser-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4953
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "kp_lesser-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4954
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "kp_lesser-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4955
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "kp_lesser-ley-protection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4956
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_ley-disturbance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4957
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_locate-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4958
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_moons-respite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4959
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_moons-respite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "ritual"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4960
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_morphic-flux",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4961
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_open-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4962
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4963
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4965
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4966
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4967
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4968
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4969
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_peruns-doom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4970
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_reset-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4971
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_reset-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4973
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_reset-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4974
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_reset-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4975
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_reset-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4976
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4977
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4979
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4980
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4981
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4982
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4983
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4984
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_sanguine-spear",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4985
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_scattered-images",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4986
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_seal-red-portal",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4987
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_selfish-wish",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4988
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_shadow-spawn",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4989
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_shadow-tree",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4990
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_shadows-brand",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4991
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4992
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "4 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4994
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "5 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4995
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "6 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4996
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "7 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4997
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "8 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4998
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "9 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4999
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "10 rounds",
+    "parent": "kp_stigmata-of-the-red-goddess",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 5000
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_the-black-gods-blessing",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 5001
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_the-black-gods-blessing",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "ritual"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 5002
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_wield-soul",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 5003
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "kp_winged-spies",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 5004
+}
+]

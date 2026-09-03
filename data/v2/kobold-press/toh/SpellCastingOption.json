@@ -1,0 +1,5372 @@
+[
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 1
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 3
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 4
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 5
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 6
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 7
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_ambush-chute",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 8
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_armored-formation",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 9
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_babble",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 10
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_battle-mind",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 11
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_battle-mind",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "ritual"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 12
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_beast-within",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 13
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_beast-within",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 15
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_beast-within",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 16
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_beast-within",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 17
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_beast-within",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 18
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_beast-within",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 19
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_betraying-bauble",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 20
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bloodlust",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 21
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 22
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 24
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 25
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 26
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 27
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 28
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_blunted-edge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 29
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 30
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 32
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 33
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 34
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 35
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 36
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bolster-fortifications",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 37
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 38
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "0",
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 40
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "0",
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 41
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "0",
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 42
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "0",
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 43
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "0",
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 44
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "0",
+    "parent": "toh_bound-haze",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 45
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 46
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 48
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 49
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 50
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 51
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 52
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "10d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_burst-stone",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 53
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 54
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 56
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 57
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 58
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 59
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 60
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 61
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_butterfly-effect",
+    "range": null,
+    "shape_size": null,
+    "target_count": 8,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 62
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_calm-beasts",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 63
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_clear-the-board",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 64
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-construct",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 65
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-construct",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 67
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-construct",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 68
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-construct",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 69
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-spectral-allies",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 70
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d10",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-spectral-allies",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 72
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d10",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_conjure-spectral-allies",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 73
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_convey-inner-peace",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 74
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_crown-of-thorns",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 75
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_damaging-intel",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 76
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_deadly-salvo",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 77
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 78
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "2d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_2"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 80
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "3d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 81
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "4d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 82
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 83
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 84
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 85
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 86
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_divine-retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 87
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_dreamwine",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 88
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 89
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 91
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 92
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 93
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 94
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 95
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_emerald-eyes",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 96
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_enchanted-bloom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 97
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "7 days",
+    "parent": "toh_enchanted-bloom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 99
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "30 days",
+    "parent": "toh_enchanted-bloom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 100
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "180 days",
+    "parent": "toh_enchanted-bloom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 101
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 year",
+    "parent": "toh_enchanted-bloom",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 102
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_eruption",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 103
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_feint",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 104
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 105
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 107
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 108
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 109
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 110
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 111
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-food",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 112
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 113
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 115
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 116
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 117
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 118
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 119
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 120
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fey-touched-blade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 121
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_forced-reposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 122
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_forced-reposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 124
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_forced-reposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 125
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_forced-reposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 126
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_forced-reposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 127
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_forced-reposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 128
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_furious-wail",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 129
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 130
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 132
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 133
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 134
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 135
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 136
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 137
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_fuse-armor",
+    "range": null,
+    "shape_size": null,
+    "target_count": 8,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 138
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_gale",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 139
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_glare",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 140
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 141
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 143
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 144
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 145
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 146
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 147
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_high-ground",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 148
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_immolating-gibbet",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 149
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_inexorable-summons",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 150
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_instant-armored-vehicle",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 151
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_invested-champion",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 152
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 153
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 155
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 156
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 157
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 158
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 159
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_iron-gut",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 160
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 161
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 163
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "13d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 164
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "18d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 165
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "23d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 166
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "28d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 167
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "33d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jagged-forcelance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 168
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_jarring-growl",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 169
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_lance",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 170
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 171
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_2"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 173
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 174
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 175
+},
+{
+  "fields": {
+    "concentration": false,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "8 hours",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 176
+},
+{
+  "fields": {
+    "concentration": false,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "8 hours",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 177
+},
+{
+  "fields": {
+    "concentration": false,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "24 hours",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 178
+},
+{
+  "fields": {
+    "concentration": false,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "24 hours",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 179
+},
+{
+  "fields": {
+    "concentration": false,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 year",
+    "parent": "toh_less-fool-i",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 180
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_life-burst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 181
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 182
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "3 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_2"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 184
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "5 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 185
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "7 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 186
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "9 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 187
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "11 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 188
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "13 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 189
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "15 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 190
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "17 hours",
+    "parent": "toh_lightless-torch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 191
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_long-game",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 192
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 193
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "4d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 195
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 196
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 197
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 198
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 199
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 200
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "10d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_magma-spray",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 201
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_mantle-of-the-brave",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 202
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_martyrs-rally",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 203
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_mass-faerie-fire",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 204
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_misdirection",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 205
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_mud",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 206
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 207
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_2"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 209
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 210
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 211
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 212
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 213
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 214
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 215
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_muted-foe",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 216
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 217
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 219
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 220
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 221
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 222
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 223
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_never-surrender",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 224
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oathbound-implement",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 225
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_outmaneuver",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 226
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 227
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 229
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 230
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 231
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 232
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 233
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 234
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_oversized-paws",
+    "range": null,
+    "shape_size": null,
+    "target_count": 8,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 235
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_pincer",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 236
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d10",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_pincer",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 238
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d10",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_pincer",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 239
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d10",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_pincer",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 240
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_pipers-lure",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 241
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-jaunt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 242
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "2 rounds",
+    "parent": "toh_portal-jaunt",
+    "range": "400 feet",
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 244
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "3 rounds",
+    "parent": "toh_portal-jaunt",
+    "range": "500 feet",
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 245
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "4 rounds",
+    "parent": "toh_portal-jaunt",
+    "range": "600 feet",
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 246
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "5 rounds",
+    "parent": "toh_portal-jaunt",
+    "range": "700 feet",
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 247
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "6 rounds",
+    "parent": "toh_portal-jaunt",
+    "range": "800 feet",
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 248
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "7 rounds",
+    "parent": "toh_portal-jaunt",
+    "range": "900 feet",
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 249
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 250
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 252
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 253
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 254
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 255
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 256
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 257
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_portal-trap",
+    "range": null,
+    "shape_size": null,
+    "target_count": 8,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 258
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 259
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 261
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 262
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 263
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 264
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 265
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-fling",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 266
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-rend",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 267
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-rend",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 269
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-rend",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 270
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-rend",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 271
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-rend",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 272
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_power-word-rend",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 273
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_reapers-knell",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 274
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_reapers-knell",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 276
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_reapers-knell",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 277
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_reapers-knell",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 278
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_reapers-knell",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 279
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_reapers-knell",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 280
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 281
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 283
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 284
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 285
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 286
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "10d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 287
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "11d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rebounding-bolt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 288
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_repulsing-wall",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 289
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_repulsing-wall",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 291
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_repulsing-wall",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 292
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_repulsing-wall",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 293
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_repulsing-wall",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 294
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_repulsing-wall",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 295
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_retribution",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 296
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 297
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_2"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 299
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 300
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 301
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 302
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 303
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 304
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 305
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_rockfall-ward",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 306
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_sacrifice-pawn",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 307
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_sacrificial-healing",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 308
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_safe-transposition",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 309
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_secret-blind",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 310
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 311
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 313
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 314
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 315
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 316
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 317
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shared-frenzy",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 318
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 319
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "3d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 321
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "4d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 322
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 323
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 324
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 325
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 326
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_shocking-volley",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 327
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 328
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 minute",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 330
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 minute",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 331
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "10 minutes",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 332
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "10 minutes",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 333
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 334
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 335
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_sightburst",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 336
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_silvershout",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 337
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 338
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 340
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 341
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 342
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 343
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 344
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 345
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_smelting-blast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 346
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_sneer",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 347
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 348
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 350
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 351
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 352
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 353
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 354
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spiked-barricade",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 355
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 356
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "4d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 358
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 359
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 360
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 361
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 362
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 363
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "10d6",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_spite",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 364
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 365
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "3d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 367
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "4d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 368
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 369
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 370
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 371
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d8",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_steam-gout",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 372
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_stone-aegis",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 373
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_stone-fetch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 374
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "5d10",
+    "desc": null,
+    "duration": null,
+    "parent": "toh_stone-fetch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 376
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "6d10",
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_stone-fetch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 377
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "7d10",
+    "desc": null,
+    "duration": "1 hour",
+    "parent": "toh_stone-fetch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 378
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "8d10",
+    "desc": null,
+    "duration": "8 hours",
+    "parent": "toh_stone-fetch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 379
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": "9d10",
+    "desc": null,
+    "duration": "8 hours",
+    "parent": "toh_stone-fetch",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 380
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_sudden-slue",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 381
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_sudden-stampede",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 382
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toadstool-ring",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 383
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 384
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_3"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 386
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_4"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 387
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 388
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 389
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 390
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 7,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 391
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_toothless-beast",
+    "range": null,
+    "shape_size": null,
+    "target_count": 8,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 392
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_trollish-charge",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 393
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_trollish-charge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 2,
+    "type": "slot_level_5"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 395
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_trollish-charge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 3,
+    "type": "slot_level_6"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 396
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_trollish-charge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 4,
+    "type": "slot_level_7"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 397
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_trollish-charge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 5,
+    "type": "slot_level_8"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 398
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_trollish-charge",
+    "range": null,
+    "shape_size": null,
+    "target_count": 6,
+    "type": "slot_level_9"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 399
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_vine-carpet",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 400
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_war-horn",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 401
+},
+{
+  "fields": {
+    "concentration": null,
+    "damage_roll": null,
+    "desc": null,
+    "duration": null,
+    "parent": "toh_wild-hunt",
+    "range": null,
+    "shape_size": null,
+    "target_count": null,
+    "type": "default"
+  },
+  "model": "api_v2.spellcastingoption",
+  "pk": 402
+}
+]

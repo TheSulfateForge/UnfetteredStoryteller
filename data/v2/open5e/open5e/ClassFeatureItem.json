@@ -1,0 +1,822 @@
+[
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_arcane-warrior_arcane-strike"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_arcane-warrior_arcane-strike_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 7,
+    "parent": "open5e_arcane-warrior_battle-magic"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_arcane-warrior_battle-magic_7"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_arcane-warrior_bonded-weapon"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_arcane-warrior_bonded-weapon_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 15,
+    "parent": "open5e_arcane-warrior_eldritch-charge"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_arcane-warrior_eldritch-charge_15"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 18,
+    "parent": "open5e_arcane-warrior_improved-battle-magic"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_arcane-warrior_improved-battle-magic_18"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_arcane-warrior_spellcasting"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_arcane-warrior_spellcasting_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_circle-of-the-many_multitude-of-faces"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_circle-of-the-many_multitude-of-faces_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_circle-of-the-many_natures-talon"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_circle-of-the-many_natures-talon_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_circle-of-the-many_resilient-transformation"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_circle-of-the-many_resilient-transformation_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_circle-of-the-many_shape-of-the-elements"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_circle-of-the-many_shape-of-the-elements_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_circle-of-the-many_strengthened-transformation"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_circle-of-the-many_strengthened-transformation_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_college-of-skalds_battle-fury"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_college-of-skalds_battle-fury_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_college-of-skalds_combat-aptitude"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_college-of-skalds_combat-aptitude_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_college-of-skalds_saga-of-deeds"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_college-of-skalds_saga-of-deeds_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_college-of-skalds_song-and-strike"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_college-of-skalds_song-and-strike_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_demise-domain_bonus-proficiency"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_bonus-proficiency_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_demise-domain_channel-divinity-killing-touch"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_channel-divinity-killing-touch_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_demise-domain_death-comes-for-all"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_death-comes-for-all_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_demise-domain_death-domain-spells-table"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_death-domain-spells-table_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_demise-domain_deaths-cut"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_deaths-cut_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 8,
+    "parent": "open5e_demise-domain_divine-strike"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_divine-strike_8"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 17,
+    "parent": "open5e_demise-domain_improved-deaths-cut"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_demise-domain_improved-deaths-cut_17"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 9,
+    "parent": "open5e_eldritch-trickster_arcane-ambuscade"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_eldritch-trickster_arcane-ambuscade_9"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 17,
+    "parent": "open5e_eldritch-trickster_eldritch-grift"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_eldritch-trickster_eldritch-grift_17"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 13,
+    "parent": "open5e_eldritch-trickster_magical-misdirection"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_eldritch-trickster_magical-misdirection_13"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_eldritch-trickster_spellcasting"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_eldritch-trickster_spellcasting_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_mischief-domain_channel-divinity-double-trouble"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_mischief-domain_channel-divinity-double-trouble_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_mischief-domain_channel-divinity-walk-unseen"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_mischief-domain_channel-divinity-walk-unseen_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 8,
+    "parent": "open5e_mischief-domain_divine-strike"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_mischief-domain_divine-strike_8"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 17,
+    "parent": "open5e_mischief-domain_double-trouble-doubled"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_mischief-domain_double-trouble-doubled_17"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_mischief-domain_mischeif-domain-spells-table"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_mischief-domain_mischeif-domain-spells-table_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_mischief-domain_spreader-of-mischief"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_mischief-domain_spreader-of-mischief_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 7,
+    "parent": "open5e_oathless-betrayer_aura-of-loathing"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_oathless-betrayer_aura-of-loathing_7"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_oathless-betrayer_channel-divinity"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_oathless-betrayer_channel-divinity_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 20,
+    "parent": "open5e_oathless-betrayer_master-of-doom"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_oathless-betrayer_master-of-doom_20"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 15,
+    "parent": "open5e_oathless-betrayer_unearthly-barrier"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_oathless-betrayer_unearthly-barrier_15"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_school-of-abjuring-and-warding_abjuration-proficiency"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-abjuring-and-warding_abjuration-proficiency_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_school-of-abjuring-and-warding_aegis-extension"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-abjuring-and-warding_aegis-extension_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-abjuring-and-warding_arcane-aegis"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-abjuring-and-warding_arcane-aegis_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-abjuring-and-warding_expert-abjurer"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-abjuring-and-warding_expert-abjurer_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_school-of-abjuring-and-warding_resistance-to-magic"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-abjuring-and-warding_resistance-to-magic_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-divining-and-soothsaying_expert-diviner"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-divining-and-soothsaying_expert-diviner_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_school-of-divining-and-soothsaying_extrasensory-perception"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-divining-and-soothsaying_extrasensory-perception_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-divining-and-soothsaying_premonition"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-divining-and-soothsaying_premonition_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_school-of-divining-and-soothsaying_premonition_addition"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-divining-and-soothsaying_premonition_addition_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_school-of-divining-and-soothsaying_soothsaying-savant"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-divining-and-soothsaying_soothsaying-savant_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-illusions-and-phantasms_enhanced-cantrip"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-illusions-and-phantasms_enhanced-cantrip_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-illusions-and-phantasms_expert-illusionist"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-illusions-and-phantasms_expert-illusionist_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_school-of-illusions-and-phantasms_mutable-mirage"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-illusions-and-phantasms_mutable-mirage_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_school-of-illusions-and-phantasms_phantasmagoria"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-illusions-and-phantasms_phantasmagoria_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_school-of-illusions-and-phantasms_second-semblance"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-illusions-and-phantasms_second-semblance_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_school-of-necrotic-arts_control-undead"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-necrotic-arts_control-undead_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-necrotic-arts_dark-reaper"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-necrotic-arts_dark-reaper_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_school-of-necrotic-arts_expert-necromancer"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-necrotic-arts_expert-necromancer_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_school-of-necrotic-arts_necrotic-acclimation"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-necrotic-arts_necrotic-acclimation_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_school-of-necrotic-arts_undead-minions"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_school-of-necrotic-arts_undead-minions_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_storm-domain_bonus-proficiency"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_bonus-proficiency_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 2,
+    "parent": "open5e_storm-domain_channel-divinity-full-fury"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_channel-divinity-full-fury_2"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 8,
+    "parent": "open5e_storm-domain_divine-strike"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_divine-strike_8"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 17,
+    "parent": "open5e_storm-domain_skys-blessing"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_skys-blessing_17"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_storm-domain_storm-blast"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_storm-blast_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_storm-domain_storm-domain-spells-table"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_storm-domain-spells-table_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_storm-domain_tempests-rebuke"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_storm-domain_tempests-rebuke_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_the-ancient-fey-court_counter-enchantment"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-ancient-fey-court_counter-enchantment_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_the-ancient-fey-court_courtiers-aspect"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-ancient-fey-court_courtiers-aspect_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_the-ancient-fey-court_expanded-spell-list"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-ancient-fey-court_expanded-spell-list_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_the-ancient-fey-court_shroud-of-mists"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-ancient-fey-court_shroud-of-mists_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_the-ancient-fey-court_waking-dream"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-ancient-fey-court_waking-dream_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_the-great-elder-thing_cosmic-enthrallment"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-great-elder-thing_cosmic-enthrallment_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_the-great-elder-thing_expanded-spell-list"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-great-elder-thing_expanded-spell-list_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_the-great-elder-thing_inhuman_reflex"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-great-elder-thing_inhuman_reflex_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 10,
+    "parent": "open5e_the-great-elder-thing_mental-barrier"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-great-elder-thing_mental-barrier_10"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_the-great-elder-thing_outward_cerebration"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_the-great-elder-thing_outward_cerebration_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_way-of-shadowdancing_dark-passage"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_way-of-shadowdancing_dark-passage_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 3,
+    "parent": "open5e_way-of-shadowdancing_magic-of-shadow"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_way-of-shadowdancing_magic-of-shadow_3"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 17,
+    "parent": "open5e_way-of-shadowdancing_shadow-strike"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_way-of-shadowdancing_shadow-strike_17"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 11,
+    "parent": "open5e_way-of-shadowdancing_walk-unseen"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_way-of-shadowdancing_walk-unseen_11"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 14,
+    "parent": "open5e_wyrd-magic_direct-the-flood-of-chaos"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_wyrd-magic_direct-the-flood-of-chaos_14"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_wyrd-magic_flood-of-chaos"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_wyrd-magic_flood-of-chaos_1"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 18,
+    "parent": "open5e_wyrd-magic_magical-deluge"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_wyrd-magic_magical-deluge_18"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 6,
+    "parent": "open5e_wyrd-magic_tip-the-scales-of-fate"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_wyrd-magic_tip-the-scales-of-fate_6"
+},
+{
+  "fields": {
+    "column_value": null,
+    "detail": null,
+    "level": 1,
+    "parent": "open5e_wyrd-magic_wyrd-weaver"
+  },
+  "model": "api_v2.classfeatureitem",
+  "pk": "open5e_wyrd-magic_wyrd-weaver_1"
+}
+]

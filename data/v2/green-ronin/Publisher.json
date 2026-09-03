@@ -1,0 +1,9 @@
+[
+{
+  "fields": {
+    "name": "Green Ronin Publishing"
+  },
+  "model": "api_v2.publisher",
+  "pk": "green-ronin"
+}
+]
