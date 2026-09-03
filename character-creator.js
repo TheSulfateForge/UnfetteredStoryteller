@@ -164,13 +164,21 @@ function validatePage(page) {
             }
             const cantripLimit = parseInt(page4.dataset.cantripLimit || '0', 10);
             const level1Limit = parseInt(page4.dataset.level1Limit || '0', 10);
+            // Only enforce a limit when options were actually rendered. If a spell
+            // list failed to resolve, the grid is empty and demanding selections
+            // would leave the player permanently stuck on this page.
+            const cantripBoxes = page4.querySelectorAll('input[name="cantrip-selection"]').length;
+            const level1Boxes = page4.querySelectorAll('input[name="level1-selection"]').length;
             const selectedCantrips = page4.querySelectorAll('input[name="cantrip-selection"]:checked').length;
             const selectedLevel1 = page4.querySelectorAll('input[name="level1-selection"]:checked').length;
-            if (cantripLimit > 0 && selectedCantrips !== cantripLimit) {
+            if (cantripLimit > 0 && cantripBoxes > 0 && selectedCantrips !== cantripLimit) {
                 errors.push(`Please select exactly ${cantripLimit} cantrip(s). You have selected ${selectedCantrips}.`);
             }
-            if (level1Limit > 0 && selectedLevel1 !== level1Limit) {
+            if (level1Limit > 0 && level1Boxes > 0 && selectedLevel1 !== level1Limit) {
                 errors.push(`Please select exactly ${level1Limit} 1st-level spell(s). You have selected ${selectedLevel1}.`);
+            }
+            if ((cantripLimit > 0 && cantripBoxes === 0) || (level1Limit > 0 && level1Boxes === 0)) {
+                console.warn('Spell selection expected but no spells were rendered; check that spelllist.json ids match the spell data.');
             }
             if (errors.length > 0) {
                 alert(errors.join('\n'));
@@ -533,7 +541,8 @@ function renderFeatSelection() {
         .map(f => {
             const ok = meetsPrerequisite(f.prerequisite);
             const id = `feat-${String(f.slug || f.name).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
-            const pre = f.prerequisite ? `<em>Prerequisite: ${f.prerequisite}${ok ? '' : ' — not met'}</em><br>` : '';
+            const cleanPre = String(f.prerequisite || '').replace(/[*_`]/g, '').trim();
+            const pre = cleanPre ? `<em>Prerequisite: ${cleanPre}${ok ? '' : ' — not met'}</em><br>` : '';
             return `<div class="choice-item"><div class="choice-item-header">
                 <input type="radio" id="${id}" name="startingFeat" value="${f.name}"${ok ? '' : ' disabled'}>
                 <label for="${id}">${f.name}</label>

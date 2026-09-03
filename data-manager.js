@@ -228,8 +228,16 @@ export async function init() {
         const spellsData = await spellsRes.json();
         const spellsArray = allowed(spellsData.results || spellsData);
         spellsArray.forEach(s => {
-            const slug = s.name.toLowerCase().replace(/[\s/]+/g, '-');
-            spells.set(slug, s);
+            // Index by the name-derived slug (used by the spell detail UI) AND by
+            // the record's own slug/key (used by spelllist.json, which references
+            // source-prefixed ids such as "srd_eldritch-blast"). Indexing both
+            // keeps lookups working regardless of which id form the caller has.
+            const nameSlug = s.name.toLowerCase().replace(/[\s/]+/g, '-');
+            spells.set(nameSlug, s);
+            if (s.slug)
+                spells.set(String(s.slug).toLowerCase(), s);
+            if (s.key && s.key !== s.slug)
+                spells.set(String(s.key).toLowerCase(), s);
         });
         const spellListData = await spellListRes.json();
         const spellListArray = spellListData.results || spellListData;

@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v62'; // Bumped: index.html 404 fixes (index.css path, stale index.tsx tag)
+const CACHE_NAME = 'unfettered-storyteller-cache-v63'; // Bumped: spell lookup fix (spelllist ids) + validation cannot dead-end
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
