@@ -1,0 +1,9 @@
+[
+{
+  "fields": {
+    "name": "EN Publishing"
+  },
+  "model": "api_v2.publisher",
+  "pk": "en-publishing"
+}
+]

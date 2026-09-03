@@ -1,0 +1,38 @@
+[
+{
+  "fields": {
+    "desc": "[No description provided]",
+    "document": "a5e-ddg",
+    "name": "Deep Hunter"
+  },
+  "model": "api_v2.background",
+  "pk": "a5e-ddg_deep-hunter"
+},
+{
+  "fields": {
+    "desc": "[No description provided]",
+    "document": "a5e-ddg",
+    "name": "Dungeon Robber"
+  },
+  "model": "api_v2.background",
+  "pk": "a5e-ddg_dungeon-robber"
+},
+{
+  "fields": {
+    "desc": "[No description provided]",
+    "document": "a5e-ddg",
+    "name": "Escapee from Below"
+  },
+  "model": "api_v2.background",
+  "pk": "a5e-ddg_escapee-from-below"
+},
+{
+  "fields": {
+    "desc": "[No description provided]",
+    "document": "a5e-ddg",
+    "name": "Imposter"
+  },
+  "model": "api_v2.background",
+  "pk": "a5e-ddg_imposter"
+}
+]
