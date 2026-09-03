@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v58'; // Bumped: full v2 rebuild, feat selection, engine grounded in real data
+const CACHE_NAME = 'unfettered-storyteller-cache-v59'; // Bumped: CRITICAL - embedder CDN import made lazy so it can't block app startup
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 

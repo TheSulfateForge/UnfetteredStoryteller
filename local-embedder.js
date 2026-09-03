@@ -5,11 +5,20 @@
 // In-browser text embeddings using Transformers.js. Runs entirely on the user's
 // own machine (WebGPU when available, WASM fallback) — no API key, no rate limits,
 // and fully offline after the model is cached on first use.
-import { pipeline, env } from '@huggingface/transformers';
-
-// Download models from the Hugging Face Hub (we don't bundle local model files).
-env.allowRemoteModels = true;
-env.allowLocalModels = false;
+// NOTE: Transformers.js is loaded with a DYNAMIC import inside getExtractor(),
+// never at module scope. A static top-level import would put a large CDN module
+// in the app's startup dependency graph, so any CDN failure would stop the whole
+// application from booting rather than just disabling the knowledge base.
+let transformers = null;
+async function loadTransformers() {
+    if (!transformers) {
+        transformers = await import('@huggingface/transformers');
+        // Download models from the Hugging Face Hub (we don't bundle model files).
+        transformers.env.allowRemoteModels = true;
+        transformers.env.allowLocalModels = false;
+    }
+    return transformers;
+}
 
 // Small, fast, well-supported sentence-embedding model (384-dimensional output).
 const MODEL_ID = 'Xenova/all-MiniLM-L6-v2';
@@ -33,10 +42,13 @@ async function getExtractor(onProgress) {
             onProgress(`Downloading embedding model (${p.file}): ${Math.round(p.progress || 0)}%`);
         }
     };
-    const load = (device) => pipeline('feature-extraction', MODEL_ID, {
-        device,
-        progress_callback: reportDownload,
-    });
+    const load = async (device) => {
+        const { pipeline } = await loadTransformers();
+        return pipeline('feature-extraction', MODEL_ID, {
+            device,
+            progress_callback: reportDownload,
+        });
+    };
     extractorPromise = (async () => {
         try {
             // Prefer WebGPU for speed; fall back to WASM if it is unavailable or fails.
