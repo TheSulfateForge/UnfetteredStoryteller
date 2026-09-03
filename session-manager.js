@@ -136,6 +136,23 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
     dom.changeSettingsBtn.addEventListener('click', () => ui.showSettings(game.getProviderSettings()));
     dom.settingsForm.addEventListener('submit', handleSettingsSave);
     dom.buildRagBtn.addEventListener('click', handleBuildRag);
+    dom.saveSlotsList.addEventListener('click', async (event) => {
+        const button = event.target.closest('button');
+        if (!button)
+            return;
+        const { id } = button.dataset;
+        if (!id)
+            return;
+        if (button.classList.contains('load-btn')) {
+            await loadGame(id);
+        }
+        else if (button.classList.contains('export-btn')) {
+            exportGame(id);
+        }
+        else if (button.classList.contains('delete-btn')) {
+            await deleteGame(id);
+        }
+    });
     dom.importSaveBtn.addEventListener('click', () => dom.importSaveInput.click());
     dom.importSaveInput.addEventListener('change', async (event) => {
         const input = event.target;
@@ -254,7 +271,8 @@ export async function loadGame(characterId) {
 export function exportGame(characterId) {
     const save = game.getSaves().find(s => s.id === characterId);
     if (!save || !save.characterInfo) {
-        ui.addMessage('error', 'Could not find that save to export.');
+        // Use alert(): the Load dialog can be open before the chat log exists on screen.
+        alert('Could not find that save to export.');
         return;
     }
     try {
@@ -279,10 +297,11 @@ export function exportGame(characterId) {
         document.body.removeChild(link);
         // Revoke on the next tick so the download has begun.
         setTimeout(() => URL.revokeObjectURL(url), 1000);
+        ui.logToDebugger('event', 'Save exported', `Character: ${save.characterInfo.name}\nFile: ${link.download}\nSize: ${blob.size} bytes\n\nIf no file appeared, check your browser's download settings/blocked downloads.`);
     }
     catch (error) {
         console.error('Failed to export save:', error);
-        ui.addMessage('error', `Could not export that save: ${error.message || error}`);
+        alert(`Could not export that save: ${error.message || error}`);
     }
 }
 /**

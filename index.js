@@ -76,20 +76,9 @@ function setupMainAppEventListeners() {
                 await gameLoop.handleRegenerateRequest(actionButton);
         }
     });
-    dom.saveSlotsList.addEventListener('click', async (event) => {
-        const button = event.target.closest('button');
-        if (!button)
-            return;
-        const { id } = button.dataset;
-        if (!id)
-            return;
-        if (button.classList.contains('load-btn')) {
-            await sessionManager.loadGame(id);
-        }
-        else if (button.classList.contains('delete-btn')) {
-            await sessionManager.deleteGame(id);
-        }
-    });
+    // NOTE: the save-slot (Load / Export / Delete) listener is registered in
+    // sessionManager.setupInitialEventListeners so it is always attached, even
+    // when the Load Game dialog is reached before an adventure has started.
     dom.chatForm.addEventListener('submit', gameLoop.handleFormSubmit);
     dom.chatInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter' && !event.shiftKey) {
