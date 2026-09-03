@@ -67,6 +67,8 @@ class DOMElements {
     get saveSlotsList() { return query('save-slots-list'); }
     get newAdventureBtn() { return query('new-adventure-btn'); }
     get loadGameCancelBtn() { return query('load-game-cancel-btn'); }
+    get importSaveBtn() { return query('import-save-btn'); }
+    get importSaveInput() { return query('import-save-input'); }
     get changeSettingsBtn() { return query('change-settings-btn'); }
     get micBtn() { return query('mic-btn'); }
     get characterCreationModal() { return query('character-creation-modal'); }

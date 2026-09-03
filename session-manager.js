@@ -136,6 +136,14 @@ export function setupInitialEventListeners(setupMainAppEventListeners) {
     dom.changeSettingsBtn.addEventListener('click', () => ui.showSettings(game.getProviderSettings()));
     dom.settingsForm.addEventListener('submit', handleSettingsSave);
     dom.buildRagBtn.addEventListener('click', handleBuildRag);
+    dom.importSaveBtn.addEventListener('click', () => dom.importSaveInput.click());
+    dom.importSaveInput.addEventListener('change', async (event) => {
+        const input = event.target;
+        const file = input.files && input.files[0];
+        await importGame(file);
+        // Reset so selecting the same file again still fires a change event.
+        input.value = '';
+    });
     dom.providerSelector.addEventListener('change', () => {
         const providerType = dom.providerSelector.value;
         const isLocal = providerType === 'local';
@@ -237,6 +245,102 @@ export async function loadGame(characterId) {
     dom.loadGameModal.classList.add('hidden');
     dom.landingPage.classList.add('hidden');
     dom.appElement.classList.remove('hidden');
+}
+/**
+ * Downloads a single save as a JSON file so it can be backed up or moved
+ * between devices/browsers (saves otherwise live only in localStorage).
+ * @param {string} characterId The id of the save to export.
+ */
+export function exportGame(characterId) {
+    const save = game.getSaves().find(s => s.id === characterId);
+    if (!save || !save.characterInfo) {
+        ui.addMessage('error', 'Could not find that save to export.');
+        return;
+    }
+    try {
+        const payload = {
+            format: 'unfettered-storyteller-save',
+            formatVersion: 1,
+            exportedAt: new Date().toISOString(),
+            save
+        };
+        const safeName = (save.characterInfo.name || 'character')
+            .replace(/[^a-z0-9]+/gi, '-')
+            .replace(/^-+|-+$/g, '')
+            .toLowerCase() || 'character';
+        const datePart = new Date().toISOString().slice(0, 10);
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = `ufst-save-${safeName}-${datePart}.json`;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        // Revoke on the next tick so the download has begun.
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    catch (error) {
+        console.error('Failed to export save:', error);
+        ui.addMessage('error', `Could not export that save: ${error.message || error}`);
+    }
+}
+/**
+ * Imports a save from a JSON file previously produced by exportGame().
+ * If no save with that id exists it is simply added; if one does, the user is
+ * asked whether to overwrite it or keep both.
+ * @param {File} file The user-selected .json file.
+ */
+export async function importGame(file) {
+    if (!file)
+        return;
+    try {
+        const text = await file.text();
+        let parsed;
+        try {
+            parsed = JSON.parse(text);
+        }
+        catch {
+            alert('That file is not valid JSON, so it could not be imported.');
+            return;
+        }
+        // Accept both the wrapped export format and a bare save object.
+        const incoming = parsed && parsed.save ? parsed.save : parsed;
+        if (!incoming || typeof incoming !== 'object' || !incoming.characterInfo || !isPlayerStateValid(incoming.playerState)) {
+            alert('That file does not look like an Unfettered Storyteller save.');
+            return;
+        }
+        // Normalize the shape so a partial/older file still loads cleanly.
+        const save = {
+            id: incoming.id ? String(incoming.id) : Date.now().toString(),
+            characterInfo: incoming.characterInfo,
+            playerState: incoming.playerState,
+            chatHistory: Array.isArray(incoming.chatHistory) ? incoming.chatHistory : [],
+            currentModelIndex: typeof incoming.currentModelIndex === 'number' ? incoming.currentModelIndex : 0,
+        };
+        const name = save.characterInfo.name || 'Unnamed';
+        const existing = game.getSaves().find(s => s.id === save.id);
+        if (existing) {
+            const existingName = existing.characterInfo?.name || 'an existing adventure';
+            const overwrite = await ui.showConfirmModal(`A save with this id already exists ("${existingName}"). Overwrite it with the imported "${name}"? Choosing No will import as a separate copy.`, 'Save Already Exists');
+            if (overwrite) {
+                const { id, ...rest } = save;
+                game.updateSave(id, rest);
+            }
+            else {
+                save.id = Date.now().toString();
+                game.addNewSave(save);
+            }
+        }
+        else {
+            game.addNewSave(save);
+        }
+        ui.displaySaveSlots(game.getSaves());
+    }
+    catch (error) {
+        console.error('Failed to import save:', error);
+        alert(`Could not import that save: ${error.message || error}`);
+    }
 }
 export async function deleteGame(characterId) {
     const allSaves = game.getSaves();

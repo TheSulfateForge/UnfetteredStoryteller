@@ -321,6 +321,7 @@ export function displaySaveSlots(allSaves) {
                 </div>
                 <div class="save-slot-actions">
                     <button class="load-btn" data-id="${save.id}">Load</button>
+                    <button class="export-btn secondary" data-id="${save.id}">Export</button>
                     <button class="delete-btn" data-id="${save.id}">Delete</button>
                 </div>
             `;
@@ -354,7 +355,7 @@ export function updateRagStatus(status, message) {
     let isButtonDisabled = false;
     switch (status) {
         case 'idle':
-            statusText = 'Status: Not built. Click below to build.';
+            statusText = message ? `Status: Not built. ${message}` : 'Status: Not built. Click below to build.';
             isButtonDisabled = false;
             break;
         case 'building':

@@ -11,6 +11,10 @@ let vectorStore = [];
 let db = null;
 let status = 'idle';
 // --- CONSTANTS ---
+// Minimum cosine similarity for a retrieved chunk to be considered relevant.
+// Normalized MiniLM embeddings put genuine matches well above this; unrelated
+// entries typically score under ~0.25.
+const MIN_SIMILARITY = 0.4;
 const DB_NAME = 'UnfetteredRagStore';
 const DB_VERSION = 1;
 const STORE_NAME = 'vectors';
@@ -81,6 +85,16 @@ export async function init(llmProvider, callback) {
         request.onsuccess = () => {
             vectorStore = request.result;
             if (vectorStore.length > 0) {
+                // Guard against a store built by a different embedding model (e.g. an
+                // old Gemini-API build). Mismatched vector lengths would silently
+                // produce meaningless similarity scores rather than failing loudly.
+                const storedDimensions = vectorStore[0]?.embedding?.length;
+                if (storedDimensions !== localEmbedder.EMBEDDING_DIMENSIONS) {
+                    console.warn(`Discarding knowledge base: built with ${storedDimensions}-dimension vectors, current model uses ${localEmbedder.EMBEDDING_DIMENSIONS}.`);
+                    vectorStore = [];
+                    updateStatus('idle', 'A knowledge base built by a different embedding model was found and ignored. Please rebuild it.');
+                    return;
+                }
                 updateStatus('ready', `${vectorStore.length} documents loaded from cache.`);
             }
             else {
@@ -198,7 +212,7 @@ export async function buildStore() {
     }
 }
 /** Searches the vector store for the most relevant chunks. */
-export async function search(query, topK = 3) {
+export async function search(query, topK = 3, minScore = MIN_SIMILARITY) {
     if (status !== 'ready' || vectorStore.length === 0) {
         return [];
     }
@@ -209,7 +223,9 @@ export async function search(query, topK = 3) {
             score: cosineSimilarity(queryEmbedding, item.embedding)
         }));
         scoredItems.sort((a, b) => b.score - a.score);
-        return scoredItems.slice(0, topK);
+        // Only return genuinely relevant chunks. Without this, every query returns
+        // its "top 3" no matter how unrelated, injecting noise into the prompt.
+        return scoredItems.filter(item => item.score >= minScore).slice(0, topK);
     }
     catch (e) {
         console.error("RAG search failed:", e);
