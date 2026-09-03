@@ -4,6 +4,7 @@
  */
 import { createChunk } from './chunking-strategies.js';
 import * as localEmbedder from './local-embedder.js';
+import { isAllowedSource, isAllowedDocumentKey } from './config.js';
 // --- STATE ---
 let provider = null;
 let statusCallback = null;
@@ -136,14 +137,11 @@ export async function buildStore() {
                 console.warn(`No valid data array found in ${url}. Skipping.`);
                 continue;
             }
-            let filteredItems = items;
-            // Filter out any content from Eberron sourcebooks
-            if (type === 'documents') {
-                filteredItems = items.filter(doc => !doc.slug?.includes('eberron'));
-            }
-            else {
-                filteredItems = items.filter(item => !item.document__slug?.includes('eberron'));
-            }
+            // Index only content from the licensed sources listed in config.
+            // documents.json records its source as `key`/`slug` rather than `document`.
+            const filteredItems = (type === 'documents')
+                ? items.filter(doc => isAllowedDocumentKey(doc.key ?? doc.slug))
+                : items.filter(isAllowedSource);
             for (const item of filteredItems) {
                 chunks.push({
                     chunk: createChunk(item, type),

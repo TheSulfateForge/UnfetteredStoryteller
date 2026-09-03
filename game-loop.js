@@ -10,7 +10,7 @@ import { cleanseResponseText } from './api.js';
 import * as rag from './rag.js';
 import { gameState, deepMerge } from './state-manager.js';
 import { saveCurrentGame, initializeChatSession } from './session-manager.js';
-import { promiseWithTimeout } from './utils.js';
+import { promiseWithTimeout, normalizeRollModifier } from './utils.js';
 import * as game from './game.js';
 import * as dataManager from './data-manager.js';
 /**
@@ -101,15 +101,36 @@ async function processGameActions(matches) {
                     stateUpdate.isInCombat = true;
                     const playerInitiative = rollDice('d20').total + getAbilityModifierValue(playerState.abilityScores.dexterity);
                     const allCombatants = [{ id: 'player', name: characterInfo.name, hp: playerState.health.current, maxHp: playerState.health.max, initiative: playerInitiative, isPlayer: true }];
+                    // Ground each enemy in real creature data where possible, so the
+                    // AI cannot invent statistics. Unknown creatures are flagged.
+                    await dataManager.loadMonsters();
                     payload.forEach((enemy, index) => {
+                        const real = dataManager.getMonster(enemy.name);
+                        if (real) {
+                            ui.logToDebugger('state', 'Creature grounded', `"${enemy.name}" matched "${real.name}" [${real.document}]\nAI proposed hp=${enemy.hp} xp=${enemy.xpValue}\nUsing hp=${real.hit_points} ac=${real.armor_class} cr=${real.challenge_rating} xp=${real.xpValue}`);
+                        }
+                        else {
+                            ui.logToDebugger('error', 'Unknown creature', `"${enemy.name}" is not in the loaded sourcebooks. Falling back to AI-supplied stats (hp=${enemy.hp}).`);
+                        }
+                        const hp = real?.hit_points ?? enemy.hp;
                         allCombatants.push({
                             id: `${enemy.name.toLowerCase().replace(/\s/g, '-')}-${index}`,
-                            name: enemy.name,
-                            hp: enemy.hp,
-                            maxHp: enemy.hp,
-                            initiative: rollDice('d20').total,
+                            name: real?.name || enemy.name,
+                            hp,
+                            maxHp: hp,
+                            armorClass: real?.armor_class ?? null,
+                            challengeRating: real?.challenge_rating ?? null,
+                            proficiencyBonus: real?.proficiency_bonus ?? null,
+                            abilityScores: real ? {
+                                strength: real.strength, dexterity: real.dexterity, constitution: real.constitution,
+                                intelligence: real.intelligence, wisdom: real.wisdom, charisma: real.charisma,
+                            } : null,
+                            actions: real?.actions || [],
+                            sourceDocument: real?.document || null,
+                            isVerified: !!real,
+                            initiative: rollDice('d20').total + (real ? getAbilityModifierValue(real.dexterity) : 0),
                             isPlayer: false,
-                            xpValue: enemy.xpValue || 0
+                            xpValue: real?.xpValue ?? enemy.xpValue ?? 0
                         });
                     });
                     stateUpdate.combatants = allCombatants.sort((a, b) => b.initiative - a.initiative);
@@ -206,6 +227,24 @@ function getUnarmedStrikeDice(playerState, characterInfo) {
     // Add other checks here for feats like Tavern Brawler if implemented
     return '1'; // Default unarmed strike damage
 }
+/**
+ * Detects short, mechanical commands (e.g. "Roll Investigation", "attack the goblin")
+ * that have no meaningful content for semantic retrieval to match against.
+ * Running RAG on these returns arbitrary "top" chunks and pollutes the prompt.
+ * @param {string} input The raw player input.
+ * @returns {boolean} True if retrieval should be skipped.
+ */
+function isMechanicalInput(input) {
+    const text = (input || '').trim();
+    if (!text)
+        return true;
+    // Anything starting with a roll/attack style command word.
+    if (/^(roll|reroll|re-roll|attack|hit|strike|check)\b/i.test(text))
+        return true;
+    // Very short inputs carry too little signal to retrieve on reliably.
+    const wordCount = text.split(/\s+/).filter(Boolean).length;
+    return wordCount < 4;
+}
 // --- CORE GAME LOOP ---
 export async function sendMessageAndProcessStream(promptForApi, targetElement) {
     const { isGenerating, characterInfo, playerState, llmProvider, chatHistory } = gameState.getState();
@@ -213,12 +252,18 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
         return;
     }
     const systemInstruction = llmProvider.getSystemInstructionContent(characterInfo, playerState, gameState.getState().isMatureEnabled);
-    let fullInputForDebugger = `--- SYSTEM PROMPT ---\n${systemInstruction}\n\n--- CHAT HISTORY & CURRENT PROMPT ---`;
-    chatHistory.forEach(msg => {
+    // The current turn's raw input was already pushed into chatHistory by the caller,
+    // so drop that trailing entry here — otherwise it prints twice (once raw from
+    // history, once as the actual prompt) and looks like a duplicated message.
+    const priorHistory = (chatHistory.length > 0 && chatHistory[chatHistory.length - 1].role === 'user')
+        ? chatHistory.slice(0, -1)
+        : chatHistory;
+    let fullInputForDebugger = `--- SYSTEM PROMPT ---\n${systemInstruction}\n\n--- CHAT HISTORY (previous turns) ---`;
+    priorHistory.forEach(msg => {
         const text = msg.parts.map(p => p.text).join('');
         fullInputForDebugger += `\n${msg.role}: ${text}`;
     });
-    fullInputForDebugger += `\nuser: ${promptForApi}`;
+    fullInputForDebugger += `\n\n--- CURRENT PROMPT (as sent to the model) ---\nuser: ${promptForApi}`;
     const providerType = game.getProviderSettings().provider;
     if (providerType === 'local') {
         fullInputForDebugger = `(This is a reconstruction of the data sent to a local OpenAI-compatible API. The actual payload is a JSON object with this content.)\n\n` + fullInputForDebugger;
@@ -264,6 +309,7 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
             const switched = await llmProvider.useNextModel();
             if (switched) {
                 const newModel = llmProvider.getCurrentModel();
+                ui.logToDebugger('model', 'Model fallback', `Limit or error on "${oldModel}".\nSwitching to fallback model: "${newModel}" and retrying.`);
                 dmMessageElement.innerHTML = `<em>API limit reached for ${oldModel}. Switching to fallback: ${newModel}. Retrying...</em>`;
                 await initializeChatSession();
                 gameState.updateState({ isGenerating: false });
@@ -287,7 +333,16 @@ async function processTagsAndActions(fullResponseText) {
     const gameActionMatches = [...fullResponseText.matchAll(config.GAME_ACTION_REGEX)];
     let stateWasUpdatedByAction = false;
     if (gameActionMatches.length > 0) {
+        const snapshot = (s) => s ? {
+            hp: `${s.health?.current}/${s.health?.max}`, exp: s.exp, level: s.level,
+            money: s.money ? `${s.money.amount} ${s.money.currency}` : undefined,
+            inventoryCount: Array.isArray(s.inventory) ? s.inventory.length : undefined
+        } : null;
+        const before = snapshot(gameState.getState().playerState);
+        ui.logToDebugger('event', `Game actions (${gameActionMatches.length})`, gameActionMatches.map(m => `[${m[1]}] ${m[2]}`).join('\n'));
         stateWasUpdatedByAction = await processGameActions(gameActionMatches);
+        const after = snapshot(gameState.getState().playerState);
+        ui.logToDebugger('state', 'Player state change', `Before: ${JSON.stringify(before)}\nAfter:  ${JSON.stringify(after)}`);
     }
     let stateWasUpdatedByNarrative = false;
     const { isMatureEnabled, playerState, characterInfo } = gameState.getState();
@@ -320,8 +375,8 @@ async function processTagsAndActions(fullResponseText) {
     const attackMatches = [...fullResponseText.matchAll(config.ATTACK_ROLL_REGEX)];
     const diceMatches = [...fullResponseText.matchAll(config.DICE_ROLL_REGEX)];
     const choices = [];
-    attackMatches.forEach(match => choices.push({ type: 'attack', weaponName: match[1], targetDescription: match[2], modifier: match[3] }));
-    diceMatches.forEach(match => choices.push({ type: 'roll', skillOrAbility: match[1], description: match[2], modifier: match[3] }));
+    attackMatches.forEach(match => choices.push({ type: 'attack', weaponName: match[1], targetDescription: match[2], modifier: normalizeRollModifier(match[3]) }));
+    diceMatches.forEach(match => choices.push({ type: 'roll', skillOrAbility: match[1], description: match[2], modifier: normalizeRollModifier(match[3]) }));
     if (choices.length === 1) {
         const choice = choices[0];
         if (choice.type === 'attack') {
@@ -397,18 +452,31 @@ export async function handleAttackRollRequest(weaponName, description, rollModif
     ui.addMessage('attack', attackContent);
     ui.logToDebugger('event', 'Player Attack Roll', JSON.stringify(attackContent, null, 2));
     const { isInCombat, combatants } = gameState.getState();
+    // Resolve hit/miss against the target's real Armor Class so the outcome is
+    // decided by the rules, not by narration.
+    let didHit = true;
+    let targetAc = null;
     if (isInCombat) {
         const targetName = description.toLowerCase();
         const targetNpc = combatants.find(c => !c.isPlayer && c.hp > 0 && c.name.toLowerCase().includes(targetName));
         if (targetNpc) {
-            const newHp = Math.max(0, targetNpc.hp - attackContent.totalDamage);
-            targetNpc.hp = newHp;
-            gameState.updateState({ combatants: [...combatants] });
-            ui.updateCombatTrackerUI(combatants, isInCombat);
+            targetAc = targetNpc.armorClass ?? null;
+            // A natural 20 always hits and a natural 1 always misses.
+            if (targetAc != null) {
+                didHit = attackRoll === 20 || (attackRoll !== 1 && attackContent.totalAttackRoll >= targetAc);
+            }
+            if (didHit) {
+                targetNpc.hp = Math.max(0, targetNpc.hp - attackContent.totalDamage);
+                gameState.updateState({ combatants: [...combatants] });
+                ui.updateCombatTrackerUI(combatants, isInCombat);
+            }
+            ui.logToDebugger('event', didHit ? 'Attack hit' : 'Attack missed', `Target: ${targetNpc.name}${targetNpc.isVerified ? ` [${targetNpc.sourceDocument}]` : ' (unverified)'}\nAC: ${targetAc ?? 'unknown'}\nAttack total: ${attackContent.totalAttackRoll}${didHit ? `\nDamage: ${attackContent.totalDamage}\nHP now: ${targetNpc.hp}/${targetNpc.maxHp}` : ''}`);
         }
     }
-    const historyPrompt = `Action: Attacked ${description} with ${effectiveWeaponName} (Attack Roll: ${attackContent.totalAttackRoll}, Damage: ${attackContent.totalDamage})`;
-    const apiPrompt = `The attack roll against "${description}" with the ${effectiveWeaponName} is ${attackContent.totalAttackRoll}, dealing ${attackContent.totalDamage} damage. ${attackContent.isCritical ? 'It was a critical hit. ' : ''}Narrate the outcome. If this defeats the target, you MUST include the [GAME_ACTION|ENEMY_DEFEATED|{"name": "${description}"}] tag.`;
+    const historyPrompt = `Action: Attacked ${description} with ${effectiveWeaponName} (Attack Roll: ${attackContent.totalAttackRoll}, ${didHit ? `Damage: ${attackContent.totalDamage}` : 'MISS'})`;
+    const apiPrompt = didHit
+        ? `The attack roll against "${description}" with the ${effectiveWeaponName} is ${attackContent.totalAttackRoll}${targetAc != null ? ` against AC ${targetAc}` : ''}, which HITS, dealing ${attackContent.totalDamage} damage. ${attackContent.isCritical ? 'It was a critical hit. ' : ''}Narrate the outcome. Do not contradict this result. If this defeats the target, you MUST include the [GAME_ACTION|ENEMY_DEFEATED|{"name": "${description}"}] tag.`
+        : `The attack roll against "${description}" with the ${effectiveWeaponName} is ${attackContent.totalAttackRoll} against AC ${targetAc}, which MISSES. Narrate the miss. Do not contradict this result and do not apply any damage.`;
     const newHistory = [...chatHistory, { role: 'user', parts: [{ text: historyPrompt }] }];
     gameState.updateState({ chatHistory: newHistory, isGenerating: false });
     saveCurrentGame();
@@ -428,8 +496,19 @@ async function handleNpcAttackIntent(intent) {
         console.warn(`NPC Attacker '${attacker.name}' tried to use unknown weapon '${intent.weaponName}'.`);
         return;
     }
-    const attackBonus = 4;
-    const damageBonus = 2;
+    // Derive the attacker's bonuses from its real statistics when the creature was
+    // matched to sourcebook data; fall back to generic values only if it wasn't.
+    let attackBonus = 4;
+    let damageBonus = 2;
+    if (attacker.abilityScores) {
+        const str = getAbilityModifierValue(attacker.abilityScores.strength ?? 10);
+        const dex = getAbilityModifierValue(attacker.abilityScores.dexterity ?? 10);
+        const useDex = !weaponData.is_melee || (weaponData.is_finesse && dex > str);
+        const abilityMod = useDex ? dex : str;
+        const prof = attacker.proficiencyBonus ?? 2;
+        attackBonus = abilityMod + prof;
+        damageBonus = abilityMod;
+    }
     const attackRoll = rollDice('d20').total;
     const isCritical = attackRoll === 20;
     const damageDice = weaponData.damage_dice;
@@ -532,9 +611,23 @@ export async function handleFormSubmit(event) {
         contextString += `RULEBOOK ENTRY FOR "${knownEntity.name}":\n${knownEntity.chunk}\n\n`;
     }
     if (rag.isReady()) {
-        const contextChunks = await rag.search(userInput);
-        if (contextChunks.length > 0) {
-            contextString += contextChunks.map(c => c.chunk).join('\n---\n');
+        if (isMechanicalInput(userInput)) {
+            // Commands like "Roll Investigation" carry no semantic content to match
+            // on, so retrieval would only inject irrelevant rulebook noise.
+            ui.logToDebugger('rag', 'Retrieval skipped', `Input treated as a mechanical command, not a lookup:\n"${userInput}"`);
+        }
+        else {
+            const contextChunks = await rag.search(userInput);
+            if (contextChunks.length > 0) {
+                contextString += contextChunks.map(c => c.chunk).join('\n---\n');
+                const summary = contextChunks
+                    .map(c => `${(c.score ?? 0).toFixed(3)}  [${c.metadata?.source ?? '?'}] ${c.metadata?.name ?? '?'}`)
+                    .join('\n');
+                ui.logToDebugger('rag', `Retrieved ${contextChunks.length} chunk(s)`, `Query: "${userInput}"\n\n${summary}`);
+            }
+            else {
+                ui.logToDebugger('rag', 'No relevant results', `Query: "${userInput}"\nNothing scored above the relevance threshold.`);
+            }
         }
     }
     if (contextString) {

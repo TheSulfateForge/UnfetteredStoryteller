@@ -30,6 +30,13 @@ const STAT_ABBREVIATIONS = {
     wisdom: 'wis',
     charisma: 'cha',
 };
+/**
+ * Boilerplate racial trait entries that shouldn't be listed as features.
+ * Anchored to the WHOLE name on purpose: a bare substring test also matched
+ * real traits like "Damage Resistance" and "Savage Attacks" (both contain
+ * "age"), silently dropping them from characters.
+ */
+const BOILERPLATE_TRAIT_REGEX = /^(ability score increase|age|alignment|size|speed|languages?)$/i;
 const CLASSES_WITH_PAGE_4 = new Set(['bard', 'cleric', 'druid', 'fighter', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']);
 const SPELLCASTING_CLASSES = new Set(['bard', 'cleric', 'druid', 'sorcerer', 'warlock', 'wizard', 'paladin', 'ranger']);
 export const POINT_BUY_TOTAL = 35;
@@ -291,7 +298,7 @@ export function updateCharacterCreationSummary() {
         else
             html += `<p class="placeholder-text">Select a ${title.split(' ')[0]}</p>`;
     };
-    renderSection('Race Features', raceData, r => r.traits.filter((t) => !/ability score increase|age|alignment|size|speed|languages/i.test(t.name)));
+    renderSection('Race Features', raceData, r => r.traits.filter((t) => !BOILERPLATE_TRAIT_REGEX.test(t.name.trim())));
     renderSection('Class Features (Level 1)', classData, c => c.features?.filter((f) => f.level === 1) || []);
     renderSection('Background Feature', backgroundData, b => b.benefits?.filter((f) => f.type === 'feature') || []);
     dom.ccSummaryBox.innerHTML = html;
@@ -458,6 +465,8 @@ export function updateSpecialSelectionsUI() {
         pageHtml += choiceBuilder();
         hasContent = true;
     }
+    pageHtml += renderFeatSelection();
+    hasContent = true;
     const isLvl1PaladinOrRanger = (className.toLowerCase() === 'paladin' || className.toLowerCase() === 'ranger');
     if (SPELLCASTING_CLASSES.has(className.toLowerCase()) && !isLvl1PaladinOrRanger) {
         pageHtml += renderSpellSelection(className);
@@ -495,40 +504,70 @@ function createChoiceBlock(title, choices, inputType, inputName, limit = 1) {
     });
     return html + '</div></div>';
 }
+/**
+ * Optional starting feat. In SRD 5.1 feats are an optional rule normally taken
+ * in place of an Ability Score Improvement, so this defaults to "None" and is
+ * never forced. Feats whose prerequisite clearly isn't met are marked.
+ */
+function renderFeatSelection() {
+    const feats = dataManager.getFeats();
+    if (!feats || feats.length === 0)
+        return '';
+    const scores = pointBuyState.scores;
+    /** Best-effort prerequisite check against ability scores and proficiencies. */
+    const meetsPrerequisite = (prereq) => {
+        if (!prereq)
+            return true;
+        const text = String(prereq);
+        // "Strength 13 or higher" style requirements can be checked directly.
+        const abilityMatch = text.match(/(strength|dexterity|constitution|intelligence|wisdom|charisma)\s+(\d+)/i);
+        if (abilityMatch) {
+            const stat = abilityMatch[1].toLowerCase();
+            return (scores[stat] ?? 0) >= parseInt(abilityMatch[2], 10);
+        }
+        return true; // Anything we can't verify is left to the player.
+    };
+    const options = feats
+        .slice()
+        .sort((a, b) => a.name.localeCompare(b.name))
+        .map(f => {
+            const ok = meetsPrerequisite(f.prerequisite);
+            const id = `feat-${String(f.slug || f.name).toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+            const pre = f.prerequisite ? `<em>Prerequisite: ${f.prerequisite}${ok ? '' : ' — not met'}</em><br>` : '';
+            return `<div class="choice-item"><div class="choice-item-header">
+                <input type="radio" id="${id}" name="startingFeat" value="${f.name}"${ok ? '' : ' disabled'}>
+                <label for="${id}">${f.name}</label>
+            </div><p class="choice-desc">${pre}${createBlurb(f.desc || (f.benefits || []).map(b => b.desc).join(' '))}</p></div>`;
+        }).join('');
+    return `<div class="choice-block"><h4>Starting Feat (optional)</h4>
+        <p class="form-hint">Feats are an optional rule. Leave this as "None" to follow the standard progression.</p>
+        <div class="choice-grid">
+            <div class="choice-item"><div class="choice-item-header">
+                <input type="radio" id="feat-none" name="startingFeat" value="" checked>
+                <label for="feat-none">None</label>
+            </div><p class="choice-desc">Take no feat at 1st level.</p></div>
+            ${options}
+        </div></div>`;
+}
 function renderSpellSelection(className) {
     const spellList = dataManager.getSpellList(className);
     if (!spellList)
         return `<p class="error-message">Could not find a spell list for ${className}.</p>`;
-    let cantrips = 0, level1 = 0;
     const { wisdom, intelligence, charisma } = pointBuyState.scores;
+    // Cantrips and "spells known" come from the class progression table built
+    // from upstream data, so they stay correct if the source data changes.
+    let cantrips = dataManager.getProgressionValue(className, 'cantrips-known', 1);
+    let level1 = dataManager.getProgressionValue(className, 'spells-known', 1);
+    // Prepared casters have no "spells known" column - their prepared count is
+    // derived from level + spellcasting ability instead.
     switch (className.toLowerCase()) {
-        case 'bard':
-            cantrips = 2;
-            level1 = 4;
-            break;
         case 'cleric':
-            cantrips = 3;
-            level1 = Math.max(1, 1 + getAbilityModifierValue(wisdom));
-            break;
         case 'druid':
-            cantrips = 2;
             level1 = Math.max(1, 1 + getAbilityModifierValue(wisdom));
-            break;
-        case 'sorcerer':
-            cantrips = 4;
-            level1 = 2;
-            break;
-        case 'warlock':
-            cantrips = 2;
-            level1 = 2;
             break;
         case 'wizard':
-            cantrips = 3;
-            level1 = 6;
-            break;
-        case 'ranger':
-            cantrips = 0;
-            level1 = 2;
+            // A wizard's spellbook starts with six 1st-level spells.
+            level1 = level1 || 6;
             break;
         case 'paladin':
             cantrips = 0;
@@ -606,7 +645,12 @@ function resolveGearClause(clause) {
 }
 /** Splits a clause string into individual item clauses on commas / "and". */
 function splitGearItems(text) {
-    return text.split(/\s*,\s*|\s+and\s+/i)
+    // Split on commas/semicolons first. Only fall back to splitting on " and "
+    // for simple two-part phrases with no punctuation ("Leather armor and a
+    // dagger"); otherwise "chemical and botanical samples" gets torn in half.
+    const hasPunctuation = /[,;]/.test(text);
+    const parts = hasPunctuation ? text.split(/\s*[,;]\s*/) : text.split(/\s+and\s+/i);
+    return parts
         .map(s => s.replace(/^(?:and|or)\s+/i, '').trim())
         .filter(Boolean);
 }
@@ -785,6 +829,7 @@ export async function handleCharacterCreationSubmit(event) {
         characterInfo.sorcerousOrigin = getValue('sorcerousOrigin');
         characterInfo.draconicAncestry = getValue('draconicAncestry');
         characterInfo.otherworldlyPatron = getValue('otherworldlyPatron');
+        characterInfo.startingFeat = getValue('startingFeat');
     }
     let specialSelectionsText = '\n--- CLASS SELECTIONS ---';
     const selections = {
@@ -792,6 +837,7 @@ export async function handleCharacterCreationSubmit(event) {
         'Expertise': characterInfo.rogueExpertise?.join(', '), 'Favored Enemy': characterInfo.favoredEnemy,
         'Natural Explorer Terrain': characterInfo.naturalExplorer, 'Sorcerous Origin': characterInfo.sorcerousOrigin,
         'Draconic Ancestry': characterInfo.draconicAncestry, 'Otherworldly Patron': characterInfo.otherworldlyPatron,
+        'Starting Feat': characterInfo.startingFeat,
         'Spells Selected': characterInfo.spellsSelected?.join(', ')
     };
     Object.entries(selections).forEach(([key, value]) => {
@@ -828,10 +874,12 @@ export async function handleCharacterCreationSubmit(event) {
         // 2. Rebuild Traits & Features to prevent duplicates/naming issues from AI
         playerState.racialTraits = [];
         playerState.classFeatures = [];
-        playerState.feats = playerState.feats || []; // Keep any feats AI might have inferred from backstory
+        // Feats are canonical from the form: only the chosen starting feat (if any),
+        // so the AI cannot invent feats from the backstory text.
+        playerState.feats = characterInfo.startingFeat ? [characterInfo.startingFeat] : [];
         const raceData = dataManager.getRace(characterInfo.race);
         if (raceData) {
-            playerState.racialTraits.push(...raceData.traits.map(t => t.name).filter(n => !/ability score increase|age|alignment|size|speed|languages/i.test(n)));
+            playerState.racialTraits.push(...raceData.traits.map(t => t.name).filter(n => !BOILERPLATE_TRAIT_REGEX.test(n.trim())));
         }
         const classData = dataManager.getClass(characterInfo.characterClass);
         if (classData?.features) {
@@ -917,6 +965,60 @@ export function handleCustomHookSubmit(event) {
         startAdventure(customHook);
 }
 // --- LEVEL UP WIZARD ---
+/**
+ * Works out how many new cantrips and spells a class learns when moving between
+ * two levels, using the upstream class progression table.
+ * @param {string} className
+ * @param {number} fromLevel
+ * @param {number} toLevel
+ * @returns {{cantrips: number, spells: number}}
+ */
+function getSpellGains(className, fromLevel, toLevel) {
+    const delta = (column) => Math.max(0,
+        dataManager.getProgressionValue(className, column, toLevel) -
+        dataManager.getProgressionValue(className, column, fromLevel));
+    const gains = { cantrips: delta('cantrips-known'), spells: delta('spells-known') };
+    // Wizards have no "spells known" column: they add two spells to their
+    // spellbook each level instead (SRD Spellbook feature).
+    if (className && className.toLowerCase() === 'wizard' && toLevel > fromLevel) {
+        gains.spells = 2 * (toLevel - fromLevel);
+    }
+    return gains;
+}
+/** Builds the level-up spell picker for whichever spell levels are now available. */
+function renderLevelUpSpellChoices(className, playerState, gains) {
+    const spellList = dataManager.getSpellList(className);
+    if (!spellList)
+        return `<p class="error-message">No spell list found for ${className}.</p>`;
+    const known = new Set((playerState.spellsKnown || []).map(s => String(s).toLowerCase()));
+    const all = spellList.spells.map(s => dataManager.getSpell(s)).filter(Boolean);
+    // Highest spell level this character can now cast, from the slot columns.
+    let maxSpellLevel = 1;
+    for (let lvl = 9; lvl >= 1; lvl--) {
+        const col = ['1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th'][lvl - 1];
+        if (dataManager.getProgressionValue(className, col, levelUpState.targetLevel) > 0) { maxSpellLevel = lvl; break; }
+    }
+    const slotLevelRaw = dataManager.getClassProgression(className)?.['slot-level']?.[levelUpState.targetLevel - 1];
+    if (slotLevelRaw) {
+        const n = parseInt(String(slotLevelRaw), 10);
+        if (Number.isFinite(n)) maxSpellLevel = n; // Warlock-style single slot level
+    }
+    const grid = (title, spells, limit, group) => {
+        if (!spells.length || limit <= 0)
+            return '';
+        return `<div class="spell-list choice-block"><h4>${title} (Choose ${limit})</h4><div class="spell-grid">` +
+            spells.map(s => {
+                const id = `lu-${group}-${s.name.toLowerCase().replace(/[\s/]+/g, '-')}`;
+                return `<div class="spell-item"><div class="spell-item-header"><input type="checkbox" id="${id}" name="${group}-levelup" data-spell-name="${s.name}"><label for="${id}">${s.name}</label></div></div>`;
+            }).join('') + `</div></div>`;
+    };
+    const avail = (predicate) => all.filter(s => predicate(s) && !known.has(String(s.name).toLowerCase()))
+        .sort((a, b) => a.name.localeCompare(b.name));
+    let html = `<h4>New Magic</h4><p>Your growing power grants you new magic. Choose below.</p>`;
+    html += grid('New Cantrips', avail(s => s.level === 0), gains.cantrips, 'cantrip');
+    html += grid(`New Spells (up to level ${maxSpellLevel})`, avail(s => s.level >= 1 && s.level <= maxSpellLevel), gains.spells, 'spell');
+    return html;
+}
 function renderLevelUpPage(page) {
     if (!levelUpState)
         return;
@@ -975,7 +1077,10 @@ function renderLevelUpPage(page) {
             }
             break;
         case 2:
-            // Page 2: Ability Score Improvement
+            // Ability Score Improvement. Only render it if this level actually
+            // grants one - page 2 may instead be the new-spells page.
+            if (levelUpState.asiPage !== 2)
+                break;
             html += `<h4>Ability Score Improvement</h4>`;
             html += `<p>You can increase one ability score by 2, or two ability scores by 1. You have <strong id="asi-points-remaining">2</strong> points remaining.</p>`;
             html += `<div class="asi-container">`;
@@ -992,15 +1097,33 @@ function renderLevelUpPage(page) {
             html += `<button type="button" id="asi-reset-btn" class="secondary-btn">Reset Points</button>`;
             break;
     }
+    // The spell page's position depends on whether this level also grants an ASI.
+    if (levelUpState.spellPage && page === levelUpState.spellPage) {
+        html = renderLevelUpSpellChoices(characterInfo.characterClass, playerState, levelUpState.gains);
+    }
     const pageElement = document.createElement('div');
     pageElement.className = 'level-up-page active';
     pageElement.innerHTML = html;
     container.appendChild(pageElement);
-    if (page === 2) {
+    if (page === levelUpState.asiPage) {
         setupAsiListeners();
-        document.getElementById('asi-reset-btn').addEventListener('click', () => {
-            renderLevelUpPage(2);
+        document.getElementById('asi-reset-btn')?.addEventListener('click', () => {
+            renderLevelUpPage(levelUpState.asiPage);
         });
+    }
+    if (levelUpState.spellPage && page === levelUpState.spellPage) {
+        // Stop the player selecting more than the level grants.
+        const enforce = (group, limit) => {
+            const boxes = [...pageElement.querySelectorAll(`input[name="${group}-levelup"]`)];
+            const update = () => {
+                const checked = boxes.filter(b => b.checked).length;
+                boxes.forEach(b => { if (!b.checked) b.disabled = checked >= limit; });
+            };
+            boxes.forEach(b => b.addEventListener('change', update));
+            update();
+        };
+        enforce('cantrip', levelUpState.gains.cantrips);
+        enforce('spell', levelUpState.gains.spells);
     }
 }
 function setupAsiListeners() {
@@ -1064,12 +1187,28 @@ function updateAsiUi() {
 function validateLevelUpPage(page) {
     if (!levelUpState)
         return false;
-    if (page === 2) {
+    if (page === levelUpState.asiPage) {
         const pointsSpent = levelUpState.choices.asi?.reduce((acc, c) => acc + c.points, 0) || 0;
         if (pointsSpent !== 2) {
             alert('You must spend exactly 2 points for your Ability Score Improvement.');
             return false;
         }
+    }
+    if (levelUpState.spellPage && page === levelUpState.spellPage) {
+        const container = dom.levelUpPagesContainer;
+        const picked = (group) => [...container.querySelectorAll(`input[name="${group}-levelup"]:checked`)];
+        const cantrips = picked('cantrip');
+        const spells = picked('spell');
+        const errors = [];
+        if (cantrips.length !== levelUpState.gains.cantrips)
+            errors.push(`Choose exactly ${levelUpState.gains.cantrips} new cantrip(s). You have chosen ${cantrips.length}.`);
+        if (spells.length !== levelUpState.gains.spells)
+            errors.push(`Choose exactly ${levelUpState.gains.spells} new spell(s). You have chosen ${spells.length}.`);
+        if (errors.length) {
+            alert(errors.join('\n'));
+            return false;
+        }
+        levelUpState.choices.newSpells = [...cantrips, ...spells].map(cb => cb.dataset.spellName);
     }
     return true;
 }
@@ -1088,6 +1227,11 @@ function applyLevelUp() {
         proficiencyBonus: calculateProficiencyBonus(levelUpState.targetLevel),
         classFeatures: [...playerState.classFeatures, ...levelUpState.newFeatures],
     };
+    if (levelUpState.choices.newSpells && levelUpState.choices.newSpells.length > 0) {
+        playerStateUpdate.spellsKnown = [
+            ...new Set([...(playerState.spellsKnown || []), ...levelUpState.choices.newSpells])
+        ];
+    }
     if (levelUpState.choices.asi && levelUpState.choices.asi.length > 0) {
         const newScores = { ...playerState.abilityScores };
         levelUpState.choices.asi.forEach(choice => {
@@ -1114,11 +1258,17 @@ export function startLevelUp() {
     const targetLevel = playerState.level + 1;
     const newFeaturesData = classData.features?.filter(f => f.level === targetLevel) || [];
     const hasASI = newFeaturesData.some(f => f.name === 'Ability Score Improvement');
+    // How many new spells/cantrips this level grants, straight from the class table.
+    const gains = getSpellGains(characterInfo.characterClass, playerState.level, targetLevel);
+    const hasSpellGain = (gains.cantrips + gains.spells) > 0;
     levelUpState = {
         targetLevel,
         currentPage: 1,
-        totalPages: hasASI ? 2 : 1, // Dynamically set pages
-        choices: { asi: [] },
+        totalPages: 1 + (hasASI ? 1 : 0) + (hasSpellGain ? 1 : 0),
+        asiPage: hasASI ? 2 : null,
+        spellPage: hasSpellGain ? (hasASI ? 3 : 2) : null,
+        gains,
+        choices: { asi: [], newSpells: [] },
         newFeatures: [],
     };
     dom.levelUpTitle.textContent = `Level Up: ${characterInfo.name} reaches Level ${targetLevel}!`;

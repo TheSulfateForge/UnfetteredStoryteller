@@ -3,6 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 import { toCamelCase, escapeRegExp } from './utils.js';
+import { isAllowedSource } from './config.js';
 import { DEFAULT_SKILLS } from './rpg-helpers.js';
 import { createChunk } from './chunking-strategies.js';
 // --- DATA STORE ---
@@ -14,6 +15,7 @@ let armor = {}; // Store as object for easier lookup by name
 let spells = new Map();
 let spellLists = new Map();
 let feats = [];
+let classProgression = {};
 // --- HELPERS ---
 /**
  * Parses the 'Ability Score Increase' trait description to extract bonuses.
@@ -44,6 +46,78 @@ export const getBackgrounds = () => backgrounds;
 export const getWeapons = () => weapons;
 export const getArmor = () => armor;
 export const getFeats = () => feats;
+// --- MONSTER INDEX (lazy) ---------------------------------------------
+// monsters.json is large, so it is only fetched the first time combat needs it.
+let monsterIndex = null;
+let monsterIndexPromise = null;
+/** Source preference when several books define a creature of the same name. */
+const MONSTER_SOURCE_PRIORITY = ['srd-2014', 'srd', 'wotc-srd', 'tob-2023', 'tob', 'tob2', 'tob3', 'ccdx', 'menagerie', 'blackflag'];
+export async function loadMonsters() {
+    if (monsterIndex)
+        return monsterIndex;
+    if (!monsterIndexPromise) {
+        monsterIndexPromise = (async () => {
+            const res = await fetch('./data/monsters.json');
+            const data = await res.json();
+            const rows = (Array.isArray(data) ? data : data.results || []).filter(isAllowedSource);
+            const map = new Map();
+            for (const m of rows) {
+                const key = String(m.name || '').toLowerCase();
+                const existing = map.get(key);
+                if (!existing) { map.set(key, m); continue; }
+                // Prefer the more canonical source when names collide.
+                const rank = (x) => {
+                    const i = MONSTER_SOURCE_PRIORITY.indexOf(String(x.document || '').toLowerCase());
+                    return i === -1 ? MONSTER_SOURCE_PRIORITY.length : i;
+                };
+                if (rank(m) < rank(existing)) map.set(key, m);
+            }
+            monsterIndex = map;
+            return map;
+        })();
+    }
+    return monsterIndexPromise;
+}
+/** Exact-then-partial lookup of a creature by name. Returns null if unknown. */
+export function getMonster(name) {
+    if (!monsterIndex || !name)
+        return null;
+    const key = String(name).toLowerCase().trim();
+    if (monsterIndex.has(key))
+        return monsterIndex.get(key);
+    // Fall back to the longest indexed name contained in the requested name,
+    // so "Goblin Scout" still resolves to "Goblin".
+    let best = null;
+    for (const [k, v] of monsterIndex) {
+        if (key.includes(k) && (!best || k.length > best.key.length))
+            best = { key: k, value: v };
+    }
+    return best ? best.value : null;
+}
+/**
+ * Returns the per-level progression table for a class, built from the upstream
+ * ClassFeatureItem data (columns like 'spells-known', 'cantrips-known').
+ * Each column is a 20-entry array indexed by level-1.
+ * @param {string} className
+ * @returns {Record<string, (string|null)[]>|undefined}
+ */
+export function getClassProgression(className) {
+    if (!className)
+        return undefined;
+    return classProgression[className.toLowerCase()];
+}
+/**
+ * Reads one progression column at a given level, as a number.
+ * @returns {number} 0 when the class/column/level has no value.
+ */
+export function getProgressionValue(className, column, level) {
+    const table = getClassProgression(className);
+    const raw = table?.[column]?.[level - 1];
+    if (raw == null)
+        return 0;
+    const n = parseInt(String(raw).replace(/[^0-9-]/g, ''), 10);
+    return Number.isFinite(n) ? n : 0;
+}
 export const getSpell = (slug) => spells.get(slug);
 export const getSpellList = (className) => spellLists.get(className.toLowerCase());
 /**
@@ -128,20 +202,31 @@ export async function init() {
             fetch('./data/spelllist.json'),
             fetch('./data/feats.json'),
         ]);
+        // Per-level class tables (spells known, cantrips known, slots).
+        try {
+            const progRes = await fetch('./data/class-progression.json');
+            if (progRes.ok)
+                classProgression = await progRes.json();
+        }
+        catch (e) {
+            console.warn('class-progression.json unavailable; level-up spell gains disabled.', e);
+        }
+        // Only load content from the licensed sources listed in config.
+        const allowed = (arr) => (Array.isArray(arr) ? arr.filter(isAllowedSource) : arr);
         const racesData = await racesRes.json();
-        races = racesData.results || racesData;
+        races = allowed(racesData.results || racesData);
         const classesData = await classesRes.json();
-        classes = classesData.results || classesData;
+        classes = allowed(classesData.results || classesData);
         const rawBackgroundsData = await backgroundsRes.json();
-        const rawBackgrounds = rawBackgroundsData.results || rawBackgroundsData;
+        const rawBackgrounds = allowed(rawBackgroundsData.results || rawBackgroundsData);
         const weaponsData = await weaponsRes.json();
-        const weaponsArray = weaponsData.results || weaponsData;
+        const weaponsArray = allowed(weaponsData.results || weaponsData);
         weaponsArray.forEach(w => { weapons[w.name.toLowerCase()] = w; });
         const armorData = await armorRes.json();
-        const armorArray = armorData.results || armorData;
+        const armorArray = allowed(armorData.results || armorData);
         armorArray.forEach(a => { armor[a.name.toLowerCase()] = a; });
         const spellsData = await spellsRes.json();
-        const spellsArray = spellsData.results || spellsData;
+        const spellsArray = allowed(spellsData.results || spellsData);
         spellsArray.forEach(s => {
             const slug = s.name.toLowerCase().replace(/[\s/]+/g, '-');
             spells.set(slug, s);
@@ -150,7 +235,7 @@ export async function init() {
         const spellListArray = spellListData.results || spellListData;
         spellListArray.forEach(sl => spellLists.set(sl.slug.toLowerCase(), sl));
         const featsData = await featsRes.json();
-        feats = featsData.results || featsData;
+        feats = allowed(featsData.results || featsData);
         // --- Post-process and pre-calculate data for performance ---
         // 1. Process Races
         const raceUrlMap = new Map();

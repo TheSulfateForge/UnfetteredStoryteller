@@ -206,7 +206,7 @@ export class GeminiAPIProvider {
 This is the player character. This data is ABSOLUTE TRUTH.
 - **Name:** ${charInfo.name} (${charInfo.gender}, ${charInfo.race} ${charInfo.characterClass})
 ${charInfo.draconicAncestry ? `- **Draconic Ancestry:** ${charInfo.draconicAncestry}` : ''}
-- **Description & Backstory:** ${charInfo.desc} ${charInfo.bio}
+- **Description & Backstory:** ${[charInfo.desc || pState.appearanceDescription, charInfo.bio || pState.backstory].filter(Boolean).join(' ').trim() || 'Not specified; infer a consistent persona from the character sheet above.'}
 - **Level:** ${pState.level} (Proficiency Bonus: +${pState.proficiencyBonus})
 - **Ability Scores:** Str ${pState.abilityScores.strength} (${getAbilityModifier(pState.abilityScores.strength)}), Dex ${pState.abilityScores.dexterity} (${getAbilityModifier(pState.abilityScores.dexterity)}), Con ${pState.abilityScores.constitution} (${getAbilityModifier(pState.abilityScores.constitution)}), Int ${pState.abilityScores.intelligence} (${getAbilityModifier(pState.abilityScores.intelligence)}), Wis ${pState.abilityScores.wisdom} (${getAbilityModifier(pState.abilityScores.wisdom)}), Cha ${pState.abilityScores.charisma} (${getAbilityModifier(pState.abilityScores.charisma)})
 - **Proficient Skills:** ${formatProficiencyList(pState.skills)}
@@ -223,12 +223,25 @@ ${pregnancyDescription ? `- **Condition:** ${pregnancyDescription}` : ''}
 You MUST use these tags to request player actions. DO NOT roll for the player.
 - **Ability/Skill Check:** For uncertain non-combat actions.
   - **Format:** '[ROLL|SKILL_or_ABILITY|DESCRIPTION|MODIFIER]'
-  - **MODIFIER:** Optional 'ADVANTAGE' or 'DISADVANTAGE'.
+  - **MODIFIER:** MUST be exactly one of the literal words 'ADVANTAGE', 'DISADVANTAGE', or 'NONE'. Do NOT write 'MODIFIER:0' or any other value.
+  - **Correct example:** '[ROLL|Investigation|Searching the entrance for tracks|NONE]'
+  - **Emit each roll tag only ONCE per response, as the very last line.**
 - **Player Attack:** If the player character declares their intent to attack a creature with a weapon (like 'I attack the guard with my sword'), you MUST use this tag. **If the player specifies a weapon, you MUST use that exact weapon name for \`WEAPON_NAME\`.** Do not substitute a different weapon. Do not describe the attack's outcome; only set up the action by describing the attempt.
   - **Format:** '[ATTACK|WEAPON_NAME|TARGET_DESCRIPTION|MODIFIER]'
 
 **Gameplay Rules:**
 - **Response Style:** Describe the world vividly and concisely. End with a prompt for player action. Do not include meta-commentary, instructions, or bracketed text like '[SILENCE...]' in your narrative response.
+
+**Source Fidelity (MANDATORY)**
+- **Use real content only.** Creatures, spells, magic items and equipment MUST come from the loaded sourcebooks. Do NOT invent a creature, spell or item, and do NOT invent statistics for one.
+- **Never state statistics.** Do not write a creature's HP, AC, challenge rating, attack bonus or damage in the narrative. The application looks these up from the sourcebooks and will correct you. Refer to enemies by name only.
+- **If you need something that does not exist**, use the closest real creature or item by name instead of inventing one, or describe it purely as flavour with no mechanical effect.
+- **Background information is authoritative.** When rulebook text is supplied to you, follow it exactly. Do not reinterpret, "balance" or house-rule it.
+
+**Resolution Authority (MANDATORY)**
+- The application performs ALL dice rolls and resolves ALL outcomes. You never decide whether an attack hits, whether a save succeeds, or how much damage is dealt.
+- When the application tells you a result (a hit, a miss, a roll total, a damage figure), that result is FINAL. Narrate it faithfully. Never contradict, soften, re-roll or reinterpret it, and never let the story imply a different outcome.
+- If you are told an attack MISSES, nothing is damaged and no condition is applied.
 
 - **Game Actions & State Changes:** Your primary way to change the player's state is with a Game Action tag. This tells the application what *happened*, and the application will do the math. This is the ONLY way you should report changes to health, XP, money, or inventory. Do NOT describe these changes in the narrative text (e.g., do not say "You gain 50 XP.").
   - **Format:** [GAME_ACTION|TYPE|{"json_payload"}]

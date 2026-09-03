@@ -81,8 +81,17 @@ export function calculateProficiencyBonus(level) {
     return Math.ceil(1 + (level / 4));
 }
 export function rollDice(diceNotation) {
-    if (diceNotation.includes('d')) {
-        const [numDice, numSides] = diceNotation.split('d').map(s => parseInt(s, 10));
+    if (typeof diceNotation === 'string' && diceNotation.includes('d')) {
+        const [countPart, sidesPart] = diceNotation.trim().toLowerCase().split('d');
+        // An omitted count means a single die: "d20" is "1d20". Previously this
+        // parsed to NaN, so the loop below never ran and the roll was ALWAYS 0 —
+        // silently breaking every NPC attack, NPC skill check and initiative roll.
+        const numDice = countPart.trim() === '' ? 1 : parseInt(countPart, 10);
+        const numSides = parseInt(sidesPart, 10);
+        if (!Number.isFinite(numDice) || !Number.isFinite(numSides) || numDice < 1 || numSides < 1) {
+            console.warn(`rollDice: could not parse dice notation "${diceNotation}".`);
+            return { rolls: [0], total: 0 };
+        }
         let total = 0;
         const rolls = [];
         for (let i = 0; i < numDice; i++) {
@@ -118,8 +127,13 @@ export function calculateArmorClass(playerState) {
     const equippedArmorName = playerState.equipment.armor?.toLowerCase() || 'none';
     // More robust shield detection using a regex for the whole word "shield".
     const shieldRegex = /\bshield\b/;
-    const isWearingShield = playerState.inventory.some(i => shieldRegex.test(i.toLowerCase())) ||
+    const ownsShield = playerState.inventory.some(i => shieldRegex.test(i.toLowerCase())) ||
         shieldRegex.test(equippedArmorName);
+    // A two-handed weapon occupies both hands, so a carried shield grants no AC
+    // while it is wielded (SRD "Two-Handed" weapon property).
+    const equippedWeaponData = getWeaponData(playerState.equipment.weapon);
+    const usingTwoHandedWeapon = equippedWeaponData?.is_two_handed === true;
+    const isWearingShield = ownsShield && !usingTwoHandedWeapon;
     // For lookup, remove the shield part from the armor string.
     const armorNameToLookUp = equippedArmorName.replace(/,?\s*(with a\s*)?shield/g, '').trim();
     let baseAc = 10;

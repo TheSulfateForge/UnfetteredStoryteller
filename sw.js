@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v54'; // Bumped: save-slot listener always registered (Export fix)
+const CACHE_NAME = 'unfettered-storyteller-cache-v58'; // Bumped: full v2 rebuild, feat selection, engine grounded in real data
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 
@@ -9,7 +9,7 @@ const dataFiles = [
     './data/races.json', './data/classes.json', './data/magicitems.json', 
     './data/weapons.json', './data/armor.json', './data/planes.json', 
     './data/sections.json', './data/spelllist.json', './data/documents.json', 
-    './data/lore.json'
+    './data/lore.json', './data/class-progression.json'
 ];
 
 const urlsToCache = [
