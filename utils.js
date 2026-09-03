@@ -70,6 +70,24 @@ export function toCamelCase(str) {
  * @param {string} str The string to escape.
  * @returns {string} The escaped string.
  */
+/**
+ * Normalizes the free-form modifier segment of a [ROLL|...] or [ATTACK|...] tag.
+ * Models often emit variants like "MODIFIER:0", "MODIFIER: ADVANTAGE", "none" or
+ * leave it blank, so we detect intent rather than requiring an exact keyword.
+ * @param {string|undefined} raw The raw captured modifier text.
+ * @returns {'ADVANTAGE'|'DISADVANTAGE'|undefined}
+ */
+export function normalizeRollModifier(raw) {
+    if (!raw)
+        return undefined;
+    const text = String(raw).toUpperCase();
+    // Check DISADVANTAGE first: it contains "ADVANTAGE" as a substring.
+    if (text.includes('DISADVANTAGE'))
+        return 'DISADVANTAGE';
+    if (text.includes('ADVANTAGE'))
+        return 'ADVANTAGE';
+    return undefined;
+}
 export function escapeRegExp(str) {
     // $& means the whole matched string
     return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
