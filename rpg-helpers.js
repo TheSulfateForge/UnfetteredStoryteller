@@ -160,18 +160,40 @@ export function calculateArmorClass(playerState) {
     }
     return baseAc;
 }
+/**
+ * Normalises a skill name to its state key. The AI writes skills in prose
+ * ("Sleight of Hand", "animal handling"), while state and the ability map use
+ * camelCase, so both sides are compared with punctuation and case removed.
+ * @param {string} name
+ * @returns {string|undefined} The matching camelCase key, if any.
+ */
+export function resolveSkillKey(name) {
+    const flat = String(name || '').toLowerCase().replace(/[^a-z]/g, '');
+    if (!flat)
+        return undefined;
+    return Object.keys(SKILL_TO_ABILITY_MAP).find(key => key.toLowerCase() === flat);
+}
 export function calculateRollModifier(skillOrAbility, playerState) {
-    const cleanSkillOrAbility = skillOrAbility.toLowerCase().replace(/\s/g, '');
-    const abilityKey = SKILL_TO_ABILITY_MAP[cleanSkillOrAbility];
+    const skillKey = resolveSkillKey(skillOrAbility);
+    const abilityKey = skillKey ? SKILL_TO_ABILITY_MAP[skillKey] : undefined;
     if (!abilityKey)
         return 0;
     const abilityScore = playerState.abilityScores[abilityKey];
     const abilityModifier = getAbilityModifierValue(abilityScore);
     let proficiencyBonus = 0;
-    if (Object.keys(playerState.skills).includes(cleanSkillOrAbility) && playerState.skills[cleanSkillOrAbility] === 'proficient') {
+    const skillProficiency = playerState.skills?.[skillKey];
+    if (skillProficiency === 'expert') {
+        // Expertise doubles the proficiency bonus for that skill.
+        proficiencyBonus = playerState.proficiencyBonus * 2;
+    }
+    else if (skillProficiency === 'proficient') {
         proficiencyBonus = playerState.proficiencyBonus;
     }
-    else if (Object.keys(playerState.savingThrows).includes(abilityKey) && playerState.savingThrows[abilityKey] === 'proficient') {
+    else if (skillKey === abilityKey && playerState.savingThrows?.[abilityKey] === 'proficient') {
+        // Only a roll named for the ability itself (a saving throw) picks up
+        // save proficiency. It used to leak into every skill of that ability -
+        // an Intelligence save proficiency was adding the bonus to Arcana,
+        // History and Investigation checks the character wasn't trained in.
         proficiencyBonus = playerState.proficiencyBonus;
     }
     return abilityModifier + proficiencyBonus;

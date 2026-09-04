@@ -1,6 +1,6 @@
 
 // A robust, "network-first" for HTML & "cache-first" for assets service worker
-const CACHE_NAME = 'unfettered-storyteller-cache-v64'; // Bumped: mobile knowledge-base build (WASM on mobile, small batches, resumable)
+const CACHE_NAME = 'unfettered-storyteller-cache-v65'; // Bumped: feat page fix, loot/quest/health actions, click-to-roll, reply pinning, mobile character sheet, live state in the GM prompt
 // List all the files that make up the app shell
 const dataFiles = [
     './data/spells-0-1.json', './data/spells-2-3.json', './data/spells-4-5.json', 

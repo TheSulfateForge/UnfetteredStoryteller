@@ -5,7 +5,7 @@
 import { dom } from './dom.js';
 import * as ui from './ui.js';
 import * as dataManager from './data-manager.js';
-import { getPointBuyCost, DEFAULT_SKILLS, getAbilityModifierValue, DEFAULT_SAVING_THROWS, calculateProficiencyBonus, calculateArmorClass } from './rpg-helpers.js';
+import { getPointBuyCost, DEFAULT_SKILLS, getAbilityModifierValue, DEFAULT_SAVING_THROWS, calculateProficiencyBonus, calculateArmorClass, resolveSkillKey, rollDice } from './rpg-helpers.js';
 import { gameState } from './state-manager.js';
 import * as game from './game.js';
 import { startAdventure } from './game-loop.js';
@@ -37,7 +37,6 @@ const STAT_ABBREVIATIONS = {
  * "age"), silently dropping them from characters.
  */
 const BOILERPLATE_TRAIT_REGEX = /^(ability score increase|age|alignment|size|speed|languages?)$/i;
-const CLASSES_WITH_PAGE_4 = new Set(['bard', 'cleric', 'druid', 'fighter', 'ranger', 'rogue', 'sorcerer', 'warlock', 'wizard']);
 const SPELLCASTING_CLASSES = new Set(['bard', 'cleric', 'druid', 'sorcerer', 'warlock', 'wizard', 'paladin', 'ranger']);
 export const POINT_BUY_TOTAL = 35;
 let pointBuyState = {
@@ -217,23 +216,16 @@ function validatePage(page) {
 export function handleNextPage() {
     if (!validatePage(currentPage))
         return;
-    let nextPage = currentPage + 1;
-    const isDragonborn = dom.charRaceInput.value.toLowerCase() === 'dragonborn';
-    const classHasPage4 = CLASSES_WITH_PAGE_4.has(dom.charClassInput.value.toLowerCase());
-    if (currentPage === 3 && !classHasPage4 && !isDragonborn) {
-        nextPage = 5; // Skip page 4 
-    }
+    // Page 4 is never skipped. It used to be hidden for classes with no special
+    // level-1 choice (barbarian, monk, paladin), but it now also carries the
+    // optional starting feat, which every class is entitled to.
+    const nextPage = currentPage + 1;
     if (nextPage <= totalPages)
         navigateToPage(nextPage);
 }
 /** Handles the "Previous" button click. */
 export function handlePrevPage() {
-    let prevPage = currentPage - 1;
-    const isDragonborn = dom.charRaceInput.value.toLowerCase() === 'dragonborn';
-    const classHasPage4 = CLASSES_WITH_PAGE_4.has(dom.charClassInput.value.toLowerCase());
-    if (currentPage === 5 && !classHasPage4 && !isDragonborn) {
-        prevPage = 3; // Skip back over page 4
-    }
+    const prevPage = currentPage - 1;
     if (prevPage >= 1)
         navigateToPage(prevPage);
 }
@@ -424,7 +416,14 @@ export function updateSpecialSelectionsUI() {
     // Preserve state before re-rendering
     const previousState = {
         spells: Array.from(page.querySelectorAll('input[name$="-selection"]:checked')).map(cb => cb.dataset.spellName),
-        choices: Array.from(page.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked')).reduce((acc, el) => { acc[el.name] = el.value; return acc; }, {})
+        // Several inputs share a name (Expertise, cantrips, spells known), so all
+        // checked values must be kept. Collapsing to one value per name silently
+        // unchecked the player's other picks every time the page re-rendered,
+        // which then failed validation on Next.
+        choices: Array.from(page.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked')).reduce((acc, el) => {
+            (acc[el.name] = acc[el.name] || []).push(el.value);
+            return acc;
+        }, {})
     };
     page.innerHTML = '';
     let hasContent = false;
@@ -460,7 +459,7 @@ export function updateSpecialSelectionsUI() {
         ranger: () => createChoiceBlock('Favored Enemy', [{ name: 'Beasts' }, { name: 'Fey' }, { name: 'Humanoids' }, { name: 'Monstrosities' }, { name: 'Undead' }].map(c => ({ ...c, desc: `You have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them.` })), 'radio', 'favoredEnemy') + createChoiceBlock('Natural Explorer', [{ name: 'Forest' }, { name: 'Mountain' }, { name: 'Swamp' }, { name: 'Underdark' }].map(c => ({ ...c, desc: `You are particularly familiar with one type of natural environment and are adept at traveling and surviving in such regions.` })), 'radio', 'naturalExplorer'),
         sorcerer: () => {
             let html = createChoiceBlock('Sorcerous Origin', [{ name: 'Draconic Bloodline', desc: 'Your innate magic comes from draconic magic that was mingled with your blood or that of your ancestors.' }], 'radio', 'sorcerousOrigin');
-            const selectedOrigin = previousState.choices['sorcerousOrigin'] || 'Draconic Bloodline';
+            const selectedOrigin = previousState.choices['sorcerousOrigin']?.[0] || 'Draconic Bloodline';
             if (selectedOrigin === 'Draconic Bloodline' && raceName.toLowerCase() !== 'dragonborn') {
                 html += createChoiceBlock('Draconic Ancestry', [{ name: 'Red (Fire)' }, { name: 'Blue (Lightning)' }, { name: 'Black (Acid)' }, { name: 'Green (Poison)' }, { name: 'White (Cold)' }].map(c => ({ ...c, desc: `Your affinity is with the damage type associated with your draconic ancestor.` })), 'radio', 'draconicAncestry');
             }
@@ -485,15 +484,11 @@ export function updateSpecialSelectionsUI() {
     }
     page.innerHTML = pageHtml + '</div>';
     // Restore previous selections after re-render
-    Object.entries(previousState.choices).forEach(([name, value]) => {
-        const inputs = page.querySelectorAll(`input[name="${name}"]`);
-        if (inputs.length > 0) {
-            inputs.forEach(input => {
-                if (input.value === value) {
-                    input.checked = true;
-                }
-            });
-        }
+    Object.entries(previousState.choices).forEach(([name, values]) => {
+        page.querySelectorAll(`input[name="${name}"]`).forEach(input => {
+            if (values.includes(input.value))
+                input.checked = true;
+        });
     });
     enforceCheckboxLimit('rogueExpertise', parseInt(page.dataset.expertiseLimit || '0', 10));
     enforceCheckboxLimit('cantrip-selection', parseInt(page.dataset.cantripLimit || '0', 10));
@@ -519,9 +514,21 @@ function createChoiceBlock(title, choices, inputType, inputName, limit = 1) {
  */
 function renderFeatSelection() {
     const feats = dataManager.getFeats();
-    if (!feats || feats.length === 0)
-        return '';
-    const scores = pointBuyState.scores;
+    if (!feats || feats.length === 0) {
+        console.warn('No feats loaded from data/feats.json; the starting feat choice cannot be shown.');
+        return `<div class="choice-block"><h4>Starting Feat (optional)</h4>
+        <p class="form-hint">The feat list could not be loaded, so no feat can be chosen right now.</p></div>`;
+    }
+    // Prerequisites are judged on the scores the character will actually have,
+    // racial bonuses included - not the raw point-buy numbers.
+    const scores = { ...pointBuyState.scores };
+    const featRaceData = dataManager.getRace(dom.charRaceInput.value);
+    if (featRaceData?.ability_bonuses) {
+        for (const [stat, bonus] of Object.entries(featRaceData.ability_bonuses)) {
+            if (scores[stat] !== undefined)
+                scores[stat] += bonus;
+        }
+    }
     /** Best-effort prerequisite check against ability scores and proficiencies. */
     const meetsPrerequisite = (prereq) => {
         if (!prereq)
@@ -760,6 +767,56 @@ export function updateGearSelectionState() {
     });
 }
 /** Collects the player's resolved starting gear as a list of concrete item strings. */
+/** Copper value of each coin denomination, for totalling mixed starting coin. */
+const COIN_VALUE_IN_COPPER = { cp: 1, sp: 10, ep: 50, gp: 100, pp: 1000 };
+/**
+ * Rolls any dice expression embedded in a gear description. Sourcebook gear
+ * lists say things like "1d4 metal perfume bottles" or "4d4 gp", and that text
+ * was previously written into the inventory verbatim, leaving the player with
+ * an unrolled formula instead of an item count.
+ * @param {string} text
+ * @returns {string}
+ */
+function resolveGearDice(text) {
+    return text.replace(/\b(\d*)d(\d+)\b/gi, (whole, count, sides) => {
+        const rolled = rollDice(`${count || 1}d${sides}`).total;
+        return rolled > 0 ? String(rolled) : whole;
+    });
+}
+/**
+ * Separates coins from the gear list. Backgrounds hand out entries like
+ * "a silk purse containing 10 gp", which used to sit in the inventory AND be
+ * counted as starting money - the same coins existing in two places. The coins
+ * become the character's starting purse and the container stays as an item.
+ * @param {string[]} gear
+ * @returns {{gear: string[], gp: number}}
+ */
+function extractGearCoins(gear) {
+    let copper = 0;
+    const cleaned = [];
+    gear.forEach(entry => {
+        let foundCoins = false;
+        const stripped = entry.replace(/(\d+)\s*(cp|sp|ep|gp|pp)\b/gi, (whole, amount, unit) => {
+            copper += parseInt(amount, 10) * COIN_VALUE_IN_COPPER[unit.toLowerCase()];
+            foundCoins = true;
+            return '';
+        });
+        if (!foundCoins) {
+            cleaned.push(entry);
+            return;
+        }
+        // "a silk purse containing 10 gp" -> "a silk purse".
+        // A bare "10 gp" entry disappears entirely into the purse total.
+        const tidied = stripped
+            .replace(/\b(containing|holding|worth|of)\s*$/i, '')
+            .replace(/\s{2,}/g, ' ')
+            .replace(/[\s,]+$/, '')
+            .trim();
+        if (tidied && !/^(a|an|the)$/i.test(tidied))
+            cleaned.push(tidied);
+    });
+    return { gear: cleaned, gp: Math.round(copper) / 100 };
+}
 function collectStartingGear() {
     const page = document.getElementById('gear-selection-page');
     const items = [];
@@ -781,7 +838,7 @@ function collectStartingGear() {
     // Tidy article casing and de-duplicate while preserving order.
     const seen = new Set();
     return items
-        .map(s => s.replace(/\s+/g, ' ').trim())
+        .map(s => resolveGearDice(s.replace(/\s+/g, ' ').trim()))
         .filter(Boolean)
         .filter(s => { const k = s.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
 }
@@ -853,10 +910,11 @@ export async function handleCharacterCreationSubmit(event) {
         if (value && value.length > 0)
             specialSelectionsText += `\n${key}: ${value}`;
     });
-    const startingGear = collectStartingGear();
+    const { gear: startingGear, gp: startingCoins } = extractGearCoins(collectStartingGear());
     characterInfo.startingGear = startingGear;
+    characterInfo.startingCoins = startingCoins;
     const startingGearText = startingGear.length > 0
-        ? `\n\n--- STARTING EQUIPMENT (use these EXACT items as the character's starting inventory and equipped gear; calculate AC from any armor/shield listed) ---\n${startingGear.join('; ')}`
+        ? `\n\n--- STARTING EQUIPMENT (use these EXACT items as the character's starting inventory and equipped gear; calculate AC from any armor/shield listed) ---\n${startingGear.join('; ')}${startingCoins > 0 ? `\nStarting coin: ${startingCoins} gp (already counted; do not also list coins as an item)` : ''}`
         : '';
     const finalAbilityScores = { ...pointBuyState.scores };
     const raceData = dataManager.getRace(characterInfo.race);
@@ -880,6 +938,15 @@ export async function handleCharacterCreationSubmit(event) {
         // --- REBUILD CORE STATS FROM CANONICAL DATA ---
         // 1. Enforce final calculated ability scores to override any AI deviation.
         playerState.abilityScores = finalAbilityScores;
+        // 1b. Level-1 hit points are a rules calculation, not a creative choice:
+        // a full hit die plus the Constitution modifier. The AI used to supply
+        // this number and would drift by a point or two.
+        const hpClassData = dataManager.getClass(characterInfo.characterClass);
+        if (hpClassData?.hit_die) {
+            const conMod = getAbilityModifierValue(finalAbilityScores.constitution);
+            const maxHp = Math.max(1, Number(hpClassData.hit_die) + conMod);
+            playerState.health = { current: maxHp, max: maxHp };
+        }
         // 2. Rebuild Traits & Features to prevent duplicates/naming issues from AI
         playerState.racialTraits = [];
         playerState.classFeatures = [];
@@ -911,6 +978,14 @@ export async function handleCharacterCreationSubmit(event) {
                 }
             });
         }
+        // Expertise doubles the proficiency bonus, so those skills are marked
+        // 'expert'. Previously the choice was recorded on characterInfo only and
+        // had no mechanical effect once play started.
+        (characterInfo.rogueExpertise || []).forEach(skillName => {
+            const key = resolveSkillKey(skillName);
+            if (key && finalSkills[key] !== undefined)
+                finalSkills[key] = 'expert';
+        });
         playerState.skills = finalSkills;
         // 4. Rebuild Saving Throws from class data
         if (classData) {
@@ -944,8 +1019,13 @@ export async function handleCharacterCreationSubmit(event) {
                 weapon: equippedWeapon || 'Unarmed',
                 armor: equippedArmor || 'None'
             };
-            // Recalculate AC now th            // Recalculate AC now that armor/shield are canonical (shields detected from inventory).
+            // Recalculate AC now that armor/shield are canonical (shields detected from inventory).
             playerState.armorClass = calculateArmorClass(playerState);
+        }
+        // Coins pulled out of the gear list are the character's purse. Without
+        // this the AI's guess stood, and the coins were double counted.
+        if (startingCoins > 0) {
+            playerState.money = { amount: startingCoins, currency: 'gp' };
         }
         // --- END REBUILD ---
         gameState.updateState({ characterInfo, playerState });

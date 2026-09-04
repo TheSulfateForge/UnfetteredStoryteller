@@ -48,8 +48,19 @@ function updateEquipmentAndLists(playerState) {
     dom.statsInventory.innerHTML = createList(playerState.inventory);
     const partyItems = playerState.party.map(member => `<li><strong>${member.name}:</strong> ${member.description}</li>`);
     dom.statsParty.innerHTML = partyItems.length > 0 ? partyItems.join('') : '<li>(None)</li>';
-    const questItems = playerState.quests.map(quest => `<li><strong>${quest.name}:</strong> ${quest.description}</li>`);
+    const questItems = playerState.quests.map(quest => {
+        const status = quest.status || 'active';
+        const badge = status === 'active' ? '' : ` <span class="quest-status">(${status})</span>`;
+        return `<li class="quest-${status}"><strong>${quest.name}:</strong> ${quest.description}${badge}</li>`;
+    });
     dom.statsQuests.innerHTML = questItems.length > 0 ? questItems.join('') : '<li>(None)</li>';
+    // Conditions affect rolls (Poisoned imposes disadvantage), so the player
+    // needs to be able to see the ones they are under.
+    if (dom.statsConditionsList) {
+        const conditionItems = (playerState.conditions || [])
+            .map(c => `<li><strong>${c.name}</strong>${c.description ? `: ${c.description}` : ''}</li>`);
+        dom.statsConditionsList.innerHTML = conditionItems.length > 0 ? conditionItems.join('') : '<li>(None)</li>';
+    }
 }
 function updateCharacterDetails(playerState, characterInfo, speedPenalty) {
     dom.statsLevel.textContent = String(playerState.level);
@@ -79,11 +90,17 @@ function updateAbilityScores(playerState) {
     dom.statsWisMod.textContent = getAbilityModifierString(playerState.abilityScores.wisdom);
     dom.statsChaMod.textContent = getAbilityModifierString(playerState.abilityScores.charisma);
 }
+/** CSS class for a proficiency value ('expert' | 'proficient' | anything else). */
+function proficiencyClass(value) {
+    if (value === 'expert')
+        return 'expert';
+    return value === 'proficient' ? 'proficient' : 'not-proficient';
+}
 function updateProficiencyLists(playerState) {
     const createList = (items) => items.length > 0 ? items.map(item => `<li>${item}</li>`).join('') : '<li>(None)</li>';
     const createProficiencyList = (proficiencies) => Object.entries(proficiencies)
         .sort(([keyA], [keyB]) => keyA.localeCompare(keyB))
-        .map(([key, value]) => `<li class="${value === 'proficient' ? 'proficient' : 'not-proficient'}">${key.replace(/([A-Z])/g, ' $1')}</li>`).join('');
+        .map(([key, value]) => `<li class="${proficiencyClass(value)}">${key.replace(/([A-Z])/g, ' $1')}${value === 'expert' ? ' <span class="expertise-tag">EX</span>' : ''}</li>`).join('');
     dom.statsSkills.innerHTML = createProficiencyList(playerState.skills);
     dom.statsSavingThrows.innerHTML = createProficiencyList(playerState.savingThrows);
     dom.statsFeats.innerHTML = createList(playerState.feats);
@@ -162,6 +179,8 @@ export function addMessage(sender, content) {
         messageHtml = textContent.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*(.*?)\*/g, '<em>$1</em>').replace(/\n/g, '<br>');
     }
     messageElement.innerHTML = messageHtml;
+    if (sender === 'user')
+        releasePin();
     dom.chatLog.appendChild(messageElement);
     scrollToBottom();
     return messageElement;
@@ -176,6 +195,12 @@ export function addEventMessage(type, details) {
             break;
         case 'xp':
             iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2L9.19 8.63L2 9.24l5.46 4.73L5.82 21L12 17.27z"/></svg>`;
+            break;
+        case 'health':
+            iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>`;
+            break;
+        case 'quest':
+            iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm2 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>`;
             break;
         case 'money':
             iconSvg = `<svg class="event-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15 15H9v-2H7v2H5v2h2v2h2v-2h2v2h2v-2h2v-2h-2v-2zm0-4.5c0-1.38-1.12-2.5-2.5-2.5S10 9.12 10 10.5H8.5c0-2.21 1.79-4 4-4s4 1.79 4 4v.5h-2V10.5zm-5 0c0-1.38-1.12-2.5-2.5-2.5S5 9.12 5 10.5H3.5c0-2.21 1.79-4 4-4s4 1.79 4 4v.5h-2V10.5z"/></svg>`;
@@ -194,7 +219,55 @@ export function setLoading(isLoading, showSpinner = isLoading) {
         btn.disabled = isLoading;
     });
 }
+// --- READING POSITION ---------------------------------------------------
+// A new storyteller reply is "pinned": its first line is brought to the top of
+// the chat view and kept there while the text streams in, so reading starts
+// where the reply starts instead of at the bottom of a wall of text. The pin is
+// dropped the moment the reader scrolls for themselves, and again when they
+// send their next message.
+let pinnedElement = null;
+let pinInterrupted = false;
+let pinListenersAttached = false;
+function attachPinListeners(container) {
+    if (pinListenersAttached)
+        return;
+    pinListenersAttached = true;
+    ['wheel', 'touchmove', 'mousedown', 'keydown'].forEach(evt => {
+        container.addEventListener(evt, () => { pinInterrupted = true; }, { passive: true });
+    });
+}
+/** Starts holding `element`'s top edge at the top of the chat view. */
+export function pinMessageToTop(element) {
+    const chatContainer = document.getElementById('chat-container');
+    if (!chatContainer || !element)
+        return;
+    attachPinListeners(chatContainer);
+    pinnedElement = element;
+    pinInterrupted = false;
+    holdPin();
+}
+/** Re-applies the pin. Does nothing once the reader has taken over. */
+export function holdPin() {
+    const chatContainer = document.getElementById('chat-container');
+    if (!chatContainer || !pinnedElement || pinInterrupted)
+        return;
+    const delta = pinnedElement.getBoundingClientRect().top - chatContainer.getBoundingClientRect().top - 12;
+    if (Math.abs(delta) > 1)
+        chatContainer.scrollTop += delta;
+}
+/** Releases the pin so the view follows new content again. */
+export function releasePin() {
+    pinnedElement = null;
+    pinInterrupted = false;
+}
+export function isPinned() {
+    return pinnedElement !== null && !pinInterrupted;
+}
 export function scrollToBottom() {
+    // While a reply is pinned, later additions (event lines, roll buttons) must
+    // not yank the view down past the text the player is still reading.
+    if (isPinned())
+        return;
     const chatContainer = document.getElementById('chat-container');
     if (chatContainer) {
         chatContainer.scrollTop = chatContainer.scrollHeight;
@@ -443,6 +516,9 @@ export function displayActionChoices(choices) {
         container.appendChild(button);
     });
     dom.chatLog.appendChild(container);
+    // scrollToBottom() deliberately does nothing while a reply is pinned: the
+    // buttons sit at the end of the text the player is about to read down to,
+    // and yanking the view there would undo the pin.
     scrollToBottom();
 }
 export function addPostResponseButtons(dmMessageElement) {
@@ -516,11 +592,11 @@ export function showCharacterSheetModal() {
         </div>
         <h4>Saving Throws</h4>
         <ul class="stat-grid">
-            ${Object.entries(playerState.savingThrows).map(([save, prof]) => `<li class="${prof}">${save.charAt(0).toUpperCase() + save.slice(1)}</li>`).join('')}
+            ${Object.entries(playerState.savingThrows).map(([save, prof]) => `<li class="${proficiencyClass(prof)}">${save.charAt(0).toUpperCase() + save.slice(1)}</li>`).join('')}
         </ul>
         <h4>Skills</h4>
         <ul class="stat-grid">
-            ${Object.entries(playerState.skills).map(([skill, prof]) => `<li class="${prof}">${skill.replace(/([A-Z])/g, ' $1')}</li>`).join('')}
+            ${Object.entries(playerState.skills).map(([skill, prof]) => `<li class="${proficiencyClass(prof)}">${skill.replace(/([A-Z])/g, ' $1')}${prof === 'expert' ? ' <span class="expertise-tag">EX</span>' : ''}</li>`).join('')}
         </ul>
     `;
     const renderClickableList = (title, items, dataType) => {
@@ -549,6 +625,11 @@ export function displayCharacterSheetDetail(itemElement) {
     dom.characterSheetList.querySelectorAll('.cs-list-item.active').forEach(item => item.classList.remove('active'));
     itemElement.classList.add('active');
     const detailsContainer = dom.characterSheetDetails;
+    // On a phone the sheet is one column with the detail below the list, so the
+    // text has to be brought into view or the tap looks like it did nothing.
+    if (window.matchMedia('(max-width: 768px)').matches) {
+        requestAnimationFrame(() => detailsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
     let html = '';
     let itemData = null;
     switch (type) {

@@ -77,8 +77,12 @@ export const TURNS_PER_DAY = 8;
  * Regex to parse a structured game action from the AI's response.
  * Captures: [GAME_ACTION|TYPE|{JSON_PAYLOAD}]
  * Example: [GAME_ACTION|START_COMBAT|[{"name": "Goblin", "hp": 7}]]
+ *
+ * The payload group tolerates one level of nested brackets. A plain lazy '.*?'
+ * stopped at the FIRST ']', which truncated every array payload - START_COMBAT
+ * among them - so the JSON never parsed and the action was silently dropped.
  */
-export const GAME_ACTION_REGEX = /\[GAME_ACTION\|(.*?)\|(.*?)\]/g;
+export const GAME_ACTION_REGEX = /\[GAME_ACTION\|([A-Z_]+)\|((?:[^\[\]]|\[[^\[\]]*\])*)\]/g;
 /**
  * Regex to parse a dice roll request tag from the AI's response.
  * Captures: [ROLL|SKILL_or_ABILITY|DESCRIPTION|MODIFIER?]

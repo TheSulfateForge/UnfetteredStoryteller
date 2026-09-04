@@ -10,6 +10,12 @@ import * as game from './game.js';
 import * as characterCreator from './character-creator.js';
 import * as gameLoop from './game-loop.js';
 import * as sessionManager from './session-manager.js';
+/**
+ * Radios on the special-selections page whose value changes which choice blocks
+ * are rendered (a sorcerer's origin decides whether Draconic Ancestry appears).
+ */
+const LAYOUT_CHANGING_RADIOS = new Set(['sorcerousOrigin']);
+
 // --- SESSION & GAME LIFECYCLE ---
 /**
  * Sets up the main event listeners for the application once it's running.
@@ -164,7 +170,10 @@ function setupMainAppEventListeners() {
                     characterCreator.enforceCheckboxLimit(name, limit);
                 }
             }
-            else if (target.type === 'radio') {
+            else if (target.type === 'radio' && LAYOUT_CHANGING_RADIOS.has(target.name)) {
+                // Only radios that change which blocks are on the page force a
+                // re-render. Re-rendering for every radio (a feat pick, say) is
+                // wasteful and used to disturb the player's other selections.
                 characterCreator.updateSpecialSelectionsUI();
             }
         }

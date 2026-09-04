@@ -204,6 +204,7 @@ export function newGame(isMature) {
     gameState.resetForNewGame();
     gameState.updateState({ isMatureEnabled: isMature });
     dom.chatLog.innerHTML = '';
+    ui.releasePin();
     ui.clearPlayerStatsUI();
     if (!gameState.getState().llmProvider) {
         ui.addMessage('error', 'AI provider is not initialized. Please configure it in Settings.');
@@ -252,6 +253,8 @@ export async function loadGame(characterId) {
     }
     ui.updatePlayerStateUI(saveSlot.playerState, saveSlot.characterInfo);
     dom.chatLog.innerHTML = '';
+    // The pinned element belongs to the chat log we just cleared.
+    ui.releasePin();
     const recentHistory = saveSlot.chatHistory.slice(-3);
     recentHistory.forEach(message => {
         const text = message.parts.map(p => p.text).join('');

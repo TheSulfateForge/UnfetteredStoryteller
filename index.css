@@ -13,6 +13,7 @@
   --sidebar-width: 280px;
   --proficient-color: #4CAF50; /* Green for proficient */
   --not-proficient-color: #9E9E9E; /* Gray for non-proficient */
+  --expert-color: #64b5f6; /* Blue for expertise (doubled proficiency) */
 }
 
 * {
@@ -1002,6 +1003,21 @@ body {
 .cs-list-pane .stat-grid li.not-proficient {
     color: var(--not-proficient-color);
 }
+.cs-list-pane .stat-grid li.expert,
+#stats-skills li.expert,
+#stats-saving-throws li.expert {
+    color: var(--expert-color);
+    font-weight: bold;
+}
+.expertise-tag {
+    font-size: 0.7em;
+    letter-spacing: 0.05em;
+    border: 1px solid currentColor;
+    border-radius: 3px;
+    padding: 0 0.2em;
+    vertical-align: middle;
+    opacity: 0.85;
+}
 
 .cs-details-pane .placeholder-text {
     display: flex;
@@ -1503,6 +1519,34 @@ input:checked + .slider:before {
   color: #64b5f6; /* A soft blue */
   border-color: #64b5f6;
   box-shadow: 0 0 15px rgba(100, 181, 246, 0.2);
+}
+
+.event-message.health {
+  color: #ef9a9a; /* A soft red */
+  border-color: #ef9a9a;
+  box-shadow: 0 0 15px rgba(239, 154, 154, 0.2);
+}
+
+.event-message.quest {
+  color: #ba68c8; /* A soft purple */
+  border-color: #ba68c8;
+  box-shadow: 0 0 15px rgba(186, 104, 200, 0.2);
+}
+
+/* Finished quests stay listed but stop competing with the live ones. */
+#stats-quests li.quest-completed,
+#stats-quests li.quest-failed {
+  opacity: 0.55;
+}
+
+#stats-quests li.quest-completed strong {
+  text-decoration: line-through;
+}
+
+.quest-status {
+  text-transform: uppercase;
+  font-size: 0.75em;
+  letter-spacing: 0.05em;
 }
 
 /* --- Action Choice Button Styles --- */
@@ -2116,6 +2160,70 @@ footer {
     }
 }
 
+/* Character sheet on small screens: the desktop 1fr/2fr split squeezed the list
+   into a column too narrow to read ("investigati...", "Darkvisio..."), so on a
+   phone the sheet becomes a full-screen single column with the detail panel
+   below the list. */
+@media (max-width: 768px) {
+    #character-sheet-modal.modal-overlay {
+        padding: 0;
+    }
+
+    #character-sheet-modal .modal-content {
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        max-height: none;
+        border-radius: 0;
+        border: none;
+        padding: 1rem;
+    }
+
+    #character-sheet-modal h2 {
+        font-size: 1.4rem;
+        padding-right: 2rem;
+        overflow-wrap: anywhere;
+    }
+
+    .character-sheet-content {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        overflow-y: auto;
+        gap: 1rem;
+        margin-top: 0.75rem;
+    }
+
+    .cs-list-pane,
+    .cs-details-pane {
+        overflow-y: visible;
+        padding: 0.75rem;
+    }
+
+    /* List first, detail below it: tapping an entry scrolls the detail into
+       view (see displayCharacterSheetDetail). */
+    .cs-details-pane {
+        min-height: 8rem;
+    }
+
+    .cs-list-pane .stat-grid li {
+        white-space: normal;      /* was nowrap: it clipped longer skill names */
+        overflow-wrap: anywhere;
+    }
+
+    .cs-list-item {
+        padding: 0.65rem 0.75rem; /* comfortable tap target */
+    }
+
+    .cs-list-pane-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .cs-details-pane .placeholder-text {
+        height: auto;
+        padding: 1rem 0;
+    }
+}
+
 /* Debugger Styles */
 #debugger-modal .modal-content {
     max-width: 80vw;
@@ -2149,6 +2257,9 @@ footer {
 .log-entry.log-type-output { border-left-color: #66bb6a; } /* Green */
 .log-entry.log-type-event { border-left-color: #ffa726; } /* Orange */
 .log-entry.log-type-error { border-left-color: #ef5350; } /* Red */
+.log-entry.log-type-rag { border-left-color: #ab47bc; } /* Purple */
+.log-entry.log-type-state { border-left-color: #26c6da; } /* Cyan */
+.log-entry.log-type-model { border-left-color: #d4a017; } /* Amber */
 
 .log-header {
     display: flex;
@@ -2175,6 +2286,9 @@ footer {
 .log-type-badge.log-type-output { background-color: #66bb6a; }
 .log-type-badge.log-type-event { background-color: #ffa726; }
 .log-type-badge.log-type-error { background-color: #ef5350; }
+.log-type-badge.log-type-rag { background-color: #ab47bc; }
+.log-type-badge.log-type-state { background-color: #26c6da; }
+.log-type-badge.log-type-model { background-color: #d4a017; }
 
 .log-title {
     font-weight: bold;

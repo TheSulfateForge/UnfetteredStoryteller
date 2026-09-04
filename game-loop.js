@@ -153,6 +153,23 @@ async function processGameActions(matches) {
                         }
                         stateWasUpdated = true;
                     }
+                    else if (payload.name) {
+                        // Not every kill happens inside a tracked combat - a
+                        // sentry dropped from the shadows never enters the
+                        // initiative list, and used to be worth nothing at all.
+                        // Look the creature up in the sourcebooks instead.
+                        await dataManager.loadMonsters();
+                        const defeatedCreature = dataManager.getMonster(payload.name);
+                        const xp = defeatedCreature?.xpValue ?? 0;
+                        if (xp > 0) {
+                            stateUpdate.playerState.exp = (stateUpdate.playerState.exp || 0) + xp;
+                            ui.addEventMessage('xp', `Gained ${xp} XP for defeating ${payload.name}.`);
+                            stateWasUpdated = true;
+                        }
+                        else {
+                            ui.logToDebugger('event', 'Defeat not scored', `"${payload.name}" is not in the combat tracker and has no matching creature in the sourcebooks, so no XP was awarded.`);
+                        }
+                    }
                     const allEnemiesDefeated = stateUpdate.combatants.every(c => c.isPlayer || c.hp === 0);
                     if (allEnemiesDefeated && stateUpdate.isInCombat) {
                         stateUpdate.isInCombat = false;
@@ -171,6 +188,99 @@ async function processGameActions(matches) {
                         ui.addEventMessage('money', `You ${action} ${Math.abs(payload.money)} ${playerState.money.currency}.`);
                     }
                     stateWasUpdated = true;
+                    break;
+                case 'MODIFY_HEALTH': {
+                    // Documented to the AI since the beginning but never
+                    // handled here, so healing potions and trap damage did
+                    // nothing at all.
+                    const amount = parseInt(payload.amount, 10);
+                    if (Number.isFinite(amount) && amount !== 0) {
+                        const health = stateUpdate.playerState.health;
+                        const newCurrent = Math.max(0, Math.min(health.max, health.current + amount));
+                        const applied = newCurrent - health.current;
+                        stateUpdate.playerState.health = { ...health, current: newCurrent };
+                        if (applied !== 0) {
+                            const source = payload.source ? ` (${payload.source})` : '';
+                            ui.addEventMessage('health', applied > 0
+                                ? `Healed ${applied} HP${source}. Now ${newCurrent}/${health.max}.`
+                                : `Took ${Math.abs(applied)} damage${source}. Now ${newCurrent}/${health.max}.`);
+                        }
+                        if (newCurrent === 0)
+                            ui.addMessage('dm', '<em>You have been defeated!</em>');
+                        stateWasUpdated = true;
+                    }
+                    break;
+                }
+                case 'ADD_ITEM': {
+                    // Loot only reaches the player through this action; narrating
+                    // "you take the dagger" changes nothing on its own.
+                    const items = Array.isArray(payload) ? payload : (Array.isArray(payload.items) ? payload.items : [payload]);
+                    items.forEach(entry => {
+                        const name = typeof entry === 'string' ? entry : entry?.name;
+                        if (!name)
+                            return;
+                        const quantity = Math.max(1, parseInt((typeof entry === 'object' && entry?.quantity) || 1, 10) || 1);
+                        const label = quantity > 1 ? `${name} (x${quantity})` : name;
+                        stateUpdate.playerState.inventory = [...(stateUpdate.playerState.inventory || []), label];
+                        ui.addEventMessage('item', `Added to inventory: ${label}.`);
+                        stateWasUpdated = true;
+                    });
+                    break;
+                }
+                case 'REMOVE_ITEM': {
+                    const names = Array.isArray(payload) ? payload : (Array.isArray(payload.items) ? payload.items : [payload]);
+                    names.forEach(entry => {
+                        const name = String(typeof entry === 'string' ? entry : entry?.name || '').toLowerCase().trim();
+                        if (!name)
+                            return;
+                        const inventory = stateUpdate.playerState.inventory || [];
+                        // Match the whole entry first, then fall back to a
+                        // containing entry so "dagger" still finds "two daggers".
+                        let index = inventory.findIndex(item => String(item).toLowerCase().trim() === name);
+                        if (index === -1)
+                            index = inventory.findIndex(item => String(item).toLowerCase().includes(name));
+                        if (index === -1) {
+                            ui.logToDebugger('event', 'Item not removed', `"${name}" is not in the inventory.`);
+                            return;
+                        }
+                        const [removed] = inventory.splice(index, 1);
+                        stateUpdate.playerState.inventory = inventory;
+                        ui.addEventMessage('item', `Removed from inventory: ${removed}.`);
+                        stateWasUpdated = true;
+                    });
+                    break;
+                }
+                case 'ADD_QUEST': {
+                    // Quests were fixed at creation and never changed again -
+                    // a finished job stayed "active" forever and a new one
+                    // could not be recorded at all.
+                    const questName = payload.name;
+                    const quests = stateUpdate.playerState.quests || [];
+                    if (questName && !quests.some(q => String(q.name).toLowerCase() === String(questName).toLowerCase())) {
+                        quests.push({ name: questName, description: payload.description || '', status: 'active' });
+                        stateUpdate.playerState.quests = quests;
+                        ui.addEventMessage('quest', `New quest: ${questName}.`);
+                        stateWasUpdated = true;
+                    }
+                    break;
+                }
+                case 'COMPLETE_QUEST': {
+                    const quest = (stateUpdate.playerState.quests || []).find(q => String(q.name).toLowerCase() === String(payload.name || '').toLowerCase());
+                    if (quest) {
+                        quest.status = payload.failed ? 'failed' : 'completed';
+                        ui.addEventMessage('quest', `Quest ${quest.status}: ${quest.name}.`);
+                        stateWasUpdated = true;
+                    }
+                    else {
+                        ui.logToDebugger('event', 'Quest not found', `No active quest named "${payload.name}".`);
+                    }
+                    break;
+                }
+                case 'UPDATE_LOCATION':
+                    if (payload.location || payload.name) {
+                        stateUpdate.playerState.location = payload.location || payload.name;
+                        stateWasUpdated = true;
+                    }
                     break;
                 case 'UPDATE_WORLD_STATE':
                     stateUpdate.worldState = deepMerge(stateUpdate.worldState, payload);
@@ -275,6 +385,9 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
     if (!dmMessageElement) {
         dmMessageElement = ui.addMessage('dm', '');
     }
+    // Hold the top of this reply at the top of the view while it streams, rather
+    // than scrolling to the bottom and making the player scroll back up to read.
+    ui.pinMessageToTop(dmMessageElement);
     try {
         const { chat } = gameState.getState();
         if (!chat)
@@ -292,7 +405,7 @@ export async function sendMessageAndProcessStream(promptForApi, targetElement) {
                 .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
                 .replace(/\*(.*?)\*/g, '<em>$1</em>')
                 .replace(/\n/g, '<br>');
-            ui.scrollToBottom();
+            ui.holdPin();
         }
         ui.logToDebugger('output', 'Received from AI', fullResponseText);
         const newHistory = [...gameState.getState().chatHistory, { role: 'model', parts: [{ text: fullResponseText }] }];
@@ -377,19 +490,15 @@ async function processTagsAndActions(fullResponseText) {
     const choices = [];
     attackMatches.forEach(match => choices.push({ type: 'attack', weaponName: match[1], targetDescription: match[2], modifier: normalizeRollModifier(match[3]) }));
     diceMatches.forEach(match => choices.push({ type: 'roll', skillOrAbility: match[1], description: match[2], modifier: normalizeRollModifier(match[3]) }));
-    if (choices.length === 1) {
-        const choice = choices[0];
-        if (choice.type === 'attack') {
-            await handleAttackRollRequest(choice.weaponName, choice.targetDescription, choice.modifier);
-        }
-        else {
-            await handleDiceRollRequest(choice.skillOrAbility, choice.description, choice.modifier);
-        }
-    }
-    else if (choices.length > 1) {
+    if (choices.length > 0) {
+        // Rolls the player is asked to make are always a deliberate click. A
+        // single requested roll used to fire on its own, which made the game
+        // feel like it was playing itself. The input stays enabled so the player
+        // can ignore the offer and do something else entirely.
         ui.displayActionChoices(choices);
-        ui.setLoading(true, false);
+        ui.setLoading(false);
         gameState.updateState({ isGenerating: false });
+        dom.chatInput.focus();
     }
     else {
         ui.setLoading(false);
@@ -597,6 +706,8 @@ export async function handleFormSubmit(event) {
     if (!userInput || gameState.getState().isGenerating)
         return;
     ui.addMessage('user', userInput);
+    // A pending roll offer is void once the player chooses to do something else.
+    document.querySelectorAll('.roll-request-container').forEach(c => c.remove());
     dom.chatInput.value = '';
     const { playerState, chatHistory } = gameState.getState();
     const newTurnCount = (playerState?.turnCount || 0) + 1;
